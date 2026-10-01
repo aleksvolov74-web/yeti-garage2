@@ -51,7 +51,29 @@ const SYSTEM_FOCUS := {
     "electrical": Vector3(1.42, 1.25, 0.70),
     "body": Vector3(0.0, 1.28, 0.0),
     "interior": Vector3(-0.42, 1.75, 0.0),
-    "climate": Vector3(0.15, 1.48, 0.15)
+    "climate": Vector3(0.15, 1.48, 0.15),
+    "lighting": Vector3(2.72, 1.20, 0.0),
+    "safety": Vector3(-0.50, 1.55, 0.0),
+    "wipers_glass": Vector3(0.85, 2.18, 0.0)
+}
+
+const SYSTEM_FOCUS_SCALE := {
+    "engine": Vector3(1.10, 0.72, 0.90),
+    "cooling": Vector3(0.66, 0.82, 1.16),
+    "fuel_intake": Vector3(0.95, 0.55, 0.84),
+    "exhaust": Vector3(1.45, 0.42, 0.58),
+    "transmission": Vector3(0.94, 0.62, 0.82),
+    "drive": Vector3(1.34, 0.42, 0.72),
+    "suspension": Vector3(0.70, 0.84, 0.54),
+    "steering": Vector3(0.90, 0.50, 0.70),
+    "brakes": Vector3(0.55, 0.75, 0.52),
+    "electrical": Vector3(0.72, 0.50, 0.72),
+    "body": Vector3(2.15, 0.95, 1.14),
+    "interior": Vector3(1.47, 0.64, 0.94),
+    "climate": Vector3(0.84, 0.50, 0.70),
+    "lighting": Vector3(0.54, 0.55, 1.14),
+    "safety": Vector3(1.50, 0.65, 0.96),
+    "wipers_glass": Vector3(1.68, 0.30, 1.10)
 }
 
 var viewport_container: SubViewportContainer
@@ -135,7 +157,7 @@ func _build_controls() -> void:
     count_badge.add_theme_stylebox_override("panel", _style_box(Color("082b35e8"), 14, Color("16717b"), 1))
     title_row.add_child(count_badge)
     var count_label := Label.new()
-    count_label.text = "13 систем\n66 деталей"
+    count_label.text = "%d систем\n%d деталей" % [PartCatalogService.SYSTEMS.size(), PartCatalogService.PARTS.size()]
     count_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     count_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
     count_label.add_theme_font_size_override("font_size", 11)
@@ -330,28 +352,54 @@ func _build_vehicle_context() -> void:
     vehicle_root.rotation_degrees = Vector3(-3, -28, 0)
     world_root.add_child(vehicle_root)
 
-    _add_vehicle_box(Vector3(5.55, 0.62, 2.62), Vector3(0.0, 0.88, 0.0), Color("25323a"))
-    _add_vehicle_box(Vector3(3.38, 1.38, 2.38), Vector3(-0.45, 1.72, 0.0), Color("27373f"))
-    _add_vehicle_box(Vector3(1.62, 0.36, 2.44), Vector3(2.02, 1.27, 0.0), Color("2f3e46"))
-    _add_vehicle_box(Vector3(0.42, 0.72, 2.56), Vector3(2.83, 0.90, 0.0), Color("1f2b32"))
-    _add_vehicle_box(Vector3(0.36, 0.74, 2.50), Vector3(-2.84, 0.94, 0.0), Color("1f2b32"))
+    var body_color := Color("25323a")
+    var glass_color := Color("0b1b24")
+    var trim_color := Color("17252d")
+    _add_vehicle_box(Vector3(5.35, 0.66, 2.52), Vector3(0.0, 0.91, 0.0), body_color)
+    _add_vehicle_box(Vector3(1.82, 0.34, 2.48), Vector3(1.77, 1.34, 0.0), Color("2b3a42"))
+    _add_vehicle_box(Vector3(0.46, 0.58, 2.56), Vector3(2.66, 0.99, 0.0), Color("202d35"))
+    _add_vehicle_box(Vector3(0.42, 0.66, 2.48), Vector3(-2.60, 0.96, 0.0), Color("202d35"))
 
-    _add_vehicle_box(Vector3(1.15, 0.70, 2.14), Vector3(0.72, 1.84, 0.0), Color("0b1b24"))
-    _add_vehicle_box(Vector3(1.02, 0.72, 2.12), Vector3(-1.22, 1.84, 0.0), Color("0b1b24"))
+    # Tall compact SUV cabin with a roof, angled glass and visible side windows.
+    _add_vehicle_box(Vector3(2.88, 1.30, 2.18), Vector3(-0.47, 1.94, 0.0), body_color)
+    _add_vehicle_box(Vector3(2.48, 0.18, 2.28), Vector3(-0.48, 2.64, 0.0), Color("303e46"))
+    _add_vehicle_box(Vector3(0.10, 0.78, 2.02), Vector3(1.18, 2.03, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, 17.0))
+    _add_vehicle_box(Vector3(0.10, 0.76, 2.02), Vector3(-2.03, 2.02, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, -13.0))
+    for side in [-1.0, 1.0]:
+        var side_z := side * 1.105
+        _add_vehicle_box(Vector3(1.08, 0.72, 0.075), Vector3(0.25, 2.02, side_z), glass_color, 0.08)
+        _add_vehicle_box(Vector3(1.02, 0.72, 0.075), Vector3(-1.12, 2.02, side_z), glass_color, 0.08)
+        _add_vehicle_box(Vector3(0.11, 1.02, 0.10), Vector3(0.91, 1.99, side * 1.06), Color("35434b"))
+        _add_vehicle_box(Vector3(0.11, 1.02, 0.10), Vector3(-0.53, 1.99, side * 1.06), Color("35434b"))
+        _add_vehicle_box(Vector3(0.10, 0.98, 0.10), Vector3(-1.88, 1.98, side * 1.06), Color("35434b"))
+        _add_vehicle_box(Vector3(0.38, 0.20, 0.28), Vector3(1.22, 1.73, side * 1.34), Color("26343c"))
+        _add_vehicle_box(Vector3(2.55, 0.08, 0.12), Vector3(-0.50, 2.78, side * 0.78), Color("82919a"))
+
+    _add_vehicle_box(Vector3(0.10, 0.72, 1.62), Vector3(2.91, 0.99, 0.0), trim_color)
+    _add_vehicle_box(Vector3(0.16, 0.32, 1.42), Vector3(2.98, 0.92, 0.0), Color("10191f"))
+    _add_vehicle_box(Vector3(0.10, 0.18, 0.54), Vector3(3.045, 0.94, 0.0), Color("64747d"))
+    _add_vehicle_box(Vector3(0.16, 0.24, 0.46), Vector3(2.79, 1.34, -0.86), Color("b7dce0"), 0.75)
+    _add_vehicle_box(Vector3(0.16, 0.24, 0.46), Vector3(2.79, 1.34, 0.86), Color("b7dce0"), 0.75)
+    _add_vehicle_box(Vector3(0.13, 0.46, 0.34), Vector3(-2.79, 1.22, -0.98), Color("8d353a"), 0.45)
+    _add_vehicle_box(Vector3(0.13, 0.46, 0.34), Vector3(-2.79, 1.22, 0.98), Color("8d353a"), 0.45)
+    _add_vehicle_box(Vector3(0.18, 0.32, 2.62), Vector3(2.78, 0.69, 0.0), Color("303d44"))
+    _add_vehicle_box(Vector3(0.18, 0.32, 2.58), Vector3(-2.79, 0.70, 0.0), Color("303d44"))
 
     for x in [-1.92, 1.92]:
         for z in [-1.47, 1.47]:
             _add_vehicle_wheel(Vector3(x, 0.47, z))
 
-    _add_vehicle_box(Vector3(0.12, 0.26, 1.82), Vector3(3.05, 1.08, 0.0), Color("b7eef0"), 0.85)
-    _add_vehicle_box(Vector3(0.12, 0.22, 1.64), Vector3(-3.05, 1.04, 0.0), Color("7d3235"), 0.85)
+    for x in [-1.92, 1.92]:
+        for z in [-1.31, 1.31]:
+            _add_vehicle_box(Vector3(1.32, 0.16, 0.12), Vector3(x, 0.68, z), Color("1a272e"))
 
-func _add_vehicle_box(size: Vector3, pos: Vector3, color: Color, emission_strength: float = 0.0) -> void:
+func _add_vehicle_box(size: Vector3, pos: Vector3, color: Color, emission_strength: float = 0.0, rotation: Vector3 = Vector3.ZERO) -> void:
     var mesh_resource := BoxMesh.new()
     mesh_resource.size = size
     var mesh := MeshInstance3D.new()
     mesh.mesh = mesh_resource
     mesh.position = pos
+    mesh.rotation_degrees = rotation
     mesh.material_override = _material(color, 1.0, emission_strength)
     vehicle_root.add_child(mesh)
     vehicle_meshes.append({"mesh":mesh, "color":color, "emission":emission_strength})
@@ -383,6 +431,25 @@ func _add_vehicle_wheel(pos: Vector3) -> void:
     vehicle_root.add_child(rim_mesh)
     vehicle_meshes.append({"mesh":rim_mesh, "color":Color("82919a"), "emission":0.0})
 
+    for side in [-1.0, 1.0]:
+        var face_z := pos.z + side * 0.21
+        for spoke_index in range(5):
+            var angle := TAU * float(spoke_index) / 5.0
+            var spoke_pos := Vector3(pos.x + cos(angle) * 0.18, pos.y + sin(angle) * 0.18, face_z)
+            _add_vehicle_box(Vector3(0.11, 0.52, 0.06), spoke_pos, Color("9ba8af"), 0.0, Vector3(0.0, 0.0, rad_to_deg(angle)))
+        var hub_mesh := SphereMesh.new()
+        hub_mesh.radius = 0.19
+        hub_mesh.height = 0.20
+        hub_mesh.radial_segments = 16
+        hub_mesh.rings = 8
+        var hub := MeshInstance3D.new()
+        hub.mesh = hub_mesh
+        hub.scale = Vector3(1.0, 1.0, 0.36)
+        hub.position = Vector3(pos.x, pos.y, face_z)
+        hub.material_override = _material(Color("c0cbd0"))
+        vehicle_root.add_child(hub)
+        vehicle_meshes.append({"mesh":hub, "color":Color("c0cbd0"), "emission":0.0})
+
 func _build_system_marker() -> void:
     var marker_mesh := SphereMesh.new()
     marker_mesh.radius = 0.52
@@ -409,7 +476,7 @@ func _build_front_left_assembly() -> void:
     _add_box_part("brake_pads", Vector3(0.22, 0.66, 0.20), Vector3(0.37, 0.40, 0.68), Vector3.ZERO, Color("d49b44"), Vector3(0.78, 0.05, 0.35))
     _add_cylinder_part("brake_hose", 0.055, 1.18, Vector3(-0.02, 0.94, 0.79), Vector3(22, 0, -18), Color("30363d"), Vector3(0.34, 0.50, 0.54))
     _add_cylinder_part("strut", 0.20, 2.55, Vector3(0.15, 2.0, -0.55), Vector3.ZERO, Color("70879f"), Vector3(-0.55, 0.70, -0.65))
-    _add_cylinder_part("spring", 0.42, 1.35, Vector3(0.15, 2.12, -0.55), Vector3.ZERO, Color("3f4b57"), Vector3(-0.85, 0.85, -0.75))
+    _add_spring_part("spring", Vector3(0.15, 2.12, -0.55), Color("8495a2"), Vector3(-0.85, 0.85, -0.75))
     _add_box_part("control_arm", Vector3(2.1, 0.22, 0.38), Vector3(-0.65, -0.78, -0.32), Vector3(0, -12, -8), Color("54606c"), Vector3(-0.70, -0.55, -0.62))
     _add_sphere_part("ball_joint", 0.30, Vector3(0.28, -0.62, -0.18), Color("94a0ac"), Vector3(0.32, -0.58, -0.22))
     _add_cylinder_part("stabilizer_link", 0.075, 1.38, Vector3(-0.62, 0.23, -0.42), Vector3(8, 0, 12), Color("75828e"), Vector3(-0.55, 0.18, -0.45))
@@ -419,6 +486,21 @@ func _build_front_left_assembly() -> void:
     _add_sphere_part("cv_joint_outer", 0.43, Vector3(-0.22, 0.35, 0.0), Color("5d6a76"), Vector3(-1.08, 0.03, 0.0))
     _add_cylinder_part("drive_shaft", 0.12, 2.05, Vector3(-1.18, 0.35, 0.02), Vector3(0, 0, 90), Color("596975"), Vector3(-1.30, -0.15, 0.10))
     _add_sphere_part("cv_joint_inner", 0.46, Vector3(-2.13, 0.35, 0.02), Color("667580"), Vector3(-1.48, -0.12, 0.12))
+
+    # Rounded ends make the selected caliper read as a formed assembly rather than a block.
+    var caliper_body: StaticBody3D = parts["brake_caliper"].get("node")
+    var caliper_color := Color("9c3437")
+    for cap_y in [0.05, 0.75]:
+        var cap_mesh := SphereMesh.new()
+        cap_mesh.radius = 0.20
+        cap_mesh.height = 0.32
+        cap_mesh.radial_segments = 16
+        cap_mesh.rings = 8
+        var cap := MeshInstance3D.new()
+        cap.mesh = cap_mesh
+        cap.position = Vector3(0.0, cap_y, 0.0)
+        cap.material_override = _material(caliper_color)
+        caliper_body.add_child(cap)
 
     var knuckle_mesh := BoxMesh.new()
     knuckle_mesh.size = Vector3(0.34, 1.45, 0.44)
@@ -472,6 +554,34 @@ func _add_cylinder_part(id: String, radius: float, height: float, pos: Vector3, 
     collision.shape = shape_resource
     body.add_child(collision)
     _register_part(id, body, mesh_instance, pos, pos + explode_offset, color)
+
+func _add_spring_part(id: String, pos: Vector3, color: Color, explode_offset: Vector3) -> void:
+    var body := StaticBody3D.new()
+    body.name = id
+    body.position = pos
+    body.set_meta("part_id", id)
+    assembly_root.add_child(body)
+    var main_mesh: MeshInstance3D
+    for ring_index in range(7):
+        var coil := TorusMesh.new()
+        coil.inner_radius = 0.29
+        coil.outer_radius = 0.39
+        coil.rings = 12
+        coil.ring_segments = 20
+        var ring := MeshInstance3D.new()
+        ring.mesh = coil
+        ring.position.y = -0.59 + float(ring_index) * 0.19
+        ring.material_override = _material(color)
+        body.add_child(ring)
+        if ring_index == 3:
+            main_mesh = ring
+    var shape := CylinderShape3D.new()
+    shape.radius = 0.40
+    shape.height = 1.35
+    var collision := CollisionShape3D.new()
+    collision.shape = shape
+    body.add_child(collision)
+    _register_part(id, body, main_mesh, pos, pos + explode_offset, color)
 
 func _add_sphere_part(id: String, radius: float, pos: Vector3, color: Color, explode_offset: Vector3) -> void:
     var body := StaticBody3D.new()
@@ -557,9 +667,9 @@ func _show_vehicle_overview() -> void:
     _update_mode_buttons()
     _reset_view()
     selected_name.text = "Интерактивная карта автомобиля"
-    selected_status.text = "13 систем • 66 компонентов • офлайн"
+    selected_status.text = "%d систем • %d компонентов • офлайн" % [PartCatalogService.SYSTEMS.size(), PartCatalogService.PARTS.size()]
     selected_description.text = "Выбери систему выше. Для тормозов, подвески, рулевого и привода уже доступен детальный передний левый узел с выбором отдельных деталей."
-    selected_history.text = "Точные физические модели остальных узлов будут подключаться без подмены их условной геометрией."
+    selected_history.text = "Выбери систему или деталь в каталоге, чтобы увидеть область на схеме и доступные действия."
     if hide_selected_button != null:
         hide_selected_button.disabled = true
 
@@ -592,6 +702,7 @@ func _focus_system(system_id: String) -> void:
     if system_marker != null:
         var marker_position: Vector3 = SYSTEM_FOCUS.get(system_id, Vector3.ZERO)
         system_marker.position = marker_position
+        system_marker.scale = SYSTEM_FOCUS_SCALE.get(system_id, Vector3.ONE)
         system_marker.visible = true
     _refresh_vehicle_materials()
     _update_mode_buttons()
@@ -603,7 +714,7 @@ func _focus_system(system_id: String) -> void:
     if system_id in ["brakes", "suspension", "steering", "drive"]:
         selected_description.text = "Эта система уже связана с детальным передним левым узлом. Выбери конкретную деталь — приложение перенесёт её в интерактивный 3D."
     else:
-        selected_description.text = "Система есть в каталоге и поиске. Пока показываем её положение на автомобиле; точную геометрию добавим только по проверенной модели ŠKODA Yeti."
+        selected_description.text = "На схеме отмечена область этой системы. Выбери компонент, чтобы посмотреть его карточку, историю и доступные действия."
     selected_history.text = "Выбери компонент из списка, чтобы открыть его карточку и связанные действия."
     if hide_selected_button != null:
         hide_selected_button.disabled = true
@@ -631,7 +742,8 @@ func _show_selected_catalog_card(id: String) -> void:
         return
     selected_name.text = str(catalog.get("name", id))
     selected_status.text = "%s • компонент каталога" % str(catalog.get("group", "Система"))
-    selected_description.text = "Компонент привязан к системе автомобиля, общему поиску, истории и будущей точной 3D-геометрии. Сейчас его положение показано на уровне системы — без выдуманной формы детали."
+    var system_name := str(catalog.get("group", "система"))
+    selected_description.text = "Деталь относится к системе «%s». На схеме подсвечена зона её расположения." % system_name
     selected_history.text = _part_history_text(id)
     if hide_selected_button != null:
         hide_selected_button.disabled = true
