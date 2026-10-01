@@ -230,7 +230,7 @@ const PARTS := {
     "rain_sensor": {"name":"Датчик дождя", "group":"Стекло и очистители", "system":"wipers_glass", "keywords":["датчик дождя"], "diagnostic_flow":"", "repair_guide":""},
 }
 
-static func assemblies_for_system(system_id: String) -> Array[Dictionary]:
+static func assemblies_for_system(system_id: String) -> Array:
 	var system: Dictionary = SYSTEMS.get(system_id, {})
 	if system.is_empty():
 		return []
@@ -253,7 +253,7 @@ static func assemblies_for_system(system_id: String) -> Array[Dictionary]:
 		result.append({"id":system_id + "_components", "name":"Остальные компоненты", "system":system_id, "parts":remaining, "focus":Vector3(0.0, 1.0, 0.0), "distance":6.5})
 	return result
 
-static func all_assemblies() -> Array[Dictionary]:
+static func all_assemblies() -> Array:
 	var result: Array[Dictionary] = []
 	for system_id in SYSTEMS.keys():
 		result.append_array(assemblies_for_system(str(system_id)))

@@ -1043,7 +1043,7 @@ func _open_selector(level: String) -> void:
     selector_level = level
     for child in selector_list.get_children():
         child.queue_free()
-    var rows: Array[Dictionary] = []
+    var rows: Array = []
     if level == "system":
         rows.append({"id":"", "name":"Автомобиль — все системы"})
         for item in PartCatalogService.all_systems():

@@ -58,6 +58,11 @@ jobs:
           test "$(grep -c '^version/code=' export_presets.cfg)" -eq 2
           test "$(grep '^version/code=' export_presets.cfg | sort -u | wc -l)" -eq 1
 
+      - name: Validate 3D catalog and view startup
+        shell: bash
+        run: |
+          godot --headless --path . --script tools/validate_3d_catalog.gd
+
       - name: Run scene startup smoke check
         shell: bash
         run: |
@@ -67,11 +72,6 @@ jobs:
             echo "Godot scene startup reported a script error."
             exit 1
           fi
-
-      - name: Validate 3D catalog and view startup
-        shell: bash
-        run: |
-          godot --headless --path . --script tools/validate_3d_catalog.gd
 
       - name: Build APK
         shell: bash
