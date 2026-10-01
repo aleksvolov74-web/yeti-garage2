@@ -34,7 +34,7 @@ jobs:
 
           if [ -d /root/.local/share/godot/export_templates/4.7.2.stable ]; then
             rm -rf ~/.local/share/godot/export_templates/4.7.2.stable
-            mv /root/.local/share/godot/export_templates/4.7.2.stable \\
+            mv /root/.local/share/godot/export_templates/4.7.2.stable \
                ~/.local/share/godot/export_templates/4.7.2.stable
           fi
 
@@ -50,11 +50,11 @@ jobs:
         run: |
           mkdir -p build/android
 
-          godot \\
-            --headless \\
-            --verbose \\
-            --path . \\
-            --export-debug "Android Quick APK" \\
+          godot \
+            --headless \
+            --verbose \
+            --path . \
+            --export-debug "Android Quick APK" \
             build/android/YetiGarage-0.20.0.apk
 
           test -f build/android/YetiGarage-0.20.0.apk
