@@ -370,6 +370,8 @@ func _build_vehicle_context() -> void:
     # Tall compact SUV cabin with a roof, angled glass and visible side windows.
     _add_vehicle_box(Vector3(2.88, 1.30, 2.18), Vector3(-0.47, 1.94, 0.0), body_color)
     _add_vehicle_box(Vector3(2.48, 0.18, 2.28), Vector3(-0.48, 2.64, 0.0), Color("303e46"))
+    _add_vehicle_ellipsoid(Vector3(0.94, 0.12, 1.18), Vector3(1.78, 1.47, 0.0), Color("304047"))
+    _add_vehicle_ellipsoid(Vector3(1.16, 0.10, 1.10), Vector3(-0.48, 2.68, 0.0), Color("35434a"))
     _add_vehicle_box(Vector3(0.10, 0.78, 2.02), Vector3(1.18, 2.03, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, 17.0))
     _add_vehicle_box(Vector3(0.10, 0.76, 2.02), Vector3(-2.03, 2.02, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, -13.0))
     for side in [-1.0, 1.0]:
@@ -381,14 +383,25 @@ func _build_vehicle_context() -> void:
         _add_vehicle_box(Vector3(0.10, 0.98, 0.10), Vector3(-1.88, 1.98, side * 1.06), Color("35434b"))
         _add_vehicle_box(Vector3(0.38, 0.20, 0.28), Vector3(1.22, 1.73, side * 1.34), Color("26343c"))
         _add_vehicle_box(Vector3(2.55, 0.08, 0.12), Vector3(-0.50, 2.78, side * 0.78), Color("82919a"))
+        _add_vehicle_box(Vector3(0.035, 0.72, 0.025), Vector3(0.48, 1.16, side * 1.13), Color("17262d"))
+        _add_vehicle_box(Vector3(0.035, 0.72, 0.025), Vector3(-1.38, 1.16, side * 1.13), Color("17262d"))
+        _add_vehicle_box(Vector3(0.24, 0.045, 0.035), Vector3(-0.38, 1.50, side * 1.15), Color("85939a"))
+        _add_vehicle_box(Vector3(2.48, 0.18, 0.18), Vector3(-0.02, 0.55, side * 1.25), Color("202d34"))
+        _add_vehicle_ellipsoid(Vector3(0.78, 0.42, 0.095), Vector3(-1.92, 0.91, side * 1.27), Color("1c292f"))
+        _add_vehicle_ellipsoid(Vector3(0.78, 0.42, 0.095), Vector3(1.92, 0.91, side * 1.27), Color("1c292f"))
+        _add_vehicle_ellipsoid(Vector3(0.18, 0.12, 0.16), Vector3(1.38, 1.78, side * 1.43), Color("36464e"))
 
     _add_vehicle_box(Vector3(0.10, 0.72, 1.62), Vector3(2.91, 0.99, 0.0), trim_color)
     _add_vehicle_box(Vector3(0.16, 0.32, 1.42), Vector3(2.98, 0.92, 0.0), Color("10191f"))
-    _add_vehicle_box(Vector3(0.10, 0.18, 0.54), Vector3(3.045, 0.94, 0.0), Color("64747d"))
-    _add_vehicle_box(Vector3(0.16, 0.24, 0.46), Vector3(2.79, 1.34, -0.86), Color("b7dce0"), 0.75)
-    _add_vehicle_box(Vector3(0.16, 0.24, 0.46), Vector3(2.79, 1.34, 0.86), Color("b7dce0"), 0.75)
-    _add_vehicle_box(Vector3(0.13, 0.46, 0.34), Vector3(-2.79, 1.22, -0.98), Color("8d353a"), 0.45)
-    _add_vehicle_box(Vector3(0.13, 0.46, 0.34), Vector3(-2.79, 1.22, 0.98), Color("8d353a"), 0.45)
+    for grille_bar in range(3):
+        _add_vehicle_box(Vector3(0.035, 0.035, 1.12), Vector3(3.075, 0.82 + float(grille_bar) * 0.10, 0.0), Color("52616a"))
+    _add_vehicle_ellipsoid(Vector3(0.055, 0.09, 0.12), Vector3(3.09, 1.06, 0.0), Color("9eb4bb"), 0.25)
+    _add_vehicle_ellipsoid(Vector3(0.10, 0.17, 0.27), Vector3(2.84, 1.34, -0.87), Color("c0e7e9"), 0.8)
+    _add_vehicle_ellipsoid(Vector3(0.10, 0.17, 0.27), Vector3(2.84, 1.34, 0.87), Color("c0e7e9"), 0.8)
+    _add_vehicle_ellipsoid(Vector3(0.09, 0.10, 0.14), Vector3(2.91, 0.76, -0.88), Color("91c9cc"), 0.35)
+    _add_vehicle_ellipsoid(Vector3(0.09, 0.10, 0.14), Vector3(2.91, 0.76, 0.88), Color("91c9cc"), 0.35)
+    _add_vehicle_ellipsoid(Vector3(0.08, 0.22, 0.17), Vector3(-2.81, 1.22, -0.99), Color("9c4144"), 0.45)
+    _add_vehicle_ellipsoid(Vector3(0.08, 0.22, 0.17), Vector3(-2.81, 1.22, 0.99), Color("9c4144"), 0.45)
     _add_vehicle_box(Vector3(0.18, 0.32, 2.62), Vector3(2.78, 0.69, 0.0), Color("303d44"))
     _add_vehicle_box(Vector3(0.18, 0.32, 2.58), Vector3(-2.79, 0.70, 0.0), Color("303d44"))
 
@@ -407,6 +420,20 @@ func _add_vehicle_box(size: Vector3, pos: Vector3, color: Color, emission_streng
     mesh.mesh = mesh_resource
     mesh.position = pos
     mesh.rotation_degrees = rotation
+    mesh.material_override = _material(color, 1.0, emission_strength)
+    vehicle_root.add_child(mesh)
+    vehicle_meshes.append({"mesh":mesh, "color":color, "emission":emission_strength})
+
+func _add_vehicle_ellipsoid(radii: Vector3, pos: Vector3, color: Color, emission_strength: float = 0.0) -> void:
+    var sphere := SphereMesh.new()
+    sphere.radius = 1.0
+    sphere.height = 2.0
+    sphere.radial_segments = 16
+    sphere.rings = 8
+    var mesh := MeshInstance3D.new()
+    mesh.mesh = sphere
+    mesh.position = pos
+    mesh.scale = radii
     mesh.material_override = _material(color, 1.0, emission_strength)
     vehicle_root.add_child(mesh)
     vehicle_meshes.append({"mesh":mesh, "color":color, "emission":emission_strength})
@@ -970,8 +997,7 @@ func _refresh_part_visuals() -> void:
         var id := str(key)
         var part: Dictionary = parts[id]
         var node: StaticBody3D = part.get("node", null)
-        var mesh: MeshInstance3D = part.get("mesh", null)
-        if node == null or mesh == null:
+        if node == null:
             continue
         var hidden := bool(hidden_parts.get(id, false))
         if isolate_mode and selected_id != "" and id != selected_id:
@@ -980,12 +1006,23 @@ func _refresh_part_visuals() -> void:
         if hidden:
             continue
         var base_color: Color = part.get("base_color", Color.WHITE)
+        var part_meshes: Array[MeshInstance3D] = []
+        for child in node.get_children():
+            if child is MeshInstance3D:
+                part_meshes.append(child as MeshInstance3D)
+        if part_meshes.is_empty():
+            var registered_mesh: MeshInstance3D = part.get("mesh", null)
+            if registered_mesh != null:
+                part_meshes.append(registered_mesh)
+        var part_material: StandardMaterial3D
         if id == selected_id:
-            mesh.material_override = _material(CYAN, 1.0, 1.6)
+            part_material = _material(CYAN, 1.0, 1.6)
         elif xray_mode:
-            mesh.material_override = _material(base_color, 0.14)
+            part_material = _material(base_color, 0.14)
         else:
-            mesh.material_override = _material(base_color, 1.0)
+            part_material = _material(base_color, 1.0)
+        for mesh in part_meshes:
+            mesh.material_override = part_material
 
 func _refresh_vehicle_materials() -> void:
     var focused := selected_system != ""
