@@ -19,7 +19,7 @@ static func scenarios() -> Array:
 
 static func search(query: String) -> Array:
     var q := _normalize_search(query)
-    if q == "":
+    if q.length() < 3:
         return []
     var tokens := q.split(" ", false)
     var scored: Array = []

@@ -13,17 +13,17 @@ const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
 
-const OFFICIAL_MANUAL_TOTAL_PAGES := 526
+const OFFICIAL_MANUAL_TOTAL_PAGES := 246
 const OFFICIAL_MANUAL_SECTIONS := [
     {"title":"Введение", "page":1},
-    {"title":"Содержание и сокращения", "page":5},
-    {"title":"Управление", "page":12},
-    {"title":"Безопасность", "page":307},
-    {"title":"Правила вождения", "page":356},
-    {"title":"Указания по использованию", "page":390},
-    {"title":"Самостоятельные действия", "page":459},
-    {"title":"Технические характеристики", "page":496},
-    {"title":"Алфавитный указатель", "page":512}
+    {"title":"Содержание и сокращения", "page":4},
+    {"title":"Управление", "page":9},
+    {"title":"Безопасность", "page":140},
+    {"title":"Правила вождения", "page":162},
+    {"title":"Указания по использованию", "page":177},
+    {"title":"Самостоятельные действия", "page":207},
+    {"title":"Технические характеристики", "page":226},
+    {"title":"Алфавитный указатель", "page":238}
 ]
 
 var pages: TabContainer
@@ -313,8 +313,7 @@ func _add_nav_button(label_text: String, icon_path: String, target_box: VBoxCont
 
     var target := -1
     if target_box != null:
-        var page := target_box.get_parent()
-        target = page.get_index() if page != null else -1
+        target = _tab_index_for_box(target_box)
         button.pressed.connect(_switch_to_page.bind(target_box))
     elif custom_action.is_valid():
         button.pressed.connect(custom_action)
@@ -322,12 +321,21 @@ func _add_nav_button(label_text: String, icon_path: String, target_box: VBoxCont
     nav_items.append({"panel": item, "icon_shell": icon_shell, "icon": icon, "label": label, "line": line, "target": target})
 
 func _switch_to_page(target_box: VBoxContainer) -> void:
-    if target_box == null:
+    var tab_index := _tab_index_for_box(target_box)
+    if tab_index < 0:
         return
-    var page := target_box.get_parent()
-    if page != null:
-        pages.current_tab = page.get_index()
-        _update_nav_styles()
+    pages.current_tab = tab_index
+    _update_nav_styles()
+
+func _tab_index_for_box(target_box: VBoxContainer) -> int:
+    if target_box == null or pages == null:
+        return -1
+    var parent := target_box.get_parent()
+    if parent == pages:
+        return target_box.get_index()
+    if parent != null and parent.get_parent() == pages:
+        return parent.get_index()
+    return -1
 
 func _update_nav_styles() -> void:
     if pages == null:
@@ -433,7 +441,7 @@ func _open_manual_hub() -> void:
     add_child(popup)
 
     var panel := PanelContainer.new()
-    panel.custom_minimum_size = Vector2(330, 360)
+    panel.custom_minimum_size = Vector2(330, 0)
     panel.add_theme_stylebox_override("panel", _style_box(Color("07141df2"), 24, Color("1d5862"), 1, Color("12dfe928"), 4))
     popup.add_child(panel)
 
@@ -485,7 +493,7 @@ func _open_manual_hub() -> void:
     )
 
     _apply_touch_targets(popup)
-    popup.popup_centered(_mobile_dialog_size(Vector2i(350, 420)))
+    popup.popup_centered(_mobile_dialog_size(Vector2i(350, 380)))
     popup.popup_hide.connect(func(): popup.queue_free())
 
 func _open_official_manual(start_page: int = 0) -> void:
@@ -555,15 +563,15 @@ func _open_official_manual(start_page: int = 0) -> void:
     root.add_child(nav_row)
 
     var chapters_button := Button.new()
-    chapters_button.text = "← Главы"
-    chapters_button.custom_minimum_size = Vector2(100, 44)
+    chapters_button.text = "Главы"
+    chapters_button.custom_minimum_size = Vector2(72, 40)
     chapters_button.alignment = HORIZONTAL_ALIGNMENT_CENTER
     chapters_button.add_theme_font_size_override("font_size", 13)
     nav_row.add_child(chapters_button)
 
     var page_label := Label.new()
     page_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-    page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+    page_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     page_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
     page_label.add_theme_font_size_override("font_size", 12)
     page_label.add_theme_color_override("font_color", Color("b8cbd4"))
@@ -572,7 +580,7 @@ func _open_official_manual(start_page: int = 0) -> void:
     var prev := Button.new()
     prev.text = "‹"
     prev.tooltip_text = "Предыдущая страница"
-    prev.custom_minimum_size = Vector2(44, 44)
+    prev.custom_minimum_size = Vector2(40, 40)
     prev.set_meta("compact_icon_button", true)
     prev.add_theme_font_size_override("font_size", 23)
     nav_row.add_child(prev)
@@ -580,7 +588,7 @@ func _open_official_manual(start_page: int = 0) -> void:
     var next := Button.new()
     next.text = "›"
     next.tooltip_text = "Следующая страница"
-    next.custom_minimum_size = Vector2(44, 44)
+    next.custom_minimum_size = Vector2(40, 40)
     next.set_meta("compact_icon_button", true)
     next.add_theme_font_size_override("font_size", 23)
     nav_row.add_child(next)
@@ -765,7 +773,7 @@ func _settle_manual_scroll_extent(scroll: ScrollContainer, content_margin: Margi
     # call_deferred() can run several times before a real Android layout frame.
     # Waiting for actual process frames lets Label autowrap, notice cards and images
     # obtain their final on-screen height before the scroll range is locked in.
-    for _frame_index in range(6):
+    for _frame_index in range(8):
         await get_tree().process_frame
         if not is_instance_valid(scroll) or not is_instance_valid(content_margin) or not is_instance_valid(content_box):
             return
@@ -793,7 +801,7 @@ func _settle_manual_scroll_extent(scroll: ScrollContainer, content_margin: Margi
     # Give the real content a bottom runway inside the *scroll child itself*.
     # This makes the last line, warning card or figure fully lift above Android's
     # navigation area instead of stopping half-hidden at the lower edge.
-    var bottom_runway := 24.0
+    var bottom_runway := 32.0
     content_box.custom_minimum_size.y = ceilf(actual_bottom + bottom_runway)
     content_box.update_minimum_size()
     content_margin.update_minimum_size()
@@ -887,18 +895,12 @@ func _manual_neighbor_page(current_page: int, direction: int) -> int:
     return current_page
 
 func _manual_page_reference(entry: Dictionary, document_page: int) -> String:
-    var part := int(entry.get("part", 1))
-    var part_total := maxi(1, int(entry.get("part_total", 1)))
     var manual_page_value = entry.get("manual_page", null)
     if manual_page_value != null and int(manual_page_value) > 0:
-        if part_total > 1:
-            return "стр. %d • %d/%d" % [int(manual_page_value), part, part_total]
         return "стр. %d" % int(manual_page_value)
 
     var source_document_page := int(entry.get("source_document_page", document_page))
-    if part_total > 1:
-        return "док. %d • %d/%d" % [source_document_page, part, part_total]
-    return "%d / %d" % [document_page, OFFICIAL_MANUAL_TOTAL_PAGES]
+    return "стр. документа %d" % source_document_page
 
 func _manual_normalized_blocks(raw_value: Variant) -> Array:
     var source: Array = []
@@ -912,7 +914,8 @@ func _manual_normalized_blocks(raw_value: Variant) -> Array:
             i += 1
             continue
         var current: Dictionary = (current_value as Dictionary).duplicate(true)
-        if str(current.get("type", "")) == "bullet":
+        var current_type := str(current.get("type", ""))
+        if current_type == "bullet":
             var merged_text := str(current.get("text", "")).strip_edges()
             while i + 1 < source.size():
                 var next_value: Variant = source[i + 1]
@@ -927,6 +930,34 @@ func _manual_normalized_blocks(raw_value: Variant) -> Array:
                 merged_text = (merged_text + " " + next_text).strip_edges()
                 i += 1
             current["text"] = merged_text
+        elif current_type == "paragraph":
+            var paragraph_text := str(current.get("text", "")).strip_edges()
+            while i + 1 < source.size():
+                var next_value: Variant = source[i + 1]
+                if not (next_value is Dictionary):
+                    break
+                var next_block: Dictionary = next_value as Dictionary
+                if str(next_block.get("type", "")) != "paragraph":
+                    break
+                var next_text := str(next_block.get("text", "")).strip_edges()
+                if not _manual_is_continuation(paragraph_text, next_text):
+                    break
+                paragraph_text = (paragraph_text + " " + next_text).strip_edges()
+                i += 1
+            current["text"] = paragraph_text
+        elif current_type in ["warning", "note", "caution", "eco"]:
+            var notice_text := str(current.get("text", "")).strip_edges()
+            while i + 1 < source.size():
+                var next_value: Variant = source[i + 1]
+                if not (next_value is Dictionary):
+                    break
+                var next_block: Dictionary = next_value as Dictionary
+                var next_title := str(next_block.get("title", ""))
+                if str(next_block.get("type", "")) != current_type or not next_title.to_lower().contains("продолжение"):
+                    break
+                notice_text = (notice_text + "\n\n" + str(next_block.get("text", "")).strip_edges()).strip_edges()
+                i += 1
+            current["text"] = notice_text
         result.append(current)
         i += 1
     return result
@@ -1857,12 +1888,15 @@ func _open_manual_for_part(part_id: String, part_name: String) -> void:
 func _open_global_search() -> void:
     var popup := PopupPanel.new()
     popup.transparent_bg = true
+    popup.wrap_controls = false
     add_child(popup)
 
     var panel := PanelContainer.new()
-    panel.custom_minimum_size = Vector2(_mobile_dialog_content_width(370), 380)
+    panel.custom_minimum_size = Vector2(_mobile_dialog_content_width(370), 0)
+    panel.clip_contents = true
     panel.add_theme_stylebox_override("panel", _style_box(Color("07141df7"), 22, Color("1b4a55"), 1, Color("00dfe81f"), 2))
     popup.add_child(panel)
+    panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 
     var margin := MarginContainer.new()
     margin.add_theme_constant_override("margin_left", 14)
@@ -1872,6 +1906,8 @@ func _open_global_search() -> void:
     panel.add_child(margin)
 
     var root := VBoxContainer.new()
+    root.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    root.size_flags_vertical = Control.SIZE_EXPAND_FILL
     root.add_theme_constant_override("separation", 9)
     margin.add_child(root)
 
@@ -1901,11 +1937,16 @@ func _open_global_search() -> void:
 
     var scroll := ScrollContainer.new()
     scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+    scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+    scroll.scroll_deadzone = 8
+    scroll.follow_focus = false
+    scroll.set_meta("preserve_scroll_modes", true)
     root.add_child(scroll)
     var results := VBoxContainer.new()
     results.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    results.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
     results.add_theme_constant_override("separation", 8)
     scroll.add_child(results)
 
@@ -1926,7 +1967,13 @@ func _open_global_search() -> void:
     _render_global_search_results(results, "", popup)
     _apply_touch_targets(popup)
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
-    popup.popup_centered(_mobile_dialog_size(Vector2i(390, 430)))
+    var search_popup_size := _mobile_dialog_size(Vector2i(400, 700))
+    popup.popup_centered_clamped(search_popup_size, 0.96)
+    await get_tree().process_frame
+    if is_instance_valid(popup) and is_instance_valid(panel):
+        panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+        panel.position = Vector2.ZERO
+        panel.size = Vector2(popup.size)
     popup.popup_hide.connect(func(): popup.queue_free())
     field.grab_focus()
 

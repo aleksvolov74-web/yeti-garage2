@@ -66,13 +66,14 @@ const SUFFIXES := [
 ]
 
 static var _entries: Array = []
+static var _source_entries: Array = []
 static var _loaded := false
 
 static func page_entry(page: int) -> Dictionary:
     _ensure_loaded()
-    if page < 1 or page > _entries.size():
+    if page < 1 or page > _source_entries.size():
         return {}
-    var value = _entries[page - 1]
+    var value = _source_entries[page - 1]
     if value is Dictionary:
         return (value as Dictionary).duplicate(true)
     return {}
@@ -80,12 +81,12 @@ static func page_entry(page: int) -> Dictionary:
 static func search(query: String, limit: int = 3) -> Array:
     _ensure_loaded()
     var q := _normalize(query)
-    if q.length() < 2 or _entries.is_empty():
+    if q.length() < 2 or _source_entries.is_empty():
         return []
 
     var terms := _expanded_terms(q)
     var scored: Array = []
-    for entry_value in _entries:
+    for entry_value in _source_entries:
         var entry: Dictionary = entry_value
         var page := int(entry.get("page", 0))
         var source_page := int(entry.get("source_document_page", page))
@@ -167,6 +168,42 @@ static func _ensure_loaded() -> void:
     var parsed = JSON.parse_string(raw)
     if parsed is Array:
         _entries = parsed
+        var grouped: Dictionary = {}
+        var source_order: Array[int] = []
+        for entry_value in _entries:
+            if not (entry_value is Dictionary):
+                continue
+            var entry: Dictionary = entry_value
+            var source_page := int(entry.get("source_document_page", entry.get("page", 0)))
+            if source_page < 1:
+                continue
+            if not grouped.has(source_page):
+                var source_entry: Dictionary = entry.duplicate(true)
+                source_entry["page"] = source_page
+                source_entry["source_document_page"] = source_page
+                source_entry["part"] = 1
+                source_entry["part_total"] = 1
+                source_entry["blocks"] = []
+                source_entry["text"] = ""
+                source_entry["search_text"] = ""
+                grouped[source_page] = source_entry
+                source_order.append(source_page)
+            var target: Dictionary = grouped[source_page]
+            var blocks: Array = target.get("blocks", [])
+            var entry_blocks = entry.get("blocks", [])
+            if entry_blocks is Array:
+                for block in entry_blocks:
+                    blocks.append(block)
+            target["blocks"] = blocks
+            for field in ["text", "search_text"]:
+                var existing := str(target.get(field, ""))
+                var addition := str(entry.get(field, ""))
+                if addition != "":
+                    target[field] = addition if existing == "" else existing + "\n" + addition
+        source_order.sort()
+        _source_entries.clear()
+        for source_page in source_order:
+            _source_entries.append(grouped[source_page])
 
 static func _expanded_terms(q: String) -> Array[String]:
     var terms: Array[String] = []
