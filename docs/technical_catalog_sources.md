@@ -41,3 +41,8 @@ The catalog contains 89 recursive nodes (81 top-level plus 8 nested), a source r
 The catalog has 81 top-level nodes and 8 nested nodes. It currently has 58 `VERIFIED_ARCHITECTURE` source references and 31 `REFERENCE_ONLY` references; none is marked `VERIFIED_EXACT`. These labels describe evidence for construction, not the presence of an embedded image. No technical images are bundled and no marker coordinates are claimed: copying the source workshop illustrations into the APK is not permitted by a license identified in the source.
 
 Direct Yeti/CBZB references used for this pass include the 1.2 TSI timing-chain and oil-pump-chain procedure, intake/fuel-distributor component pages, engine lubrication component list, CBZB cooling hose/radiator pages, Yeti brake repair and handbrake-cable pages, FWD rear-axle overview, front-axle overview, and 0AM DSG overview. The app exposes source links and component lists in place of a fabricated diagram. Brake sizes, spring/damper selections, lighting equipment, climate-control variant, gearbox code, and the fitted front-carrier material remain unresolved where the PR/build data is required.
+
+
+## Batch 1 — CBZB source pass
+
+Direct Yeti 1.2/63; 77 kW TSI references are now attached to the engine assembly, bottom end, cylinder head/valve gear, timing chain and oil-pump drive chain, camshaft drive, accessory belt drive, intake filter, charge-air/turbo system, cooling circuit/radiator, lubrication system, oil pan/filter/pump, and ignition nodes. The pages are identified as the applicable 77 kW TSI engine family, but the source scans are not bundled: their reproduction rights remain unestablished. No marker coordinates were added without a displayed source diagram.

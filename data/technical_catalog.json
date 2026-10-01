@@ -64,7 +64,7 @@
                 "markers": [],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
-                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/crankshaft/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -76,7 +76,7 @@
                     "drivetrain": "ANY",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
                 }
               },
               "requires_engine_codes": [
@@ -99,7 +99,7 @@
                 "markers": [],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
-                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -111,7 +111,7 @@
                     "drivetrain": "ANY",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
                 }
               },
               "requires_engine_codes": [
@@ -139,7 +139,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -163,7 +163,7 @@
             "markers": [],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -175,7 +175,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -198,7 +198,7 @@
             "markers": [],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -210,7 +210,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -243,7 +243,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -266,7 +266,7 @@
             "markers": [],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/v-ribbed_belt_drive/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -278,7 +278,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -324,7 +324,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -359,7 +359,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -381,7 +381,7 @@
             "markers": [],
             "source": {
               "title": "Привод цепного ГРМ CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/camshaft_drive/camshaft_drive_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -393,7 +393,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -425,7 +425,7 @@
             "markers": [],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/air_filter/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -437,7 +437,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -460,7 +460,7 @@
             "markers": [],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_turbocharger_g-charger/charge_air_system_with_exhaust_gas_turbocharger/charge_air_system_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -472,7 +472,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -616,7 +616,7 @@
             "markers": [],
             "source": {
               "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -628,7 +628,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -652,7 +652,7 @@
             "markers": [],
             "source": {
               "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/cooling_system/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/cooling_system/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -664,7 +664,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -685,7 +685,7 @@
             "markers": [],
             "source": {
               "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -697,7 +697,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -739,7 +739,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -772,7 +772,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -805,7 +805,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           },
           "requires_engine_codes": [
@@ -2444,11 +2444,11 @@
             "status": "missing",
             "image": "",
             "image_type": "real_photo_or_wiring_diagram",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Электрооборудование Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/ignition_system_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -2458,9 +2458,9 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "CBZB"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
             }
           }
         }
