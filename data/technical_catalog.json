@@ -2678,7 +2678,21 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Аккумулятор и типы",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/starter-current_supply-cc/battery_types/"
+                },
+                {
+                  "title": "Стартер",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/starter-current_supply-cc/starter/"
+                },
+                {
+                  "title": "Генератор",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/starter-current_supply-cc/ac_generator/"
+                }
+              ]
             }
           }
         },
@@ -2708,7 +2722,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Блоки предохранителей и реле",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/fuse_holder_and_relay_carrier/"
+                }
+              ]
             }
           }
         },
@@ -2741,7 +2761,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Блоки управления Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/control_units/"
+                }
+              ]
             }
           }
         },
@@ -2771,7 +2797,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Жгуты и ремонт соединений",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/wiring_loom_and_plug_repair/"
+                }
+              ]
             }
           }
         },
@@ -2841,9 +2873,20 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "lighting_variant_status": "Lamp type/equipment not identified from available build data; references are alternatives."
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Галогенные фары",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/headlights_halogen_headlights/"
+                },
+                {
+                  "title": "Ксеноновые фары — альтернативное исполнение",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/headlights_with_xenon_discharge_lamps/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -2874,9 +2917,20 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "lighting_variant_status": "Lamp type/equipment not identified from available build data; references are alternatives."
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Задние фонари",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/tail_lights/"
+                },
+                {
+                  "title": "Освещение номерного знака",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/registration_number_lighting/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -2907,7 +2961,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Обзор компонентов салонного освещения",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_inside/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."

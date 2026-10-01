@@ -87,3 +87,7 @@ Added Yeti ABS Mark 60 EC and Mark 70 alternate component/fitting-location sourc
 ## Batch 10 — heating and climate
 
 Added the Yeti heater-unit component page, separate Climatic and Climatronic component references, and refrigerant-circuit layout. Equipment-specific pages remain alternatives; the VIN profile does not establish which control system is fitted. Refrigerant service requires the source safety procedure. Images remain external references because reuse rights are not established.
+
+## Batch 11 — electrical equipment and lighting
+
+Added Yeti component/service references for battery, starter, alternator, fuse/relay carriers, control units, wiring repair, front lamps, tail lamps and plate lighting. Halogen and xenon headlamp sources are alternatives; the fitted lamp package and exact electrical equipment are not selected without build/PR evidence. Source diagrams are not embedded.
