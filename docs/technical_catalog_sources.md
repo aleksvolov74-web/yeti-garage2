@@ -66,3 +66,8 @@ Both FWD driveshaft nodes now link to Yeti removal instructions and the Yeti inn
 ## Batch 5 — front suspension
 
 Front-axle nodes now expose Yeti sources for the steel-sheet and aluminium carriers, general front suspension, wheel suspension, hub/bearing/brake/ABS and outer drive joint. The two carrier constructions are visible as alternatives; no PR-dependent dimension or specific OEM number is selected.
+
+
+## Batch 6 — steering
+
+The steering-column, electro-mechanical rack, and tie-rod/linkage nodes now link to Yeti service pages. Rack references include both steel and aluminium carrier layouts; left-hand-drive assumptions and exact rack part numbers are not asserted as VIN-confirmed fitment.

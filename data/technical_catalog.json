@@ -1911,11 +1911,11 @@
             "status": "missing",
             "image": "",
             "image_type": "exploded_view",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Рулевое управление Yeti LHD",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/steering_column_lhd_vehicles_with_left-hand_drive/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1924,10 +1924,10 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая Yeti 5L сервисная страница подтверждает конструкцию узла. LHD/подрамник и точные OEM-исполнения автомобиля не выводятся из доступных PR/build данных; источник открыт по ссылке."
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1943,11 +1943,11 @@
             "status": "missing",
             "image": "",
             "image_type": "exploded_view",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Рулевое управление Yeti LHD",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_assembly_carrier_made_of_steel_sheet/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1956,13 +1956,33 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая Yeti 5L сервисная страница подтверждает конструкцию узла. LHD/подрамник и точные OEM-исполнения автомобиля не выводятся из доступных PR/build данных; источник открыт по ссылке.",
+              "related_references": [
+                {
+                  "title": "Рулевая рейка — стальной carrier",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_assembly_carrier_made_of_steel_sheet/"
+                },
+                {
+                  "title": "Рулевая рейка — алюминиевый carrier",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_aluminium_assembly_carrier/"
+                }
+              ]
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Рулевая рейка описана для обоих вариантов переднего carrier; какой установлен, по доступным данным не определено.",
+          "variant_options": [
+            {
+              "id": "carrier_steel",
+              "title": "Стальной carrier"
+            },
+            {
+              "id": "carrier_aluminium",
+              "title": "Алюминиевый carrier"
+            }
+          ]
         },
         {
           "id": "steering_linkage",
@@ -1975,11 +1995,11 @@
             "status": "missing",
             "image": "",
             "image_type": "exploded_view",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Рулевое управление Yeti LHD",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1988,10 +2008,16 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая Yeti 5L сервисная страница подтверждает конструкцию узла. LHD/подрамник и точные OEM-исполнения автомобиля не выводятся из доступных PR/build данных; источник открыт по ссылке.",
+              "related_references": [
+                {
+                  "title": "Рулевой наконечник и передняя подвеска",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
