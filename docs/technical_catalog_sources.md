@@ -83,3 +83,7 @@ The rear spring/damper source and anti-roll-bar reference are explicitly for Yet
 ## Batch 9 — ABS/ESP and brake hydraulics
 
 Added Yeti ABS Mark 60 EC and Mark 70 alternate component/fitting-location sources, axle sensor service material and master-cylinder/hydraulic-unit component pages. Catalog does not select the ABS family or steering side without vehicle build evidence. These are documentation references, not bundled images; hydraulic repair procedures remain subject to the applicable service safety instructions.
+
+## Batch 10 — heating and climate
+
+Added the Yeti heater-unit component page, separate Climatic and Climatronic component references, and refrigerant-circuit layout. Equipment-specific pages remain alternatives; the VIN profile does not establish which control system is fitted. Refrigerant service requires the source safety procedure. Images remain external references because reuse rights are not established.

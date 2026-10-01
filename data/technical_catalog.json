@@ -2542,9 +2542,16 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Состав и сборка корпуса отопителя",
+                  "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/heating/summary_of_components_disassembling_and_assembling_the_heater_unit/"
+                }
+              ]
             }
           }
         },
@@ -2574,9 +2581,20 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Climatic — состав компонентов (ручное управление)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatic_air_conditioning_system_with_manual_control/summary_of_components/"
+                },
+                {
+                  "title": "Climatronic — состав компонентов (автоматическое управление)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation)/summary_of_components/"
+                }
+              ]
             }
           }
         },
@@ -2607,9 +2625,20 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Контур хладагента: структура",
+                  "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/description_of_the_air_conditioning_system/structure_of_the_refrigerant_circuit/"
+                },
+                {
+                  "title": "Состав климатической установки Climatic",
+                  "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatic_air_conditioning_system_with_manual_control/summary_of_components/"
+                }
+              ]
             }
           }
         }
