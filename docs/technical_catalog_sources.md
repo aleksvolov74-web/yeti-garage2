@@ -61,3 +61,8 @@ Gearbox internals, shafts/gears, mechatronic J743, transmission electronics, sel
 ## Batch 4 — front drive shafts and CV joints
 
 Both FWD driveshaft nodes now link to Yeti removal instructions and the Yeti inner/outer joint summaries. Their vehicle scope is recorded as FWD/CBZB, while joint type/dimension and OEM selection remain unclaimed.
+
+
+## Batch 5 — front suspension
+
+Front-axle nodes now expose Yeti sources for the steel-sheet and aluminium carriers, general front suspension, wheel suspension, hub/bearing/brake/ABS and outer drive joint. The two carrier constructions are visible as alternatives; no PR-dependent dimension or specific OEM number is selected.

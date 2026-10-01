@@ -1248,13 +1248,33 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Обзор компонентов передней подвески",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                    },
+                    {
+                      "title": "Ступица, подшипник, тормоз и ABS",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                    }
+                  ]
                 }
               },
-              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+              "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
+              "variant_options": [
+                {
+                  "id": "carrier_steel",
+                  "title": "Исполнение A — стальной carrier"
+                },
+                {
+                  "id": "carrier_aluminium",
+                  "title": "Исполнение B — алюминиевый carrier"
+                }
+              ]
             },
             {
               "id": "front_right_corner",
@@ -1284,13 +1304,33 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Обзор компонентов передней подвески",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                    },
+                    {
+                      "title": "Ступица, подшипник, тормоз и ABS",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                    }
+                  ]
                 }
               },
-              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+              "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
+              "variant_options": [
+                {
+                  "id": "carrier_steel",
+                  "title": "Исполнение A — стальной carrier"
+                },
+                {
+                  "id": "carrier_aluminium",
+                  "title": "Исполнение B — алюминиевый carrier"
+                }
+              ]
             },
             {
               "id": "front_axle_carrier",
@@ -1308,7 +1348,7 @@
                 "markers": [],
                 "source": {
                   "title": "Передняя ось Yeti 5L",
-                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -1317,21 +1357,31 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Стальной carrier передней оси",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/"
+                    },
+                    {
+                      "title": "Алюминиевый carrier передней оси",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_aluminium_assembly_carrier/"
+                    }
+                  ]
                 }
               },
-              "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+              "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
               "variant_options": [
                 {
                   "id": "carrier_steel",
-                  "title": "Исполнение A — стальной подрамник"
+                  "title": "Исполнение A — стальной carrier"
                 },
                 {
                   "id": "carrier_aluminium",
-                  "title": "Исполнение B — алюминиевый подрамник"
+                  "title": "Исполнение B — алюминиевый carrier"
                 }
               ]
             }
@@ -1353,21 +1403,39 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "related_references": [
+                {
+                  "title": "Стальной carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/"
+                },
+                {
+                  "title": "Алюминиевый carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_aluminium_assembly_carrier/"
+                },
+                {
+                  "title": "Обзор компонентов передней подвески",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                },
+                {
+                  "title": "Ступица, подшипник, тормоз и ABS",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                }
+              ]
             }
           },
-          "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+          "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
           "variant_options": [
             {
               "id": "carrier_steel",
-              "title": "Исполнение A — стальной подрамник"
+              "title": "Исполнение A — стальной carrier"
             },
             {
               "id": "carrier_aluminium",
-              "title": "Исполнение B — алюминиевый подрамник"
+              "title": "Исполнение B — алюминиевый carrier"
             }
           ]
         },
@@ -1388,7 +1456,7 @@
             "markers": [],
             "source": {
               "title": "Передняя ось Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1397,21 +1465,31 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "related_references": [
+                {
+                  "title": "Стальной carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/"
+                },
+                {
+                  "title": "Алюминиевый carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_aluminium_assembly_carrier/"
+                }
+              ]
             }
           },
-          "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+          "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
           "variant_options": [
             {
               "id": "carrier_steel",
-              "title": "Исполнение A — стальной подрамник"
+              "title": "Исполнение A — стальной carrier"
             },
             {
               "id": "carrier_aluminium",
-              "title": "Исполнение B — алюминиевый подрамник"
+              "title": "Исполнение B — алюминиевый carrier"
             }
           ]
         },
@@ -1440,10 +1518,16 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "related_references": [
+                {
+                  "title": "Обзор компонентов передней подвески",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1475,7 +1559,7 @@
                 "markers": [],
                 "source": {
                   "title": "Передняя ось Yeti 5L",
-                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -1484,10 +1568,16 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Ступица, подшипник, тормоз и ABS",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                    }
+                  ]
                 }
               },
               "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1509,7 +1599,7 @@
                 "markers": [],
                 "source": {
                   "title": "Передняя ось Yeti 5L",
-                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -1518,10 +1608,16 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Ступица, подшипник, тормоз и ABS",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                    }
+                  ]
                 }
               },
               "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1542,7 +1638,7 @@
                 "markers": [],
                 "source": {
                   "title": "Передняя ось Yeti 5L",
-                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_outer_cv_joint_ro3700/",
                   "publisher": "Škoda Auto workshop information (web-accessible copy)",
                   "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
                   "applicability": {
@@ -1551,10 +1647,16 @@
                       2009,
                       2017
                     ],
-                    "drivetrain": "ANY",
+                    "drivetrain": "FWD",
                     "engine_code": "ANY"
                   },
-                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                  "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+                  "related_references": [
+                    {
+                      "title": "Наружные ШРУСы Yeti",
+                      "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_outer_cv_joint_ro3700/"
+                    }
+                  ]
                 }
               },
               "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1568,7 +1670,7 @@
             "markers": [],
             "source": {
               "title": "Передняя ось Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1577,10 +1679,20 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "related_references": [
+                {
+                  "title": "Обзор компонентов передней подвески",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
+                },
+                {
+                  "title": "Ступица, подшипник, тормоз и ABS",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1600,7 +1712,7 @@
             "markers": [],
             "source": {
               "title": "Передняя ось Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1609,10 +1721,20 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "related_references": [
+                {
+                  "title": "Стальной carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/"
+                },
+                {
+                  "title": "Алюминиевый carrier передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_aluminium_assembly_carrier/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
