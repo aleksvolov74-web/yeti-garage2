@@ -189,15 +189,16 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 	view.set_vehicle_profile({"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"})
 	await process_frame
 	var expected := {
-		"front_subframe_arms": {"count":5, "tap_part":"control_arm_left"},
-		"front_strut": {"count":6, "tap_part":"strut_bearing"},
-		"front_knuckle_hub": {"count":6, "tap_part":"steering_knuckle"},
-		"front_brake_assembly": {"count":7, "tap_part":"brake_caliper"}
+		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left"},
+		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing"},
+		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle"},
+		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper"}
 	}
 	for node_id_value in expected:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
-		view.call("_open_section", "front_suspension")
+		var section_id := str(expected_row["section"])
+		view.call("_open_section", section_id)
 		await process_frame
 		view.call("_open_node", node_id)
 		await process_frame
@@ -296,7 +297,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		view.set("selected_part_id", "")
 		view.call("_render")
 		await process_frame
-		if view.get("_diagram") == null or str(view.get("current_section_id")) != "front_suspension":
+		if view.get("_diagram") == null or str(view.get("current_section_id")) != section_id:
 			failures.append("front suspension node %s did not return to its diagram in the catalog" % node_id)
 	view.queue_free()
 
