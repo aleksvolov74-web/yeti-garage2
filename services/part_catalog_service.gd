@@ -5,7 +5,7 @@ extends RefCounted
 # Точные процедуры ремонта добавляются только после проверки источника.
 
 const SYSTEMS := {
-    "engine": {"name":"Двигатель", "parts":["engine_block", "cylinder_head", "timing_drive", "turbocharger", "engine_mount", "oil_system", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover", "oil_filter", "oil_pan"]},
+    "engine": {"name":"Двигатель", "parts":["engine_block", "cylinder_head", "timing_drive", "turbocharger", "engine_mount", "oil_system", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover", "oil_filter", "oil_pan", "accessory_belt_drive"]},
     "cooling": {"name":"Охлаждение", "parts":["radiator", "water_pump", "thermostat", "cooling_fan", "coolant_expansion_tank", "coolant_hoses", "coolant_temperature_sensor"]},
     "fuel_intake": {"name":"Топливо и впуск", "parts":["fuel_pump", "fuel_filter", "injectors", "throttle_body", "intake_manifold", "air_filter", "mass_air_flow_sensor", "fuel_rail"]},
     "exhaust": {"name":"Выпуск", "parts":["exhaust_manifold", "catalytic_converter", "oxygen_sensor", "rear_muffler", "front_exhaust_pipe", "exhaust_resonator"]},
@@ -43,10 +43,11 @@ const ASSEMBLY_GROUPS := {
         {"id":"steering_column_assembly", "name":"Рулевая колонка", "parts":["steering_column", "power_steering_motor", "steering_wheel", "steering_angle_sensor"]}
     ],
     "engine": [
-        {"id":"engine_long_block", "name":"Блок и головка двигателя", "parts":["engine_block", "cylinder_head", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover"]},
+        {"id":"engine_front", "name":"Передняя часть двигателя", "model_id":"engine_front", "camera_focus":Vector3(0.0, 0.0, 0.0), "camera_distance":4.2, "focus_points":{"engine_block":Vector3(0.0, -0.24, 0.0), "cylinder_head":Vector3(0.0, 0.36, 0.0), "valve_cover":Vector3(0.0, 0.74, 0.0), "turbocharger":Vector3(0.94, 0.03, 0.12), "alternator":Vector3(-0.88, -0.52, 0.28), "accessory_belt_drive":Vector3(-0.1, -0.62, 0.5)}, "parts":["engine_block", "cylinder_head", "valve_cover", "turbocharger", "alternator", "accessory_belt_drive"]},
+        {"id":"engine_long_block", "name":"Кривошипно-шатунный механизм", "parts":["crankshaft", "piston_group", "connecting_rods", "camshafts"]},
         {"id":"timing_assembly", "name":"Привод ГРМ", "parts":["timing_drive"]},
         {"id":"lubrication", "name":"Система смазки", "parts":["oil_system", "oil_filter", "oil_pan"]},
-        {"id":"intake", "name":"Турбонаддув", "parts":["turbocharger", "engine_mount"]}
+        {"id":"intake", "name":"Турбонаддув и опора двигателя", "parts":["engine_mount"]}
     ],
     "cooling": [
         {"id":"radiator_pack", "name":"Пакет радиаторов", "parts":["radiator", "cooling_fan"]},
@@ -93,6 +94,7 @@ const PARTS := {
     "timing_drive": {"name":"Привод ГРМ", "group":"Двигатель", "system":"engine", "keywords":["привод грм"], "diagnostic_flow":"", "repair_guide":""},
     "turbocharger": {"name":"Турбокомпрессор", "group":"Двигатель", "system":"engine", "keywords":["турбокомпрессор"], "diagnostic_flow":"", "repair_guide":""},
     "engine_mount": {"name":"Опора двигателя", "group":"Двигатель", "system":"engine", "keywords":["опора двигателя"], "diagnostic_flow":"", "repair_guide":""},
+    "accessory_belt_drive": {"name":"Ременной привод навесных агрегатов", "group":"Двигатель", "system":"engine", "keywords":["ременной привод", "ремень генератора", "ремень навесных агрегатов"], "diagnostic_flow":"", "repair_guide":""},
     "oil_system": {"name":"Система смазки", "group":"Двигатель", "system":"engine", "keywords":["система смазки"], "diagnostic_flow":"", "repair_guide":""},
     "radiator": {"name":"Радиатор", "group":"Охлаждение", "system":"cooling", "keywords":["радиатор"], "diagnostic_flow":"", "repair_guide":""},
     "water_pump": {"name":"Помпа", "group":"Охлаждение", "system":"cooling", "keywords":["помпа"], "diagnostic_flow":"", "repair_guide":""},
