@@ -254,10 +254,25 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"coolant_circuit": {"section":"cooling", "count":9, "tap_part":"coolant_recirculation_pump_v50", "level":"REFERENCE_ONLY"},
 		"exhaust_front": {"section":"exhaust", "count":5, "tap_part":"exhaust_flex_joint", "level":"VERIFIED_ARCHITECTURE"},
 		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
-		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"}
+		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_complete": {"section":"engine", "count":7, "tap_part":"turbocharger", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"VERIFIED_ARCHITECTURE"},
+		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_mounts": {"section":"engine", "count":1, "tap_part":"engine_mount", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_accessories": {"section":"engine", "count":3, "tap_part":"alternator", "level":"VERIFIED_ARCHITECTURE"},
+		"timing_drive_node": {"section":"timing", "count":6, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
+		"oil_filter_node": {"section":"lubrication", "count":1, "tap_part":"oil_filter", "level":"VERIFIED_ARCHITECTURE"},
+		"oil_pan_node": {"section":"lubrication", "count":1, "tap_part":"oil_pan", "level":"VERIFIED_ARCHITECTURE"},
+		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"}
 	}
 	var cbzb_dq200_marker_total := 0
 	var all_image_marker_total := 0
+	var expected_marker_total := 0
+	for expected_value in expected.values():
+		expected_marker_total += int(expected_value.get("count", 0))
+	var opened_image_node_count := 0
 	for node_id_value in expected:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
@@ -273,6 +288,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		if canvas.texture == null or canvas.markers.size() != int(expected_row["count"]):
 			failures.append("technical diagram node %s image/marker count mismatch" % node_id)
 			continue
+		opened_image_node_count += 1
 		all_image_marker_total += canvas.markers.size()
 		cbzb_dq200_marker_total += canvas.markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
 		var current_node: Dictionary = view.call("_current_node")
@@ -375,8 +391,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
-	if expected.size() != 29 or all_image_marker_total != 158:
-		failures.append("expected 29 image nodes / 158 markers, found %d nodes / %d markers" % [expected.size(), all_image_marker_total])
+	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:
+		failures.append("expected %d image nodes / %d markers, found %d opened nodes / %d markers" % [expected.size(), expected_marker_total, opened_image_node_count, all_image_marker_total])
 	view.queue_free()
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:

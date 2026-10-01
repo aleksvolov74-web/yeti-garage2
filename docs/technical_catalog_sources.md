@@ -10,9 +10,9 @@ The mobile technical catalog is defined by `data/technical_catalog.json`. Its sy
 
 ## Images
 
-No external technical diagram or 3D asset is currently included in the mobile catalog. The existing `assets/manual/figures/` files are operating-manual illustrations and are not represented as workshop exploded views. Catalog nodes without an independently checked, compatible image therefore expose an empty diagram state rather than an illustrative substitute.
+The Android catalog bundles original generated technical visuals in `assets/technical_catalog/`; they are not copies of Škoda/VAG workshop illustrations. Workshop documentation is used as an architecture and source reference. The diagrams use overlays stored as normalized coordinates and part IDs in each node's `diagram.markers` array; numbers are not baked into image files. Nodes without an eligible bundled image continue to show their documented empty state.
 
-When an image is added, record its direct source, author/publisher, license, vehicle/engine/transmission applicability, asset path, and any crop or annotation in this file. Store callout coordinates and part IDs in the corresponding node's `diagram.markers` array in `data/technical_catalog.json`; do not bake the numbers into the source image.
+`VERIFIED_ARCHITECTURE` means the depicted general construction is supported by the linked technical reference; it does not mean `VERIFIED_EXACT`. Exact PR-code or VIN-specific geometry and OEM selection require direct supporting evidence. `REFERENCE_ONLY` remains supplemental and must not be presented as verified fitment.
 
 ## Compatibility
 
@@ -22,7 +22,7 @@ The catalog scope is Yeti type 5L, model years 2009–2017. Catalog entries can 
 
 The working profile is Škoda Yeti 5L, MY2011, CBZB 1.2 TSI, FWD, 7-speed DSG, family 0AM/DQ200. The exact production date, three-letter gearbox code, market destination, and individual PR codes are not available in the source record. The profile selects CBZB and FWD architecture and suppresses AWD nodes. It does not invent PR codes or OEM numbers.
 
-The catalog links to Yeti workshop-information pages. Those pages contain copyrighted Škoda service illustrations; the accessible web copies do not state a redistribution license. The app links to the references instead of copying those images into the APK. `VERIFIED_ARCHITECTURE` means the construction is supported by Yeti workshop information. `VERIFIED_EXACT` is reserved for an image with exact vehicle fitment and a redistribution license. `REFERENCE_ONLY` is supplemental and is not treated as an exact-fit image.
+The catalog links to Yeti workshop-information pages. Those pages contain copyrighted Škoda service illustrations; the accessible web copies do not state a redistribution license, and those illustrations are not copied into the APK. Bundled technical visuals are original generated assets based on the documented component architecture. `VERIFIED_ARCHITECTURE` is not `VERIFIED_EXACT`; the latter requires evidence for exact vehicle fitment and permitted image use. `REFERENCE_ONLY` is supplemental and is not treated as exact-fit imagery.
 
 Key Yeti-specific references:
 
@@ -34,7 +34,7 @@ Key Yeti-specific references:
 - Front-axle construction and alternate carriers: [Yeti front-axle overview](https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/).
 - Brake variants require PR lookup; the Yeti brake material directs identification to vehicle PR codes: [Yeti brake-system technical data](https://www.scribd.com/document/480875831/skoda-yeti-brake-systems-eng-1).
 
-The catalog contains 89 recursive nodes (81 top-level plus 8 nested), a source reference on every node, and zero bundled technical diagrams or marker coordinates. Marker arrays remain empty until a redistributable, correctly fitted image exists; coordinates are not guessed against text pages.
+Historical baseline before visual batches: 89 recursive nodes with no bundled technical diagrams. The current catalog has 90 recursive nodes; totals for bundled images and markers are maintained by `tools/validate_3d_catalog.gd` so new visual batches do not require hardcoded total updates.
 
 ## Current fill pass (VIN profile)
 
@@ -74,32 +74,39 @@ The steering-column, electro-mechanical rack, and tie-rod/linkage nodes now link
 
 ## Batch 7 — brakes
 
-Added direct Yeti front/rear brake repair and caliper procedures, plus front ABS component removal and brake-line references. These sources establish the architecture; disc diameter, caliper variant and PR-dependent hardware remain unresolved. No image is bundled and no image markers are added.
+Added direct Yeti front/rear brake repair and caliper procedures, plus front ABS component removal and brake-line references. These sources establish the architecture; disc diameter, caliper variant and PR-dependent hardware remain unresolved. Original generated images and data-driven markers were added in subsequent visual batches; no workshop illustration is bundled.
 
 ## Batch 8 — rear suspension, FWD only
 
-The rear spring/damper source and anti-roll-bar reference are explicitly for Yeti front-wheel-drive. The catalog keeps the CW22/2010 FWD branch and does not attach any 4×4 rear-axle source. The carrier overview includes FWD layout; exact date/configuration and PR-specific spring rate remain unresolved. No image is bundled.
+The rear spring/damper source and anti-roll-bar reference are explicitly for Yeti front-wheel-drive. The catalog keeps the CW22/2010 FWD branch and does not attach any 4×4 rear-axle source. The carrier overview includes FWD layout; exact date/configuration and PR-specific spring rate remain unresolved. Original generated FWD visuals were added in subsequent batches; no workshop illustration is bundled.
 
 ## Batch 9 — ABS/ESP and brake hydraulics
 
-Added Yeti ABS Mark 60 EC and Mark 70 alternate component/fitting-location sources, axle sensor service material and master-cylinder/hydraulic-unit component pages. Catalog does not select the ABS family or steering side without vehicle build evidence. These are documentation references, not bundled images; hydraulic repair procedures remain subject to the applicable service safety instructions.
+Added Yeti ABS Mark 60 EC and Mark 70 alternate component/fitting-location sources, axle sensor service material and master-cylinder/hydraulic-unit component pages. Catalog does not select the ABS family or steering side without vehicle build evidence. These are documentation references; the later visual batch bundles original generated architecture visuals, not copied workshop images. Hydraulic repair procedures remain subject to applicable service safety instructions.
 
 ## Batch 10 — heating and climate
 
-Added the Yeti heater-unit component page, separate Climatic and Climatronic component references, and refrigerant-circuit layout. Equipment-specific pages remain alternatives; the VIN profile does not establish which control system is fitted. Refrigerant service requires the source safety procedure. Images remain external references because reuse rights are not established.
+Added the Yeti heater-unit component page, separate Climatic and Climatronic component references, and refrigerant-circuit layout. Equipment-specific pages remain alternatives; the VIN profile does not establish which control system is fitted. Refrigerant service requires the source safety procedure. Workshop images remain external references because reuse rights are not established; the catalog may include independently generated visuals.
 
 ## Batch 11 — electrical equipment and lighting
 
-Added Yeti component/service references for battery, starter, alternator, fuse/relay carriers, control units, wiring repair, front lamps, tail lamps and plate lighting. Halogen and xenon headlamp sources are alternatives; the fitted lamp package and exact electrical equipment are not selected without build/PR evidence. Source diagrams are not embedded.
+Added Yeti component/service references for battery, starter, alternator, fuse/relay carriers, control units, wiring repair, front lamps, tail lamps and plate lighting. Halogen and xenon headlamp sources are alternatives; the fitted lamp package and exact electrical equipment are not selected without build/PR evidence. Workshop source diagrams are not embedded; independently generated visuals may be included where available.
 
 ## Batch 12 — body, doors, mirrors and wipers
 
-Added Yeti body-front/wing, front/rear door, tailgate/lock, mirror, wiper and washer-system references. Glass itself remains reference-only where no direct, variant-appropriate source page was confirmed in this pass. No generic vehicle images or copied source images were introduced; body colour/trim and glazing options are still build-dependent.
+Added Yeti body-front/wing, front/rear door, tailgate/lock, mirror, wiper and washer-system references. Glass itself remains reference-only where no direct, variant-appropriate source page was confirmed in this pass. No copied source images were introduced; body colour/trim and glazing options remain build-dependent.
 
 ## Batch 13 — interior and occupant safety
 
-Added Yeti dash panel, front/rear seat, door trim, airbag and seat-belt service references. Brake pedal documents are linked as LHD/RHD alternatives rather than asserting a steering-side-specific installation from VIN alone. SRS references are informational and retain the manufacturer's safety warnings; no guessed airbag wiring/pinout or repair instructions have been added. Images are not embedded.
+Added Yeti dash panel, front/rear seat, door trim, airbag and seat-belt service references. Brake pedal documents are linked as LHD/RHD alternatives rather than asserting a steering-side-specific installation from VIN alone. SRS references are informational and retain the manufacturer's safety warnings; no guessed airbag wiring/pinout or repair instructions have been added. Workshop illustrations are not embedded.
 
 ## Batch 14 — maintenance references
 
-Completed the maintenance pass with CBZB-compatible Yeti references for air filtration, lubrication, cooling, ignition and the accessory V-ribbed belt, plus front/rear brake procedures. These links support component identification and service context; exact oil specification, service interval and consumable OEM selection must follow the car's verified market/build data and current owner/service documentation. No invented maintenance instructions or embedded images were added.
+Completed the maintenance pass with CBZB-compatible Yeti references for air filtration, lubrication, cooling, ignition and the accessory V-ribbed belt, plus front/rear brake procedures. These links support component identification and service context; exact oil specification, service interval and consumable OEM selection must follow the car's verified market/build data and current owner/service documentation. No invented maintenance instructions or copied workshop images were added.
+
+
+## Bundled visual status — 0.20.24
+
+The catalog currently contains 40 nodes with bundled technical images and 50 nodes without images. The 40 images have 192 interactive markers in total. Their image metadata and markers live in `data/technical_catalog.json`; original generated CBZB core assets and node mappings are also summarized in `assets/technical_catalog/cbzb_engine_core_manifest.json`. Reused assets are intentional for the bottom-end and upper-end node pairs.
+
+All bundled visuals in this project are original generated technical visuals, not copied workshop illustrations. They are illustrative architecture views: the label `VERIFIED_ARCHITECTURE` does not certify exact CBZB production geometry, VIN fitment, PR variant, or OEM dimensions. Do not infer exact PR/VIN fitment from these images.

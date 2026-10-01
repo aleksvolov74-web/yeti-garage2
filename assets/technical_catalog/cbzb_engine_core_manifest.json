@@ -1,0 +1,343 @@
+{
+  "batch": "cbzb_engine_core_0.20.24",
+  "vehicle_profile": {
+    "make": "Škoda",
+    "model": "Yeti 5L",
+    "model_year": 2011,
+    "engine": "1.2 TSI 77 kW",
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "transmission": "7-speed DSG",
+    "transmission_family": "0AM / DQ200",
+    "vin": "XW8JF25LXBK701304",
+    "fitment_claim": "architecture reference; not VIN-exact"
+  },
+  "asset_policy": "All bundled images are original generated technical visuals. Workshop documentation is used only as architecture/source reference; copyrighted workshop illustrations are not copied. VERIFIED_ARCHITECTURE is not VERIFIED_EXACT.",
+  "nodes": [
+    {
+      "node_id": "engine_complete",
+      "section": "engine",
+      "title": "Двигатель в сборе",
+      "image_path": "res://assets/technical_catalog/engine/engine_complete.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 7,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_block",
+          "x": 0.54,
+          "y": 0.63
+        },
+        {
+          "number": 2,
+          "part_id": "cylinder_head",
+          "x": 0.55,
+          "y": 0.4
+        },
+        {
+          "number": 3,
+          "part_id": "engine_mount",
+          "x": 0.15,
+          "y": 0.43
+        },
+        {
+          "number": 4,
+          "part_id": "turbocharger",
+          "x": 0.84,
+          "y": 0.28
+        },
+        {
+          "number": 5,
+          "part_id": "alternator",
+          "x": 0.4,
+          "y": 0.53
+        },
+        {
+          "number": 6,
+          "part_id": "accessory_belt_drive",
+          "x": 0.27,
+          "y": 0.66
+        },
+        {
+          "number": 7,
+          "part_id": "starter",
+          "x": 0.72,
+          "y": 0.72
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "engine_bottom_end",
+      "section": "engine",
+      "title": "Блок цилиндров и кривошипный механизм",
+      "image_path": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 4,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_block",
+          "x": 0.72,
+          "y": 0.49
+        },
+        {
+          "number": 2,
+          "part_id": "crankshaft",
+          "x": 0.41,
+          "y": 0.81
+        },
+        {
+          "number": 3,
+          "part_id": "piston_group",
+          "x": 0.28,
+          "y": 0.23
+        },
+        {
+          "number": 4,
+          "part_id": "connecting_rods",
+          "x": 0.29,
+          "y": 0.48
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "engine_block_group",
+      "section": "engine",
+      "title": "Блок и кривошипно-шатунный механизм",
+      "image_path": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 4,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_block",
+          "x": 0.72,
+          "y": 0.49
+        },
+        {
+          "number": 2,
+          "part_id": "crankshaft",
+          "x": 0.41,
+          "y": 0.81
+        },
+        {
+          "number": 3,
+          "part_id": "piston_group",
+          "x": 0.28,
+          "y": 0.23
+        },
+        {
+          "number": 4,
+          "part_id": "connecting_rods",
+          "x": 0.29,
+          "y": 0.48
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "engine_upper_end",
+      "section": "engine",
+      "title": "Головка и клапанный механизм",
+      "image_path": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 3,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "cylinder_head",
+          "x": 0.52,
+          "y": 0.75
+        },
+        {
+          "number": 2,
+          "part_id": "camshafts",
+          "x": 0.52,
+          "y": 0.43
+        },
+        {
+          "number": 3,
+          "part_id": "valve_cover",
+          "x": 0.53,
+          "y": 0.16
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "cylinder_head_group",
+      "section": "engine",
+      "title": "Головка блока и клапанный механизм",
+      "image_path": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 3,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "cylinder_head",
+          "x": 0.52,
+          "y": 0.75
+        },
+        {
+          "number": 2,
+          "part_id": "camshafts",
+          "x": 0.52,
+          "y": 0.43
+        },
+        {
+          "number": 3,
+          "part_id": "valve_cover",
+          "x": 0.53,
+          "y": 0.16
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "engine_mounts",
+      "section": "engine",
+      "title": "Опоры двигателя",
+      "image_path": "res://assets/technical_catalog/engine/engine_mounts.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 1,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_mount",
+          "x": 0.52,
+          "y": 0.52
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "engine_accessories",
+      "section": "engine",
+      "title": "Навесное оборудование",
+      "image_path": "res://assets/technical_catalog/engine/engine_accessories.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 3,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "alternator",
+          "x": 0.19,
+          "y": 0.4
+        },
+        {
+          "number": 2,
+          "part_id": "accessory_belt_drive",
+          "x": 0.42,
+          "y": 0.72
+        },
+        {
+          "number": 3,
+          "part_id": "starter",
+          "x": 0.8,
+          "y": 0.39
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "timing_drive_node",
+      "section": "timing",
+      "title": "Привод ГРМ",
+      "image_path": "res://assets/technical_catalog/timing/timing_drive_node.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "timing_drive",
+          "x": 0.46,
+          "y": 0.47
+        },
+        {
+          "number": 2,
+          "part_id": "timing_chain",
+          "x": 0.49,
+          "y": 0.37
+        },
+        {
+          "number": 3,
+          "part_id": "timing_chain_tensioner",
+          "x": 0.62,
+          "y": 0.52
+        },
+        {
+          "number": 4,
+          "part_id": "timing_chain_guides",
+          "x": 0.36,
+          "y": 0.51
+        },
+        {
+          "number": 5,
+          "part_id": "timing_sprockets",
+          "x": 0.39,
+          "y": 0.17
+        },
+        {
+          "number": 6,
+          "part_id": "timing_cover",
+          "x": 0.9,
+          "y": 0.53
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "oil_filter_node",
+      "section": "lubrication",
+      "title": "Масляный фильтр",
+      "image_path": "res://assets/technical_catalog/engine/oil_filter.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 1,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "oil_filter",
+          "x": 0.28,
+          "y": 0.52
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "oil_pan_node",
+      "section": "lubrication",
+      "title": "Масляный поддон",
+      "image_path": "res://assets/technical_catalog/engine/oil_pan.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 1,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "oil_pan",
+          "x": 0.51,
+          "y": 0.54
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    },
+    {
+      "node_id": "coolant_reservoir",
+      "section": "cooling",
+      "title": "Расширительный бачок",
+      "image_path": "res://assets/technical_catalog/cooling/coolant_reservoir.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 1,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "coolant_expansion_tank",
+          "x": 0.52,
+          "y": 0.53
+        }
+      ],
+      "note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+    }
+  ]
+}

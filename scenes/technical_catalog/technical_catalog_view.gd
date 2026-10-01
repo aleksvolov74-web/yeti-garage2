@@ -169,7 +169,8 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 	var source: Dictionary = diagram_data.get("source", {})
 	var applicability: Dictionary = source.get("applicability", {})
 	var texture: Texture2D
-	var source_verified := str(diagram_data.get("status", "missing")) == "verified" and str(source.get("author", "")) != "" and str(source.get("license", "")) != "" and not applicability.is_empty()
+	var diagram_status := str(diagram_data.get("status", "missing"))
+	var source_verified := diagram_status in ["verified", "available"] and str(source.get("author", "")) != "" and str(source.get("license", "")) != "" and not applicability.is_empty()
 	if source_verified and TechnicalCatalog.is_compatible(applicability, _vehicle) and image_path.begins_with("res://") and ResourceLoader.exists(image_path):
 		texture = load(image_path) as Texture2D
 	if texture != null:
