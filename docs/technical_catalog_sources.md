@@ -71,3 +71,7 @@ Front-axle nodes now expose Yeti sources for the steel-sheet and aluminium carri
 ## Batch 6 — steering
 
 The steering-column, electro-mechanical rack, and tie-rod/linkage nodes now link to Yeti service pages. Rack references include both steel and aluminium carrier layouts; left-hand-drive assumptions and exact rack part numbers are not asserted as VIN-confirmed fitment.
+
+## Batch 7 — brakes
+
+Added direct Yeti front/rear brake repair and caliper procedures, plus front ABS component removal and brake-line references. These sources establish the architecture; disc diameter, caliper variant and PR-dependent hardware remain unresolved. No image is bundled and no image markers are added.

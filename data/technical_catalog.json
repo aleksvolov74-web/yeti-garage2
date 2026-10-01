@@ -2062,7 +2062,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода."
+              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода.",
+              "related_references": [
+                {
+                  "title": "Ремонт переднего тормоза Škoda Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_the_front_brake/"
+                },
+                {
+                  "title": "Ремонт переднего суппорта",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/repairing_the_front_brake_caliper/"
+                }
+              ]
             }
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
@@ -2096,7 +2106,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Гидравлическая система и тормозные магистрали Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/brake_line/"
+                },
+                {
+                  "title": "Снятие деталей ABS передней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/removing_and_installing_parts_of_the_abs_system_on_the_front_axle/"
+                }
+              ]
             }
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
@@ -2141,7 +2161,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода."
+              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода.",
+              "related_references": [
+                {
+                  "title": "Ремонт заднего тормоза Škoda Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/"
+                },
+                {
+                  "title": "Ремонт заднего суппорта",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/repairing_the_rear_brake_caliper/"
+                }
+              ]
             }
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
@@ -2173,7 +2203,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Страница Yeti показывает трос стояночного тормоза, рычаг и привод на суппорте; точная тормозная модификация определяется PR-кодом."
+              "verification_note": "Страница Yeti показывает трос стояночного тормоза, рычаг и привод на суппорте; точная тормозная модификация определяется PR-кодом.",
+              "related_references": [
+                {
+                  "title": "Рычаг стояночного тормоза — состав",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/handbrake_lever_summary_of_components/"
+                }
+              ]
             }
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
