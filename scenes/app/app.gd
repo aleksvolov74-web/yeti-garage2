@@ -1855,12 +1855,20 @@ func _save_diagnostic_result(title_text: String, result_text: String) -> void:
 func _build_3d_page() -> void:
     vehicle_3d_view = Vehicle3DView.new()
     vehicle_3d_view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    vehicle_3d_view.set_history_provider(Callable(self, "_part_history_summary_for_3d"))
     vehicle_3d_view.replacement_requested.connect(_open_part_replacement)
     vehicle_3d_view.history_requested.connect(_show_part_history)
     vehicle_3d_view.repair_requested.connect(_open_repair_for_part)
     vehicle_3d_view.diagnostic_requested.connect(_open_diagnostic_for_part)
     vehicle_3d_view.manual_requested.connect(_open_manual_for_part)
     vehicle_3d_box.add_child(vehicle_3d_view)
+
+func _part_history_summary_for_3d(part_id: String) -> String:
+    var events := ServiceHistoryService.events_for_part(part_id)
+    if events.is_empty():
+        return "По этой детали пока нет записей о замене."
+    var latest: Dictionary = events[0]
+    return "Последняя запись: %s • %s" % [_event_date_text(latest), _event_mileage_text(latest)]
 
 func _open_diagnostic_for_part(part_id: String, part_name: String) -> void:
     var flow_id := PartCatalogService.diagnostic_flow_for_part(part_id)

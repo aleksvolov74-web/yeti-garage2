@@ -7,8 +7,6 @@ signal diagnostic_requested(part_id: String, part_name: String)
 signal manual_requested(part_id: String, part_name: String)
 
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
-const ServiceHistoryService = preload("res://services/service_history_service.gd")
-const MileageService = preload("res://services/mileage_service.gd")
 const ViewerScene = preload("res://scenes/vehicle_3d/vehicle_part_viewer.tscn")
 
 const TEXT := Color("edf8fa")
@@ -78,6 +76,7 @@ var selected_assembly := ""
 var selected_part := ""
 var level := "systems"
 var viewer: VehiclePartViewer
+var history_provider: Callable
 var page_scroll: ScrollContainer
 var page_pointer_down := false
 var page_drag_distance := 0.0
@@ -427,21 +426,12 @@ func _panel_style(color: Color, radius: int, border: Color) -> StyleBoxFlat:
 	return style
 
 func _history_text(part_id: String) -> String:
-	var events := ServiceHistoryService.events_for_part(part_id)
-	if events.is_empty():
-		return "История детали: записей пока нет."
-	var event: Dictionary = events[0]
-	var date_text := "дата неизвестна" if bool(event.get("date_unknown", false)) else str(event.get("date", ""))
-	var mileage_text := "пробег неизвестен" if bool(event.get("mileage_unknown", false)) else "%s км" % _format_int(int(event.get("mileage", 0)))
-	return "Последняя запись: %s · %s" % [date_text, mileage_text]
+	if history_provider.is_valid():
+		return str(history_provider.call(part_id))
+	return "История детали доступна через карточку истории."
 
-func _format_int(value: int) -> String:
-	var digits := str(absi(value))
-	var formatted := ""
-	while digits.length() > 3:
-		formatted = " " + digits.substr(digits.length() - 3, 3) + formatted
-		digits = digits.substr(0, digits.length() - 3)
-	return ("-" if value < 0 else "") + digits + formatted
+func set_history_provider(provider: Callable) -> void:
+	history_provider = provider
 
 func focus_part(part_id: String) -> void:
 	var part := PartCatalogService.get_part(part_id)

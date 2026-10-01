@@ -61,7 +61,12 @@ jobs:
       - name: Validate 3D catalog and view startup
         shell: bash
         run: |
-          godot --headless --path . --script tools/validate_3d_catalog.gd
+          validation_log=/tmp/yeti-garage-3d-validation.log
+          godot --headless --path . --script tools/validate_3d_catalog.gd 2>&1 | tee "$validation_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|ERROR: (Invalid call|Failed to load|Parse)' "$validation_log"; then
+            echo "The 3D catalog validation reported a script error."
+            exit 1
+          fi
 
       - name: Run scene startup smoke check
         shell: bash
