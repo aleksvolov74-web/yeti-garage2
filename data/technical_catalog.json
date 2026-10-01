@@ -3665,7 +3665,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Воздушный фильтр CBZB",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/air_filter/"
+                },
+                {
+                  "title": "Система смазки, фильтр и компоненты CBZB",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/summary_of_components/"
+                }
+              ]
             }
           }
         },
@@ -3697,7 +3707,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Система смазки двигателя CBZB",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/"
+                },
+                {
+                  "title": "Контур охлаждения CBZB",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/cooling_system/"
+                }
+              ]
             }
           }
         },
@@ -3728,7 +3748,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Зажигание CBZB — состав компонентов",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/ignition_system_summary_of_components/"
+                },
+                {
+                  "title": "Ременной привод навесного оборудования CBZB",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/v-ribbed_belt_drive/"
+                }
+              ]
             }
           }
         },
@@ -3759,7 +3789,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Передние тормоза Škoda Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_the_front_brake/"
+                },
+                {
+                  "title": "Задние тормоза Škoda Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/"
+                }
+              ]
             }
           }
         }

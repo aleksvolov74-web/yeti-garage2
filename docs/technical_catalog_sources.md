@@ -99,3 +99,7 @@ Added Yeti body-front/wing, front/rear door, tailgate/lock, mirror, wiper and wa
 ## Batch 13 — interior and occupant safety
 
 Added Yeti dash panel, front/rear seat, door trim, airbag and seat-belt service references. Brake pedal documents are linked as LHD/RHD alternatives rather than asserting a steering-side-specific installation from VIN alone. SRS references are informational and retain the manufacturer's safety warnings; no guessed airbag wiring/pinout or repair instructions have been added. Images are not embedded.
+
+## Batch 14 — maintenance references
+
+Completed the maintenance pass with CBZB-compatible Yeti references for air filtration, lubrication, cooling, ignition and the accessory V-ribbed belt, plus front/rear brake procedures. These links support component identification and service context; exact oil specification, service interval and consumable OEM selection must follow the car's verified market/build data and current owner/service documentation. No invented maintenance instructions or embedded images were added.
