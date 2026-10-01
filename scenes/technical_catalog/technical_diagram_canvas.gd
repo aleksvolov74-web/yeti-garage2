@@ -170,6 +170,6 @@ func _pick_marker(position: Vector2) -> void:
 
 func _clamp_pan() -> void:
 	var rect := _image_rect()
-	var limit := maxf(0.0, (rect.size - size) * 0.5)
+	var limit := Vector2(maxf(0.0, (rect.size.x - size.x) * 0.5), maxf(0.0, (rect.size.y - size.y) * 0.5))
 	_pan.x = clampf(_pan.x, -limit.x, limit.x)
 	_pan.y = clampf(_pan.y, -limit.y, limit.y)

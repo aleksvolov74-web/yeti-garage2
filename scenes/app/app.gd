@@ -1861,6 +1861,7 @@ func _save_diagnostic_result(title_text: String, result_text: String) -> void:
 func _build_3d_page() -> void:
     if mobile_technical_catalog:
         vehicle_3d_view = MobileTechnicalCatalogView.new()
+        vehicle_3d_view.set_vehicle_profile(VehicleService.vehicle())
     else:
         var desktop_view_script: Script = load("res://scenes/vehicle_3d/vehicle_3d_view.gd")
         vehicle_3d_view = desktop_view_script.new()

@@ -10,7 +10,6 @@ signal diagnostic_flow_requested(flow_id: String, title: String)
 const TechnicalCatalog = preload("res://services/technical_catalog_service.gd")
 const PartCatalog = preload("res://services/part_catalog_service.gd")
 const DiagramCanvasScript = preload("res://scenes/technical_catalog/technical_diagram_canvas.gd")
-const VehicleService = preload("res://services/vehicle_service.gd")
 
 const TEXT := Color("edf8fa")
 const MUTED := Color("8da4b1")
@@ -31,7 +30,6 @@ var _diagram: TechnicalDiagramCanvas
 var _vehicle: Dictionary = {}
 
 func _ready() -> void:
-	_vehicle = VehicleService.vehicle()
 	add_theme_constant_override("separation", 10)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_build_shell()
@@ -39,6 +37,11 @@ func _ready() -> void:
 
 func set_history_provider(provider: Callable) -> void:
 	history_provider = provider
+
+func set_vehicle_profile(vehicle: Dictionary) -> void:
+	_vehicle = vehicle.duplicate(true)
+	if _content != null:
+		_render()
 
 func _build_shell() -> void:
 	var heading := HBoxContainer.new()
@@ -407,7 +410,6 @@ func focus_part(part_id: String) -> void:
 	var part := PartCatalog.get_part(part_id)
 	if part.is_empty():
 		return
-	_vehicle = VehicleService.vehicle()
 	var location := TechnicalCatalog.find_part(part_id, _vehicle)
 	var section: Dictionary = location.get("section", {})
 	current_section_id = str(section.get("id", part.get("system", "")))
