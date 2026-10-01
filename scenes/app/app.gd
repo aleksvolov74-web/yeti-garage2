@@ -1,6 +1,6 @@
 extends Control
 
-# Yeti Garage 0.20.0 local: premium dashboard + rebuilt interactive 3D catalog.
+# Yeti Garage: premium dashboard and interactive 3D catalog.
 
 const MileageService = preload("res://services/mileage_service.gd")
 const ServiceHistoryService = preload("res://services/service_history_service.gd")

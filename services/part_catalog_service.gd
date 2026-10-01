@@ -23,6 +23,70 @@ const SYSTEMS := {
     "wipers_glass": {"name":"Стекло и очистители", "parts":["wiper_motor_front", "wiper_linkage", "wiper_blades_front", "wiper_motor_rear", "washer_pump", "washer_reservoir", "rain_sensor"]},
 }
 
+# Подсистемы каталога. Остальные позиции автоматически попадают в общий
+# логический узел системы, поэтому ни одна из 140 деталей не теряется.
+const ASSEMBLY_GROUPS := {
+	"brakes": [
+		{"id":"front_left_brake", "name":"Левый передний тормозной механизм", "parts":["wheel", "brake_disc", "brake_caliper", "brake_pads", "brake_hose", "hub", "wheel_bearing"]},
+		{"id":"brake_hydraulics", "name":"Гидравлика и ABS", "parts":["brake_master_cylinder", "abs_unit", "brake_booster", "brake_fluid_reservoir", "abs_wheel_sensor_fl", "abs_wheel_sensor_fr", "abs_wheel_sensor_rl", "abs_wheel_sensor_rr"]}
+	],
+	"suspension": [
+		{"id":"front_left_suspension", "name":"Левая передняя подвеска", "parts":["strut", "spring", "control_arm", "ball_joint", "stabilizer_link", "strut_mount", "suspension_bushings"]},
+		{"id":"front_axle_suspension", "name":"Передняя ось", "parts":["subframe", "anti_roll_bar"]},
+		{"id":"wheels", "name":"Колёса", "parts":["wheel"]}
+	],
+	"drive": [
+		{"id":"front_left_drive", "name":"Передний левый привод", "parts":["drive_shaft", "cv_joint_inner", "cv_joint_outer", "hub", "wheel_bearing", "outer_cv_boot", "inner_cv_boot"]}
+	],
+	"steering": [
+		{"id":"steering_rack_assembly", "name":"Рулевая рейка и тяги", "parts":["steering_rack", "steering_tie_rod", "tie_rod_end"]},
+		{"id":"steering_column_assembly", "name":"Рулевая колонка", "parts":["steering_column", "power_steering_motor", "steering_wheel", "steering_angle_sensor"]}
+	],
+	"engine": [
+		{"id":"engine_long_block", "name":"Блок и головка двигателя", "parts":["engine_block", "cylinder_head", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover"]},
+		{"id":"timing_assembly", "name":"Привод ГРМ", "parts":["timing_drive"]},
+		{"id":"lubrication", "name":"Система смазки", "parts":["oil_system", "oil_filter", "oil_pan"]},
+		{"id":"intake", "name":"Турбонаддув", "parts":["turbocharger", "engine_mount"]}
+	],
+	"cooling": [
+		{"id":"radiator_pack", "name":"Пакет радиаторов", "parts":["radiator", "cooling_fan"]},
+		{"id":"coolant_circuit", "name":"Контур охлаждения", "parts":["water_pump", "thermostat", "coolant_expansion_tank", "coolant_hoses", "coolant_temperature_sensor"]}
+	],
+	"transmission": [
+		{"id":"gearbox_clutch", "name":"Коробка и сцепление", "parts":["gearbox", "clutch", "flywheel", "transmission_mount", "differential"]},
+		{"id":"selector", "name":"Выбор передач", "parts":["selector_mechanism", "gear_selector_cables"]}
+	],
+	"interior": [
+		{"id":"dashboard", "name":"Передняя панель", "parts":["dashboard", "instrument_cluster", "infotainment", "glove_box", "pedal_assembly", "cabin_filter"]},
+		{"id":"seats", "name":"Сиденья", "parts":["driver_seat", "passenger_seat", "rear_seat"]},
+		{"id":"center_console", "name":"Центральная консоль", "parts":["center_console"]}
+	],
+	"climate": [
+		{"id":"hvac_box", "name":"Отопитель и вентиляция", "parts":["heater_core", "blower_motor", "climate_control_unit", "evaporator", "air_flap_actuators"]},
+		{"id":"ac_circuit", "name":"Контур кондиционера", "parts":["ac_compressor", "condenser", "receiver_drier"]}
+	],
+	"electrical": [
+		{"id":"engine_bay_electrical", "name":"Электрика моторного отсека", "parts":["battery", "alternator", "starter", "fuse_box", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
+		{"id":"cabin_electrical", "name":"Электрика салона", "parts":["body_control_module"]}
+	],
+	"body": [
+		{"id":"front_body", "name":"Передняя часть кузова", "parts":["front_bumper", "hood", "front_fender"]},
+		{"id":"doors", "name":"Двери", "parts":["front_left_door", "front_right_door", "rear_left_door", "rear_right_door"]},
+		{"id":"rear_body", "name":"Задняя часть кузова", "parts":["tailgate", "rear_window", "side_mirrors", "windshield", "roof_rails"]}
+	],
+	"lighting": [
+		{"id":"front_lighting", "name":"Передняя светотехника", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right"]},
+		{"id":"rear_lighting", "name":"Задняя светотехника", "parts":["tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights"]}
+	],
+	"wipers_glass": [
+		{"id":"front_wiper_system", "name":"Передние стеклоочистители", "parts":["wiper_motor_front", "wiper_linkage", "wiper_blades_front", "washer_pump", "washer_reservoir", "rain_sensor"]},
+		{"id":"rear_wiper_system", "name":"Задний стеклоочиститель", "parts":["wiper_motor_rear"]}
+	],
+	"safety": [
+		{"id":"passive_safety", "name":"Подушки и ремни", "parts":["driver_airbag", "passenger_airbag", "side_airbags", "seat_belts", "belt_pretensioners", "crash_sensors_front", "crash_sensors_side"]}
+	]
+}
+
 const PARTS := {
     "engine_block": {"name":"Блок двигателя", "group":"Двигатель", "system":"engine", "keywords":["блок двигателя"], "diagnostic_flow":"", "repair_guide":""},
     "cylinder_head": {"name":"Головка блока цилиндров", "group":"Двигатель", "system":"engine", "keywords":["головка блока цилиндров"], "diagnostic_flow":"", "repair_guide":""},
@@ -165,6 +229,35 @@ const PARTS := {
     "washer_reservoir": {"name":"Бачок омывателя", "group":"Стекло и очистители", "system":"wipers_glass", "keywords":["бачок омывателя", "бачок стеклоомывателя"], "diagnostic_flow":"", "repair_guide":""},
     "rain_sensor": {"name":"Датчик дождя", "group":"Стекло и очистители", "system":"wipers_glass", "keywords":["датчик дождя"], "diagnostic_flow":"", "repair_guide":""},
 }
+
+static func assemblies_for_system(system_id: String) -> Array[Dictionary]:
+	var system: Dictionary = SYSTEMS.get(system_id, {})
+	if system.is_empty():
+		return []
+	var result: Array[Dictionary] = []
+	var assigned: Dictionary = {}
+	for source_value in ASSEMBLY_GROUPS.get(system_id, []):
+		var source: Dictionary = source_value
+		var assembly := source.duplicate(true)
+		assembly["system"] = system_id
+		assembly["focus"] = Vector3(0.0, 1.0, 0.0)
+		assembly["distance"] = 6.5
+		result.append(assembly)
+		for part_id in assembly.get("parts", []):
+			assigned[str(part_id)] = true
+	var remaining: Array[String] = []
+	for part_id in system.get("parts", []):
+		if not assigned.has(str(part_id)):
+			remaining.append(str(part_id))
+	if not remaining.is_empty():
+		result.append({"id":system_id + "_components", "name":"Остальные компоненты", "system":system_id, "parts":remaining, "focus":Vector3(0.0, 1.0, 0.0), "distance":6.5})
+	return result
+
+static func all_assemblies() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for system_id in SYSTEMS.keys():
+		result.append_array(assemblies_for_system(str(system_id)))
+	return result
 
 static func all_systems() -> Array:
     var result: Array = []
