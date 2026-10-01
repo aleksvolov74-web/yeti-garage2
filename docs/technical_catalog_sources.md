@@ -95,3 +95,7 @@ Added Yeti component/service references for battery, starter, alternator, fuse/r
 ## Batch 12 — body, doors, mirrors and wipers
 
 Added Yeti body-front/wing, front/rear door, tailgate/lock, mirror, wiper and washer-system references. Glass itself remains reference-only where no direct, variant-appropriate source page was confirmed in this pass. No generic vehicle images or copied source images were introduced; body colour/trim and glazing options are still build-dependent.
+
+## Batch 13 — interior and occupant safety
+
+Added Yeti dash panel, front/rear seat, door trim, airbag and seat-belt service references. Brake pedal documents are linked as LHD/RHD alternatives rather than asserting a steering-side-specific installation from VIN alone. SRS references are informational and retain the manufacturer's safety warnings; no guessed airbag wiring/pinout or repair instructions have been added. Images are not embedded.

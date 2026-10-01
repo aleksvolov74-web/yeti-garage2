@@ -3371,7 +3371,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Приборная панель",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/trim_noise_insulation/dash_panel/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3403,7 +3409,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Тормозная педаль — левый руль",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/brake_pedal_vehicles_with_left-hand_drive/"
+                },
+                {
+                  "title": "Тормозная педаль — правый руль (альтернатива)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/brake_pedal_vehicles_with_right-hand_drive/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3436,7 +3452,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Передние сиденья",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/seat_frames/front_seats/"
+                },
+                {
+                  "title": "Задние сиденья",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/seat_frames/rear_seats/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3468,7 +3494,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Дверная обивка",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/trim_noise_insulation/door_trim/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3509,7 +3541,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Система подушек безопасности",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/passenger_protection/airbag/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3541,7 +3579,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Ремни безопасности",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/passenger_protection/seat_belts/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3573,7 +3617,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Система SRS и подушки безопасности",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/passenger_protection/airbag/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
