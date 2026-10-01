@@ -75,3 +75,7 @@ The steering-column, electro-mechanical rack, and tie-rod/linkage nodes now link
 ## Batch 7 — brakes
 
 Added direct Yeti front/rear brake repair and caliper procedures, plus front ABS component removal and brake-line references. These sources establish the architecture; disc diameter, caliper variant and PR-dependent hardware remain unresolved. No image is bundled and no image markers are added.
+
+## Batch 8 — rear suspension, FWD only
+
+The rear spring/damper source and anti-roll-bar reference are explicitly for Yeti front-wheel-drive. The catalog keeps the CW22/2010 FWD branch and does not attach any 4×4 rear-axle source. The carrier overview includes FWD layout; exact date/configuration and PR-specific spring rate remain unresolved. No image is bundled.

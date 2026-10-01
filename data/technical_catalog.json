@@ -1779,7 +1779,13 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Задняя ось — передний привод",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
+                }
+              ]
             }
           },
           "requires_drivetrain": "FWD",
@@ -1815,7 +1821,17 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Состав рычагов и carrier — FWD Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_assembly_carrier_suspension_arm_track_rod_for_rear_axle_vehicle_level_sensor_-g76-_(vehicles_with_fron/"
+                },
+                {
+                  "title": "Задняя ось — FWD",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
+                }
+              ]
             }
           },
           "requires_drivetrain": "FWD",
@@ -1849,7 +1865,13 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Пружины и амортизаторы — FWD Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_shock_absorber_helical_spring_(vehicles_with_front-wheel_drive)/"
+                }
+              ]
             }
           },
           "requires_drivetrain": "FWD",
@@ -1884,7 +1906,13 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Задняя ось — FWD Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
+                }
+              ]
             }
           },
           "requires_drivetrain": "FWD",
