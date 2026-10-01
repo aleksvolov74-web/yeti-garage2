@@ -1950,6 +1950,52 @@ func _open_global_search() -> void:
     results.add_theme_constant_override("separation", 8)
     scroll.add_child(results)
 
+    # Let pointer events reach ScrollContainer from every result surface. Rows
+    # remain visually identical; a short release opens a row, while a drag stays
+    # with the native scroll gesture recognizer.
+    var pointer_state := {"active": false, "dragged": false, "distance": 0.0, "last_activation_ms": -1000}
+    var activate_result := func(position: Vector2):
+        var now_ms := Time.get_ticks_msec()
+        if now_ms - int(pointer_state["last_activation_ms"]) < 220:
+            return
+        pointer_state["last_activation_ms"] = now_ms
+        _activate_global_search_result_at(results, position)
+    scroll.gui_input.connect(func(event: InputEvent):
+        if event is InputEventScreenTouch:
+            var touch := event as InputEventScreenTouch
+            if touch.pressed:
+                pointer_state["active"] = true
+                pointer_state["dragged"] = false
+                pointer_state["distance"] = 0.0
+            elif bool(pointer_state["active"]):
+                var tap_position: Vector2 = touch.position
+                if not bool(pointer_state["dragged"]):
+                    activate_result.call(tap_position)
+                pointer_state["active"] = false
+        elif event is InputEventScreenDrag and bool(pointer_state["active"]):
+            var drag := event as InputEventScreenDrag
+            pointer_state["distance"] = float(pointer_state["distance"]) + drag.relative.length()
+            if float(pointer_state["distance"]) >= 12.0:
+                pointer_state["dragged"] = true
+                field.release_focus()
+        elif event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT:
+            var mouse_button := event as InputEventMouseButton
+            if mouse_button.pressed:
+                pointer_state["active"] = true
+                pointer_state["dragged"] = false
+                pointer_state["distance"] = 0.0
+            elif bool(pointer_state["active"]):
+                if not bool(pointer_state["dragged"]):
+                    activate_result.call(mouse_button.position)
+                pointer_state["active"] = false
+        elif event is InputEventMouseMotion and bool(pointer_state["active"]) and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+            var motion := event as InputEventMouseMotion
+            pointer_state["distance"] = float(pointer_state["distance"]) + motion.relative.length()
+            if float(pointer_state["distance"]) >= 12.0:
+                pointer_state["dragged"] = true
+                field.release_focus()
+    )
+
     # Full manual search scans a few megabytes of local text. Debounce typing so
     # Android does not rescan the index on every key press.
     var search_timer := Timer.new()
@@ -1963,9 +2009,11 @@ func _open_global_search() -> void:
     )
     search_timer.timeout.connect(func():
         _render_global_search_results(results, str(pending_query.get("value", "")), popup)
+        _set_search_results_mouse_ignored(results)
     )
     _render_global_search_results(results, "", popup)
     _apply_touch_targets(popup)
+    _set_search_results_mouse_ignored(results)
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     var search_popup_size := _mobile_dialog_size(Vector2i(400, 700))
     popup.popup_centered_clamped(search_popup_size, 0.96)
@@ -2001,10 +2049,13 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
                 break
             var row: Dictionary = row_value
             var button := Button.new()
+            button.mouse_filter = Control.MOUSE_FILTER_IGNORE
             button.text = "%s • %s" % [str(row.get("name", "Деталь")), str(row.get("group", ""))]
             button.custom_minimum_size.y = 48
             button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-            button.pressed.connect(_open_part_from_search.bind(str(row.get("id", "")), dialog))
+            var action := _open_part_from_search.bind(str(row.get("id", "")), dialog)
+            button.set_meta("search_action", action)
+            button.pressed.connect(action)
             results.add_child(button)
             part_count += 1
             total_shown += 1
@@ -2017,10 +2068,13 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
                 break
             var diag_row: Dictionary = scenario_value
             var diag_btn := Button.new()
+            diag_btn.mouse_filter = Control.MOUSE_FILTER_IGNORE
             diag_btn.text = str(diag_row.get("title", "Диагностика"))
             diag_btn.custom_minimum_size.y = 48
             diag_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-            diag_btn.pressed.connect(_open_diagnostic_from_search.bind(str(diag_row.get("id", "")), dialog))
+            var diagnostic_action := _open_diagnostic_from_search.bind(str(diag_row.get("id", "")), dialog)
+            diag_btn.set_meta("search_action", diagnostic_action)
+            diag_btn.pressed.connect(diagnostic_action)
             results.add_child(diag_btn)
             diag_count += 1
             total_shown += 1
@@ -2041,6 +2095,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
 
 func _add_search_section_label(results: VBoxContainer, text_value: String) -> void:
     var label := Label.new()
+    label.mouse_filter = Control.MOUSE_FILTER_IGNORE
     label.text = text_value
     label.add_theme_font_size_override("font_size", 12)
     label.add_theme_color_override("font_color", Color("67dce0"))
@@ -2051,6 +2106,7 @@ func _add_search_section_label(results: VBoxContainer, text_value: String) -> vo
 func _add_manual_search_result(results: VBoxContainer, row: Dictionary, dialog: Window) -> void:
     var page := int(row.get("page", 1))
     var card := Panel.new()
+    card.mouse_filter = Control.MOUSE_FILTER_IGNORE
     card.custom_minimum_size.y = 126
     card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     card.add_theme_stylebox_override("panel", _style_box(Color("071d27ed"), 16, Color("1d5862"), 1, Color("00dfe81a"), 2))
@@ -2117,13 +2173,34 @@ func _add_manual_search_result(results: VBoxContainer, row: Dictionary, dialog: 
                 box.add_child(figure_hint)
 
     var click := Button.new()
+    click.mouse_filter = Control.MOUSE_FILTER_IGNORE
     click.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     click.focus_mode = Control.FOCUS_NONE
     click.add_theme_stylebox_override("normal", _style_box(Color("00000000"), 16))
     click.add_theme_stylebox_override("hover", _style_box(Color("0a657024"), 16, Color("4beef044"), 1))
     click.add_theme_stylebox_override("pressed", _style_box(Color("0b596238"), 16, Color("4beef077"), 1))
-    click.pressed.connect(_open_manual_page_from_search.bind(page, dialog))
+    var manual_action := _open_manual_page_from_search.bind(page, dialog)
+    card.set_meta("search_action", manual_action)
+    click.pressed.connect(manual_action)
     card.add_child(click)
+
+func _activate_global_search_result_at(results: VBoxContainer, position: Vector2) -> void:
+    for child_value in results.get_children():
+        if not (child_value is Control):
+            continue
+        var row := child_value as Control
+        if not row.has_meta("search_action") or not row.get_global_rect().has_point(position):
+            continue
+        var action: Callable = row.get_meta("search_action")
+        if action.is_valid():
+            action.call()
+        return
+
+func _set_search_results_mouse_ignored(node: Node) -> void:
+    if node is Control:
+        (node as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
+    for child in node.get_children():
+        _set_search_results_mouse_ignored(child)
 
 func _open_manual_page_from_search(page: int, dialog: Window) -> void:
     dialog.hide()
