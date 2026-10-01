@@ -48,7 +48,12 @@ jobs:
       - name: Run scene startup smoke check
         shell: bash
         run: |
-          godot --headless --path . --quit-after 60
+          runtime_smoke_log=/tmp/yeti-garage-runtime-smoke.log
+          godot --headless --path . --quit-after 60 2>&1 | tee "$runtime_smoke_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$runtime_smoke_log"; then
+            echo "Godot scene startup reported a script error."
+            exit 1
+          fi
 
       - name: Build APK
         shell: bash

@@ -373,7 +373,7 @@ func _build_vehicle_context() -> void:
     _add_vehicle_box(Vector3(0.10, 0.78, 2.02), Vector3(1.18, 2.03, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, 17.0))
     _add_vehicle_box(Vector3(0.10, 0.76, 2.02), Vector3(-2.03, 2.02, 0.0), glass_color, 0.08, Vector3(0.0, 0.0, -13.0))
     for side in [-1.0, 1.0]:
-        var side_z := side * 1.105
+        var side_z: float = float(side) * 1.105
         _add_vehicle_box(Vector3(1.08, 0.72, 0.075), Vector3(0.25, 2.02, side_z), glass_color, 0.08)
         _add_vehicle_box(Vector3(1.02, 0.72, 0.075), Vector3(-1.12, 2.02, side_z), glass_color, 0.08)
         _add_vehicle_box(Vector3(0.11, 1.02, 0.10), Vector3(0.91, 1.99, side * 1.06), Color("35434b"))
@@ -439,7 +439,7 @@ func _add_vehicle_wheel(pos: Vector3) -> void:
     vehicle_meshes.append({"mesh":rim_mesh, "color":Color("82919a"), "emission":0.0})
 
     for side in [-1.0, 1.0]:
-        var face_z := pos.z + side * 0.21
+        var face_z: float = pos.z + float(side) * 0.21
         for spoke_index in range(5):
             var angle := TAU * float(spoke_index) / 5.0
             var spoke_pos := Vector3(pos.x + cos(angle) * 0.18, pos.y + sin(angle) * 0.18, face_z)
