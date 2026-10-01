@@ -1,0 +1,33 @@
+; Yeti Garage MVP
+; Godot 4.x project
+config_version=5
+
+[application]
+config/name="Yeti Garage"
+config/unique_name="yeti_garage"
+config/version="0.20.0-local-3d"
+config/icon="res://assets/icons/app_icon_512.png"
+run/main_scene="res://scenes/app/app.tscn"
+config/features=PackedStringArray("4.7")
+
+[debug]
+gdscript/warnings/inference_on_variant=0
+
+[display]
+window/size/viewport_width=430
+window/size/viewport_height=932
+window/size/window_width_override=430
+window/size/window_height_override=932
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[autoload]
+Storage="*res://autoload/storage.gd"
+AppState="*res://autoload/app_state.gd"
+Notifications="*res://autoload/notifications.gd"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.055, 0.065, 0.08, 1)
