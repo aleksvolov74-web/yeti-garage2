@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 181:
-		failures.append("expected 181 parts after importing front suspension details, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 191:
+		failures.append("expected 191 parts after CBZB/DQ200 batch integration, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -115,16 +115,27 @@ func _run_checks() -> void:
 			for part_id in node.get("part_ids", []):
 				if not PartCatalogService.PARTS.has(str(part_id)):
 					failures.append("technical node %s refers to missing part %s" % [str(node.get("id", "")), str(part_id)])
-	if all_catalog_nodes != 89:
-		failures.append("expected 89 recursive technical nodes in the full catalog, found %d" % all_catalog_nodes)
-	if recursive_nodes != 85:
-		failures.append("expected 85 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
+	if all_catalog_nodes != 90:
+		failures.append("expected 90 recursive technical nodes in the full catalog, found %d" % all_catalog_nodes)
+	if recursive_nodes != 86:
+		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	var node_by_id: Dictionary = {}
 	for section_value in TechnicalCatalogService.sections(vehicle_profile):
 		var section: Dictionary = section_value
 		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
 			var node: Dictionary = node_value
 			node_by_id[str(node.get("id", ""))] = node
+	var dsg6_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 6", "transmission_family":"02E / DQ250"}
+	for part_id in ["gearbox_housing", "dsg_mechatronics", "dsg_mechatronics_connector", "dsg_mechatronics_actuators", "clutch_k1", "clutch_k2", "clutch_engagement_levers", "gearbox_selector_lever", "selector_cable_support"]:
+		if TechnicalCatalogService.find_part(part_id, dsg6_profile).is_empty():
+			continue
+		failures.append("DQ200-only part %s leaked into the DSG6 profile" % part_id)
+	for part_id in ["oil_pump_drive", "gearbox_housing", "dsg_mechatronics", "dsg_mechatronics_connector", "dsg_mechatronics_actuators", "clutch_k1", "clutch_k2", "clutch_engagement_levers", "gearbox_selector_lever", "selector_cable_support"]:
+		if PartCatalogService.get_part(part_id).is_empty():
+			failures.append("new technical-catalog part %s is missing from searchable part catalog" % part_id)
+		elif PartCatalogService.search(str(PartCatalogService.get_part(part_id).get("name", ""))).is_empty():
+			failures.append("new technical-catalog part %s is not returned by part search" % part_id)
+
 	if "mass_air_flow_sensor" in node_by_id.get("fuel_sensors", {}).get("part_ids", []):
 		failures.append("fuel sensor node incorrectly treats the mass-air-flow sensor as a fuel sensor")
 	if "front_fender" in node_by_id.get("body_protection", {}).get("part_ids", []):
@@ -192,8 +203,16 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left"},
 		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing"},
 		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle"},
-		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper"}
+		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper"},
+		"timing_chain": {"section":"timing", "count":3, "tap_part":"timing_chain"},
+		"timing_gears": {"section":"timing", "count":2, "tap_part":"timing_sprockets"},
+		"oil_pump_circuit": {"section":"lubrication", "count":3, "tap_part":"oil_pump_drive"},
+		"gearbox_group": {"section":"transmission", "count":5, "tap_part":"gearbox_housing"},
+		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1"},
+		"dsg_mechatronics": {"section":"transmission", "count":3, "tap_part":"dsg_mechatronics_connector"},
+		"gear_selector": {"section":"transmission", "count":4, "tap_part":"selector_cable_support"}
 	}
+	var cbzb_dq200_marker_total := 0
 	for node_id_value in expected:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
@@ -204,23 +223,24 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		await process_frame
 		var canvas = view.get("_diagram")
 		if canvas == null:
-			failures.append("front suspension node %s did not create an image viewer" % node_id)
+			failures.append("technical diagram node %s did not create an image viewer" % node_id)
 			continue
 		if canvas.texture == null or canvas.markers.size() != int(expected_row["count"]):
-			failures.append("front suspension node %s image/marker count mismatch" % node_id)
+			failures.append("technical diagram node %s image/marker count mismatch" % node_id)
 			continue
+		cbzb_dq200_marker_total += canvas.markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
 		for marker_value in canvas.markers:
 			var marker: Dictionary = marker_value
 			if not PartCatalogService.PARTS.has(str(marker.get("part_id", ""))):
-				failures.append("front suspension node %s has an unknown marker part %s" % [node_id, str(marker.get("part_id", ""))])
+				failures.append("technical diagram node %s has an unknown marker part %s" % [node_id, str(marker.get("part_id", ""))])
 			if float(marker.get("x", -1.0)) < 0.0 or float(marker.get("x", 2.0)) > 1.0 or float(marker.get("y", -1.0)) < 0.0 or float(marker.get("y", 2.0)) > 1.0:
-				failures.append("front suspension node %s has an out-of-range marker" % node_id)
+				failures.append("technical diagram node %s has an out-of-range marker" % node_id)
 		view.call("_toggle_markers")
 		if canvas.markers_visible:
-			failures.append("front suspension node %s could not hide its markers" % node_id)
+			failures.append("technical diagram node %s could not hide its markers" % node_id)
 		view.call("_toggle_markers")
 		if not canvas.markers_visible:
-			failures.append("front suspension node %s could not show its markers again" % node_id)
+			failures.append("technical diagram node %s could not show its markers again" % node_id)
 		canvas.size = Vector2(420.0, 320.0)
 		canvas.call("reset_view")
 		var touch_a := InputEventScreenTouch.new()
@@ -238,7 +258,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		pinch.position = Vector2(250.0, 120.0)
 		canvas.call("_gui_input", pinch)
 		if float(canvas.get("_zoom")) <= 1.0:
-			failures.append("front suspension node %s pinch zoom did not change scale" % node_id)
+			failures.append("technical diagram node %s pinch zoom did not change scale" % node_id)
 		var touch_release_a := InputEventScreenTouch.new()
 		touch_release_a.index = 0
 		touch_release_a.pressed = false
@@ -261,7 +281,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		pan_drag.position = Vector2(145.0, 135.0)
 		canvas.call("_gui_input", pan_drag)
 		if Vector2(canvas.get("_pan")).is_zero_approx():
-			failures.append("front suspension node %s pan did not move the zoomed image" % node_id)
+			failures.append("technical diagram node %s pan did not move the zoomed image" % node_id)
 		var pan_release := InputEventScreenTouch.new()
 		pan_release.index = 0
 		pan_release.pressed = false
@@ -274,10 +294,10 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		canvas.call("_pick_marker", point)
 		await process_frame
 		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
-			failures.append("front suspension node %s marker tap did not select its part" % node_id)
+			failures.append("technical diagram node %s marker tap did not select its part" % node_id)
 		var selected_canvas = view.get("_diagram")
 		if selected_canvas == null or str(selected_canvas.get("selected_part_id")) != str(marker.get("part_id", "")):
-			failures.append("front suspension node %s marker selection was not highlighted" % node_id)
+			failures.append("technical diagram node %s marker selection was not highlighted" % node_id)
 		var list_button: Button
 		for button_node in view.find_children("*", "Button", true, false):
 			var button := button_node as Button
@@ -285,20 +305,22 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 				list_button = button
 				break
 		if list_button == null:
-			failures.append("front suspension node %s has no tappable part-list row" % node_id)
+			failures.append("technical diagram node %s has no tappable part-list row" % node_id)
 		else:
 			list_button.pressed.emit()
 			await process_frame
 			if str(view.get("selected_part_id")) != str(expected_row["tap_part"]):
-				failures.append("front suspension node %s list tap did not select its part" % node_id)
+				failures.append("technical diagram node %s list tap did not select its part" % node_id)
 			var selected_after_list = view.get("_diagram")
 			if selected_after_list == null or str(selected_after_list.get("selected_part_id")) != str(expected_row["tap_part"]):
-				failures.append("front suspension node %s list selection did not highlight its marker" % node_id)
+				failures.append("technical diagram node %s list selection did not highlight its marker" % node_id)
 		view.set("selected_part_id", "")
 		view.call("_render")
 		await process_frame
 		if view.get("_diagram") == null or str(view.get("current_section_id")) != section_id:
-			failures.append("front suspension node %s did not return to its diagram in the catalog" % node_id)
+			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
+	if cbzb_dq200_marker_total != 25:
+		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
 	view.queue_free()
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:

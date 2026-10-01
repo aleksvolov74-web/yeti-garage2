@@ -340,16 +340,35 @@
             "timing_chain_guides"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/timing/timing_chain.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "timing_chain",
+                "x": 0.59,
+                "y": 0.49
+              },
+              {
+                "number": 2,
+                "part_id": "timing_chain_tensioner",
+                "x": 0.4,
+                "y": 0.38
+              },
+              {
+                "number": 3,
+                "part_id": "timing_chain_guides",
+                "x": 0.47,
+                "y": 0.43
+              }
+            ],
             "source": {
               "title": "Привод цепного ГРМ CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -359,7 +378,8 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "Статус и состав соответствуют предоставленному manifest; точный OEM-вариант этим изображением не устанавливается.",
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
@@ -374,16 +394,29 @@
             "timing_cover"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/timing/timing_gears.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "timing_sprockets",
+                "x": 0.51,
+                "y": 0.2
+              },
+              {
+                "number": 2,
+                "part_id": "timing_cover",
+                "x": 0.2,
+                "y": 0.49
+              }
+            ],
             "source": {
               "title": "Привод цепного ГРМ CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/camshaft_drive/camshaft_drive_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -393,7 +426,8 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "Статус и состав соответствуют предоставленному manifest; точный OEM-вариант этим изображением не устанавливается.",
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
@@ -717,19 +751,39 @@
           "name": "Масляный насос и магистрали",
           "part_ids": [
             "oil_pump",
+            "oil_pump_drive",
             "oil_pickup"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/engine/oil_pump_circuit.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "oil_pump",
+                "x": 0.39,
+                "y": 0.38
+              },
+              {
+                "number": 2,
+                "part_id": "oil_pump_drive",
+                "x": 0.63,
+                "y": 0.3
+              },
+              {
+                "number": 3,
+                "part_id": "oil_pickup",
+                "x": 0.49,
+                "y": 0.75
+              }
+            ],
             "source": {
               "title": "Система смазки CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -739,7 +793,8 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "Статус и состав соответствуют предоставленному manifest; точный OEM-вариант этим изображением не устанавливается.",
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
@@ -951,19 +1006,53 @@
           "part_ids": [
             "flywheel",
             "dsg_dual_clutch",
+            "clutch_k1",
+            "clutch_k2",
+            "clutch_engagement_levers",
             "clutch"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/dsg/clutch_group.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "flywheel",
+                "x": 0.16,
+                "y": 0.33
+              },
+              {
+                "number": 2,
+                "part_id": "dsg_dual_clutch",
+                "x": 0.42,
+                "y": 0.36
+              },
+              {
+                "number": 3,
+                "part_id": "clutch_k1",
+                "x": 0.35,
+                "y": 0.38
+              },
+              {
+                "number": 4,
+                "part_id": "clutch_k2",
+                "x": 0.5,
+                "y": 0.38
+              },
+              {
+                "number": 5,
+                "part_id": "clutch_engagement_levers",
+                "x": 0.67,
+                "y": 0.5
+              }
+            ],
             "source": {
               "title": "DSG 0AM / DQ200 — Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(as_of_06.11)/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -974,7 +1063,7 @@
                 "engine_code": "ANY",
                 "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK.",
+              "verification_note": "Статус и состав соответствуют предоставленному manifest; точный OEM-вариант этим изображением не устанавливается.",
               "related_references": [
                 {
                   "title": "Сцепление 0AM до 06.11",
@@ -984,13 +1073,14 @@
                   "title": "Сцепление 0AM с 06.11",
                   "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(as_of_06.11)/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_transmission_families": [
             "0AM"
           ],
-          "variant_note": "Сервисный каталог разделяет двойное сцепление до/с 06.11. Точная дата выпуска неизвестна, поэтому показаны оба источника без выбора OEM-варианта.",
+          "variant_note": "Точная ревизия двойного сцепления зависит от даты производства и кода КПП",
           "variant_options": [
             {
               "id": "clutch_pre_2011_06",
@@ -1006,25 +1096,58 @@
           "id": "gearbox_group",
           "name": "Коробка передач и дифференциал",
           "part_ids": [
-            "gearbox",
-            "dsg_mechatronic",
+            "gearbox_housing",
             "dsg_input_shafts",
             "dsg_output_shafts",
-            "dsg_sensors",
             "differential",
+            "dsg_mechatronics",
+            "gearbox",
+            "dsg_mechatronic",
+            "dsg_sensors",
             "transmission_mount"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/dsg/gearbox_group.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "gearbox_housing",
+                "x": 0.14,
+                "y": 0.31
+              },
+              {
+                "number": 2,
+                "part_id": "dsg_input_shafts",
+                "x": 0.42,
+                "y": 0.32
+              },
+              {
+                "number": 3,
+                "part_id": "dsg_output_shafts",
+                "x": 0.54,
+                "y": 0.5
+              },
+              {
+                "number": 4,
+                "part_id": "differential",
+                "x": 0.37,
+                "y": 0.7
+              },
+              {
+                "number": 5,
+                "part_id": "dsg_mechatronics",
+                "x": 0.8,
+                "y": 0.44
+              }
+            ],
             "source": {
               "title": "DSG 0AM / DQ200 — Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -1035,7 +1158,7 @@
                 "engine_code": "ANY",
                 "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK.",
+              "verification_note": "Справочная визуализация. Не подтверждает точную геометрию конкретного кода КПП.",
               "related_references": [
                 {
                   "title": "Валы и шестерни 0AM",
@@ -1053,13 +1176,14 @@
                   "title": "Снятие коробки DSG 0AM",
                   "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./removing_and_installing_the_gearbox/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_transmission_families": [
             "0AM"
           ],
-          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
+          "variant_note": "REFERENCE_ONLY: изображение показывает основные элементы коробки семейства 0AM/DQ200 и не подтверждает геометрию конкретного кода 0AM."
         },
         {
           "id": "gear_selector",
@@ -1067,19 +1191,46 @@
           "part_ids": [
             "selector_mechanism",
             "gear_selector_cables",
+            "gearbox_selector_lever",
+            "selector_cable_support",
             "dsg_selector_module"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/dsg/gear_selector.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "selector_mechanism",
+                "x": 0.23,
+                "y": 0.4
+              },
+              {
+                "number": 2,
+                "part_id": "gear_selector_cables",
+                "x": 0.6,
+                "y": 0.27
+              },
+              {
+                "number": 3,
+                "part_id": "gearbox_selector_lever",
+                "x": 0.73,
+                "y": 0.69
+              },
+              {
+                "number": 4,
+                "part_id": "selector_cable_support",
+                "x": 0.58,
+                "y": 0.44
+              }
+            ],
             "source": {
               "title": "DSG 0AM / DQ200 — Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./shift_mechanism/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -1090,13 +1241,90 @@
                 "engine_code": "ANY",
                 "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK."
+              "verification_note": "Статус и состав соответствуют предоставленному manifest; точный OEM-вариант этим изображением не устанавливается.",
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
             }
           },
           "requires_transmission_families": [
             "0AM"
           ],
-          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
+          "variant_note": "Для семейства 0AM/DQ200 в этой схеме показан один трос выбора передач."
+        },
+        {
+          "id": "dsg_mechatronics",
+          "name": "Мехатроник DSG 0AM / DQ200",
+          "summary": "Электрогидравлический блок управления коробкой семейства 0AM/DQ200. Изображение служит справочным материалом и не подтверждает точную геометрию J743 для данного экземпляра.",
+          "part_ids": [
+            "dsg_mechatronics",
+            "dsg_mechatronics_connector",
+            "dsg_mechatronics_actuators"
+          ],
+          "requires_transmission_families": [
+            "0AM"
+          ],
+          "variant_note": "Изображение справочное; точная геометрия J743 и исполнение блока не подтверждены.",
+          "diagram": {
+            "status": "verified",
+            "image": "res://assets/technical_catalog/dsg/dsg_mechatronics.webp",
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "dsg_mechatronics",
+                "x": 0.52,
+                "y": 0.44
+              },
+              {
+                "number": 2,
+                "part_id": "dsg_mechatronics_connector",
+                "x": 0.51,
+                "y": 0.12
+              },
+              {
+                "number": 3,
+                "part_id": "dsg_mechatronics_actuators",
+                "x": 0.48,
+                "y": 0.4
+              }
+            ],
+            "source": {
+              "title": "Мехатроник DSG 0AM / DQ200 — справочная иллюстрация",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Права и условия распространения не указаны в пакете; происхождение зафиксировано в assets/technical_catalog/SOURCES_cbzb_dq200_batch.md.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY",
+                "transmission_family": "0AM / DQ200"
+              },
+              "verification_note": "Справочная визуализация. Не подтверждает точную геометрию конкретного кода КПП.",
+              "related_references": [
+                {
+                  "title": "Валы и шестерни 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearboxmechanicsgearsshaftsinternal_operation/pinions_and_shafts/"
+                },
+                {
+                  "title": "Мехатроник J743",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./mechatronics_for_double_clutch_gearboxj743/"
+                },
+                {
+                  "title": "Электронные компоненты DSG 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./electric/electronic_components_and_fitting_locations_of_the_automatic_gearbox_dsg_0am/"
+                },
+                {
+                  "title": "Снятие коробки DSG 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./removing_and_installing_the_gearbox/"
+                }
+              ],
+              "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
+            }
+          }
         }
       ]
     },

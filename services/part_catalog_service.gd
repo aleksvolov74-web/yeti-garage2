@@ -5,11 +5,11 @@ extends RefCounted
 # Точные процедуры ремонта добавляются только после проверки источника.
 
 const SYSTEMS := {
-    "engine": {"name":"Двигатель", "parts":["engine_block", "cylinder_head", "timing_drive", "turbocharger", "engine_mount", "oil_system", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover", "oil_filter", "oil_pan", "accessory_belt_drive", "timing_chain", "timing_chain_tensioner", "timing_chain_guides", "timing_sprockets", "timing_cover", "oil_pump", "oil_pickup"]},
+    "engine": {"name":"Двигатель", "parts":["engine_block", "cylinder_head", "timing_drive", "turbocharger", "engine_mount", "oil_system", "crankshaft", "piston_group", "connecting_rods", "camshafts", "valve_cover", "oil_filter", "oil_pan", "accessory_belt_drive", "timing_chain", "timing_chain_tensioner", "timing_chain_guides", "timing_sprockets", "timing_cover", "oil_pump", "oil_pump_drive", "oil_pickup"]},
     "cooling": {"name":"Охлаждение", "parts":["radiator", "water_pump", "thermostat", "cooling_fan", "coolant_expansion_tank", "coolant_hoses", "coolant_temperature_sensor"]},
     "fuel_intake": {"name":"Топливо и впуск", "parts":["fuel_pump", "fuel_filter", "injectors", "throttle_body", "intake_manifold", "air_filter", "mass_air_flow_sensor", "fuel_rail", "fuel_tank", "fuel_level_sender", "fuel_pressure_sensor", "high_pressure_fuel_pump"]},
     "exhaust": {"name":"Выпуск", "parts":["exhaust_manifold", "catalytic_converter", "oxygen_sensor", "rear_muffler", "front_exhaust_pipe", "exhaust_resonator"]},
-    "transmission": {"name":"Коробка передач", "parts":["gearbox", "clutch", "flywheel", "selector_mechanism", "transmission_mount", "differential", "gear_selector_cables", "dsg_dual_clutch", "dsg_mechatronic", "dsg_input_shafts", "dsg_output_shafts", "dsg_sensors", "dsg_selector_module", "haldex_coupling", "propshaft", "propshaft_center_bearing", "rear_drive_shaft_left", "rear_drive_shaft_right"]},
+    "transmission": {"name":"Коробка передач", "parts":["gearbox", "clutch", "flywheel", "selector_mechanism", "transmission_mount", "differential", "gear_selector_cables", "dsg_dual_clutch", "dsg_mechatronic", "dsg_input_shafts", "dsg_output_shafts", "dsg_sensors", "dsg_selector_module", "gearbox_housing", "dsg_mechatronics", "dsg_mechatronics_connector", "dsg_mechatronics_actuators", "clutch_k1", "clutch_k2", "clutch_engagement_levers", "gearbox_selector_lever", "selector_cable_support", "haldex_coupling", "propshaft", "propshaft_center_bearing", "rear_drive_shaft_left", "rear_drive_shaft_right"]},
     "drive": {"name":"Привод", "parts":["drive_shaft", "cv_joint_inner", "cv_joint_outer", "hub", "wheel_bearing", "outer_cv_boot", "inner_cv_boot"]},
     "suspension": {"name":"Подвеска", "parts":["strut", "spring", "control_arm", "control_arm_left", "control_arm_right", "ball_joint", "stabilizer_link", "wheel", "subframe", "anti_roll_bar", "strut_mount", "strut_bearing", "bump_stop", "strut_dust_boot", "suspension_bushings", "steering_knuckle", "front_stabilizer_bushings", "rear_suspension_arm", "rear_suspension_track_rod", "rear_shock_absorber", "rear_axle_carrier"]},
     "steering": {"name":"Рулевое", "parts":["steering_rack", "steering_tie_rod", "tie_rod_end", "steering_column", "power_steering_motor", "steering_wheel", "steering_angle_sensor"]},
@@ -55,8 +55,8 @@ const ASSEMBLY_GROUPS := {
         {"id":"coolant_circuit", "name":"Контур охлаждения", "parts":["water_pump", "thermostat", "coolant_expansion_tank", "coolant_hoses", "coolant_temperature_sensor"]}
     ],
     "transmission": [
-        {"id":"gearbox_clutch", "name":"Коробка и сцепление", "parts":["gearbox", "clutch", "flywheel", "transmission_mount", "differential"]},
-        {"id":"selector", "name":"Выбор передач", "parts":["selector_mechanism", "gear_selector_cables"]}
+        {"id":"gearbox_clutch", "name":"Коробка и сцепление", "parts":["gearbox", "gearbox_housing", "clutch", "flywheel", "dsg_dual_clutch", "clutch_k1", "clutch_k2", "clutch_engagement_levers", "transmission_mount", "differential", "dsg_input_shafts", "dsg_output_shafts", "dsg_sensors", "dsg_mechatronic", "dsg_mechatronics", "dsg_mechatronics_connector", "dsg_mechatronics_actuators"]},
+        {"id":"selector", "name":"Выбор передач", "parts":["selector_mechanism", "gear_selector_cables", "gearbox_selector_lever", "selector_cable_support", "dsg_selector_module"]}
     ],
     "interior": [
         {"id":"dashboard", "name":"Передняя панель", "parts":["dashboard", "instrument_cluster", "infotainment", "glove_box", "pedal_assembly", "cabin_filter"]},
@@ -90,6 +90,16 @@ const ASSEMBLY_GROUPS := {
 }
 
 const PARTS := {
+    "oil_pump_drive": {"name":"Цепной привод масляного насоса CBZB", "group":"Двигатель", "system":"engine", "keywords":["привод масляного насоса", "цепь масляного насоса"], "diagnostic_flow":"", "repair_guide":""},
+    "gearbox_housing": {"name":"Корпус коробки DSG 0AM", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["корпус коробки dsg", "корпус dq200"], "diagnostic_flow":"", "repair_guide":""},
+    "dsg_mechatronics": {"name":"Мехатроник DSG 0AM / DQ200", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["мехатроник dsg", "мехатроник dq200", "j743"], "diagnostic_flow":"", "repair_guide":""},
+    "dsg_mechatronics_connector": {"name":"Электрический разъём мехатроника DSG", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["разъём мехатроника", "разъем j743"], "diagnostic_flow":"", "repair_guide":""},
+    "dsg_mechatronics_actuators": {"name":"Исполнительные элементы мехатроника DSG", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["актуаторы мехатроника", "исполнительные элементы dsg"], "diagnostic_flow":"", "repair_guide":""},
+    "clutch_k1": {"name":"Сцепление K1 DSG 0AM", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["сцепление k1", "dq200 k1"], "diagnostic_flow":"", "repair_guide":""},
+    "clutch_k2": {"name":"Сцепление K2 DSG 0AM", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["сцепление k2", "dq200 k2"], "diagnostic_flow":"", "repair_guide":""},
+    "clutch_engagement_levers": {"name":"Рычаги включения двойного сцепления DSG", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["рычаги включения сцепления", "вилки сцепления dsg"], "diagnostic_flow":"", "repair_guide":""},
+    "gearbox_selector_lever": {"name":"Рычаг выбора передач на коробке DSG", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["рычаг выбора передач на коробке", "селектор dsg"], "diagnostic_flow":"", "repair_guide":""},
+    "selector_cable_support": {"name":"Опора троса выбора передач DSG", "group":"Коробка передач", "system":"transmission", "requires_transmission_families":["0AM"], "keywords":["опора троса селектора", "кронштейн троса dsg"], "diagnostic_flow":"", "repair_guide":""},
     "engine_block": {"name":"Блок двигателя", "group":"Двигатель", "system":"engine", "keywords":["блок двигателя"], "diagnostic_flow":"", "repair_guide":""},
     "cylinder_head": {"name":"Головка блока цилиндров", "group":"Двигатель", "system":"engine", "keywords":["головка блока цилиндров"], "diagnostic_flow":"", "repair_guide":""},
     "timing_drive": {"name":"Привод ГРМ", "group":"Двигатель", "system":"engine", "keywords":["привод грм"], "diagnostic_flow":"", "repair_guide":""},
@@ -174,7 +184,7 @@ const PARTS := {
     "front_exhaust_pipe": {"name":"Передняя часть выпуска", "group":"Выпуск", "system":"exhaust", "keywords":["передняя часть выпуска", "приёмная труба"], "diagnostic_flow":"", "repair_guide":""},
     "exhaust_resonator": {"name":"Резонатор", "group":"Выпуск", "system":"exhaust", "keywords":["резонатор"], "diagnostic_flow":"", "repair_guide":""},
     "differential": {"name":"Дифференциал", "group":"Коробка передач", "system":"transmission", "keywords":["дифференциал"], "diagnostic_flow":"", "repair_guide":""},
-    "gear_selector_cables": {"name":"Тросы выбора передач", "group":"Коробка передач", "system":"transmission", "keywords":["тросы выбора передач", "трос кулисы"], "diagnostic_flow":"", "repair_guide":""},
+    "gear_selector_cables": {"name":"Трос выбора передач DSG", "group":"Коробка передач", "system":"transmission", "keywords":["тросы выбора передач", "трос кулисы"], "diagnostic_flow":"", "repair_guide":""},
     "outer_cv_boot": {"name":"Наружный пыльник ШРУСа", "group":"Привод", "system":"drive", "keywords":["наружный пыльник шруса", "пыльник наружного шруса"], "diagnostic_flow":"turn_click", "repair_guide":""},
     "inner_cv_boot": {"name":"Внутренний пыльник ШРУСа", "group":"Привод", "system":"drive", "keywords":["внутренний пыльник шруса", "пыльник внутреннего шруса"], "diagnostic_flow":"", "repair_guide":""},
     "subframe": {"name":"Подрамник", "group":"Подвеска", "system":"suspension", "keywords":["подрамник"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
