@@ -543,19 +543,6 @@ func _open_official_manual(start_page: int = 0) -> void:
     close.pressed.connect(func(): popup.hide())
     title_row.add_child(close)
 
-    var subtitle := Label.new()
-    subtitle.text = "Текст + 177 оригинальных иллюстраций • работает офлайн"
-    subtitle.add_theme_font_size_override("font_size", 11)
-    subtitle.add_theme_color_override("font_color", Color("8fa7b3"))
-    root.add_child(subtitle)
-
-    var scope_note := Label.new()
-    scope_note.text = "Руководство описывает разные комплектации. Данные именно твоего автомобиля и его техническая документация имеют приоритет."
-    scope_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-    scope_note.add_theme_font_size_override("font_size", 10)
-    scope_note.add_theme_color_override("font_color", Color("6f8e99"))
-    root.add_child(scope_note)
-
     # The manual opens straight into a clean chapter list. While reading, this row
     # becomes a compact way back to chapters; there is no second/nested popup.
     var nav_row := HBoxContainer.new()
@@ -1155,7 +1142,8 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
         add_child(popup)
 
     var panel := PanelContainer.new()
-    panel.custom_minimum_size = Vector2(_mobile_dialog_content_width(390.0), 620)
+    panel.custom_minimum_size = Vector2(0, 0)
+    panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
     panel.add_theme_stylebox_override("panel", _style_box(Color("051018fb"), 22, Color("1b4a55"), 1, Color("00dfe825"), 3))
     popup.add_child(panel)
 
@@ -1234,7 +1222,22 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
     scroll.scroll_deadzone = 4
     scroll.follow_focus = false
     scroll.set_meta("preserve_scroll_modes", true)
-    scroll.custom_minimum_size.y = 430
+    var source_w := maxf(1.0, float(texture.get_width()))
+    var source_h := maxf(1.0, float(texture.get_height()))
+    var viewport_size := get_viewport_rect().size
+    var max_image_w := minf(340.0, maxf(180.0, viewport_size.x - 80.0))
+    var max_image_h := maxf(150.0, viewport_size.y * 0.48)
+    var image_ratio := source_w / source_h
+    var fit_size := Vector2(max_image_w, max_image_h)
+    if image_ratio > max_image_w / max_image_h:
+        fit_size.y = max_image_w / image_ratio
+    else:
+        fit_size.x = max_image_h * image_ratio
+    fit_size.x = minf(fit_size.x, source_w)
+    fit_size.y = minf(fit_size.y, source_h)
+    fit_size.x = maxf(1.0, fit_size.x)
+    fit_size.y = maxf(1.0, fit_size.y)
+    scroll.custom_minimum_size = fit_size
     root.add_child(scroll)
 
     var canvas := Control.new()
@@ -1248,11 +1251,9 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
     image_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
     canvas.add_child(image_rect)
 
-    var source_w := maxf(1.0, float(texture.get_width()))
-    var source_h := maxf(1.0, float(texture.get_height()))
-    var fit_w := maxf(280.0, _mobile_dialog_content_width(400.0) - 48.0)
-    var fit_h := fit_w * source_h / source_w
-    var zoom_state := {"value": 1.15}
+    var fit_w := fit_size.x
+    var fit_h := fit_size.y
+    var zoom_state := {"value": 1.0}
 
     var update_zoom := func():
         var zoom := clampf(float(zoom_state["value"]), 1.0, 5.0)
@@ -1319,7 +1320,9 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
 
     update_zoom.call()
     _apply_touch_targets(popup)
-    popup.popup_centered(_mobile_dialog_size(Vector2i(400, 760)))
+    var popup_width := mini(int(fit_w) + 48, int(get_viewport_rect().size.x) - 24)
+    var popup_height := int(fit_h) + 230
+    popup.popup_centered(_mobile_dialog_size(Vector2i(maxi(240, popup_width), popup_height)))
     popup.popup_hide.connect(func(): popup.queue_free())
 
 func _manual_first_figure_block(entry: Dictionary) -> Dictionary:
