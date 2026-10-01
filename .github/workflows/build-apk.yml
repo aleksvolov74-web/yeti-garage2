@@ -45,6 +45,11 @@ jobs:
         run: |
           godot --headless --path . --import
 
+      - name: Run scene startup smoke check
+        shell: bash
+        run: |
+          godot --headless --path . --quit-after 60
+
       - name: Build APK
         shell: bash
         run: |

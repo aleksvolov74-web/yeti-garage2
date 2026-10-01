@@ -306,6 +306,18 @@ func _build_3d() -> void:
     world_root = Node3D.new()
     subviewport.add_child(world_root)
 
+    # Make the viewport renderable before constructing any procedural meshes.
+    # A runtime error in one decorative part must not leave this viewport without
+    # a current camera and turn the whole 3D stage black.
+    camera = Camera3D.new()
+    camera.fov = 46.0
+    camera.near = 0.05
+    camera.far = 100.0
+    camera.position = Vector3(8.7, 4.0, 9.2)
+    world_root.add_child(camera)
+    camera.look_at(Vector3(0.0, 1.05, 0.0), Vector3.UP)
+    camera.make_current()
+
     var environment := WorldEnvironment.new()
     var env := Environment.new()
     env.background_mode = Environment.BG_COLOR
@@ -340,11 +352,6 @@ func _build_3d() -> void:
     _build_vehicle_context()
     _build_front_left_assembly()
     _build_system_marker()
-
-    camera = Camera3D.new()
-    camera.fov = 46.0
-    world_root.add_child(camera)
-    camera.make_current()
 
 func _build_vehicle_context() -> void:
     vehicle_root = Node3D.new()
@@ -466,6 +473,7 @@ func _build_front_left_assembly() -> void:
     assembly_root = Node3D.new()
     assembly_root.name = "FrontLeftAssembly"
     assembly_root.rotation_degrees = Vector3(-7, -20, 0)
+    assembly_root.visible = false
     world_root.add_child(assembly_root)
 
     _add_cylinder_part("wheel", 1.42, 0.52, Vector3(0.00, 0.35, 0.0), Vector3(0, 0, 90), Color("20262e"), Vector3(2.25, 0, 0))
@@ -561,20 +569,29 @@ func _add_spring_part(id: String, pos: Vector3, color: Color, explode_offset: Ve
     body.position = pos
     body.set_meta("part_id", id)
     assembly_root.add_child(body)
-    var main_mesh: MeshInstance3D
-    for ring_index in range(7):
-        var coil := TorusMesh.new()
-        coil.inner_radius = 0.29
-        coil.outer_radius = 0.39
-        coil.rings = 12
-        coil.ring_segments = 20
-        var ring := MeshInstance3D.new()
-        ring.mesh = coil
-        ring.position.y = -0.59 + float(ring_index) * 0.19
-        ring.material_override = _material(color)
-        body.add_child(ring)
-        if ring_index == 3:
-            main_mesh = ring
+    # Build a compact helical coil from low-poly spheres. This uses only the
+    # basic primitive meshes supported by Godot's Android Compatibility renderer.
+    var coil_mesh := SphereMesh.new()
+    coil_mesh.radius = 0.095
+    coil_mesh.height = 0.19
+    coil_mesh.radial_segments = 8
+    coil_mesh.rings = 4
+    var coil_material := _material(color)
+    var main_mesh: MeshInstance3D = null
+    for turn_index in range(6):
+        for segment_index in range(8):
+            var angle := TAU * float(segment_index) / 8.0
+            var bead := MeshInstance3D.new()
+            bead.mesh = coil_mesh
+            bead.position = Vector3(
+                cos(angle) * 0.34,
+                -0.57 + (float(turn_index) + float(segment_index) / 8.0) * 0.19,
+                sin(angle) * 0.34
+            )
+            bead.material_override = coil_material
+            body.add_child(bead)
+            if turn_index == 2 and segment_index == 0:
+                main_mesh = bead
     var shape := CylinderShape3D.new()
     shape.radius = 0.40
     shape.height = 1.35
