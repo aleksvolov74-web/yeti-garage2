@@ -1,0 +1,417 @@
+{
+  "batch": "rear_steering_abs_v1",
+  "vehicle_profile": {
+    "model": "Skoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "gearbox_family": "0AM/DQ200"
+  },
+  "nodes": [
+    {
+      "node_id": "rear_suspension_overview",
+      "image_path": "assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Yeti 5L FWD architecture after CW22/2010; no AWD driveline shown.",
+      "marker_count": 9,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "rear_subframe",
+          "x": 0.5,
+          "y": 0.53
+        },
+        {
+          "number": 2,
+          "part_key": "rear_upper_control_arm",
+          "x": 0.24,
+          "y": 0.58
+        },
+        {
+          "number": 3,
+          "part_key": "rear_lower_control_arm",
+          "x": 0.28,
+          "y": 0.73
+        },
+        {
+          "number": 4,
+          "part_key": "rear_trailing_arm",
+          "x": 0.69,
+          "y": 0.73
+        },
+        {
+          "number": 5,
+          "part_key": "rear_track_rod",
+          "x": 0.52,
+          "y": 0.66
+        },
+        {
+          "number": 6,
+          "part_id": "spring",
+          "x": 0.78,
+          "y": 0.26
+        },
+        {
+          "number": 7,
+          "part_key": "rear_shock_absorber",
+          "x": 0.88,
+          "y": 0.3
+        },
+        {
+          "number": 8,
+          "part_key": "rear_anti_roll_bar",
+          "x": 0.54,
+          "y": 0.3
+        },
+        {
+          "number": 9,
+          "part_key": "rear_hub_carrier",
+          "x": 0.84,
+          "y": 0.6
+        }
+      ]
+    },
+    {
+      "node_id": "rear_carrier",
+      "image_path": "assets/technical_catalog/rear_suspension/rear_carrier.webp",
+      "verification_status": "REFERENCE_ONLY",
+      "note": "Generated visual may not reproduce exact carrier/link geometry; retain REFERENCE_ONLY until manual visual comparison.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "rear_subframe",
+          "x": 0.5,
+          "y": 0.45
+        },
+        {
+          "number": 2,
+          "part_key": "rear_upper_control_arm",
+          "x": 0.25,
+          "y": 0.2
+        },
+        {
+          "number": 3,
+          "part_key": "rear_lower_control_arm",
+          "x": 0.28,
+          "y": 0.73
+        },
+        {
+          "number": 4,
+          "part_key": "rear_trailing_arm",
+          "x": 0.73,
+          "y": 0.73
+        },
+        {
+          "number": 5,
+          "part_key": "rear_track_rod",
+          "x": 0.75,
+          "y": 0.32
+        },
+        {
+          "number": 6,
+          "part_key": "rear_suspension_bushings",
+          "x": 0.5,
+          "y": 0.6
+        }
+      ]
+    },
+    {
+      "node_id": "rear_springs_dampers",
+      "image_path": "assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Architecture verified: rear coil spring and shock absorber are separate components.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "rear_spring_upper_seat",
+          "x": 0.38,
+          "y": 0.14
+        },
+        {
+          "number": 2,
+          "part_id": "spring",
+          "x": 0.42,
+          "y": 0.36
+        },
+        {
+          "number": 3,
+          "part_key": "rear_spring_lower_seat",
+          "x": 0.43,
+          "y": 0.57
+        },
+        {
+          "number": 4,
+          "part_key": "rear_shock_absorber",
+          "x": 0.67,
+          "y": 0.48
+        },
+        {
+          "number": 5,
+          "part_key": "rear_shock_upper_mount",
+          "x": 0.67,
+          "y": 0.16
+        },
+        {
+          "number": 6,
+          "part_key": "rear_shock_bump_stop",
+          "x": 0.67,
+          "y": 0.26
+        }
+      ]
+    },
+    {
+      "node_id": "rear_hub",
+      "image_path": "assets/technical_catalog/rear_suspension/rear_hub.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "FWD rear hub architecture; no driveshaft/CV joint. Exact PR-code brake variant not asserted.",
+      "marker_count": 7,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "rear_hub_carrier",
+          "x": 0.36,
+          "y": 0.45
+        },
+        {
+          "number": 2,
+          "part_id": "hub",
+          "x": 0.65,
+          "y": 0.48
+        },
+        {
+          "number": 3,
+          "part_id": "wheel_bearing",
+          "x": 0.58,
+          "y": 0.48
+        },
+        {
+          "number": 4,
+          "part_key": "rear_abs_encoder_ring",
+          "x": 0.61,
+          "y": 0.4
+        },
+        {
+          "number": 5,
+          "part_key": "rear_wheel_speed_sensor",
+          "x": 0.52,
+          "y": 0.21
+        },
+        {
+          "number": 6,
+          "part_id": "dust_shield",
+          "x": 0.78,
+          "y": 0.48
+        },
+        {
+          "number": 7,
+          "part_id": "brake_disc",
+          "x": 0.91,
+          "y": 0.48
+        }
+      ]
+    },
+    {
+      "node_id": "steering_rack",
+      "image_path": "assets/technical_catalog/steering/steering_rack.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Electromechanical steering rack architecture, LHD, 3rd generation; exact carrier variant not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "steering_rack",
+          "x": 0.48,
+          "y": 0.52
+        },
+        {
+          "number": 2,
+          "part_id": "power_steering_motor",
+          "x": 0.42,
+          "y": 0.62
+        },
+        {
+          "number": 3,
+          "part_key": "steering_input_shaft",
+          "x": 0.63,
+          "y": 0.24
+        },
+        {
+          "number": 4,
+          "part_id": "steering_tie_rod",
+          "x": 0.82,
+          "y": 0.56
+        },
+        {
+          "number": 5,
+          "part_id": "tie_rod_end",
+          "x": 0.93,
+          "y": 0.63
+        },
+        {
+          "number": 6,
+          "part_key": "steering_rack_boot",
+          "x": 0.73,
+          "y": 0.54
+        }
+      ]
+    },
+    {
+      "node_id": "steering_linkage",
+      "image_path": "assets/technical_catalog/steering/steering_linkage.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Tie rods, ends and rack boots; exact supplier geometry not asserted.",
+      "marker_count": 4,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "steering_tie_rod",
+          "x": 0.37,
+          "y": 0.55
+        },
+        {
+          "number": 2,
+          "part_id": "tie_rod_end",
+          "x": 0.13,
+          "y": 0.59
+        },
+        {
+          "number": 3,
+          "part_key": "steering_rack_boot",
+          "x": 0.28,
+          "y": 0.3
+        },
+        {
+          "number": 4,
+          "part_key": "tie_rod_lock_nut",
+          "x": 0.25,
+          "y": 0.53
+        }
+      ]
+    },
+    {
+      "node_id": "abs_esp_block",
+      "image_path": "assets/technical_catalog/brakes/abs_esp_block.webp",
+      "verification_status": "REFERENCE_ONLY",
+      "note": "Generic VAG/Yeti-period ABS hydraulic/control architecture; exact Mark/PR variant not asserted.",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "abs_unit",
+          "x": 0.42,
+          "y": 0.44
+        },
+        {
+          "number": 2,
+          "part_key": "abs_hydraulic_unit",
+          "x": 0.35,
+          "y": 0.45
+        },
+        {
+          "number": 3,
+          "part_key": "abs_control_unit",
+          "x": 0.62,
+          "y": 0.46
+        },
+        {
+          "number": 4,
+          "part_key": "abs_pump_motor",
+          "x": 0.41,
+          "y": 0.18
+        },
+        {
+          "number": 5,
+          "part_key": "abs_mounting_bracket",
+          "x": 0.8,
+          "y": 0.31
+        }
+      ]
+    },
+    {
+      "node_id": "brake_hydraulics",
+      "image_path": "assets/technical_catalog/brakes/brake_hydraulics.webp",
+      "verification_status": "REFERENCE_ONLY",
+      "note": "Architecture reference only; exact line routing and hydraulic variant not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "brake_fluid_reservoir",
+          "x": 0.22,
+          "y": 0.15
+        },
+        {
+          "number": 2,
+          "part_id": "brake_master_cylinder",
+          "x": 0.28,
+          "y": 0.31
+        },
+        {
+          "number": 3,
+          "part_id": "brake_booster",
+          "x": 0.51,
+          "y": 0.28
+        },
+        {
+          "number": 4,
+          "part_key": "brake_pushrod",
+          "x": 0.68,
+          "y": 0.25
+        },
+        {
+          "number": 5,
+          "part_key": "brake_lines",
+          "x": 0.48,
+          "y": 0.66
+        },
+        {
+          "number": 6,
+          "part_id": "abs_unit",
+          "x": 0.81,
+          "y": 0.64
+        }
+      ]
+    },
+    {
+      "node_id": "wheel_sensors",
+      "image_path": "assets/technical_catalog/brakes/wheel_sensors.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Wheel speed sensor plus hub/bearing encoder-ring architecture; exact front/rear part shape may differ.",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "wheel_speed_sensor",
+          "x": 0.59,
+          "y": 0.23
+        },
+        {
+          "number": 2,
+          "part_key": "wheel_speed_sensor_connector",
+          "x": 0.81,
+          "y": 0.13
+        },
+        {
+          "number": 3,
+          "part_id": "hub",
+          "x": 0.66,
+          "y": 0.52
+        },
+        {
+          "number": 4,
+          "part_key": "abs_encoder_ring",
+          "x": 0.6,
+          "y": 0.46
+        },
+        {
+          "number": 5,
+          "part_key": "wheel_bearing_housing",
+          "x": 0.31,
+          "y": 0.48
+        }
+      ]
+    }
+  ]
+}

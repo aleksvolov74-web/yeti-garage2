@@ -1,0 +1,423 @@
+{
+  "batch": "cbzb_air_fuel_cooling_exhaust_v1",
+  "vehicle_profile": {
+    "model": "Skoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "gearbox_family": "0AM/DQ200"
+  },
+  "nodes": [
+    {
+      "node_id": "air_path",
+      "image_path": "assets/technical_catalog/intake/air_path.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "CBZB architecture: water-cooled charge-air cooler integrated into intake manifold; no external air-to-air intercooler asserted.",
+      "marker_count": 7,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "air_filter",
+          "x": 0.18,
+          "y": 0.29
+        },
+        {
+          "number": 2,
+          "part_key": "air_filter_housing",
+          "x": 0.16,
+          "y": 0.18
+        },
+        {
+          "number": 3,
+          "part_id": "throttle_body",
+          "x": 0.55,
+          "y": 0.2
+        },
+        {
+          "number": 4,
+          "part_id": "intake_manifold",
+          "x": 0.7,
+          "y": 0.48
+        },
+        {
+          "number": 5,
+          "part_key": "charge_air_cooler",
+          "x": 0.67,
+          "y": 0.31
+        },
+        {
+          "number": 6,
+          "part_key": "intake_manifold_pressure_sensor",
+          "x": 0.66,
+          "y": 0.13
+        },
+        {
+          "number": 7,
+          "part_key": "charge_pressure_sensor",
+          "x": 0.84,
+          "y": 0.67
+        }
+      ]
+    },
+    {
+      "node_id": "boost_group",
+      "image_path": "assets/technical_catalog/intake/boost_group.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "turbocharger",
+          "x": 0.6,
+          "y": 0.43
+        },
+        {
+          "number": 2,
+          "part_id": "exhaust_manifold",
+          "x": 0.27,
+          "y": 0.43
+        },
+        {
+          "number": 3,
+          "part_key": "charge_pressure_regulator_v465",
+          "x": 0.45,
+          "y": 0.13
+        },
+        {
+          "number": 4,
+          "part_key": "turbo_oil_feed_line",
+          "x": 0.47,
+          "y": 0.74
+        },
+        {
+          "number": 5,
+          "part_key": "turbo_coolant_lines",
+          "x": 0.77,
+          "y": 0.65
+        },
+        {
+          "number": 6,
+          "part_key": "charge_air_pipe",
+          "x": 0.85,
+          "y": 0.25
+        }
+      ]
+    },
+    {
+      "node_id": "fuel_delivery",
+      "image_path": "assets/technical_catalog/fuel/fuel_delivery.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "CBZB direct-injection architecture: high-pressure pump, rail, G247 and four injectors.",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "high_pressure_fuel_pump",
+          "x": 0.27,
+          "y": 0.26
+        },
+        {
+          "number": 2,
+          "part_id": "fuel_rail",
+          "x": 0.64,
+          "y": 0.33
+        },
+        {
+          "number": 3,
+          "part_key": "fuel_pressure_sensor_g247",
+          "x": 0.68,
+          "y": 0.18
+        },
+        {
+          "number": 4,
+          "part_key": "fuel_pressure_control_valve_n276",
+          "x": 0.88,
+          "y": 0.27
+        },
+        {
+          "number": 5,
+          "part_id": "injectors",
+          "x": 0.63,
+          "y": 0.65
+        }
+      ]
+    },
+    {
+      "node_id": "fuel_storage",
+      "image_path": "assets/technical_catalog/fuel/fuel_storage.webp",
+      "verification_status": "REFERENCE_ONLY",
+      "note": "Yeti/FWD fuel-storage architecture reference only; exact tank and line routing for this VIN not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_key": "fuel_tank",
+          "x": 0.38,
+          "y": 0.48
+        },
+        {
+          "number": 2,
+          "part_id": "fuel_pump",
+          "x": 0.32,
+          "y": 0.19
+        },
+        {
+          "number": 3,
+          "part_key": "fuel_level_sensor",
+          "x": 0.35,
+          "y": 0.19
+        },
+        {
+          "number": 4,
+          "part_id": "fuel_filter",
+          "x": 0.65,
+          "y": 0.25
+        },
+        {
+          "number": 5,
+          "part_key": "evap_charcoal_canister",
+          "x": 0.82,
+          "y": 0.46
+        },
+        {
+          "number": 6,
+          "part_key": "fuel_tank_straps",
+          "x": 0.56,
+          "y": 0.79
+        }
+      ]
+    },
+    {
+      "node_id": "radiator_pack",
+      "image_path": "assets/technical_catalog/cooling/radiator_pack.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "CBZB/Yeti architecture with combined engine and low-temperature charge-air cooling radiators; fan PR-variant not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "radiator",
+          "x": 0.47,
+          "y": 0.45
+        },
+        {
+          "number": 2,
+          "part_key": "low_temperature_radiator",
+          "x": 0.77,
+          "y": 0.42
+        },
+        {
+          "number": 3,
+          "part_id": "cooling_fan",
+          "x": 0.36,
+          "y": 0.49
+        },
+        {
+          "number": 4,
+          "part_key": "cooling_fan_secondary",
+          "x": 0.58,
+          "y": 0.58
+        },
+        {
+          "number": 5,
+          "part_id": "coolant_expansion_tank",
+          "x": 0.17,
+          "y": 0.15
+        },
+        {
+          "number": 6,
+          "part_id": "coolant_hoses",
+          "x": 0.84,
+          "y": 0.25
+        }
+      ]
+    },
+    {
+      "node_id": "coolant_circuit",
+      "image_path": "assets/technical_catalog/cooling/coolant_circuit.webp",
+      "verification_status": "REFERENCE_ONLY",
+      "note": "Functional CBZB cooling architecture; hose routing image is reference only, not exact EPC geometry.",
+      "marker_count": 9,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "coolant_expansion_tank",
+          "x": 0.15,
+          "y": 0.14
+        },
+        {
+          "number": 2,
+          "part_id": "radiator",
+          "x": 0.24,
+          "y": 0.63
+        },
+        {
+          "number": 3,
+          "part_id": "water_pump",
+          "x": 0.46,
+          "y": 0.47
+        },
+        {
+          "number": 4,
+          "part_id": "thermostat",
+          "x": 0.36,
+          "y": 0.38
+        },
+        {
+          "number": 5,
+          "part_key": "coolant_recirculation_pump_v50",
+          "x": 0.52,
+          "y": 0.18
+        },
+        {
+          "number": 6,
+          "part_key": "charge_air_cooler",
+          "x": 0.75,
+          "y": 0.16
+        },
+        {
+          "number": 7,
+          "part_key": "engine_oil_cooler",
+          "x": 0.76,
+          "y": 0.68
+        },
+        {
+          "number": 8,
+          "part_id": "turbocharger",
+          "x": 0.86,
+          "y": 0.48
+        },
+        {
+          "number": 9,
+          "part_id": "coolant_hoses",
+          "x": 0.59,
+          "y": 0.53
+        }
+      ]
+    },
+    {
+      "node_id": "exhaust_front",
+      "image_path": "assets/technical_catalog/exhaust/exhaust_front.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "CBZB turbo/exhaust-manifold front exhaust architecture; exact heat shields and pipe revision not asserted.",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "exhaust_manifold",
+          "x": 0.27,
+          "y": 0.38
+        },
+        {
+          "number": 2,
+          "part_id": "turbocharger",
+          "x": 0.58,
+          "y": 0.38
+        },
+        {
+          "number": 3,
+          "part_key": "turbo_heat_shield",
+          "x": 0.82,
+          "y": 0.28
+        },
+        {
+          "number": 4,
+          "part_id": "front_exhaust_pipe",
+          "x": 0.79,
+          "y": 0.68
+        },
+        {
+          "number": 5,
+          "part_key": "exhaust_flex_joint",
+          "x": 0.77,
+          "y": 0.62
+        }
+      ]
+    },
+    {
+      "node_id": "exhaust_aftertreatment",
+      "image_path": "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "1.2 TSI Yeti/Octavia-II catalytic-converter and front-pipe architecture; exact casting/heat-shield geometry not asserted.",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "catalytic_converter",
+          "x": 0.36,
+          "y": 0.41
+        },
+        {
+          "number": 2,
+          "part_id": "oxygen_sensor",
+          "x": 0.35,
+          "y": 0.15
+        },
+        {
+          "number": 3,
+          "part_key": "catalyst_heat_shield",
+          "x": 0.63,
+          "y": 0.24
+        },
+        {
+          "number": 4,
+          "part_key": "exhaust_flex_joint",
+          "x": 0.69,
+          "y": 0.58
+        },
+        {
+          "number": 5,
+          "part_id": "front_exhaust_pipe",
+          "x": 0.81,
+          "y": 0.61
+        },
+        {
+          "number": 6,
+          "part_key": "exhaust_clamp",
+          "x": 0.54,
+          "y": 0.53
+        }
+      ]
+    },
+    {
+      "node_id": "exhaust_rear",
+      "image_path": "assets/technical_catalog/exhaust/exhaust_rear.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "note": "Yeti 1.2 TSI branch for vehicles manufactured as of 06/2010: middle + rear silencer architecture.",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "exhaust_resonator",
+          "x": 0.36,
+          "y": 0.35
+        },
+        {
+          "number": 2,
+          "part_id": "rear_muffler",
+          "x": 0.69,
+          "y": 0.62
+        },
+        {
+          "number": 3,
+          "part_key": "exhaust_clamp",
+          "x": 0.47,
+          "y": 0.47
+        },
+        {
+          "number": 4,
+          "part_key": "exhaust_mounts",
+          "x": 0.65,
+          "y": 0.35
+        },
+        {
+          "number": 5,
+          "part_key": "exhaust_heat_shield",
+          "x": 0.66,
+          "y": 0.3
+        }
+      ]
+    }
+  ]
+}

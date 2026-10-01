@@ -447,71 +447,162 @@
           "name": "Воздушный тракт",
           "part_ids": [
             "air_filter",
-            "mass_air_flow_sensor",
+            "air_filter_housing",
             "throttle_body",
-            "intake_manifold"
+            "intake_manifold",
+            "charge_air_cooler",
+            "intake_manifold_pressure_sensor",
+            "charge_pressure_sensor"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/intake/air_path.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "air_filter",
+                "x": 0.18,
+                "y": 0.29
+              },
+              {
+                "number": 2,
+                "part_id": "air_filter_housing",
+                "x": 0.16,
+                "y": 0.18
+              },
+              {
+                "number": 3,
+                "part_id": "throttle_body",
+                "x": 0.55,
+                "y": 0.2
+              },
+              {
+                "number": 4,
+                "part_id": "intake_manifold",
+                "x": 0.7,
+                "y": 0.48
+              },
+              {
+                "number": 5,
+                "part_id": "charge_air_cooler",
+                "x": 0.67,
+                "y": 0.31
+              },
+              {
+                "number": 6,
+                "part_id": "intake_manifold_pressure_sensor",
+                "x": 0.66,
+                "y": 0.13
+              },
+              {
+                "number": 7,
+                "part_id": "charge_pressure_sensor",
+                "x": 0.84,
+                "y": 0.67
+              }
+            ],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/air_filter/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "CBZB architecture: water-cooled charge-air cooler integrated into intake manifold; no external air-to-air intercooler asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "CBZB architecture: water-cooled charge-air cooler integrated into intake manifold; no external air-to-air intercooler asserted.",
+          "variant_note": "CBZB: жидкостный охладитель наддувочного воздуха интегрирован во впускной коллектор; внешний air-to-air интеркулер не применяется."
         },
         {
           "id": "boost_group",
           "name": "Турбокомпрессор и управление наддувом",
           "part_ids": [
             "turbocharger",
-            "intake_manifold",
-            "fuel_pressure_sensor"
+            "exhaust_manifold",
+            "charge_pressure_regulator_v465",
+            "turbo_oil_feed_line",
+            "turbo_coolant_lines",
+            "charge_air_pipe"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/intake/boost_group.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "turbocharger",
+                "x": 0.6,
+                "y": 0.43
+              },
+              {
+                "number": 2,
+                "part_id": "exhaust_manifold",
+                "x": 0.27,
+                "y": 0.43
+              },
+              {
+                "number": 3,
+                "part_id": "charge_pressure_regulator_v465",
+                "x": 0.45,
+                "y": 0.13
+              },
+              {
+                "number": 4,
+                "part_id": "turbo_oil_feed_line",
+                "x": 0.47,
+                "y": 0.74
+              },
+              {
+                "number": 5,
+                "part_id": "turbo_coolant_lines",
+                "x": 0.77,
+                "y": 0.65
+              },
+              {
+                "number": 6,
+                "part_id": "charge_air_pipe",
+                "x": 0.85,
+                "y": 0.25
+              }
+            ],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_turbocharger_g-charger/charge_air_system_with_exhaust_gas_turbocharger/charge_air_system_summary_of_components/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted."
         }
       ]
     },
@@ -527,71 +618,148 @@
           "part_ids": [
             "fuel_tank",
             "fuel_pump",
+            "fuel_level_sender",
             "fuel_filter",
-            "fuel_level_sender"
+            "evap_charcoal_canister",
+            "fuel_tank_straps"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/fuel/fuel_storage.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "fuel_tank",
+                "x": 0.38,
+                "y": 0.48
+              },
+              {
+                "number": 2,
+                "part_id": "fuel_pump",
+                "x": 0.32,
+                "y": 0.19
+              },
+              {
+                "number": 3,
+                "part_id": "fuel_level_sender",
+                "x": 0.35,
+                "y": 0.19
+              },
+              {
+                "number": 4,
+                "part_id": "fuel_filter",
+                "x": 0.65,
+                "y": 0.25
+              },
+              {
+                "number": 5,
+                "part_id": "evap_charcoal_canister",
+                "x": 0.82,
+                "y": 0.46
+              },
+              {
+                "number": 6,
+                "part_id": "fuel_tank_straps",
+                "x": 0.56,
+                "y": 0.79
+              }
+            ],
             "source": {
               "title": "Топливная система CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/fuel_supply_gas_operation/fuel_tank_and_fuel_delivery_unit/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
+              "verification_note": "Yeti/FWD fuel-storage architecture reference only; exact tank and line routing for this VIN not asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "Yeti/FWD fuel-storage architecture reference only; exact tank and line routing for this VIN not asserted.",
+          "variant_note": "REFERENCE_ONLY. Форма бака и трассировка магистралей не подтверждены для VIN."
         },
         {
           "id": "fuel_delivery",
           "name": "Магистрали, рампа и форсунки",
           "part_ids": [
             "high_pressure_fuel_pump",
-            "fuel_pressure_sensor",
             "fuel_rail",
+            "fuel_pressure_sensor_g247",
+            "fuel_pressure_control_valve_n276",
             "injectors"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/fuel/fuel_delivery.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "high_pressure_fuel_pump",
+                "x": 0.27,
+                "y": 0.26
+              },
+              {
+                "number": 2,
+                "part_id": "fuel_rail",
+                "x": 0.64,
+                "y": 0.33
+              },
+              {
+                "number": 3,
+                "part_id": "fuel_pressure_sensor_g247",
+                "x": 0.68,
+                "y": 0.18
+              },
+              {
+                "number": 4,
+                "part_id": "fuel_pressure_control_valve_n276",
+                "x": 0.88,
+                "y": 0.27
+              },
+              {
+                "number": 5,
+                "part_id": "injectors",
+                "x": 0.63,
+                "y": 0.65
+              }
+            ],
             "source": {
               "title": "Топливная система CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
+              "verification_note": "CBZB direct-injection architecture: high-pressure pump, rail, G247 and four injectors.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "CBZB direct-injection architecture: high-pressure pump, rail, G247 and four injectors.",
+          "variant_note": "CBZB: система непосредственного впрыска бензина; четыре форсунки."
         },
         {
           "id": "fuel_sensors",
@@ -640,70 +808,177 @@
           "name": "Радиатор и вентилятор",
           "part_ids": [
             "radiator",
-            "cooling_fan"
+            "low_temperature_radiator",
+            "cooling_fan",
+            "cooling_fan_secondary",
+            "coolant_expansion_tank",
+            "coolant_hoses"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/cooling/radiator_pack.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "radiator",
+                "x": 0.47,
+                "y": 0.45
+              },
+              {
+                "number": 2,
+                "part_id": "low_temperature_radiator",
+                "x": 0.77,
+                "y": 0.42
+              },
+              {
+                "number": 3,
+                "part_id": "cooling_fan",
+                "x": 0.36,
+                "y": 0.49
+              },
+              {
+                "number": 4,
+                "part_id": "cooling_fan_secondary",
+                "x": 0.58,
+                "y": 0.58
+              },
+              {
+                "number": 5,
+                "part_id": "coolant_expansion_tank",
+                "x": 0.17,
+                "y": 0.15
+              },
+              {
+                "number": 6,
+                "part_id": "coolant_hoses",
+                "x": 0.84,
+                "y": 0.25
+              }
+            ],
             "source": {
               "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "CBZB/Yeti architecture with combined engine and low-temperature charge-air cooling radiators; fan PR-variant not asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "CBZB/Yeti architecture with combined engine and low-temperature charge-air cooling radiators; fan PR-variant not asserted.",
+          "variant_note": "Количество и тип вентиляторов зависят от комплектации; PR-вариант не утверждается."
         },
         {
           "id": "coolant_circuit",
           "name": "Контур охлаждения двигателя",
           "part_ids": [
+            "coolant_expansion_tank",
+            "radiator",
             "water_pump",
             "thermostat",
-            "coolant_hoses",
-            "coolant_temperature_sensor"
+            "coolant_recirculation_pump_v50",
+            "charge_air_cooler",
+            "engine_oil_cooler",
+            "turbocharger",
+            "coolant_hoses"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/cooling/coolant_circuit.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "coolant_expansion_tank",
+                "x": 0.15,
+                "y": 0.14
+              },
+              {
+                "number": 2,
+                "part_id": "radiator",
+                "x": 0.24,
+                "y": 0.63
+              },
+              {
+                "number": 3,
+                "part_id": "water_pump",
+                "x": 0.46,
+                "y": 0.47
+              },
+              {
+                "number": 4,
+                "part_id": "thermostat",
+                "x": 0.36,
+                "y": 0.38
+              },
+              {
+                "number": 5,
+                "part_id": "coolant_recirculation_pump_v50",
+                "x": 0.52,
+                "y": 0.18
+              },
+              {
+                "number": 6,
+                "part_id": "charge_air_cooler",
+                "x": 0.75,
+                "y": 0.16
+              },
+              {
+                "number": 7,
+                "part_id": "engine_oil_cooler",
+                "x": 0.76,
+                "y": 0.68
+              },
+              {
+                "number": 8,
+                "part_id": "turbocharger",
+                "x": 0.86,
+                "y": 0.48
+              },
+              {
+                "number": 9,
+                "part_id": "coolant_hoses",
+                "x": 0.59,
+                "y": 0.53
+              }
+            ],
             "source": {
               "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cooling/cooling_system/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "Functional CBZB cooling architecture; hose routing image is reference only, not exact EPC geometry.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "Functional CBZB cooling architecture; hose routing image is reference only, not exact EPC geometry.",
+          "variant_note": "REFERENCE_ONLY. Функциональная схема CBZB, не точная EPC-разводка патрубков."
         },
         {
           "id": "coolant_reservoir",
@@ -880,101 +1155,215 @@
           "name": "Коллектор и передняя часть выпуска",
           "part_ids": [
             "exhaust_manifold",
+            "turbocharger",
+            "turbo_heat_shield",
             "front_exhaust_pipe",
-            "turbocharger"
+            "exhaust_flex_joint"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/exhaust/exhaust_front.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "exhaust_manifold",
+                "x": 0.27,
+                "y": 0.38
+              },
+              {
+                "number": 2,
+                "part_id": "turbocharger",
+                "x": 0.58,
+                "y": 0.38
+              },
+              {
+                "number": 3,
+                "part_id": "turbo_heat_shield",
+                "x": 0.82,
+                "y": 0.28
+              },
+              {
+                "number": 4,
+                "part_id": "front_exhaust_pipe",
+                "x": 0.79,
+                "y": 0.68
+              },
+              {
+                "number": 5,
+                "part_id": "exhaust_flex_joint",
+                "x": 0.77,
+                "y": 0.62
+              }
+            ],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
+              "verification_note": "CBZB turbo/exhaust-manifold front exhaust architecture; exact heat shields and pipe revision not asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "CBZB turbo/exhaust-manifold front exhaust architecture; exact heat shields and pipe revision not asserted."
         },
         {
           "id": "exhaust_aftertreatment",
           "name": "Катализатор и кислородные датчики",
           "part_ids": [
             "catalytic_converter",
-            "oxygen_sensor"
+            "oxygen_sensor",
+            "catalyst_heat_shield",
+            "exhaust_flex_joint",
+            "front_exhaust_pipe",
+            "exhaust_clamp"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "catalytic_converter",
+                "x": 0.36,
+                "y": 0.41
+              },
+              {
+                "number": 2,
+                "part_id": "oxygen_sensor",
+                "x": 0.35,
+                "y": 0.15
+              },
+              {
+                "number": 3,
+                "part_id": "catalyst_heat_shield",
+                "x": 0.63,
+                "y": 0.24
+              },
+              {
+                "number": 4,
+                "part_id": "exhaust_flex_joint",
+                "x": 0.69,
+                "y": 0.58
+              },
+              {
+                "number": 5,
+                "part_id": "front_exhaust_pipe",
+                "x": 0.81,
+                "y": 0.61
+              },
+              {
+                "number": 6,
+                "part_id": "exhaust_clamp",
+                "x": 0.54,
+                "y": 0.53
+              }
+            ],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
+              "verification_note": "1.2 TSI Yeti/Octavia-II catalytic-converter and front-pipe architecture; exact casting/heat-shield geometry not asserted.",
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "summary": "1.2 TSI Yeti/Octavia-II catalytic-converter and front-pipe architecture; exact casting/heat-shield geometry not asserted.",
+          "variant_note": "Бензиновая архитектура CBZB с каталитическим нейтрализатором; DPF и дизельные датчики не применяются."
         },
         {
           "id": "exhaust_rear",
           "name": "Трубы, резонатор и глушитель",
           "part_ids": [
             "exhaust_resonator",
-            "rear_muffler"
+            "rear_muffler",
+            "exhaust_clamp",
+            "exhaust_mounts",
+            "exhaust_heat_shield"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/exhaust/exhaust_rear.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "exhaust_resonator",
+                "x": 0.36,
+                "y": 0.35
+              },
+              {
+                "number": 2,
+                "part_id": "rear_muffler",
+                "x": 0.69,
+                "y": 0.62
+              },
+              {
+                "number": 3,
+                "part_id": "exhaust_clamp",
+                "x": 0.47,
+                "y": 0.47
+              },
+              {
+                "number": 4,
+                "part_id": "exhaust_mounts",
+                "x": 0.65,
+                "y": 0.35
+              },
+              {
+                "number": 5,
+                "part_id": "exhaust_heat_shield",
+                "x": 0.66,
+                "y": 0.3
+              }
+            ],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_as_of_06.10_summary_of_components/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии.",
+              "verification_note": "Yeti 1.2 TSI branch for vehicles manufactured as of 06/2010: middle + rear silencer architecture.",
               "alternative_urls": [
                 "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_up_to_06.10_summary_of_components/"
-              ]
+              ],
+              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
             }
           },
           "requires_engine_codes": [
@@ -990,7 +1379,8 @@
               "title": "Производство с 06.10"
             }
           ],
-          "variant_note": "Задняя часть выпуска имеет варианты до/с 06.10. Модельный год 2011 не задаёт точную дату производства, поэтому выбранный вариант выпуска не подтверждён."
+          "variant_note": "Ветка Yeti 1.2 TSI для автомобилей после 06/2010; применимо к MY2011.",
+          "summary": "Yeti 1.2 TSI branch for vehicles manufactured as of 06/2010: middle + rear silencer architecture."
         }
       ]
     },
@@ -2095,77 +2485,175 @@
           "id": "rear_suspension_overview",
           "name": "Задняя подвеска в сборе",
           "part_ids": [
-            "rear_axle_carrier",
-            "rear_suspension_arm",
-            "rear_suspension_track_rod",
+            "rear_subframe",
+            "rear_upper_control_arm",
+            "rear_lower_control_arm",
+            "rear_trailing_arm",
+            "rear_track_rod",
             "spring",
             "rear_shock_absorber",
-            "hub",
-            "wheel_bearing"
+            "rear_anti_roll_bar",
+            "rear_hub_carrier"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "rear_subframe",
+                "x": 0.5,
+                "y": 0.53
+              },
+              {
+                "number": 2,
+                "part_id": "rear_upper_control_arm",
+                "x": 0.24,
+                "y": 0.58
+              },
+              {
+                "number": 3,
+                "part_id": "rear_lower_control_arm",
+                "x": 0.28,
+                "y": 0.73
+              },
+              {
+                "number": 4,
+                "part_id": "rear_trailing_arm",
+                "x": 0.69,
+                "y": 0.73
+              },
+              {
+                "number": 5,
+                "part_id": "rear_track_rod",
+                "x": 0.52,
+                "y": 0.66
+              },
+              {
+                "number": 6,
+                "part_id": "spring",
+                "x": 0.78,
+                "y": 0.26
+              },
+              {
+                "number": 7,
+                "part_id": "rear_shock_absorber",
+                "x": 0.88,
+                "y": 0.3
+              },
+              {
+                "number": 8,
+                "part_id": "rear_anti_roll_bar",
+                "x": 0.54,
+                "y": 0.3
+              },
+              {
+                "number": 9,
+                "part_id": "rear_hub_carrier",
+                "x": 0.84,
+                "y": 0.6
+              }
+            ],
             "source": {
               "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Yeti 5L FWD architecture after CW22/2010; no AWD driveline shown.",
               "related_references": [
                 {
                   "title": "Задняя ось — передний привод",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
-          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+          "variant_note": "Задняя подвеска FWD, ветка после CW22/2010. Компоненты полного привода не применяются.",
+          "summary": "Yeti 5L FWD architecture after CW22/2010; no AWD driveline shown."
         },
         {
           "id": "rear_carrier",
           "name": "Подрамник / балка и рычаги",
           "part_ids": [
-            "rear_axle_carrier",
-            "rear_suspension_arm",
-            "rear_suspension_track_rod",
-            "suspension_bushings"
+            "rear_subframe",
+            "rear_upper_control_arm",
+            "rear_lower_control_arm",
+            "rear_trailing_arm",
+            "rear_track_rod",
+            "rear_suspension_bushings"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/rear_suspension/rear_carrier.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "rear_subframe",
+                "x": 0.5,
+                "y": 0.45
+              },
+              {
+                "number": 2,
+                "part_id": "rear_upper_control_arm",
+                "x": 0.25,
+                "y": 0.2
+              },
+              {
+                "number": 3,
+                "part_id": "rear_lower_control_arm",
+                "x": 0.28,
+                "y": 0.73
+              },
+              {
+                "number": 4,
+                "part_id": "rear_trailing_arm",
+                "x": 0.73,
+                "y": 0.73
+              },
+              {
+                "number": 5,
+                "part_id": "rear_track_rod",
+                "x": 0.75,
+                "y": 0.32
+              },
+              {
+                "number": 6,
+                "part_id": "rear_suspension_bushings",
+                "x": 0.5,
+                "y": 0.6
+              }
+            ],
             "source": {
               "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Generated visual may not reproduce exact carrier/link geometry; retain REFERENCE_ONLY until manual visual comparison.",
               "related_references": [
                 {
                   "title": "Состав рычагов и carrier — FWD Yeti",
@@ -2175,93 +2663,187 @@
                   "title": "Задняя ось — FWD",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
-          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+          "variant_note": "Задняя подвеска FWD, ветка после CW22/2010. Компоненты полного привода не применяются.",
+          "summary": "Generated visual may not reproduce exact carrier/link geometry; retain REFERENCE_ONLY until manual visual comparison."
         },
         {
           "id": "rear_springs_dampers",
           "name": "Пружины и амортизаторы",
           "part_ids": [
+            "rear_spring_upper_seat",
             "spring",
-            "rear_shock_absorber"
+            "rear_spring_lower_seat",
+            "rear_shock_absorber",
+            "rear_shock_upper_mount",
+            "rear_shock_bump_stop"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "rear_spring_upper_seat",
+                "x": 0.38,
+                "y": 0.14
+              },
+              {
+                "number": 2,
+                "part_id": "spring",
+                "x": 0.42,
+                "y": 0.36
+              },
+              {
+                "number": 3,
+                "part_id": "rear_spring_lower_seat",
+                "x": 0.43,
+                "y": 0.57
+              },
+              {
+                "number": 4,
+                "part_id": "rear_shock_absorber",
+                "x": 0.67,
+                "y": 0.48
+              },
+              {
+                "number": 5,
+                "part_id": "rear_shock_upper_mount",
+                "x": 0.67,
+                "y": 0.16
+              },
+              {
+                "number": 6,
+                "part_id": "rear_shock_bump_stop",
+                "x": 0.67,
+                "y": 0.26
+              }
+            ],
             "source": {
               "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Architecture verified: rear coil spring and shock absorber are separate components.",
               "related_references": [
                 {
                   "title": "Пружины и амортизаторы — FWD Yeti",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_shock_absorber_helical_spring_(vehicles_with_front-wheel_drive)/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
-          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+          "variant_note": "Задняя подвеска FWD, ветка после CW22/2010. Компоненты полного привода не применяются.",
+          "summary": "Architecture verified: rear coil spring and shock absorber are separate components."
         },
         {
           "id": "rear_hub",
           "name": "Задние ступицы и подшипники",
           "part_ids": [
+            "rear_hub_carrier",
             "hub",
             "wheel_bearing",
-            "abs_wheel_sensor_rl"
+            "rear_abs_encoder_ring",
+            "rear_wheel_speed_sensor",
+            "dust_shield",
+            "brake_disc"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/rear_suspension/rear_hub.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "rear_hub_carrier",
+                "x": 0.36,
+                "y": 0.45
+              },
+              {
+                "number": 2,
+                "part_id": "hub",
+                "x": 0.65,
+                "y": 0.48
+              },
+              {
+                "number": 3,
+                "part_id": "wheel_bearing",
+                "x": 0.58,
+                "y": 0.48
+              },
+              {
+                "number": 4,
+                "part_id": "rear_abs_encoder_ring",
+                "x": 0.61,
+                "y": 0.4
+              },
+              {
+                "number": 5,
+                "part_id": "rear_wheel_speed_sensor",
+                "x": 0.52,
+                "y": 0.21
+              },
+              {
+                "number": 6,
+                "part_id": "dust_shield",
+                "x": 0.78,
+                "y": 0.48
+              },
+              {
+                "number": 7,
+                "part_id": "brake_disc",
+                "x": 0.91,
+                "y": 0.48
+              }
+            ],
             "source": {
               "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "FWD rear hub architecture; no driveshaft/CV joint. Exact PR-code brake variant not asserted.",
               "related_references": [
                 {
                   "title": "Задняя ось — FWD Yeti",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
-          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+          "variant_note": "Для FWD задний ступичный узел без ШРУСа и приводного вала; вариант тормоза зависит от PR-кода.",
+          "summary": "FWD rear hub architecture; no driveshaft/CV joint. Exact PR-code brake variant not asserted."
         }
       ]
     },
@@ -2309,29 +2891,70 @@
           "name": "Рулевая рейка и усилитель",
           "part_ids": [
             "steering_rack",
-            "power_steering_motor"
+            "power_steering_motor",
+            "steering_input_shaft",
+            "steering_tie_rod",
+            "tie_rod_end",
+            "steering_rack_boot"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/steering/steering_rack.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "steering_rack",
+                "x": 0.48,
+                "y": 0.52
+              },
+              {
+                "number": 2,
+                "part_id": "power_steering_motor",
+                "x": 0.42,
+                "y": 0.62
+              },
+              {
+                "number": 3,
+                "part_id": "steering_input_shaft",
+                "x": 0.63,
+                "y": 0.24
+              },
+              {
+                "number": 4,
+                "part_id": "steering_tie_rod",
+                "x": 0.82,
+                "y": 0.56
+              },
+              {
+                "number": 5,
+                "part_id": "tie_rod_end",
+                "x": 0.93,
+                "y": 0.63
+              },
+              {
+                "number": 6,
+                "part_id": "steering_rack_boot",
+                "x": 0.73,
+                "y": 0.54
+              }
+            ],
             "source": {
               "title": "Рулевое управление Yeti LHD",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_assembly_carrier_made_of_steel_sheet/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая Yeti 5L сервисная страница подтверждает конструкцию узла. LHD/подрамник и точные OEM-исполнения автомобиля не выводятся из доступных PR/build данных; источник открыт по ссылке.",
+              "verification_note": "Electromechanical steering rack architecture, LHD, 3rd generation; exact carrier variant not asserted.",
               "related_references": [
                 {
                   "title": "Рулевая рейка — стальной carrier",
@@ -2341,7 +2964,8 @@
                   "title": "Рулевая рейка — алюминиевый carrier",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_aluminium_assembly_carrier/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
           "variant_note": "Рулевая рейка описана для обоих вариантов переднего carrier; какой установлен, по доступным данным не определено.",
@@ -2354,45 +2978,75 @@
               "id": "carrier_aluminium",
               "title": "Алюминиевый carrier"
             }
-          ]
+          ],
+          "summary": "Electromechanical steering rack architecture, LHD, 3rd generation; exact carrier variant not asserted."
         },
         {
           "id": "steering_linkage",
           "name": "Тяги и наконечники",
           "part_ids": [
             "steering_tie_rod",
-            "tie_rod_end"
+            "tie_rod_end",
+            "steering_rack_boot",
+            "tie_rod_lock_nut"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/steering/steering_linkage.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "steering_tie_rod",
+                "x": 0.37,
+                "y": 0.55
+              },
+              {
+                "number": 2,
+                "part_id": "tie_rod_end",
+                "x": 0.13,
+                "y": 0.59
+              },
+              {
+                "number": 3,
+                "part_id": "steering_rack_boot",
+                "x": 0.28,
+                "y": 0.3
+              },
+              {
+                "number": 4,
+                "part_id": "tie_rod_lock_nut",
+                "x": 0.25,
+                "y": 0.53
+              }
+            ],
             "source": {
               "title": "Рулевое управление Yeti LHD",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая Yeti 5L сервисная страница подтверждает конструкцию узла. LHD/подрамник и точные OEM-исполнения автомобиля не выводятся из доступных PR/build данных; источник открыт по ссылке.",
+              "verification_note": "Tie rods, ends and rack boots; exact supplier geometry not asserted.",
               "related_references": [
                 {
                   "title": "Рулевой наконечник и передняя подвеска",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой.",
+          "summary": "Tie rods, ends and rack boots; exact supplier geometry not asserted."
         }
       ]
     },
@@ -2645,31 +3299,71 @@
           "id": "brake_hydraulics",
           "name": "Главный цилиндр, усилитель и бачок",
           "part_ids": [
+            "brake_fluid_reservoir",
             "brake_master_cylinder",
             "brake_booster",
-            "brake_fluid_reservoir"
+            "brake_pushrod",
+            "brake_lines",
+            "abs_unit"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/brakes/brake_hydraulics.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "brake_fluid_reservoir",
+                "x": 0.22,
+                "y": 0.15
+              },
+              {
+                "number": 2,
+                "part_id": "brake_master_cylinder",
+                "x": 0.28,
+                "y": 0.31
+              },
+              {
+                "number": 3,
+                "part_id": "brake_booster",
+                "x": 0.51,
+                "y": 0.28
+              },
+              {
+                "number": 4,
+                "part_id": "brake_pushrod",
+                "x": 0.68,
+                "y": 0.25
+              },
+              {
+                "number": 5,
+                "part_id": "brake_lines",
+                "x": 0.48,
+                "y": 0.66
+              },
+              {
+                "number": 6,
+                "part_id": "abs_unit",
+                "x": 0.81,
+                "y": 0.64
+              }
+            ],
             "source": {
               "title": "ABS/ESP Yeti; блок требует сверки",
               "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Architecture reference only; exact line routing and hydraulic variant not asserted.",
               "related_references": [
                 {
                   "title": "Главный цилиндр, servo и гидравлика — Mark 60 (LHD)",
@@ -2679,39 +3373,75 @@
                   "title": "Главный цилиндр, servo и гидравлика — Mark 70 (альтернатива)",
                   "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/hydraulic_control_unit_brake_servo_unit/master_brake_cylinder_abs_mark_70_(abs/tcs)/summary_of_components_vehicles_with_left-hand_drive/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "REFERENCE_ONLY. Схема показывает архитектуру системы, но не VIN-точную конфигурацию и не конкретный PR-вариант.",
+          "summary": "Architecture reference only; exact line routing and hydraulic variant not asserted."
         },
         {
           "id": "abs_esp_block",
           "name": "Блок ABS/ESP и магистрали",
           "part_ids": [
             "abs_unit",
-            "brake_hose"
+            "abs_hydraulic_unit",
+            "abs_control_unit",
+            "abs_pump_motor",
+            "abs_mounting_bracket"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/brakes/abs_esp_block.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "abs_unit",
+                "x": 0.42,
+                "y": 0.44
+              },
+              {
+                "number": 2,
+                "part_id": "abs_hydraulic_unit",
+                "x": 0.35,
+                "y": 0.45
+              },
+              {
+                "number": 3,
+                "part_id": "abs_control_unit",
+                "x": 0.62,
+                "y": 0.46
+              },
+              {
+                "number": 4,
+                "part_id": "abs_pump_motor",
+                "x": 0.41,
+                "y": 0.18
+              },
+              {
+                "number": 5,
+                "part_id": "abs_mounting_bracket",
+                "x": 0.8,
+                "y": 0.31
+              }
+            ],
             "source": {
               "title": "ABS/ESP Yeti; блок требует сверки",
               "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Generic VAG/Yeti-period ABS hydraulic/control architecture; exact Mark/PR variant not asserted.",
               "related_references": [
                 {
                   "title": "Электронные компоненты ABS Mark 60 EC",
@@ -2721,50 +3451,86 @@
                   "title": "Электронные компоненты ABS Mark 70",
                   "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_70_(abs/tcs)/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "REFERENCE_ONLY. Схема показывает архитектуру системы, но не VIN-точную конфигурацию и не конкретный PR-вариант.",
+          "summary": "Generic VAG/Yeti-period ABS hydraulic/control architecture; exact Mark/PR variant not asserted."
         },
         {
           "id": "wheel_sensors",
           "name": "Датчики скорости колёс",
           "part_ids": [
-            "abs_wheel_sensor_fl",
-            "abs_wheel_sensor_fr",
-            "abs_wheel_sensor_rl",
-            "abs_wheel_sensor_rr"
+            "wheel_speed_sensor",
+            "wheel_speed_sensor_connector",
+            "hub",
+            "abs_encoder_ring",
+            "wheel_bearing_housing"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/brakes/wheel_sensors.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "wheel_speed_sensor",
+                "x": 0.59,
+                "y": 0.23
+              },
+              {
+                "number": 2,
+                "part_id": "wheel_speed_sensor_connector",
+                "x": 0.81,
+                "y": 0.13
+              },
+              {
+                "number": 3,
+                "part_id": "hub",
+                "x": 0.66,
+                "y": 0.52
+              },
+              {
+                "number": 4,
+                "part_id": "abs_encoder_ring",
+                "x": 0.6,
+                "y": 0.46
+              },
+              {
+                "number": 5,
+                "part_id": "wheel_bearing_housing",
+                "x": 0.31,
+                "y": 0.48
+              }
+            ],
             "source": {
               "title": "ABS/ESP Yeti; блок требует сверки",
               "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
+              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_rear_steering_abs.md.",
               "applicability": {
-                "model": "Yeti 5L",
+                "model": "Škoda Yeti 5L",
                 "model_year": [
-                  2009,
-                  2017
+                  2011,
+                  2011
                 ],
-                "drivetrain": "ANY",
+                "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "verification_note": "Wheel speed sensor plus hub/bearing encoder-ring architecture; exact front/rear part shape may differ.",
               "related_references": [
                 {
                   "title": "Снятие компонентов ABS передней/задней оси",
                   "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/removing_and_installing_parts_of_the_abs_system_on_the_front_and_rear_axle/"
                 }
-              ]
+              ],
+              "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой.",
+          "summary": "Wheel speed sensor plus hub/bearing encoder-ring architecture; exact front/rear part shape may differ."
         }
       ]
     },

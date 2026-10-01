@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 191:
-		failures.append("expected 191 parts after CBZB/DQ200 batch integration, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 240:
+		failures.append("expected 240 parts after two visual batch integrations, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -136,6 +136,32 @@ func _run_checks() -> void:
 		elif PartCatalogService.search(str(PartCatalogService.get_part(part_id).get("name", ""))).is_empty():
 			failures.append("new technical-catalog part %s is not returned by part search" % part_id)
 
+	for rear_node_id in ["rear_suspension_overview", "rear_carrier", "rear_springs_dampers", "rear_hub"]:
+		var rear_node: Dictionary = node_by_id.get(rear_node_id, {})
+		if rear_node.is_empty() or str(rear_node.get("requires_drivetrain", "")) != "FWD" or str(rear_node.get("variant", "")) != "FWD_POST_CW22_2010":
+			failures.append("rear suspension node %s is not restricted to the FWD post-CW22/2010 branch" % rear_node_id)
+		for forbidden_id in ["haldex_coupling", "propshaft", "rear_drive_shaft_left", "rear_drive_shaft_right"]:
+			if forbidden_id in rear_node.get("part_ids", []):
+				failures.append("rear FWD node %s contains AWD-only component %s" % [rear_node_id, forbidden_id])
+	var air_path_parts: Array = node_by_id.get("air_path", {}).get("part_ids", [])
+	if "mass_air_flow_sensor" in air_path_parts or "air_to_air_intercooler" in air_path_parts:
+		failures.append("CBZB air path contains MAF or an external air-to-air intercooler")
+	if "charge_air_cooler" not in air_path_parts:
+		failures.append("CBZB air path is missing its integrated liquid-cooled charge-air cooler")
+	if "injectors" not in node_by_id.get("fuel_delivery", {}).get("part_ids", []):
+		failures.append("CBZB direct-injection delivery node is missing injectors")
+	if "dpf" in str(node_by_id.get("exhaust_aftertreatment", {}).get("part_ids", [])).to_lower():
+		failures.append("gasoline CBZB exhaust aftertreatment contains a DPF")
+	for reference_node_id in ["rear_carrier", "abs_esp_block", "brake_hydraulics", "fuel_storage", "coolant_circuit"]:
+		if str(node_by_id.get(reference_node_id, {}).get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
+			failures.append("reference-only node %s was promoted to another verification status" % reference_node_id)
+	for new_part_id in ["rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring", "wheel_bearing_housing", "air_filter_housing", "charge_air_cooler", "intake_manifold_pressure_sensor", "charge_pressure_sensor", "charge_pressure_regulator_v465", "turbo_oil_feed_line", "turbo_coolant_lines", "charge_air_pipe", "fuel_pressure_sensor_g247", "fuel_pressure_control_valve_n276", "evap_charcoal_canister", "fuel_tank_straps", "low_temperature_radiator", "cooling_fan_secondary", "coolant_recirculation_pump_v50", "engine_oil_cooler", "turbo_heat_shield", "exhaust_flex_joint", "catalyst_heat_shield", "exhaust_clamp", "exhaust_mounts", "exhaust_heat_shield"]:
+		var manifest_part := PartCatalogService.get_part(new_part_id)
+		if manifest_part.is_empty():
+			failures.append("new manifest part %s is not searchable in PartCatalogService" % new_part_id)
+		elif PartCatalogService.search(str(manifest_part.get("name", ""))).is_empty():
+			failures.append("new manifest part %s is not returned by text search" % new_part_id)
+
 	if "mass_air_flow_sensor" in node_by_id.get("fuel_sensors", {}).get("part_ids", []):
 		failures.append("fuel sensor node incorrectly treats the mass-air-flow sensor as a fuel sensor")
 	if "front_fender" in node_by_id.get("body_protection", {}).get("part_ids", []):
@@ -200,19 +226,38 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 	view.set_vehicle_profile({"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"})
 	await process_frame
 	var expected := {
-		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left"},
-		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing"},
-		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle"},
-		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper"},
-		"timing_chain": {"section":"timing", "count":3, "tap_part":"timing_chain"},
-		"timing_gears": {"section":"timing", "count":2, "tap_part":"timing_sprockets"},
-		"oil_pump_circuit": {"section":"lubrication", "count":3, "tap_part":"oil_pump_drive"},
-		"gearbox_group": {"section":"transmission", "count":5, "tap_part":"gearbox_housing"},
-		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1"},
-		"dsg_mechatronics": {"section":"transmission", "count":3, "tap_part":"dsg_mechatronics_connector"},
-		"gear_selector": {"section":"transmission", "count":4, "tap_part":"selector_cable_support"}
+		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left", "level":"VERIFIED_ARCHITECTURE"},
+		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing", "level":"VERIFIED_ARCHITECTURE"},
+		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle", "level":"VERIFIED_ARCHITECTURE"},
+		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper", "level":"VERIFIED_ARCHITECTURE"},
+		"timing_chain": {"section":"timing", "count":3, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
+		"timing_gears": {"section":"timing", "count":2, "tap_part":"timing_sprockets", "level":"VERIFIED_ARCHITECTURE"},
+		"oil_pump_circuit": {"section":"lubrication", "count":3, "tap_part":"oil_pump_drive", "level":"VERIFIED_ARCHITECTURE"},
+		"gearbox_group": {"section":"transmission", "count":5, "tap_part":"gearbox_housing", "level":"REFERENCE_ONLY"},
+		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1", "level":"VERIFIED_ARCHITECTURE"},
+		"dsg_mechatronics": {"section":"transmission", "count":3, "tap_part":"dsg_mechatronics_connector", "level":"REFERENCE_ONLY"},
+		"gear_selector": {"section":"transmission", "count":4, "tap_part":"selector_cable_support", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_suspension_overview": {"section":"rear_suspension", "count":9, "tap_part":"rear_subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_carrier": {"section":"rear_suspension", "count":6, "tap_part":"rear_lower_control_arm", "level":"REFERENCE_ONLY"},
+		"rear_springs_dampers": {"section":"rear_suspension", "count":6, "tap_part":"rear_shock_absorber", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_hub": {"section":"rear_suspension", "count":7, "tap_part":"rear_hub_carrier", "level":"VERIFIED_ARCHITECTURE"},
+		"steering_rack": {"section":"steering", "count":6, "tap_part":"steering_input_shaft", "level":"VERIFIED_ARCHITECTURE"},
+		"steering_linkage": {"section":"steering", "count":4, "tap_part":"tie_rod_lock_nut", "level":"VERIFIED_ARCHITECTURE"},
+		"abs_esp_block": {"section":"abs_esp", "count":5, "tap_part":"abs_hydraulic_unit", "level":"REFERENCE_ONLY"},
+		"brake_hydraulics": {"section":"abs_esp", "count":6, "tap_part":"brake_lines", "level":"REFERENCE_ONLY"},
+		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"VERIFIED_ARCHITECTURE"},
+		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"VERIFIED_ARCHITECTURE"},
+		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"VERIFIED_ARCHITECTURE"},
+		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"VERIFIED_ARCHITECTURE"},
+		"fuel_storage": {"section":"fuel", "count":6, "tap_part":"evap_charcoal_canister", "level":"REFERENCE_ONLY"},
+		"radiator_pack": {"section":"cooling", "count":6, "tap_part":"low_temperature_radiator", "level":"VERIFIED_ARCHITECTURE"},
+		"coolant_circuit": {"section":"cooling", "count":9, "tap_part":"coolant_recirculation_pump_v50", "level":"REFERENCE_ONLY"},
+		"exhaust_front": {"section":"exhaust", "count":5, "tap_part":"exhaust_flex_joint", "level":"VERIFIED_ARCHITECTURE"},
+		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
+		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"}
 	}
 	var cbzb_dq200_marker_total := 0
+	var all_image_marker_total := 0
 	for node_id_value in expected:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
@@ -228,11 +273,20 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		if canvas.texture == null or canvas.markers.size() != int(expected_row["count"]):
 			failures.append("technical diagram node %s image/marker count mismatch" % node_id)
 			continue
+		all_image_marker_total += canvas.markers.size()
 		cbzb_dq200_marker_total += canvas.markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
+		var current_node: Dictionary = view.call("_current_node")
+		if expected_row.has("level") and str(current_node.get("diagram", {}).get("verification_level", "")) != str(expected_row["level"]):
+			failures.append("technical diagram node %s has an incorrect verification level" % node_id)
+		var unique_numbers: Dictionary = {}
 		for marker_value in canvas.markers:
 			var marker: Dictionary = marker_value
 			if not PartCatalogService.PARTS.has(str(marker.get("part_id", ""))):
 				failures.append("technical diagram node %s has an unknown marker part %s" % [node_id, str(marker.get("part_id", ""))])
+			var marker_number := int(marker.get("number", -1))
+			if unique_numbers.has(marker_number):
+				failures.append("technical diagram node %s has duplicate marker number %d" % [node_id, marker_number])
+			unique_numbers[marker_number] = true
 			if float(marker.get("x", -1.0)) < 0.0 or float(marker.get("x", 2.0)) > 1.0 or float(marker.get("y", -1.0)) < 0.0 or float(marker.get("y", 2.0)) > 1.0:
 				failures.append("technical diagram node %s has an out-of-range marker" % node_id)
 		view.call("_toggle_markers")
@@ -321,6 +375,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
+	if expected.size() != 29 or all_image_marker_total != 158:
+		failures.append("expected 29 image nodes / 158 markers, found %d nodes / %d markers" % [expected.size(), all_image_marker_total])
 	view.queue_free()
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
