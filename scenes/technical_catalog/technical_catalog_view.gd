@@ -81,7 +81,7 @@ func _render() -> void:
 		_add_breadcrumb("Каталог", Callable(self, "_reset_catalog"))
 		_render_search_results()
 		return
-	if selected_part_id != "":
+	if selected_part_id != "" and (current_section_id == "" or current_path.is_empty()):
 		_render_part_detail()
 		return
 	if current_section_id == "":
@@ -145,14 +145,21 @@ func _render_section_nodes(section: Dictionary) -> void:
 	_add_unassigned_parts(section)
 
 func _render_node(section: Dictionary, node: Dictionary) -> void:
-	var summary := _muted_label(str(node.get("summary", section.get("summary", ""))))
-	summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	_content.add_child(summary)
 	var diagram_data: Dictionary = node.get("diagram", {})
+	if str(diagram_data.get("image", "")) == "":
+		var summary := _muted_label(str(node.get("summary", section.get("summary", ""))))
+		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_content.add_child(summary)
 	_add_diagram_view(diagram_data, _node_part_ids(node))
+	if _diagram != null and str(node.get("variant_note", "")) != "":
+		var variant := _muted_label(str(node.get("variant_note", "")))
+		variant.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		_content.add_child(variant)
 	for child_value in TechnicalCatalog.nodes(node, _vehicle):
 		var child: Dictionary = child_value
 		_content.add_child(_node_card(str(child.get("name", "Подсистема")), "Открыть вложенный узел", _open_node.bind(str(child.get("id", "")))))
+	if selected_part_id != "":
+		_render_selected_part_card()
 	_add_part_list(_node_part_ids(node))
 	if current_path.size() > 1:
 		_add_back_to_parent()
@@ -162,12 +169,12 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 	var source: Dictionary = diagram_data.get("source", {})
 	var applicability: Dictionary = source.get("applicability", {})
 	var texture: Texture2D
-	var source_verified := str(diagram_data.get("status", "missing")) == "verified" and str(source.get("url", "")) != "" and str(source.get("author", "")) != "" and str(source.get("license", "")) != "" and not applicability.is_empty()
+	var source_verified := str(diagram_data.get("status", "missing")) == "verified" and str(source.get("author", "")) != "" and str(source.get("license", "")) != "" and not applicability.is_empty()
 	if source_verified and TechnicalCatalog.is_compatible(applicability, _vehicle) and image_path.begins_with("res://") and ResourceLoader.exists(image_path):
 		texture = load(image_path) as Texture2D
 	if texture != null:
 		var canvas := DiagramCanvasScript.new() as TechnicalDiagramCanvas
-		canvas.custom_minimum_size = Vector2(0, 250)
+		canvas.custom_minimum_size = Vector2(0, 320)
 		canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		canvas.configure(texture, diagram_data.get("markers", []), selected_part_id, marker_numbers_visible)
 		canvas.marker_selected.connect(_select_part)
@@ -290,6 +297,35 @@ func _render_part_detail() -> void:
 		history.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(history)
 	_content.add_child(_action_button("Назад к схеме", func(): selected_part_id = ""; _render()))
+
+func _render_selected_part_card() -> void:
+	var part := PartCatalog.get_part(selected_part_id)
+	if part.is_empty():
+		return
+	var card := PanelContainer.new()
+	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 16, CYAN))
+	_content.add_child(card)
+	var copy := VBoxContainer.new()
+	copy.add_theme_constant_override("separation", 7)
+	card.add_child(copy)
+	copy.add_child(_label(str(part.get("name", selected_part_id)), 18, TEXT))
+	var description := str(part.get("description", ""))
+	if description == "":
+		description = "Деталь выделена на схеме. Точное исполнение зависит от комплектации автомобиля."
+	var body := _muted_label(description)
+	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	copy.add_child(body)
+	var actions := GridContainer.new()
+	actions.columns = 2
+	actions.add_theme_constant_override("h_separation", 8)
+	actions.add_theme_constant_override("v_separation", 8)
+	_content.add_child(actions)
+	_add_action(actions, "Диагностика", func(): diagnostic_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "Руководство", func(): manual_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "История детали", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_content.add_child(_action_button("Снять выделение", func(): selected_part_id = ""; _render()))
 
 func _render_search_results() -> void:
 	var matches := TechnicalCatalog.search(search_query, _vehicle)
@@ -522,7 +558,10 @@ func _node_card(title: String, subtitle: String, action: Callable) -> Button:
 
 func _part_card(number: int, title: String, part_id: String) -> Button:
 	var button := _card_button()
+	button.set_meta("part_id", part_id)
 	button.custom_minimum_size.y = 50
+	if part_id == selected_part_id:
+		button.add_theme_stylebox_override("normal", _panel_style(Color("0b3039"), 15, CYAN))
 	var row := HBoxContainer.new()
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_theme_constant_override("separation", 10)

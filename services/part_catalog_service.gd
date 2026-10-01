@@ -11,9 +11,9 @@ const SYSTEMS := {
     "exhaust": {"name":"Выпуск", "parts":["exhaust_manifold", "catalytic_converter", "oxygen_sensor", "rear_muffler", "front_exhaust_pipe", "exhaust_resonator"]},
     "transmission": {"name":"Коробка передач", "parts":["gearbox", "clutch", "flywheel", "selector_mechanism", "transmission_mount", "differential", "gear_selector_cables", "dsg_dual_clutch", "dsg_mechatronic", "dsg_input_shafts", "dsg_output_shafts", "dsg_sensors", "dsg_selector_module", "haldex_coupling", "propshaft", "propshaft_center_bearing", "rear_drive_shaft_left", "rear_drive_shaft_right"]},
     "drive": {"name":"Привод", "parts":["drive_shaft", "cv_joint_inner", "cv_joint_outer", "hub", "wheel_bearing", "outer_cv_boot", "inner_cv_boot"]},
-    "suspension": {"name":"Подвеска", "parts":["strut", "spring", "control_arm", "ball_joint", "stabilizer_link", "wheel", "subframe", "anti_roll_bar", "strut_mount", "suspension_bushings", "steering_knuckle", "front_stabilizer_bushings", "rear_suspension_arm", "rear_suspension_track_rod", "rear_shock_absorber", "rear_axle_carrier"]},
+    "suspension": {"name":"Подвеска", "parts":["strut", "spring", "control_arm", "control_arm_left", "control_arm_right", "ball_joint", "stabilizer_link", "wheel", "subframe", "anti_roll_bar", "strut_mount", "strut_bearing", "bump_stop", "strut_dust_boot", "suspension_bushings", "steering_knuckle", "front_stabilizer_bushings", "rear_suspension_arm", "rear_suspension_track_rod", "rear_shock_absorber", "rear_axle_carrier"]},
     "steering": {"name":"Рулевое", "parts":["steering_rack", "steering_tie_rod", "tie_rod_end", "steering_column", "power_steering_motor", "steering_wheel", "steering_angle_sensor"]},
-    "brakes": {"name":"Тормоза", "parts":["brake_disc", "brake_caliper", "brake_pads", "brake_hose", "brake_master_cylinder", "abs_unit", "brake_booster", "brake_fluid_reservoir", "abs_wheel_sensor_fl", "abs_wheel_sensor_fr", "abs_wheel_sensor_rl", "abs_wheel_sensor_rr", "brake_carrier", "brake_guide_pins", "parking_brake_cable"]},
+    "brakes": {"name":"Тормоза", "parts":["brake_disc", "brake_caliper", "brake_pads", "brake_hose", "brake_master_cylinder", "abs_unit", "brake_booster", "brake_fluid_reservoir", "abs_wheel_sensor_fl", "abs_wheel_sensor_fr", "abs_wheel_sensor_rl", "abs_wheel_sensor_rr", "brake_carrier", "brake_guide_pins", "dust_shield", "parking_brake_cable"]},
     "electrical": {"name":"Электрика", "parts":["battery", "alternator", "starter", "fuse_box", "body_control_module", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
     "body": {"name":"Кузов", "parts":["front_bumper", "hood", "front_fender", "tailgate", "front_left_door", "front_right_door", "rear_left_door", "rear_right_door", "windshield", "rear_window", "side_mirrors", "roof_rails", "front_wheel_arch_liner", "rear_wheel_arch_liner", "underbody_guard"]},
     "interior": {"name":"Салон", "parts":["driver_seat", "passenger_seat", "rear_seat", "instrument_cluster", "infotainment", "dashboard", "center_console", "glove_box", "pedal_assembly", "cabin_filter"]},
@@ -27,11 +27,12 @@ const SYSTEMS := {
 # логический узел системы, поэтому ни одна из 140 деталей не теряется.
 const ASSEMBLY_GROUPS := {
     "brakes": [
-        {"id":"front_left_brake", "name":"Левый передний тормозной механизм", "parts":["wheel", "brake_disc", "brake_caliper", "brake_pads", "brake_hose", "hub", "wheel_bearing"]},
+        {"id":"front_left_brake", "name":"Левый передний тормозной механизм", "parts":["wheel", "brake_disc", "brake_caliper", "brake_pads", "brake_hose", "hub", "wheel_bearing", "brake_carrier", "brake_guide_pins", "dust_shield"]},
         {"id":"brake_hydraulics", "name":"Гидравлика и ABS", "parts":["brake_master_cylinder", "abs_unit", "brake_booster", "brake_fluid_reservoir", "abs_wheel_sensor_fl", "abs_wheel_sensor_fr", "abs_wheel_sensor_rl", "abs_wheel_sensor_rr"]}
     ],
     "suspension": [
-        {"id":"front_left_suspension", "name":"Левая передняя подвеска", "parts":["strut", "spring", "control_arm", "ball_joint", "stabilizer_link", "strut_mount", "suspension_bushings"]},
+        {"id":"front_left_suspension", "name":"Левая передняя подвеска", "parts":["strut", "spring", "control_arm", "ball_joint", "stabilizer_link", "strut_mount", "strut_bearing", "bump_stop", "strut_dust_boot", "suspension_bushings"]},
+        {"id":"front_axle_control_arms", "name":"Подрамник и нижние рычаги передней оси", "parts":["subframe", "control_arm_left", "control_arm_right", "suspension_bushings", "ball_joint"]},
         {"id":"front_axle_suspension", "name":"Передняя ось", "parts":["subframe", "anti_roll_bar"]},
         {"id":"wheels", "name":"Колёса", "parts":["wheel"]}
     ],
@@ -123,6 +124,8 @@ const PARTS := {
     "strut": {"name":"Амортизационная стойка", "group":"Подвеска", "system":"suspension", "keywords":["амортизационная стойка", "подвеска", "стук подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "spring": {"name":"Пружина", "group":"Подвеска", "system":"suspension", "keywords":["пружина", "подвеска", "стук подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "control_arm": {"name":"Нижний рычаг", "group":"Подвеска", "system":"suspension", "keywords":["нижний рычаг", "подвеска", "стук подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
+    "control_arm_left": {"name":"Левый нижний рычаг", "group":"Передняя подвеска", "system":"suspension", "keywords":["левый нижний рычаг", "левый рычаг передней подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
+    "control_arm_right": {"name":"Правый нижний рычаг", "group":"Передняя подвеска", "system":"suspension", "keywords":["правый нижний рычаг", "правый рычаг передней подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "ball_joint": {"name":"Шаровая опора", "group":"Подвеска", "system":"suspension", "keywords":["шаровая опора", "подвеска", "стук подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "stabilizer_link": {"name":"Стойка стабилизатора", "group":"Подвеска", "system":"suspension", "keywords":["стойка стабилизатора", "подвеска", "стук подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "wheel": {"name":"Колесо", "group":"Подвеска", "system":"suspension", "keywords":["колесо", "колесо"], "diagnostic_flow":"road_hum", "repair_guide":""},
@@ -177,6 +180,9 @@ const PARTS := {
     "subframe": {"name":"Подрамник", "group":"Подвеска", "system":"suspension", "keywords":["подрамник"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "anti_roll_bar": {"name":"Стабилизатор поперечной устойчивости", "group":"Подвеска", "system":"suspension", "keywords":["стабилизатор поперечной устойчивости", "стабилизатор"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "strut_mount": {"name":"Верхняя опора стойки", "group":"Подвеска", "system":"suspension", "keywords":["верхняя опора стойки", "опора амортизатора"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
+    "strut_bearing": {"name":"Опорный подшипник стойки", "group":"Подвеска", "system":"suspension", "keywords":["опорный подшипник стойки", "подшипник верхней опоры"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
+    "bump_stop": {"name":"Отбойник амортизационной стойки", "group":"Подвеска", "system":"suspension", "keywords":["отбойник стойки", "отбойник амортизатора"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
+    "strut_dust_boot": {"name":"Пыльник амортизационной стойки", "group":"Подвеска", "system":"suspension", "keywords":["пыльник стойки", "пыльник амортизатора"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "suspension_bushings": {"name":"Сайлентблоки подвески", "group":"Подвеска", "system":"suspension", "keywords":["сайлентблоки", "сайлентблок подвески"], "diagnostic_flow":"suspension_knock", "repair_guide":""},
     "steering_wheel": {"name":"Рулевое колесо", "group":"Рулевое", "system":"steering", "keywords":["рулевое колесо", "руль"], "diagnostic_flow":"", "repair_guide":""},
     "steering_angle_sensor": {"name":"Датчик угла поворота руля", "group":"Рулевое", "system":"steering", "keywords":["датчик угла руля", "датчик угла поворота руля"], "diagnostic_flow":"", "repair_guide":""},
@@ -255,6 +261,7 @@ const PARTS := {
     "rear_shock_absorber": {"name":"Задний амортизатор", "group":"Подвеска", "system":"suspension", "keywords":["задний амортизатор"], "diagnostic_flow":"", "repair_guide":""},
     "rear_axle_carrier": {"name":"Носитель задней оси FWD", "group":"Подвеска", "system":"suspension", "keywords":["носитель задней оси"], "diagnostic_flow":"", "repair_guide":""},
     "brake_carrier": {"name":"Скоба суппорта", "group":"Тормоза", "system":"brakes", "keywords":["скоба суппорта"], "diagnostic_flow":"", "repair_guide":""},
+    "dust_shield": {"name":"Защитный щиток тормозного диска", "group":"Тормоза", "system":"brakes", "keywords":["защитный щиток тормозного диска", "пыльник тормозного диска"], "diagnostic_flow":"", "repair_guide":""},
     "brake_guide_pins": {"name":"Направляющие суппорта", "group":"Тормоза", "system":"brakes", "keywords":["направляющие суппорта"], "diagnostic_flow":"", "repair_guide":""},
     "parking_brake_cable": {"name":"Трос стояночного тормоза", "group":"Тормоза", "system":"brakes", "keywords":["трос ручника", "трос стояночного тормоза"], "diagnostic_flow":"", "repair_guide":""},
     "haldex_coupling": {"name":"Муфта полного привода Haldex", "group":"Коробка передач", "system":"transmission", "requires_drivetrain":"AWD", "keywords":["муфта haldex"], "diagnostic_flow":"", "repair_guide":""},

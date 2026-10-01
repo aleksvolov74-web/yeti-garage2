@@ -1444,21 +1444,53 @@
           "name": "Подрамник и нижние рычаги",
           "part_ids": [
             "subframe",
-            "control_arm",
+            "control_arm_left",
+            "control_arm_right",
             "suspension_bushings",
             "ball_joint"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/front_suspension/front_subframe_arms.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "subframe",
+                "x": 0.5,
+                "y": 0.42
+              },
+              {
+                "number": 2,
+                "part_id": "control_arm_left",
+                "x": 0.25,
+                "y": 0.71
+              },
+              {
+                "number": 3,
+                "part_id": "control_arm_right",
+                "x": 0.68,
+                "y": 0.71
+              },
+              {
+                "number": 4,
+                "part_id": "suspension_bushings",
+                "x": 0.56,
+                "y": 0.64
+              },
+              {
+                "number": 5,
+                "part_id": "ball_joint",
+                "x": 0.81,
+                "y": 0.8
+              }
+            ],
             "source": {
               "title": "Передняя ось Yeti 5L",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Визуальный пакет, предоставленный пользователем",
+              "license": "Пользователь предоставил эти файлы для интеграции в Yeti Garage в запросе от 2026-10-01.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -1468,7 +1500,7 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "verification_note": "Статус VERIFIED_ARCHITECTURE присвоен по manifest пакета. Сам manifest указывает, что изображения не являются VIN/PR-code точными.",
               "related_references": [
                 {
                   "title": "Стальной carrier передней оси",
@@ -1478,7 +1510,9 @@
                   "title": "Алюминиевый carrier передней оси",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_aluminium_assembly_carrier/"
                 }
-              ]
+              ],
+              "author": "Пользовательский пакет; имя автора в manifest не указано.",
+              "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
             }
           },
           "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
@@ -1497,21 +1531,61 @@
           "id": "front_strut",
           "name": "Амортизационная стойка и пружина",
           "part_ids": [
-            "strut",
+            "strut_mount",
+            "strut_bearing",
             "spring",
-            "strut_mount"
+            "bump_stop",
+            "strut_dust_boot",
+            "strut"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/front_suspension/front_strut.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "strut_mount",
+                "x": 0.48,
+                "y": 0.15
+              },
+              {
+                "number": 2,
+                "part_id": "strut_bearing",
+                "x": 0.5,
+                "y": 0.25
+              },
+              {
+                "number": 3,
+                "part_id": "spring",
+                "x": 0.4,
+                "y": 0.6
+              },
+              {
+                "number": 4,
+                "part_id": "bump_stop",
+                "x": 0.64,
+                "y": 0.39
+              },
+              {
+                "number": 5,
+                "part_id": "strut_dust_boot",
+                "x": 0.64,
+                "y": 0.52
+              },
+              {
+                "number": 6,
+                "part_id": "strut",
+                "x": 0.68,
+                "y": 0.73
+              }
+            ],
             "source": {
               "title": "Передняя ось Yeti 5L",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Визуальный пакет, предоставленный пользователем",
+              "license": "Пользователь предоставил эти файлы для интеграции в Yeti Garage в запросе от 2026-10-01.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -1521,13 +1595,15 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "verification_note": "Статус VERIFIED_ARCHITECTURE присвоен по manifest пакета. Сам manifest указывает, что изображения не являются VIN/PR-code точными.",
               "related_references": [
                 {
                   "title": "Обзор компонентов передней подвески",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_wheel_suspension/"
                 }
-              ]
+              ],
+              "author": "Пользовательский пакет; имя автора в manifest не указано.",
+              "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -1536,12 +1612,12 @@
           "id": "front_knuckle_hub",
           "name": "Поворотный кулак и ступица",
           "part_ids": [
+            "cv_joint_outer",
             "steering_knuckle",
-            "hub",
             "wheel_bearing",
-            "brake_disc",
-            "brake_caliper",
-            "cv_joint_outer"
+            "hub",
+            "dust_shield",
+            "ball_joint"
           ],
           "children": [
             {
@@ -1663,16 +1739,54 @@
             }
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "cv_joint_outer",
+                "x": 0.18,
+                "y": 0.42
+              },
+              {
+                "number": 2,
+                "part_id": "steering_knuckle",
+                "x": 0.52,
+                "y": 0.49,
+                "manifest_part_id": "front_steering_knuckle"
+              },
+              {
+                "number": 3,
+                "part_id": "wheel_bearing",
+                "x": 0.63,
+                "y": 0.47
+              },
+              {
+                "number": 4,
+                "part_id": "hub",
+                "x": 0.76,
+                "y": 0.47
+              },
+              {
+                "number": 5,
+                "part_id": "dust_shield",
+                "x": 0.8,
+                "y": 0.61
+              },
+              {
+                "number": 6,
+                "part_id": "ball_joint",
+                "x": 0.53,
+                "y": 0.8
+              }
+            ],
             "source": {
               "title": "Передняя ось Yeti 5L",
               "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Визуальный пакет, предоставленный пользователем",
+              "license": "Пользователь предоставил эти файлы для интеграции в Yeti Garage в запросе от 2026-10-01.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -1682,7 +1796,7 @@
                 "drivetrain": "FWD",
                 "engine_code": "ANY"
               },
-              "verification_note": "Yeti 5L front-axle service information lists this construction. Steel/aluminium carrier and PR-dependent component specifications are presented as alternatives; exact VIN fitment is not asserted.",
+              "verification_note": "Статус VERIFIED_ARCHITECTURE присвоен по manifest пакета. Сам manifest указывает, что изображения не являются VIN/PR-code точными.",
               "related_references": [
                 {
                   "title": "Обзор компонентов передней подвески",
@@ -1692,7 +1806,9 @@
                   "title": "Ступица, подшипник, тормоз и ABS",
                   "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/"
                 }
-              ]
+              ],
+              "author": "Пользовательский пакет; имя автора в manifest не указано.",
+              "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -2062,25 +2178,70 @@
           "id": "front_brake_assembly",
           "name": "Диск, суппорт и колодки",
           "part_ids": [
-            "brake_disc",
             "brake_caliper",
+            "brake_pads",
             "brake_carrier",
             "brake_guide_pins",
-            "brake_pads",
-            "hub",
-            "wheel_bearing"
+            "brake_disc",
+            "brake_hose",
+            "hub"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "verified",
+            "image": "res://assets/technical_catalog/front_suspension/front_brake_assembly.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "brake_caliper",
+                "x": 0.18,
+                "y": 0.5
+              },
+              {
+                "number": 2,
+                "part_id": "brake_pads",
+                "x": 0.4,
+                "y": 0.49
+              },
+              {
+                "number": 3,
+                "part_id": "brake_carrier",
+                "x": 0.56,
+                "y": 0.48,
+                "manifest_part_id": "brake_caliper_carrier"
+              },
+              {
+                "number": 4,
+                "part_id": "brake_guide_pins",
+                "x": 0.5,
+                "y": 0.76,
+                "manifest_part_id": "brake_caliper_guides"
+              },
+              {
+                "number": 5,
+                "part_id": "brake_disc",
+                "x": 0.78,
+                "y": 0.49
+              },
+              {
+                "number": 6,
+                "part_id": "brake_hose",
+                "x": 0.76,
+                "y": 0.18
+              },
+              {
+                "number": 7,
+                "part_id": "hub",
+                "x": 0.88,
+                "y": 0.54
+              }
+            ],
             "source": {
               "title": "Передние тормоза Yeti; PR-вариант не определён",
               "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_the_front_brake/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Визуальный пакет, предоставленный пользователем",
+              "license": "Пользователь предоставил эти файлы для интеграции в Yeti Garage в запросе от 2026-10-01.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -2090,7 +2251,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода.",
+              "verification_note": "Статус VERIFIED_ARCHITECTURE присвоен по manifest пакета. Сам manifest указывает, что изображения не являются VIN/PR-code точными.",
               "related_references": [
                 {
                   "title": "Ремонт переднего тормоза Škoda Yeti",
@@ -2100,10 +2261,12 @@
                   "title": "Ремонт переднего суппорта",
                   "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/repairing_the_front_brake_caliper/"
                 }
-              ]
+              ],
+              "author": "Пользовательский пакет; имя автора в manifest не указано.",
+              "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
             }
           },
-          "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
+          "variant_note": "Точное исполнение зависит от PR-кода автомобиля; размер тормозного диска и номер суппорта не подтверждены."
         },
         {
           "id": "front_brake_hose",

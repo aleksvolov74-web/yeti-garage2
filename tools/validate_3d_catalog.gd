@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 175:
-		failures.append("expected 175 parts, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 181:
+		failures.append("expected 181 parts after importing front suspension details, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -149,6 +149,7 @@ func _run_checks() -> void:
 			found_suspension_symptom = true
 	if not found_suspension_symptom:
 		failures.append("symptom search did not return its existing diagnostic path")
+	await _check_front_suspension_images(failures)
 
 	var mobile_view := MobileTechnicalCatalogView.new()
 	root.add_child(mobile_view)
@@ -180,6 +181,124 @@ func _run_checks() -> void:
 	for failure in failures:
 		push_error(failure)
 	quit(1)
+
+func _check_front_suspension_images(failures: Array[String]) -> void:
+	var view := MobileTechnicalCatalogView.new()
+	root.add_child(view)
+	view.size = Vector2(420.0, 780.0)
+	view.set_vehicle_profile({"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"})
+	await process_frame
+	var expected := {
+		"front_subframe_arms": {"count":5, "tap_part":"control_arm_left"},
+		"front_strut": {"count":6, "tap_part":"strut_bearing"},
+		"front_knuckle_hub": {"count":6, "tap_part":"steering_knuckle"},
+		"front_brake_assembly": {"count":7, "tap_part":"brake_caliper"}
+	}
+	for node_id_value in expected:
+		var node_id := str(node_id_value)
+		var expected_row: Dictionary = expected[node_id]
+		view.call("_open_section", "front_suspension")
+		await process_frame
+		view.call("_open_node", node_id)
+		await process_frame
+		var canvas = view.get("_diagram")
+		if canvas == null:
+			failures.append("front suspension node %s did not create an image viewer" % node_id)
+			continue
+		if canvas.texture == null or canvas.markers.size() != int(expected_row["count"]):
+			failures.append("front suspension node %s image/marker count mismatch" % node_id)
+			continue
+		for marker_value in canvas.markers:
+			var marker: Dictionary = marker_value
+			if not PartCatalogService.PARTS.has(str(marker.get("part_id", ""))):
+				failures.append("front suspension node %s has an unknown marker part %s" % [node_id, str(marker.get("part_id", ""))])
+			if float(marker.get("x", -1.0)) < 0.0 or float(marker.get("x", 2.0)) > 1.0 or float(marker.get("y", -1.0)) < 0.0 or float(marker.get("y", 2.0)) > 1.0:
+				failures.append("front suspension node %s has an out-of-range marker" % node_id)
+		view.call("_toggle_markers")
+		if canvas.markers_visible:
+			failures.append("front suspension node %s could not hide its markers" % node_id)
+		view.call("_toggle_markers")
+		if not canvas.markers_visible:
+			failures.append("front suspension node %s could not show its markers again" % node_id)
+		canvas.size = Vector2(420.0, 320.0)
+		canvas.call("reset_view")
+		var touch_a := InputEventScreenTouch.new()
+		touch_a.index = 0
+		touch_a.pressed = true
+		touch_a.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", touch_a)
+		var touch_b := InputEventScreenTouch.new()
+		touch_b.index = 1
+		touch_b.pressed = true
+		touch_b.position = Vector2(220.0, 120.0)
+		canvas.call("_gui_input", touch_b)
+		var pinch := InputEventScreenDrag.new()
+		pinch.index = 1
+		pinch.position = Vector2(250.0, 120.0)
+		canvas.call("_gui_input", pinch)
+		if float(canvas.get("_zoom")) <= 1.0:
+			failures.append("front suspension node %s pinch zoom did not change scale" % node_id)
+		var touch_release_a := InputEventScreenTouch.new()
+		touch_release_a.index = 0
+		touch_release_a.pressed = false
+		touch_release_a.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", touch_release_a)
+		var touch_release_b := InputEventScreenTouch.new()
+		touch_release_b.index = 1
+		touch_release_b.pressed = false
+		touch_release_b.position = Vector2(250.0, 120.0)
+		canvas.call("_gui_input", touch_release_b)
+		canvas.call("reset_view")
+		canvas.set("_zoom", 2.0)
+		var pan_touch := InputEventScreenTouch.new()
+		pan_touch.index = 0
+		pan_touch.pressed = true
+		pan_touch.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", pan_touch)
+		var pan_drag := InputEventScreenDrag.new()
+		pan_drag.index = 0
+		pan_drag.position = Vector2(145.0, 135.0)
+		canvas.call("_gui_input", pan_drag)
+		if Vector2(canvas.get("_pan")).is_zero_approx():
+			failures.append("front suspension node %s pan did not move the zoomed image" % node_id)
+		var pan_release := InputEventScreenTouch.new()
+		pan_release.index = 0
+		pan_release.pressed = false
+		pan_release.position = Vector2(145.0, 135.0)
+		canvas.call("_gui_input", pan_release)
+		canvas.call("reset_view")
+		var marker: Dictionary = canvas.markers[0]
+		var image_rect: Rect2 = canvas.call("_image_rect")
+		var point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		canvas.call("_pick_marker", point)
+		await process_frame
+		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
+			failures.append("front suspension node %s marker tap did not select its part" % node_id)
+		var selected_canvas = view.get("_diagram")
+		if selected_canvas == null or str(selected_canvas.get("selected_part_id")) != str(marker.get("part_id", "")):
+			failures.append("front suspension node %s marker selection was not highlighted" % node_id)
+		var list_button: Button
+		for button_node in view.find_children("*", "Button", true, false):
+			var button := button_node as Button
+			if button.has_meta("part_id") and str(button.get_meta("part_id")) == str(expected_row["tap_part"]):
+				list_button = button
+				break
+		if list_button == null:
+			failures.append("front suspension node %s has no tappable part-list row" % node_id)
+		else:
+			list_button.pressed.emit()
+			await process_frame
+			if str(view.get("selected_part_id")) != str(expected_row["tap_part"]):
+				failures.append("front suspension node %s list tap did not select its part" % node_id)
+			var selected_after_list = view.get("_diagram")
+			if selected_after_list == null or str(selected_after_list.get("selected_part_id")) != str(expected_row["tap_part"]):
+				failures.append("front suspension node %s list selection did not highlight its marker" % node_id)
+		view.set("selected_part_id", "")
+		view.call("_render")
+		await process_frame
+		if view.get("_diagram") == null or str(view.get("current_section_id")) != "front_suspension":
+			failures.append("front suspension node %s did not return to its diagram in the catalog" % node_id)
+	view.queue_free()
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
 	var result: Array = []
