@@ -504,7 +504,7 @@
             "markers": [],
             "source": {
               "title": "Топливная система CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/fuel_supply_gas_operation/fuel_tank_and_fuel_delivery_unit/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -516,7 +516,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
             }
           },
           "requires_engine_codes": [
@@ -552,7 +552,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
             }
           },
           "requires_engine_codes": [
@@ -586,7 +586,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
             }
           },
           "requires_engine_codes": [
@@ -832,11 +832,11 @@
             "status": "missing",
             "image": "",
             "image_type": "exploded_view",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -848,7 +848,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
             }
           },
           "requires_engine_codes": [
@@ -866,11 +866,11 @@
             "status": "missing",
             "image": "",
             "image_type": "exploded_view",
-            "verification_level": "REFERENCE_ONLY",
+            "verification_level": "VERIFIED_ARCHITECTURE",
             "markers": [],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -882,7 +882,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии."
             }
           },
           "requires_engine_codes": [
@@ -904,7 +904,7 @@
             "markers": [],
             "source": {
               "title": "Выпуск Yeti; двигатель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_as_of_06.10_summary_of_components/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_as_of_06.10_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -916,12 +916,26 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая Yeti 1.2/63; 77 kW TSI сервисная страница подтверждает устройство узла. Страница содержит защищённую иллюстрацию, поэтому APK показывает ссылку вместо копии.",
+              "alternative_urls": [
+                "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_up_to_06.10_summary_of_components/"
+              ]
             }
           },
           "requires_engine_codes": [
             "CBZB"
-          ]
+          ],
+          "variant_options": [
+            {
+              "id": "pre_2010_06",
+              "title": "Производство до 06.10"
+            },
+            {
+              "id": "from_2010_06",
+              "title": "Производство с 06.10"
+            }
+          ],
+          "variant_note": "Задняя часть выпуска имеет варианты до/с 06.10. Модельный год 2011 не задаёт точную дату производства, поэтому выбранный вариант выпуска не подтверждён."
         }
       ]
     },
