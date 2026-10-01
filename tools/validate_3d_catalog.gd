@@ -100,7 +100,7 @@ func _run_checks() -> void:
 	var all_catalog_nodes := 0
 	for section_value in TechnicalCatalogService.sections({"drivetrain":"AWD"}):
 		var all_section: Dictionary = section_value
-		all_catalog_nodes += _walk_nodes(all_section.get("nodes", []), {"drivetrain":"AWD"}).size()
+		all_catalog_nodes += _count_all_nodes(all_section.get("nodes", []))
 	for section_value in TechnicalCatalogService.sections(vehicle_profile):
 		var section: Dictionary = section_value
 		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
@@ -190,3 +190,10 @@ func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
 		result.append(node)
 		result.append_array(_walk_nodes(node.get("children", []), vehicle))
 	return result
+
+func _count_all_nodes(rows: Array) -> int:
+	var count := 0
+	for value in rows:
+		var node: Dictionary = value
+		count += 1 + _count_all_nodes(node.get("children", []))
+	return count
