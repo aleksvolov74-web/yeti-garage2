@@ -1,4 +1,12 @@
-# Yeti Garage 0.19.8 UI polish
+# Yeti Garage 0.20.4 — mobile technical catalog
+
+Android/iOS use a native, data-driven 2D vehicle catalog. Desktop builds continue to load the existing 3D mode. The mobile hierarchy and diagram metadata live in `data/technical_catalog.json`; a node without a verified compatible image intentionally shows an image-pending state.
+
+The technical catalog currently defines 24 vehicle sections, including conditional AWD content. Existing part records, diagnostics, repairs, history, replacement logging, and manual links remain shared with the rest of the application. See `docs/technical_catalog_sources.md` for source and image policy.
+
+## Previous release notes
+
+The notes below describe earlier revisions and are retained as project history.
 
 Контрольная 2D-версия перед standalone APK.
 

@@ -1,16 +1,17 @@
 extends Control
 
-# Yeti Garage: premium dashboard and interactive 3D catalog.
+# Yeti Garage: maintenance, diagnostics, and a vehicle technical catalog.
 
 const MileageService = preload("res://services/mileage_service.gd")
 const ServiceHistoryService = preload("res://services/service_history_service.gd")
 const MaintenanceService = preload("res://services/maintenance_service.gd")
-const Vehicle3DView = preload("res://scenes/vehicle_3d/vehicle_3d_view.gd")
+const MobileTechnicalCatalogView = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
 const VehicleService = preload("res://services/vehicle_service.gd")
 const ReminderService = preload("res://services/reminder_service.gd")
 const DiagnosticService = preload("res://services/diagnostic_service.gd")
 const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
+const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
@@ -36,6 +37,7 @@ var diagnostics_box: VBoxContainer
 var vehicle_3d_box: VBoxContainer
 var repair_box: VBoxContainer
 var vehicle_3d_view
+var mobile_technical_catalog := false
 
 var header_title: Label
 var header_accent: Label
@@ -177,7 +179,8 @@ func _build_ui() -> void:
     maintenance_box = _make_scroll_page("ТО")
     reminders_box = _make_scroll_page("Напом.")
     diagnostics_box = _make_scroll_page("Диагн.")
-    vehicle_3d_box = _make_scroll_page("3D")
+    mobile_technical_catalog = _is_mobile_runtime()
+    vehicle_3d_box = _make_scroll_page("Техсправочник" if mobile_technical_catalog else "3D")
     repair_box = _make_scroll_page("Ремонт")
 
     _build_overview()
@@ -214,8 +217,8 @@ func _make_scroll_page(title: String) -> VBoxContainer:
     scroll.follow_focus = false
     pages.add_child(scroll)
     # Long sections keep swipe scrolling, but never expose scrollbars.
-    # 3D is included too: gestures inside its viewport are consumed by the viewport,
-    # while swipes outside the model still scroll the page normally.
+    # Scrollable sections hide their bars; the technical catalog remains in this
+    # same outer scroll area while its diagram canvas handles zoomed image gestures.
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     var vbar := scroll.get_v_scroll_bar()
@@ -234,6 +237,9 @@ func _make_scroll_page(title: String) -> VBoxContainer:
     box.mouse_filter = Control.MOUSE_FILTER_PASS
     scroll.add_child(box)
     return box
+
+func _is_mobile_runtime() -> bool:
+    return OS.has_feature("mobile") or OS.has_feature("android") or OS.has_feature("ios")
 
 func _build_bottom_navigation(root: VBoxContainer) -> void:
     var shell := PanelContainer.new()
@@ -255,7 +261,7 @@ func _build_bottom_navigation(root: VBoxContainer) -> void:
 
     _add_nav_button("Машина", "res://assets/ui/icons/car.svg", overview_box)
     _add_nav_button("Диагностика", "res://assets/ui/icons/diagnostic.svg", diagnostics_box)
-    _add_nav_button("3D", "res://assets/ui/icons/cube.svg", vehicle_3d_box)
+    _add_nav_button("Справочник" if mobile_technical_catalog else "3D", "res://assets/ui/icons/book.svg" if mobile_technical_catalog else "res://assets/ui/icons/cube.svg", vehicle_3d_box)
     _add_nav_button("История", "res://assets/ui/icons/history.svg", history_box)
     _add_nav_button("Ещё", "res://assets/ui/icons/more.svg", null, _open_more_menu)
 
@@ -487,7 +493,7 @@ func _open_manual_hub() -> void:
         popup.hide()
         _switch_to_page(diagnostics_box)
     )
-    _add_more_action(box, "3D-схема автомобиля", func():
+    _add_more_action(box, "Технический справочник" if mobile_technical_catalog else "3D-схема автомобиля", func():
         popup.hide()
         _switch_to_page(vehicle_3d_box)
     )
@@ -1743,7 +1749,7 @@ func _render_diagnostic_node() -> void:
     diagnostic_content.add_child(flow_title)
     if diagnostic_context_part_name != "":
         var context := Label.new()
-        context.text = "3D-контекст: проверяем связь с «%s». Это ещё не диагноз детали." % diagnostic_context_part_name
+        context.text = "Связанная деталь: «%s». Это возможная причина для проверки, не диагноз." % diagnostic_context_part_name
         context.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         context.modulate = Color("71ddb6")
         diagnostic_content.add_child(context)
@@ -1806,7 +1812,7 @@ func _show_diagnostic_result(result_text: String) -> void:
     diagnostic_content.add_child(flow_title)
     if diagnostic_context_part_name != "":
         var context := Label.new()
-        context.text = "Проверяемая деталь из 3D: %s" % diagnostic_context_part_name
+        context.text = "Проверяемая деталь из технического справочника: %s" % diagnostic_context_part_name
         context.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         context.modulate = Color("71ddb6")
         diagnostic_content.add_child(context)
@@ -1853,7 +1859,11 @@ func _save_diagnostic_result(title_text: String, result_text: String) -> void:
     })
 
 func _build_3d_page() -> void:
-    vehicle_3d_view = Vehicle3DView.new()
+    if mobile_technical_catalog:
+        vehicle_3d_view = MobileTechnicalCatalogView.new()
+    else:
+        var desktop_view_script: Script = load("res://scenes/vehicle_3d/vehicle_3d_view.gd")
+        vehicle_3d_view = desktop_view_script.new()
     vehicle_3d_view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     vehicle_3d_view.set_history_provider(Callable(self, "_part_history_summary_for_3d"))
     vehicle_3d_view.replacement_requested.connect(_open_part_replacement)
@@ -1861,7 +1871,24 @@ func _build_3d_page() -> void:
     vehicle_3d_view.repair_requested.connect(_open_repair_for_part)
     vehicle_3d_view.diagnostic_requested.connect(_open_diagnostic_for_part)
     vehicle_3d_view.manual_requested.connect(_open_manual_for_part)
+    if vehicle_3d_view.has_signal("diagnostic_flow_requested"):
+        vehicle_3d_view.diagnostic_flow_requested.connect(_open_diagnostic_from_catalog)
     vehicle_3d_box.add_child(vehicle_3d_view)
+
+func _open_diagnostic_from_catalog(flow_id: String, title: String) -> void:
+    _switch_to_page(diagnostics_box)
+    _start_diagnostic(flow_id, title)
+
+func _open_technical_result_from_search(result: Dictionary, dialog: Window) -> void:
+    dialog.hide()
+    if mobile_technical_catalog and vehicle_3d_view != null and vehicle_3d_view.has_method("open_catalog_result"):
+        vehicle_3d_view.open_catalog_result(result)
+    else:
+        var part_id := str(result.get("part_id", ""))
+        if part_id != "" and vehicle_3d_view != null and vehicle_3d_view.has_method("focus_part"):
+            vehicle_3d_view.focus_part(part_id)
+    _switch_to_page(vehicle_3d_box)
+    dialog.queue_free()
 
 func _part_history_summary_for_3d(part_id: String) -> String:
     var events := ServiceHistoryService.events_for_part(part_id)
@@ -1873,7 +1900,7 @@ func _part_history_summary_for_3d(part_id: String) -> String:
 func _open_diagnostic_for_part(part_id: String, part_name: String) -> void:
     var flow_id := PartCatalogService.diagnostic_flow_for_part(part_id)
     if flow_id == "":
-        _show_info_dialog("Проверка детали", "Для «%s» отдельная диагностическая ветка пока не добавлена. Историю детали и 3D уже можно использовать, а проверку добавим после верификации процедуры." % part_name)
+        _show_info_dialog("Проверка детали", "Для «%s» отдельная проверенная диагностическая ветка пока не добавлена." % part_name)
         return
     _switch_to_page(diagnostics_box)
     _start_diagnostic(flow_id, part_name)
@@ -2050,8 +2077,29 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
     var part_matches := PartCatalogService.search(q)
     var diagnostic_matches: Array = DiagnosticService.search(q)
     var manual_matches := ManualSearchService.search(q, 3)
+    var catalog_matches := TechnicalCatalogService.search(q, VehicleService.vehicle())
 
     var total_shown := 0
+    var catalog_count := 0
+    if mobile_technical_catalog:
+        for catalog_value in catalog_matches:
+            var catalog_row: Dictionary = catalog_value
+            if str(catalog_row.get("kind", "")) not in ["system", "node"] or catalog_count >= 4:
+                continue
+            if catalog_count == 0:
+                _add_search_section_label(results, "Системы и узлы")
+            var catalog_button := Button.new()
+            catalog_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+            catalog_button.text = "%s • %s" % [str(catalog_row.get("name", "Узел")), str(catalog_row.get("subtitle", "Каталог"))]
+            catalog_button.custom_minimum_size.y = 48
+            catalog_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+            var catalog_action := _open_technical_result_from_search.bind(catalog_row, dialog)
+            catalog_button.set_meta("search_action", catalog_action)
+            catalog_button.pressed.connect(catalog_action)
+            results.add_child(catalog_button)
+            catalog_count += 1
+            total_shown += 1
+
     if not part_matches.is_empty():
         _add_search_section_label(results, "Детали")
         var part_count := 0
@@ -2236,7 +2284,7 @@ func _build_repair_page() -> void:
     top.add_theme_constant_override("separation", 8)
     repair_box.add_child(top)
     var close_btn := Button.new()
-    close_btn.text = "← К 3D"
+    close_btn.text = "← К справочнику" if mobile_technical_catalog else "← К 3D"
     close_btn.pressed.connect(_return_to_3d_from_repair)
     top.add_child(close_btn)
 
@@ -2296,7 +2344,7 @@ func _build_repair_page() -> void:
     actions.add_child(repair_next_button)
 
     var show_3d_btn := Button.new()
-    show_3d_btn.text = "Показать деталь в 3D"
+    show_3d_btn.text = "Показать в справочнике" if mobile_technical_catalog else "Показать деталь в 3D"
     show_3d_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     show_3d_btn.pressed.connect(_show_current_repair_part_in_3d)
     actions.add_child(show_3d_btn)
@@ -4047,9 +4095,9 @@ func _confirm_delete(id: String) -> void:
     )
 
 func _apply_touch_targets(node: Node) -> void:
-    if node is ScrollContainer and str(node.name) == "3D":
+    if node is ScrollContainer and str(node.name) == "3D" and not mobile_technical_catalog:
         return
-    if vehicle_3d_view != null and node == vehicle_3d_view:
+    if vehicle_3d_view != null and node == vehicle_3d_view and not mobile_technical_catalog:
         return
     if node is ScrollContainer:
         var scroll := node as ScrollContainer

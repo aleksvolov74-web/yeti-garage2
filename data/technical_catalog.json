@@ -1,0 +1,1436 @@
+{
+  "schema_version": 1,
+  "vehicle_scope": {
+    "make": "Škoda",
+    "model": "Yeti 5L",
+    "years": [
+      2009,
+      2017
+    ]
+  },
+  "compatibility_filters": [
+    "year",
+    "engine_code",
+    "transmission_code",
+    "drivetrain",
+    "equipment"
+  ],
+  "sections": [
+    {
+      "id": "engine",
+      "name": "Двигатель",
+      "summary": "Основные механические узлы двигателя. Конкретная компоновка зависит от кода двигателя.",
+      "part_system": "engine",
+      "nodes": [
+        {
+          "id": "engine_complete",
+          "name": "Двигатель в сборе",
+          "part_ids": [
+            "engine_block",
+            "cylinder_head",
+            "engine_mount"
+          ],
+          "children": [
+            {
+              "id": "engine_bottom_end",
+              "name": "Блок цилиндров и кривошипный механизм",
+              "part_ids": [
+                "engine_block",
+                "crankshaft",
+                "piston_group",
+                "connecting_rods"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            },
+            {
+              "id": "engine_upper_end",
+              "name": "Головка и клапанный механизм",
+              "part_ids": [
+                "cylinder_head",
+                "camshafts",
+                "valve_cover"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            }
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "engine_block_group",
+          "name": "Блок и кривошипно-шатунный механизм",
+          "part_ids": [
+            "engine_block",
+            "crankshaft",
+            "piston_group",
+            "connecting_rods"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "cylinder_head_group",
+          "name": "Головка блока и клапанный механизм",
+          "part_ids": [
+            "cylinder_head",
+            "camshafts",
+            "valve_cover"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "engine_mounts",
+          "name": "Опоры двигателя",
+          "part_ids": [
+            "engine_mount"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "engine_accessories",
+          "name": "Навесное оборудование",
+          "part_ids": [
+            "alternator",
+            "accessory_belt_drive",
+            "starter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "timing",
+      "name": "ГРМ",
+      "summary": "Привод газораспределительного механизма и его элементы.",
+      "part_system": "engine",
+      "nodes": [
+        {
+          "id": "timing_drive_node",
+          "name": "Привод ГРМ",
+          "part_ids": [
+            "timing_drive"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "timing_chain",
+          "name": "Цепь, натяжитель и направляющие",
+          "part_ids": [
+            "timing_drive"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "timing_gears",
+          "name": "Звёздочки и крышка привода",
+          "part_ids": [
+            "timing_drive"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "intake_boost",
+      "name": "Впуск и турбонаддув",
+      "summary": "Воздушный тракт и наддув; состав сверяется по коду двигателя.",
+      "part_system": "fuel_intake",
+      "nodes": [
+        {
+          "id": "air_path",
+          "name": "Воздушный тракт",
+          "part_ids": [
+            "air_filter",
+            "mass_air_flow_sensor",
+            "throttle_body",
+            "intake_manifold"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "boost_group",
+          "name": "Турбокомпрессор и управление наддувом",
+          "part_ids": [
+            "turbocharger",
+            "intake_manifold"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "fuel",
+      "name": "Топливная система",
+      "summary": "Подача топлива и управление впрыском.",
+      "part_system": "fuel_intake",
+      "nodes": [
+        {
+          "id": "fuel_storage",
+          "name": "Бак, модуль и насос",
+          "part_ids": [
+            "fuel_pump",
+            "fuel_filter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "fuel_delivery",
+          "name": "Магистрали, рампа и форсунки",
+          "part_ids": [
+            "fuel_rail",
+            "injectors"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "fuel_sensors",
+          "name": "Датчики топливной системы",
+          "part_ids": [
+            "mass_air_flow_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "cooling",
+      "name": "Охлаждение",
+      "summary": "Радиатор, насос и контуры охлаждения.",
+      "part_system": "cooling",
+      "nodes": [
+        {
+          "id": "radiator_pack",
+          "name": "Радиатор и вентилятор",
+          "part_ids": [
+            "radiator",
+            "cooling_fan"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "coolant_circuit",
+          "name": "Контур охлаждения двигателя",
+          "part_ids": [
+            "water_pump",
+            "thermostat",
+            "coolant_hoses",
+            "coolant_temperature_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "coolant_reservoir",
+          "name": "Расширительный бачок",
+          "part_ids": [
+            "coolant_expansion_tank"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "lubrication",
+      "name": "Система смазки",
+      "summary": "Насос, фильтр, поддон и каналы смазки.",
+      "part_system": "engine",
+      "nodes": [
+        {
+          "id": "oil_pump_circuit",
+          "name": "Масляный насос и магистрали",
+          "part_ids": [
+            "oil_system"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "oil_filter_node",
+          "name": "Масляный фильтр",
+          "part_ids": [
+            "oil_filter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "oil_pan_node",
+          "name": "Масляный поддон",
+          "part_ids": [
+            "oil_pan"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "exhaust",
+      "name": "Выпуск",
+      "summary": "Выпускной тракт и очистка отработавших газов.",
+      "part_system": "exhaust",
+      "nodes": [
+        {
+          "id": "exhaust_front",
+          "name": "Коллектор и передняя часть выпуска",
+          "part_ids": [
+            "exhaust_manifold",
+            "front_exhaust_pipe",
+            "turbocharger"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "exhaust_aftertreatment",
+          "name": "Катализатор и кислородные датчики",
+          "part_ids": [
+            "catalytic_converter",
+            "oxygen_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "exhaust_rear",
+          "name": "Трубы, резонатор и глушитель",
+          "part_ids": [
+            "exhaust_resonator",
+            "rear_muffler"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "transmission",
+      "name": "Сцепление и коробка передач",
+      "summary": "Состав коробки зависит от установленной модификации.",
+      "part_system": "transmission",
+      "nodes": [
+        {
+          "id": "clutch_group",
+          "name": "Сцепление и маховик",
+          "part_ids": [
+            "clutch",
+            "flywheel"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "gearbox_group",
+          "name": "Коробка передач и дифференциал",
+          "part_ids": [
+            "gearbox",
+            "differential",
+            "transmission_mount"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "gear_selector",
+          "name": "Механизм и тросы выбора передач",
+          "part_ids": [
+            "selector_mechanism",
+            "gear_selector_cables"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "front_drive",
+      "name": "Передние приводы",
+      "summary": "Шарниры равных угловых скоростей и приводные валы.",
+      "part_system": "drive",
+      "nodes": [
+        {
+          "id": "left_drive",
+          "name": "Левый передний привод",
+          "part_ids": [
+            "drive_shaft",
+            "cv_joint_inner",
+            "cv_joint_outer",
+            "outer_cv_boot",
+            "inner_cv_boot"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "right_drive",
+          "name": "Правый передний привод",
+          "part_ids": [
+            "drive_shaft",
+            "cv_joint_inner",
+            "cv_joint_outer",
+            "outer_cv_boot",
+            "inner_cv_boot"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "front_suspension",
+      "name": "Передняя подвеска",
+      "summary": "Передняя независимая подвеска Yeti 5L: стойки MacPherson и L-образные нижние рычаги.",
+      "part_system": "suspension",
+      "nodes": [
+        {
+          "id": "front_suspension_overview",
+          "name": "Передняя подвеска в сборе",
+          "part_ids": [
+            "subframe",
+            "control_arm",
+            "strut",
+            "spring",
+            "strut_mount",
+            "anti_roll_bar"
+          ],
+          "children": [
+            {
+              "id": "front_left_corner",
+              "name": "Левая передняя сторона",
+              "part_ids": [
+                "control_arm",
+                "ball_joint",
+                "strut",
+                "spring",
+                "strut_mount",
+                "stabilizer_link",
+                "hub",
+                "wheel_bearing"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            },
+            {
+              "id": "front_right_corner",
+              "name": "Правая передняя сторона",
+              "part_ids": [
+                "control_arm",
+                "ball_joint",
+                "strut",
+                "spring",
+                "strut_mount",
+                "stabilizer_link"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            },
+            {
+              "id": "front_axle_carrier",
+              "name": "Подрамник и стабилизатор",
+              "part_ids": [
+                "subframe",
+                "anti_roll_bar",
+                "suspension_bushings"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            }
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_subframe_arms",
+          "name": "Подрамник и нижние рычаги",
+          "part_ids": [
+            "subframe",
+            "control_arm",
+            "suspension_bushings",
+            "ball_joint"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_strut",
+          "name": "Амортизационная стойка и пружина",
+          "part_ids": [
+            "strut",
+            "spring",
+            "strut_mount"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_knuckle_hub",
+          "name": "Поворотный кулак и ступица",
+          "part_ids": [
+            "hub",
+            "wheel_bearing",
+            "brake_disc",
+            "brake_caliper",
+            "cv_joint_outer"
+          ],
+          "children": [
+            {
+              "id": "front_hub_bearing",
+              "name": "Ступица и подшипник",
+              "part_ids": [
+                "hub",
+                "wheel_bearing"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            },
+            {
+              "id": "front_brake_at_hub",
+              "name": "Тормозной механизм у ступицы",
+              "part_ids": [
+                "brake_disc",
+                "brake_caliper",
+                "brake_pads",
+                "brake_hose"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            },
+            {
+              "id": "front_drive_at_hub",
+              "name": "Наружный шарнир привода",
+              "part_ids": [
+                "drive_shaft",
+                "cv_joint_outer",
+                "outer_cv_boot"
+              ],
+              "diagram": {
+                "status": "missing",
+                "image": "",
+                "markers": []
+              }
+            }
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_stabilizer",
+          "name": "Стабилизатор поперечной устойчивости",
+          "part_ids": [
+            "anti_roll_bar",
+            "stabilizer_link"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "rear_suspension",
+      "name": "Задняя подвеска",
+      "summary": "Конструкция и состав зависят от модификации и привода автомобиля.",
+      "part_system": "suspension",
+      "nodes": [
+        {
+          "id": "rear_suspension_overview",
+          "name": "Задняя подвеска в сборе",
+          "part_ids": [
+            "subframe",
+            "spring",
+            "wheel_bearing"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_carrier",
+          "name": "Подрамник / балка и рычаги",
+          "part_ids": [
+            "subframe",
+            "suspension_bushings"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_springs_dampers",
+          "name": "Пружины и амортизаторы",
+          "part_ids": [
+            "spring",
+            "strut"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_hub",
+          "name": "Задние ступицы и подшипники",
+          "part_ids": [
+            "hub",
+            "wheel_bearing"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "steering",
+      "name": "Рулевое управление",
+      "summary": "Колонка, механизм и рулевые тяги.",
+      "part_system": "steering",
+      "nodes": [
+        {
+          "id": "steering_column",
+          "name": "Рулевое колесо и колонка",
+          "part_ids": [
+            "steering_wheel",
+            "steering_column",
+            "steering_angle_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "steering_rack",
+          "name": "Рулевая рейка и усилитель",
+          "part_ids": [
+            "steering_rack",
+            "power_steering_motor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "steering_linkage",
+          "name": "Тяги и наконечники",
+          "part_ids": [
+            "steering_tie_rod",
+            "tie_rod_end"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "front_brakes",
+      "name": "Передние тормоза",
+      "summary": "Передний тормозной механизм и датчики колеса.",
+      "part_system": "brakes",
+      "nodes": [
+        {
+          "id": "front_brake_assembly",
+          "name": "Диск, суппорт и колодки",
+          "part_ids": [
+            "brake_disc",
+            "brake_caliper",
+            "brake_pads",
+            "hub",
+            "wheel_bearing"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_brake_hose",
+          "name": "Скоба, направляющие и шланг",
+          "part_ids": [
+            "brake_caliper",
+            "brake_hose",
+            "abs_wheel_sensor_fl",
+            "abs_wheel_sensor_fr"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "rear_brakes",
+      "name": "Задние тормоза",
+      "summary": "Тип заднего тормозного механизма сверяется по комплектации.",
+      "part_system": "brakes",
+      "nodes": [
+        {
+          "id": "rear_brake_assembly",
+          "name": "Задний тормозной механизм",
+          "part_ids": [
+            "brake_disc",
+            "brake_caliper",
+            "brake_pads",
+            "brake_hose"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "parking_brake",
+          "name": "Стояночный тормоз",
+          "part_ids": [
+            "brake_caliper"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "abs_esp",
+      "name": "ABS, ESP и гидравлика",
+      "summary": "Гидравлические компоненты и датчики систем стабилизации.",
+      "part_system": "brakes",
+      "nodes": [
+        {
+          "id": "brake_hydraulics",
+          "name": "Главный цилиндр, усилитель и бачок",
+          "part_ids": [
+            "brake_master_cylinder",
+            "brake_booster",
+            "brake_fluid_reservoir"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "abs_esp_block",
+          "name": "Блок ABS/ESP и магистрали",
+          "part_ids": [
+            "abs_unit",
+            "brake_hose"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "wheel_sensors",
+          "name": "Датчики скорости колёс",
+          "part_ids": [
+            "abs_wheel_sensor_fl",
+            "abs_wheel_sensor_fr",
+            "abs_wheel_sensor_rl",
+            "abs_wheel_sensor_rr"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "awd",
+      "name": "Трансмиссия 4×4",
+      "summary": "Узлы полного привода показываются только для автомобиля с подтверждённым AWD.",
+      "part_system": "transmission",
+      "requires_drivetrain": "AWD",
+      "nodes": [
+        {
+          "id": "angle_drive",
+          "name": "Угловая передача",
+          "part_ids": [
+            "gearbox",
+            "drive_shaft"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "propshaft",
+          "name": "Карданный вал и опоры",
+          "part_ids": [
+            "drive_shaft"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "haldex",
+          "name": "Муфта Haldex",
+          "part_ids": [
+            "differential"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_differential",
+          "name": "Задний редуктор и приводы",
+          "part_ids": [
+            "differential",
+            "drive_shaft",
+            "cv_joint_inner",
+            "cv_joint_outer"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "climate",
+      "name": "Отопление и климат",
+      "summary": "Отопитель, вентиляция и контур кондиционера.",
+      "part_system": "climate",
+      "nodes": [
+        {
+          "id": "heater_box",
+          "name": "Корпус отопителя и радиатор печки",
+          "part_ids": [
+            "heater_core",
+            "climate_control_unit"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "blower",
+          "name": "Вентилятор и воздушные заслонки",
+          "part_ids": [
+            "blower_motor",
+            "air_flap_actuators",
+            "cabin_filter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "ac_circuit",
+          "name": "Компрессор, конденсер и испаритель",
+          "part_ids": [
+            "ac_compressor",
+            "condenser",
+            "evaporator",
+            "receiver_drier"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "electrical",
+      "name": "Электрика",
+      "summary": "Питание, запуск, проводка и электронные блоки.",
+      "part_system": "electrical",
+      "nodes": [
+        {
+          "id": "power_start",
+          "name": "Аккумулятор, генератор и стартер",
+          "part_ids": [
+            "battery",
+            "alternator",
+            "starter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "fuses_relays",
+          "name": "Предохранители и реле",
+          "part_ids": [
+            "fuse_box"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "control_units",
+          "name": "Блоки управления и датчики двигателя",
+          "part_ids": [
+            "engine_ecu",
+            "body_control_module",
+            "crankshaft_position_sensor",
+            "camshaft_position_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "wiring",
+          "name": "Жгуты и точки массы",
+          "part_ids": [
+            "wiring_harness"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "ignition",
+          "name": "Система зажигания",
+          "part_ids": [
+            "ignition_coil",
+            "spark_plugs"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "lighting",
+      "name": "Освещение",
+      "summary": "Наружные фонари, лампы и корректоры.",
+      "part_system": "lighting",
+      "nodes": [
+        {
+          "id": "front_lamps",
+          "name": "Передние фары и противотуманные фонари",
+          "part_ids": [
+            "headlamp_left",
+            "headlamp_right",
+            "fog_lamp_left",
+            "fog_lamp_right"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_lamps",
+          "name": "Задние фонари и подсветка номера",
+          "part_ids": [
+            "tail_lamp_left",
+            "tail_lamp_right",
+            "license_plate_lamp"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "interior_lamps",
+          "name": "Освещение салона",
+          "part_ids": [
+            "interior_lights"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "name": "Кузов",
+      "summary": "Наружные панели, двери и навесные элементы.",
+      "part_system": "body",
+      "nodes": [
+        {
+          "id": "body_front",
+          "name": "Передняя часть, капот и бамперы",
+          "part_ids": [
+            "front_bumper",
+            "hood",
+            "front_fender"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "doors",
+          "name": "Двери, замки, ручки и стеклоподъёмники",
+          "part_ids": [
+            "front_left_door",
+            "front_right_door",
+            "rear_left_door",
+            "rear_right_door"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "body_rear",
+          "name": "Дверь багажника и подкрылки",
+          "part_ids": [
+            "tailgate"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "body_protection",
+          "name": "Защиты и подкрылки",
+          "part_ids": [
+            "front_fender"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "mirrors",
+          "name": "Наружные зеркала",
+          "part_ids": [
+            "side_mirrors"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "glass_wipers",
+      "name": "Остекление и стеклоочистители",
+      "summary": "Стёкла, приводы очистителей и омыватели.",
+      "part_system": "wipers_glass",
+      "nodes": [
+        {
+          "id": "glazing",
+          "name": "Лобовое и заднее стекло",
+          "part_ids": [
+            "windshield",
+            "rear_window"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "front_wipers",
+          "name": "Передний механизм стеклоочистителя",
+          "part_ids": [
+            "wiper_motor_front",
+            "wiper_linkage",
+            "wiper_blades_front"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "rear_wiper",
+          "name": "Задний стеклоочиститель",
+          "part_ids": [
+            "wiper_motor_rear"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "washers",
+          "name": "Омыватели, насос и бачок",
+          "part_ids": [
+            "washer_pump",
+            "washer_reservoir",
+            "rain_sensor"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "interior",
+      "name": "Салон",
+      "summary": "Приборы, панели, сиденья и элементы отделки.",
+      "part_system": "interior",
+      "nodes": [
+        {
+          "id": "dashboard",
+          "name": "Панель приборов и передняя панель",
+          "part_ids": [
+            "dashboard",
+            "instrument_cluster",
+            "infotainment",
+            "glove_box"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "console",
+          "name": "Центральная консоль и педальный узел",
+          "part_ids": [
+            "center_console",
+            "pedal_assembly"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "seats",
+          "name": "Передние и задние сиденья",
+          "part_ids": [
+            "driver_seat",
+            "passenger_seat",
+            "rear_seat"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "interior_trim",
+          "name": "Дверные карты, потолок и багажник",
+          "part_ids": [
+            "front_left_door",
+            "tailgate"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "name": "Безопасность",
+      "summary": "Пассивная безопасность и система SRS.",
+      "part_system": "safety",
+      "nodes": [
+        {
+          "id": "airbags",
+          "name": "Подушки безопасности",
+          "part_ids": [
+            "driver_airbag",
+            "passenger_airbag",
+            "side_airbags"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "belts",
+          "name": "Ремни и преднатяжители",
+          "part_ids": [
+            "seat_belts",
+            "belt_pretensioners"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "srs_sensors",
+          "name": "Датчики удара и блок SRS",
+          "part_ids": [
+            "crash_sensors_front",
+            "crash_sensors_side"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    },
+    {
+      "id": "maintenance",
+      "name": "Обслуживание",
+      "summary": "Расходные материалы и сервисные точки автомобиля.",
+      "part_system": "engine",
+      "nodes": [
+        {
+          "id": "filters",
+          "name": "Фильтры",
+          "part_ids": [
+            "oil_filter",
+            "air_filter",
+            "fuel_filter",
+            "cabin_filter"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "fluids",
+          "name": "Масла и технические жидкости",
+          "part_ids": [
+            "oil_system",
+            "coolant_expansion_tank",
+            "brake_fluid_reservoir"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "service_ignition",
+          "name": "Свечи и ременной привод",
+          "part_ids": [
+            "spark_plugs",
+            "accessory_belt_drive"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        },
+        {
+          "id": "service_brakes",
+          "name": "Тормозные расходники",
+          "part_ids": [
+            "brake_pads",
+            "brake_disc"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "markers": []
+          }
+        }
+      ]
+    }
+  ]
+}

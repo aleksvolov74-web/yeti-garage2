@@ -2,6 +2,8 @@ extends SceneTree
 
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const Vehicle3DView = preload("res://scenes/vehicle_3d/vehicle_3d_view.gd")
+const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
+const MobileTechnicalCatalogView = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
 
 func _initialize() -> void:
 	call_deferred("_run_checks")
@@ -88,8 +90,48 @@ func _run_checks() -> void:
 		if view.viewer != null:
 			failures.append("leaving the assembly did not release its 3D viewer")
 
+	var technical_sections := TechnicalCatalogService.sections({"drivetrain":"AWD"})
+	if technical_sections.size() != 24:
+		failures.append("mobile technical catalog should define 24 sections, found %d" % technical_sections.size())
+	if TechnicalCatalogService.sections({"drivetrain":"FWD"}).size() != 23:
+		failures.append("4x4 section was not filtered for the saved FWD configuration")
+	for part_id in PartCatalogService.PARTS.keys():
+		if TechnicalCatalogService.find_part(str(part_id), {"drivetrain":"FWD"}).is_empty():
+			failures.append("existing part %s is unreachable in the mobile catalog" % part_id)
+	var symptom_results := TechnicalCatalogService.search("стук спереди", {"drivetrain":"FWD"})
+	var found_suspension_symptom := false
+	for result_value in symptom_results:
+		var result: Dictionary = result_value
+		if str(result.get("kind", "")) == "diagnostic" and str(result.get("flow_id", "")) == "suspension_knock":
+			found_suspension_symptom = true
+	if not found_suspension_symptom:
+		failures.append("symptom search did not return its existing diagnostic path")
+
+	var mobile_view := MobileTechnicalCatalogView.new()
+	root.add_child(mobile_view)
+	mobile_view.size = Vector2(420.0, 780.0)
+	await process_frame
+	await process_frame
+	if mobile_view.find_children("*", "ScrollContainer", true, false).size() != 0:
+		failures.append("mobile catalog introduced a nested ScrollContainer")
+	mobile_view.call("_open_section", "front_suspension")
+	await process_frame
+	mobile_view.call("_open_node", "front_suspension_overview")
+	await process_frame
+	if mobile_view.current_section_id != "front_suspension" or mobile_view.current_path.size() != 1:
+		failures.append("mobile catalog did not open its nested front suspension node")
+	mobile_view.focus_part("wheel_bearing")
+	await process_frame
+	if mobile_view.selected_part_id != "wheel_bearing" or mobile_view.current_section_id == "":
+		failures.append("existing part deep link did not reach the mobile detail card")
+	for button_node in mobile_view.find_children("*", "Button", true, false):
+		var button := button_node as Button
+		if button.get_signal_connection_list("pressed").is_empty():
+			failures.append("mobile catalog button '%s' has no action" % button.text)
+	mobile_view.queue_free()
+
 	if failures.is_empty():
-		print("3D catalog smoke check passed: %d systems, %d assemblies, %d parts; engine front viewer has %d selectable components" % [PartCatalogService.SYSTEMS.size(), assembly_ids.size(), PartCatalogService.PARTS.size(), required_engine_parts.size()])
+		print("Catalog smoke check passed: desktop 3D preserved; mobile 2D catalog has %d sections, %d systems, %d assemblies, %d parts" % [technical_sections.size(), PartCatalogService.SYSTEMS.size(), assembly_ids.size(), PartCatalogService.PARTS.size()])
 		quit(0)
 		return
 	for failure in failures:
