@@ -2278,7 +2278,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Главный цилиндр, servo и гидравлика — Mark 60 (LHD)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/hydraulic_control_unit_brake_servo_unit/master_brake_cylinder_abs_mark_60_ec_(abs/edl/tcs/esp)/summary_of_components_abs_mark_60_ec_vehicles_with_left-hand_drive/"
+                },
+                {
+                  "title": "Главный цилиндр, servo и гидравлика — Mark 70 (альтернатива)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/hydraulic_control_unit_brake_servo_unit/master_brake_cylinder_abs_mark_70_(abs/tcs)/summary_of_components_vehicles_with_left-hand_drive/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -2310,7 +2320,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Электронные компоненты ABS Mark 60 EC",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_(abs/edl/tcs/esp)/"
+                },
+                {
+                  "title": "Электронные компоненты ABS Mark 70",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_70_(abs/tcs)/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -2344,7 +2364,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога.",
+              "related_references": [
+                {
+                  "title": "Снятие компонентов ABS передней/задней оси",
+                  "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/removing_and_installing_parts_of_the_abs_system_on_the_front_and_rear_axle/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."

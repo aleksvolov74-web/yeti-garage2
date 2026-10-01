@@ -79,3 +79,7 @@ Added direct Yeti front/rear brake repair and caliper procedures, plus front ABS
 ## Batch 8 — rear suspension, FWD only
 
 The rear spring/damper source and anti-roll-bar reference are explicitly for Yeti front-wheel-drive. The catalog keeps the CW22/2010 FWD branch and does not attach any 4×4 rear-axle source. The carrier overview includes FWD layout; exact date/configuration and PR-specific spring rate remain unresolved. No image is bundled.
+
+## Batch 9 — ABS/ESP and brake hydraulics
+
+Added Yeti ABS Mark 60 EC and Mark 70 alternate component/fitting-location sources, axle sensor service material and master-cylinder/hydraulic-unit component pages. Catalog does not select the ABS family or steering side without vehicle build evidence. These are documentation references, not bundled images; hydraulic repair procedures remain subject to the applicable service safety instructions.
