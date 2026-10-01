@@ -91,3 +91,7 @@ Added the Yeti heater-unit component page, separate Climatic and Climatronic com
 ## Batch 11 — electrical equipment and lighting
 
 Added Yeti component/service references for battery, starter, alternator, fuse/relay carriers, control units, wiring repair, front lamps, tail lamps and plate lighting. Halogen and xenon headlamp sources are alternatives; the fitted lamp package and exact electrical equipment are not selected without build/PR evidence. Source diagrams are not embedded.
+
+## Batch 12 — body, doors, mirrors and wipers
+
+Added Yeti body-front/wing, front/rear door, tailgate/lock, mirror, wiper and washer-system references. Glass itself remains reference-only where no direct, variant-appropriate source page was confirmed in this pass. No generic vehicle images or copied source images were introduced; body colour/trim and glazing options are still build-dependent.

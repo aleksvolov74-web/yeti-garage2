@@ -3008,7 +3008,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Передняя часть кузова",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_body/"
+                },
+                {
+                  "title": "Переднее крыло",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_wing/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3042,7 +3052,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Передняя дверь",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/front_door_central_locking/front_door/"
+                },
+                {
+                  "title": "Задняя дверь",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/rear_doorsliding_doorwing_doorscentral_locking/rear_door/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3074,7 +3094,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Дверь багажника — состав компонентов",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate/"
+                },
+                {
+                  "title": "Замок двери багажника — компоненты",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate_lock/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3138,7 +3168,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Наружное зеркало",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/rear-view_mirror/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3211,7 +3247,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Передние стеклоочистители",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3242,7 +3284,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "related_references": [
+                {
+                  "title": "Система очистки заднего стекла",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
@@ -3275,7 +3323,13 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "related_references": [
+                {
+                  "title": "Бачок, насосы и датчик уровня омывателя",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_washer_system/remove_and_install_reservoir_pumps_and_sensor_for_washer_fluid_level/"
+                }
+              ]
             }
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
