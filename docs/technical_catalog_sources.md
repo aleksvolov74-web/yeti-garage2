@@ -17,3 +17,27 @@ When an image is added, record its direct source, author/publisher, license, veh
 ## Compatibility
 
 The catalog scope is Yeti type 5L, model years 2009–2017. Catalog entries can be gated by year, engine code, transmission code, drivetrain, and equipment. The `requires_drivetrain` gate hides the 4×4 branch unless the saved vehicle explicitly identifies AWD/4WD/4×4. More specific engine and transmission variants remain unverified until the saved vehicle profile and source catalog identify them.
+
+## Working profile: VIN XW8JF25LXBK701304
+
+The working profile is Škoda Yeti 5L, MY2011, CBZB 1.2 TSI, FWD, 7-speed DSG, family 0AM/DQ200. The exact production date, three-letter gearbox code, market destination, and individual PR codes are not available in the source record. The profile selects CBZB and FWD architecture and suppresses AWD nodes. It does not invent PR codes or OEM numbers.
+
+The catalog links to Yeti workshop-information pages. Those pages contain copyrighted Škoda service illustrations; the accessible web copies do not state a redistribution license. The app links to the references instead of copying those images into the APK. `VERIFIED_ARCHITECTURE` means the construction is supported by Yeti workshop information. `VERIFIED_EXACT` is reserved for an image with exact vehicle fitment and a redistribution license. `REFERENCE_ONLY` is supplemental and is not treated as an exact-fit image.
+
+Key Yeti-specific references:
+
+- CBZB timing chain, tensioner sequence, and oil-pump drive chain: [Yeti 1.2 TSI timing-chain service page](https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/).
+- 0AM/DQ200 shaft layout: [Yeti DSG 0AM transmission-system overview](https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/).
+- DSG dry double-clutch components: [Yeti 0AM clutch assembly](https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_%28as_of_06.11%29/).
+- CBZB fuel distributor and pressure sensor: [Yeti CBZB intake manifold/fuel distributor parts](https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/).
+- FWD rear axle variant after CW22/2010: [Yeti FWD rear-axle overview](https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/).
+- Front-axle construction and alternate carriers: [Yeti front-axle overview](https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/).
+- Brake variants require PR lookup; the Yeti brake material directs identification to vehicle PR codes: [Yeti brake-system technical data](https://www.scribd.com/document/480875831/skoda-yeti-brake-systems-eng-1).
+
+The catalog contains 89 recursive nodes (81 top-level plus 8 nested), a source reference on every node, and zero bundled technical diagrams or marker coordinates. Marker arrays remain empty until a redistributable, correctly fitted image exists; coordinates are not guessed against text pages.
+
+## Current fill pass (VIN profile)
+
+The catalog has 81 top-level nodes and 8 nested nodes. It currently has 58 `VERIFIED_ARCHITECTURE` source references and 31 `REFERENCE_ONLY` references; none is marked `VERIFIED_EXACT`. These labels describe evidence for construction, not the presence of an embedded image. No technical images are bundled and no marker coordinates are claimed: copying the source workshop illustrations into the APK is not permitted by a license identified in the source.
+
+Direct Yeti/CBZB references used for this pass include the 1.2 TSI timing-chain and oil-pump-chain procedure, intake/fuel-distributor component pages, engine lubrication component list, CBZB cooling hose/radiator pages, Yeti brake repair and handbrake-cable pages, FWD rear-axle overview, front-axle overview, and 0AM DSG overview. The app exposes source links and component lists in place of a fabricated diagram. Brake sizes, spring/damper selections, lighting equipment, climate-control variant, gearbox code, and the fitted front-carrier material remain unresolved where the PR/build data is required.

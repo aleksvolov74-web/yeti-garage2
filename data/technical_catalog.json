@@ -1,19 +1,31 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "vehicle_scope": {
     "make": "Škoda",
     "model": "Yeti 5L",
+    "model_year": 2011,
     "years": [
       2009,
       2017
-    ]
+    ],
+    "engine_code": "CBZB",
+    "engine": "1.2 TSI 77 kW",
+    "drivetrain": "FWD",
+    "transmission": "7-speed DSG",
+    "transmission_family": "0AM / DQ200",
+    "vin": "XW8JF25LXBK701304",
+    "production_date_status": "NEEDS_REVIEW",
+    "market_status": "NEEDS_REVIEW",
+    "exact_gearbox_code_status": "NEEDS_REVIEW",
+    "pr_codes_status": "NEEDS_PR_CODE"
   },
   "compatibility_filters": [
     "year",
     "engine_code",
-    "transmission_code",
+    "transmission_family",
     "drivetrain",
-    "equipment"
+    "equipment",
+    "pr_code"
   ],
   "sections": [
     {
@@ -28,7 +40,11 @@
           "part_ids": [
             "engine_block",
             "cylinder_head",
-            "engine_mount"
+            "engine_mount",
+            "turbocharger",
+            "alternator",
+            "accessory_belt_drive",
+            "starter"
           ],
           "children": [
             {
@@ -43,8 +59,29 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Двигатель CBZB 1.2 TSI",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "CBZB"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "requires_engine_codes": [
+                "CBZB"
+              ]
             },
             {
               "id": "engine_upper_end",
@@ -57,15 +94,57 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Двигатель CBZB 1.2 TSI",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "CBZB"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "requires_engine_codes": [
+                "CBZB"
+              ]
             }
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Двигатель CBZB 1.2 TSI",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "engine_block_group",
@@ -79,8 +158,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Двигатель CBZB 1.2 TSI",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "cylinder_head_group",
@@ -93,8 +193,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Двигатель CBZB 1.2 TSI",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "engine_mounts",
@@ -105,8 +226,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Двигатель CBZB 1.2 TSI",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "engine_accessories",
@@ -119,8 +261,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Двигатель CBZB 1.2 TSI",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_assycylinder_blockcrankcase/removing_and_installing_engine/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -134,37 +297,108 @@
           "id": "timing_drive_node",
           "name": "Привод ГРМ",
           "part_ids": [
-            "timing_drive"
+            "timing_drive",
+            "timing_chain",
+            "timing_chain_tensioner",
+            "timing_chain_guides",
+            "timing_sprockets",
+            "timing_cover"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Привод цепного ГРМ CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "timing_chain",
           "name": "Цепь, натяжитель и направляющие",
           "part_ids": [
-            "timing_drive"
+            "timing_chain",
+            "timing_chain_tensioner",
+            "timing_chain_guides"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Привод цепного ГРМ CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "timing_gears",
           "name": "Звёздочки и крышка привода",
           "part_ids": [
-            "timing_drive"
+            "timing_sprockets",
+            "timing_cover"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Привод цепного ГРМ CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_1/removing_and_installing_timing_chain_and_drive_chain_for_oil_pump/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -186,21 +420,64 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Впуск и топливный распределитель CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "boost_group",
           "name": "Турбокомпрессор и управление наддувом",
           "part_ids": [
             "turbocharger",
-            "intake_manifold"
+            "intake_manifold",
+            "fuel_pressure_sensor"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Впуск и топливный распределитель CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -214,39 +491,107 @@
           "id": "fuel_storage",
           "name": "Бак, модуль и насос",
           "part_ids": [
+            "fuel_tank",
             "fuel_pump",
-            "fuel_filter"
+            "fuel_filter",
+            "fuel_level_sender"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Топливная система CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "fuel_delivery",
           "name": "Магистрали, рампа и форсунки",
           "part_ids": [
+            "high_pressure_fuel_pump",
+            "fuel_pressure_sensor",
             "fuel_rail",
             "injectors"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Топливная система CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "fuel_sensors",
           "name": "Датчики топливной системы",
           "part_ids": [
-            "mass_air_flow_sensor"
+            "fuel_pressure_sensor",
+            "fuel_level_sender"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Топливная система CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -266,8 +611,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "coolant_circuit",
@@ -281,8 +647,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/cooling_system/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "coolant_reservoir",
@@ -293,8 +680,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система охлаждения Yeti; исполнение CBZB требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cooling/radiator_and_radiator_fan/parts_of_cooling_system_on_the_side_next_to_the_body_summary_of_components/radiator_with_two_radiator_fans_summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -308,13 +716,35 @@
           "id": "oil_pump_circuit",
           "name": "Масляный насос и магистрали",
           "part_ids": [
-            "oil_system"
+            "oil_pump",
+            "oil_pickup"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система смазки CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "oil_filter_node",
@@ -325,8 +755,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система смазки CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "oil_pan_node",
@@ -337,8 +788,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система смазки CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_lubrication/lubrication_system/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
@@ -359,8 +831,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Выпуск Yeti; двигатель CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "exhaust_aftertreatment",
@@ -372,8 +865,29 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Выпуск Yeti; двигатель CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         },
         {
           "id": "exhaust_rear",
@@ -385,56 +899,149 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Выпуск Yeti; двигатель CBZB",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/middle_and_rear_silencer_for_vehicles_manufactured_as_of_06.10_summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "requires_engine_codes": [
+            "CBZB"
+          ]
         }
       ]
     },
     {
       "id": "transmission",
       "name": "Сцепление и коробка передач",
-      "summary": "Состав коробки зависит от установленной модификации.",
+      "summary": "7-ступенчатая DSG семейства 0AM/DQ200 для профиля Yeti 5L 1.2 TSI CBZB FWD; точный буквенный код не установлен.",
       "part_system": "transmission",
       "nodes": [
         {
           "id": "clutch_group",
           "name": "Сцепление и маховик",
           "part_ids": [
-            "clutch",
-            "flywheel"
+            "flywheel",
+            "dsg_dual_clutch",
+            "clutch"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "DSG 0AM / DQ200 — Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_transmission_families": [
+            "0AM"
+          ],
+          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
         },
         {
           "id": "gearbox_group",
           "name": "Коробка передач и дифференциал",
           "part_ids": [
             "gearbox",
+            "dsg_mechatronic",
+            "dsg_input_shafts",
+            "dsg_output_shafts",
+            "dsg_sensors",
             "differential",
             "transmission_mount"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "DSG 0AM / DQ200 — Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_transmission_families": [
+            "0AM"
+          ],
+          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
         },
         {
           "id": "gear_selector",
           "name": "Механизм и тросы выбора передач",
           "part_ids": [
             "selector_mechanism",
-            "gear_selector_cables"
+            "gear_selector_cables",
+            "dsg_selector_module"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "DSG 0AM / DQ200 — Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_transmission_families": [
+            "0AM"
+          ],
+          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
         }
       ]
     },
@@ -457,7 +1064,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передние приводы Yeti FWD",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_drive_shafts/removing_and_installing_drive_shafts/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
           }
         },
         {
@@ -473,7 +1098,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передние приводы Yeti FWD",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_drive_shafts/removing_and_installing_drive_shafts/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
           }
         }
       ]
@@ -490,10 +1133,13 @@
           "part_ids": [
             "subframe",
             "control_arm",
+            "ball_joint",
             "strut",
             "spring",
             "strut_mount",
-            "anti_roll_bar"
+            "anti_roll_bar",
+            "front_stabilizer_bushings",
+            "steering_knuckle"
           ],
           "children": [
             {
@@ -507,13 +1153,33 @@
                 "strut_mount",
                 "stabilizer_link",
                 "hub",
-                "wheel_bearing"
+                "wheel_bearing",
+                "wheel"
               ],
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
             },
             {
               "id": "front_right_corner",
@@ -529,8 +1195,27 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
             },
             {
               "id": "front_axle_carrier",
@@ -543,15 +1228,73 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+              "variant_options": [
+                {
+                  "id": "carrier_steel",
+                  "title": "Исполнение A — стальной подрамник"
+                },
+                {
+                  "id": "carrier_aluminium",
+                  "title": "Исполнение B — алюминиевый подрамник"
+                }
+              ]
             }
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передняя ось Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+          "variant_options": [
+            {
+              "id": "carrier_steel",
+              "title": "Исполнение A — стальной подрамник"
+            },
+            {
+              "id": "carrier_aluminium",
+              "title": "Исполнение B — алюминиевый подрамник"
+            }
+          ]
         },
         {
           "id": "front_subframe_arms",
@@ -565,8 +1308,37 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передняя ось Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "На Yeti 5L описаны стальной и алюминиевый варианты переднего carrier. VIN без каталожной выборки/PR-кода не определяет установленный вариант; точная модификация зависит от PR-кода.",
+          "variant_options": [
+            {
+              "id": "carrier_steel",
+              "title": "Исполнение A — стальной подрамник"
+            },
+            {
+              "id": "carrier_aluminium",
+              "title": "Исполнение B — алюминиевый подрамник"
+            }
+          ]
         },
         {
           "id": "front_strut",
@@ -579,13 +1351,33 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передняя ось Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "front_knuckle_hub",
           "name": "Поворотный кулак и ступица",
           "part_ids": [
+            "steering_knuckle",
             "hub",
             "wheel_bearing",
             "brake_disc",
@@ -603,8 +1395,27 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
             },
             {
               "id": "front_brake_at_hub",
@@ -618,8 +1429,27 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
             },
             {
               "id": "front_drive_at_hub",
@@ -632,15 +1462,53 @@
               "diagram": {
                 "status": "missing",
                 "image": "",
-                "markers": []
-              }
+                "image_type": "exploded_view",
+                "verification_level": "VERIFIED_ARCHITECTURE",
+                "markers": [],
+                "source": {
+                  "title": "Передняя ось Yeti 5L",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
+                  "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+                  "applicability": {
+                    "model": "Yeti 5L",
+                    "model_year": [
+                      2009,
+                      2017
+                    ],
+                    "drivetrain": "ANY",
+                    "engine_code": "ANY"
+                  },
+                  "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+                }
+              },
+              "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
             }
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передняя ось Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "front_stabilizer",
@@ -652,8 +1520,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передняя ось Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -667,54 +1554,145 @@
           "id": "rear_suspension_overview",
           "name": "Задняя подвеска в сборе",
           "part_ids": [
-            "subframe",
+            "rear_axle_carrier",
+            "rear_suspension_arm",
+            "rear_suspension_track_rod",
             "spring",
-            "wheel_bearing"
-          ],
-          "diagram": {
-            "status": "missing",
-            "image": "",
-            "markers": []
-          }
-        },
-        {
-          "id": "rear_carrier",
-          "name": "Подрамник / балка и рычаги",
-          "part_ids": [
-            "subframe",
-            "suspension_bushings"
-          ],
-          "diagram": {
-            "status": "missing",
-            "image": "",
-            "markers": []
-          }
-        },
-        {
-          "id": "rear_springs_dampers",
-          "name": "Пружины и амортизаторы",
-          "part_ids": [
-            "spring",
-            "strut"
-          ],
-          "diagram": {
-            "status": "missing",
-            "image": "",
-            "markers": []
-          }
-        },
-        {
-          "id": "rear_hub",
-          "name": "Задние ступицы и подшипники",
-          "part_ids": [
+            "rear_shock_absorber",
             "hub",
             "wheel_bearing"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "FWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_drivetrain": "FWD",
+          "variant": "FWD_POST_CW22_2010",
+          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+        },
+        {
+          "id": "rear_carrier",
+          "name": "Подрамник / балка и рычаги",
+          "part_ids": [
+            "rear_axle_carrier",
+            "rear_suspension_arm",
+            "rear_suspension_track_rod",
+            "suspension_bushings"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "FWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_drivetrain": "FWD",
+          "variant": "FWD_POST_CW22_2010",
+          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+        },
+        {
+          "id": "rear_springs_dampers",
+          "name": "Пружины и амортизаторы",
+          "part_ids": [
+            "spring",
+            "rear_shock_absorber"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "FWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_drivetrain": "FWD",
+          "variant": "FWD_POST_CW22_2010",
+          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
+        },
+        {
+          "id": "rear_hub",
+          "name": "Задние ступицы и подшипники",
+          "part_ids": [
+            "hub",
+            "wheel_bearing",
+            "abs_wheel_sensor_rl"
+          ],
+          "diagram": {
+            "status": "missing",
+            "image": "",
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задняя ось Yeti FWD; ветвь после CW22/2010",
+              "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_%28vehicles_with_front-wheel-drive%29/overview_of_rear_axle/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "FWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "requires_drivetrain": "FWD",
+          "variant": "FWD_POST_CW22_2010",
+          "variant_note": "Ветвь Yeti FWD после CW22/2010; VIN даёт MY2011, точная неделя производства не декодирована."
         }
       ]
     },
@@ -735,8 +1713,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Рулевое управление Yeti LHD",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "steering_rack",
@@ -748,8 +1745,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Рулевое управление Yeti LHD",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "steering_linkage",
@@ -761,15 +1777,34 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Рулевое управление Yeti LHD",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
     {
       "id": "front_brakes",
       "name": "Передние тормоза",
-      "summary": "Передний тормозной механизм и датчики колеса.",
+      "summary": "Общая конструкция передних дисковых тормозов Yeti 5L. Размер диска и исполнение суппорта зависят от PR-кода.",
       "part_system": "brakes",
       "nodes": [
         {
@@ -778,6 +1813,8 @@
           "part_ids": [
             "brake_disc",
             "brake_caliper",
+            "brake_carrier",
+            "brake_guide_pins",
             "brake_pads",
             "hub",
             "wheel_bearing"
@@ -785,30 +1822,68 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передние тормоза Yeti; PR-вариант не определён",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_the_front_brake/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода."
+            }
+          },
+          "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         },
         {
           "id": "front_brake_hose",
           "name": "Скоба, направляющие и шланг",
           "part_ids": [
-            "brake_caliper",
+            "brake_carrier",
+            "brake_guide_pins",
             "brake_hose",
-            "abs_wheel_sensor_fl",
-            "abs_wheel_sensor_fr"
+            "abs_wheel_sensor_fl"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Передние тормоза Yeti; PR-вариант не определён",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         }
       ]
     },
     {
       "id": "rear_brakes",
       "name": "Задние тормоза",
-      "summary": "Тип заднего тормозного механизма сверяется по комплектации.",
+      "summary": "Общая конструкция задних тормозов Yeti FWD. Исполнение и размеры зависят от PR-кода.",
       "part_system": "brakes",
       "nodes": [
         {
@@ -817,26 +1892,68 @@
           "part_ids": [
             "brake_disc",
             "brake_caliper",
+            "brake_carrier",
+            "brake_guide_pins",
             "brake_pads",
-            "brake_hose"
+            "brake_hose",
+            "abs_wheel_sensor_rl"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задние тормоза Yeti FWD; PR-вариант не определён",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Процедура ремонта Yeti подтверждает общую конструкцию; вариант суппорта и размер диска зависят от PR-кода."
+            }
+          },
+          "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         },
         {
           "id": "parking_brake",
           "name": "Стояночный тормоз",
           "part_ids": [
+            "parking_brake_cable",
             "brake_caliper"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Задние тормоза Yeti FWD; PR-вариант не определён",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/handbrake_lever_summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Страница Yeti показывает трос стояночного тормоза, рычаг и привод на суппорте; точная тормозная модификация определяется PR-кодом."
+            }
+          },
+          "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         }
       ]
     },
@@ -857,8 +1974,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "ABS/ESP Yeti; блок требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "abs_esp_block",
@@ -870,8 +2006,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "ABS/ESP Yeti; блок требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "wheel_sensors",
@@ -885,8 +2040,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "ABS/ESP Yeti; блок требует сверки",
+              "url": "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_%28abs/edl/tcs/esp%29/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -907,31 +2081,86 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "4×4 Yeti — не применимо к FWD профилю",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "AWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
           "id": "propshaft",
           "name": "Карданный вал и опоры",
           "part_ids": [
-            "drive_shaft"
+            "propshaft",
+            "propshaft_center_bearing"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "4×4 Yeti — не применимо к FWD профилю",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "AWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
           "id": "haldex",
           "name": "Муфта Haldex",
           "part_ids": [
-            "differential"
+            "haldex_coupling"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "4×4 Yeti — не применимо к FWD профилю",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "AWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -939,14 +2168,32 @@
           "name": "Задний редуктор и приводы",
           "part_ids": [
             "differential",
-            "drive_shaft",
-            "cv_joint_inner",
-            "cv_joint_outer"
+            "haldex_coupling",
+            "rear_drive_shaft_left",
+            "rear_drive_shaft_right"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "4×4 Yeti — не применимо к FWD профилю",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "AWD",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         }
       ]
@@ -967,7 +2214,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Контур кондиционера Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
           }
         },
         {
@@ -981,7 +2246,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Контур кондиционера Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
           }
         },
         {
@@ -996,7 +2279,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Контур кондиционера Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
           }
         }
       ]
@@ -1018,7 +2319,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "real_photo_or_wiring_diagram",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Электрооборудование Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1030,7 +2349,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "real_photo_or_wiring_diagram",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Электрооборудование Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1045,7 +2382,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "real_photo_or_wiring_diagram",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Электрооборудование Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1057,7 +2412,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "real_photo_or_wiring_diagram",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Электрооборудование Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1070,7 +2443,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "real_photo_or_wiring_diagram",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Электрооборудование Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         }
       ]
@@ -1093,8 +2484,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "real_photo_or_exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Освещение Yeti; вариант по комплектации",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "rear_lamps",
@@ -1107,8 +2517,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "real_photo_or_exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Освещение Yeti; вариант по комплектации",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "interior_lamps",
@@ -1119,8 +2548,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "real_photo_or_exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Освещение Yeti; вариант по комплектации",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -1141,8 +2589,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Кузов Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "doors",
@@ -1156,32 +2623,92 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Кузов Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "body_rear",
           "name": "Дверь багажника и подкрылки",
           "part_ids": [
-            "tailgate"
+            "tailgate",
+            "roof_rails"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Кузов Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "body_protection",
           "name": "Защиты и подкрылки",
           "part_ids": [
-            "front_fender"
+            "front_wheel_arch_liner",
+            "rear_wheel_arch_liner",
+            "underbody_guard"
           ],
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Кузов Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "mirrors",
@@ -1192,8 +2719,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Кузов Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/rear-view_mirror/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -1213,8 +2759,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Стёкла и стеклоочистители Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "front_wipers",
@@ -1227,8 +2792,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Стёкла и стеклоочистители Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "rear_wiper",
@@ -1239,8 +2823,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Стёкла и стеклоочистители Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "washers",
@@ -1253,8 +2856,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Стёкла и стеклоочистители Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -1276,8 +2898,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Салон Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "console",
@@ -1289,8 +2930,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Салон Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "seats",
@@ -1303,8 +2963,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Салон Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "interior_trim",
@@ -1316,8 +2995,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Салон Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -1338,8 +3036,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система пассивной безопасности Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/passenger_protection/airbag/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "belts",
@@ -1351,8 +3068,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Система пассивной безопасности Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/passenger_protection/seat_belts/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
         {
           "id": "srs_sensors",
@@ -1364,8 +3100,27 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
-          }
+            "image_type": "exploded_view",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Система пассивной безопасности Yeti",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
+          },
+          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         }
       ]
     },
@@ -1387,7 +3142,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "reference_card",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Обслуживание Yeti; не единая физическая схема",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1401,7 +3174,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "reference_card",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Обслуживание Yeti; не единая физическая схема",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         },
         {
@@ -1414,7 +3205,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "reference_card",
+            "verification_level": "VERIFIED_ARCHITECTURE",
+            "markers": [],
+            "source": {
+              "title": "Обслуживание Yeti; не единая физическая схема",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/ignition_system_summary_of_components/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "CBZB"
+              },
+              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду."
+            }
           }
         },
         {
@@ -1427,7 +3236,25 @@
           "diagram": {
             "status": "missing",
             "image": "",
-            "markers": []
+            "image_type": "reference_card",
+            "verification_level": "REFERENCE_ONLY",
+            "markers": [],
+            "source": {
+              "title": "Обслуживание Yeti; не единая физическая схема",
+              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
+              "publisher": "Škoda Auto workshop information (web-accessible copy)",
+              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "applicability": {
+                "model": "Yeti 5L",
+                "model_year": [
+                  2009,
+                  2017
+                ],
+                "drivetrain": "ANY",
+                "engine_code": "ANY"
+              },
+              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
+            }
           }
         }
       ]

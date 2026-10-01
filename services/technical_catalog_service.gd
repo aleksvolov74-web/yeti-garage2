@@ -43,8 +43,11 @@ static func nodes(parent: Dictionary, vehicle: Dictionary = {}) -> Array:
 static func is_compatible(row: Dictionary, vehicle: Dictionary = {}) -> bool:
 	var drivetrain := str(vehicle.get("drivetrain", "")).strip_edges().to_upper()
 	var required_drivetrain := str(row.get("requires_drivetrain", "")).to_upper()
-	if required_drivetrain != "" and drivetrain not in ["AWD", "4WD", "4X4"]:
-		return false
+	if required_drivetrain != "":
+		if required_drivetrain in ["AWD", "4WD", "4X4"] and drivetrain not in ["AWD", "4WD", "4X4"]:
+			return false
+		if required_drivetrain in ["FWD", "2WD"] and drivetrain not in ["FWD", "2WD"]:
+			return false
 	var engine_codes: Array = row.get("requires_engine_codes", [])
 	if not engine_codes.is_empty():
 		var engine_code := str(vehicle.get("current_engine_code", "")).strip_edges().to_upper()
@@ -57,11 +60,23 @@ static func is_compatible(row: Dictionary, vehicle: Dictionary = {}) -> bool:
 		var transmission := str(vehicle.get("transmission_code", vehicle.get("transmission", ""))).strip_edges().to_upper()
 		if transmission == "" or transmission not in transmissions:
 			return false
+	var transmission_families: Array = row.get("requires_transmission_families", [])
+	if not transmission_families.is_empty():
+		var family := str(vehicle.get("transmission_family", "")).strip_edges().to_upper()
+		var family_matches := false
+		for required_family_value in transmission_families:
+			if family.contains(str(required_family_value).to_upper()):
+				family_matches = true
+		if not family_matches:
+			return false
 	var years: Array = row.get("requires_years", [])
 	if not years.is_empty():
 		var year := int(vehicle.get("year", 0))
 		if year <= 0 or years.size() < 2 or year < int(years[0]) or year > int(years[1]):
 			return false
+	var minimum_year := int(row.get("requires_model_year_min", 0))
+	if minimum_year > 0 and int(vehicle.get("year", 0)) < minimum_year:
+		return false
 	var equipment: Array = row.get("requires_equipment", [])
 	if not equipment.is_empty():
 		var saved: Array = vehicle.get("equipment", [])
@@ -87,7 +102,7 @@ static func find_part(part_id: String, vehicle: Dictionary = {}) -> Dictionary:
 	# Preserve access to existing catalog items that have not yet been placed in a
 	# vehicle diagram. The caller can still open their established part actions.
 	var part := PartCatalogService.get_part(part_id)
-	if not part.is_empty():
+	if not part.is_empty() and is_compatible(part, vehicle):
 		return {"section":{"id":str(part.get("system", "")), "name":str(part.get("group", "Система"))}, "node":{"id":"unassigned", "name":str(part.get("group", "Узел")), "part_ids":[part_id]}, "path":[]}
 	return {}
 
@@ -118,6 +133,8 @@ static func search(query: String, vehicle: Dictionary = {}) -> Array:
 	for part_value in PartCatalogService.search(query):
 		var part: Dictionary = part_value
 		var part_id := str(part.get("id", ""))
+		if not is_compatible(part, vehicle):
+			continue
 		if not seen.has("part:" + part_id):
 			var location := find_part(part_id, vehicle)
 			results.append({"kind":"part", "id":part_id, "name":str(part.get("name", part_id)), "subtitle":str(part.get("group", "Деталь")), "section_id":str(location.get("section", {}).get("id", "")), "path":location.get("path", []), "part_id":part_id})
@@ -125,6 +142,8 @@ static func search(query: String, vehicle: Dictionary = {}) -> Array:
 	for part_value in PartCatalogService.all_parts():
 		var part: Dictionary = part_value
 		var part_id := str(part.get("id", ""))
+		if not is_compatible(part, vehicle):
+			continue
 		if seen.has("part:" + part_id) or not _normalize(str(part.get("oem_numbers", []))).contains(q):
 			continue
 		var location := find_part(part_id, vehicle)

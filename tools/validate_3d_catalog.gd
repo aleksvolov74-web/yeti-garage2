@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 141:
-		failures.append("expected 141 parts, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 175:
+		failures.append("expected 175 parts, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -90,13 +90,56 @@ func _run_checks() -> void:
 		if view.viewer != null:
 			failures.append("leaving the assembly did not release its 3D viewer")
 
+	var vehicle_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
 	var technical_sections := TechnicalCatalogService.sections({"drivetrain":"AWD"})
 	if technical_sections.size() != 24:
 		failures.append("mobile technical catalog should define 24 sections, found %d" % technical_sections.size())
-	if TechnicalCatalogService.sections({"drivetrain":"FWD"}).size() != 23:
+	if TechnicalCatalogService.sections(vehicle_profile).size() != 23:
 		failures.append("4x4 section was not filtered for the saved FWD configuration")
+	var recursive_nodes := 0
+	var all_catalog_nodes := 0
+	for section_value in TechnicalCatalogService.sections({"drivetrain":"AWD"}):
+		var all_section: Dictionary = section_value
+		all_catalog_nodes += _walk_nodes(all_section.get("nodes", []), {"drivetrain":"AWD"}).size()
+	for section_value in TechnicalCatalogService.sections(vehicle_profile):
+		var section: Dictionary = section_value
+		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
+			var node: Dictionary = node_value
+			recursive_nodes += 1
+			if str(node.get("id", "")) == "gearbox_group" and "dsg_mechatronic" not in node.get("part_ids", []):
+				failures.append("DSG assembly is missing its mechatronic component")
+			if str(node.get("id", "")) == "rear_carrier" and str(node.get("variant", "")) != "FWD_POST_CW22_2010":
+				failures.append("FWD rear-carrier construction is not identified")
+			if str(node.get("diagram", {}).get("source", {}).get("url", "")) == "":
+				failures.append("catalog node %s has no source reference" % str(node.get("id", "")))
+			for part_id in node.get("part_ids", []):
+				if not PartCatalogService.PARTS.has(str(part_id)):
+					failures.append("technical node %s refers to missing part %s" % [str(node.get("id", "")), str(part_id)])
+	if all_catalog_nodes != 89:
+		failures.append("expected 89 recursive technical nodes in the full catalog, found %d" % all_catalog_nodes)
+	if recursive_nodes != 85:
+		failures.append("expected 85 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
+	var node_by_id: Dictionary = {}
+	for section_value in TechnicalCatalogService.sections(vehicle_profile):
+		var section: Dictionary = section_value
+		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
+			var node: Dictionary = node_value
+			node_by_id[str(node.get("id", ""))] = node
+	if "mass_air_flow_sensor" in node_by_id.get("fuel_sensors", {}).get("part_ids", []):
+		failures.append("fuel sensor node incorrectly treats the mass-air-flow sensor as a fuel sensor")
+	if "front_fender" in node_by_id.get("body_protection", {}).get("part_ids", []):
+		failures.append("body-protection node incorrectly refers to the front fender")
+	if not TechnicalCatalogService.find_part("haldex_coupling", vehicle_profile).is_empty():
+		failures.append("AWD Haldex component was not filtered from the FWD vehicle profile")
+	if "propshaft" in node_by_id.get("left_drive", {}).get("part_ids", []):
+		failures.append("front drive node incorrectly refers to the propshaft")
+	if "parking_brake_cable" not in node_by_id.get("parking_brake", {}).get("part_ids", []):
+		failures.append("parking-brake node is missing its cable component")
 	for part_id in PartCatalogService.PARTS.keys():
-		if TechnicalCatalogService.find_part(str(part_id), {"drivetrain":"FWD"}).is_empty():
+		var catalog_part: Dictionary = PartCatalogService.PARTS[part_id]
+		if str(catalog_part.get("requires_drivetrain", "")) in ["AWD", "4WD", "4X4"]:
+			continue
+		if TechnicalCatalogService.find_part(str(part_id), vehicle_profile).is_empty():
 			failures.append("existing part %s is unreachable in the mobile catalog" % part_id)
 	var symptom_results := TechnicalCatalogService.search("стук спереди", {"drivetrain":"FWD"})
 	var found_suspension_symptom := false
@@ -137,3 +180,13 @@ func _run_checks() -> void:
 	for failure in failures:
 		push_error(failure)
 	quit(1)
+
+func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
+	var result: Array = []
+	for value in rows:
+		var node: Dictionary = value
+		if not TechnicalCatalogService.is_compatible(node, vehicle):
+			continue
+		result.append(node)
+		result.append_array(_walk_nodes(node.get("children", []), vehicle))
+	return result

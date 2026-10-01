@@ -187,16 +187,32 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 	copy.alignment = BoxContainer.ALIGNMENT_CENTER
 	copy.add_theme_constant_override("separation", 6)
 	empty.add_child(copy)
-	var label := _label("Изображение готовится", 16, TEXT)
+	var confidence := str(diagram_data.get("verification_level", "REFERENCE_ONLY"))
+	var label_text := "Конструкция узла подтверждена" if confidence == "VERIFIED_ARCHITECTURE" else "Технический материал для сверки"
+	var label := _label(label_text, 16, TEXT)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	copy.add_child(label)
-	var source_note := _muted_label("Для этого узла пока нет схемы, проверенной по каталогу или сервисной документации.")
+	var source_note_text := "Для точной детали используйте указанный источник; PR-код влияет только на вариант исполнения." if not str(node_variant_note()).is_empty() else "Схема не встроена: доступен внешний технический источник и список деталей узла."
+	var source_note := _muted_label(source_note_text)
 	source_note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	source_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	copy.add_child(source_note)
+	var source_url := str(source.get("url", ""))
+	if source_url.begins_with("https://"):
+		copy.add_child(_action_button("Открыть технический источник", func(): OS.shell_open(source_url)))
+	var variant_note := str(node_variant_note())
+	if variant_note != "":
+		var variant_label := _muted_label(variant_note)
+		variant_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		copy.add_child(variant_label)
 	var toggle := _action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", _toggle_markers)
 	toggle.disabled = diagram_data.get("markers", []).is_empty()
 	_content.add_child(toggle)
+
+func node_variant_note() -> String:
+	if current_path.is_empty():
+		return ""
+	return str(_current_node().get("variant_note", ""))
 
 func _add_part_list(part_ids: Array) -> void:
 	if part_ids.is_empty():

@@ -28,12 +28,14 @@ func default_data() -> Dictionary:
             "factory_engine_code": "CBZB",
             "factory_engine_name": "1.2 TSI",
             "engine_replacement_known": true,
-            "current_engine_confirmed": false,
-            "current_engine_code": "",
-            "current_engine_name": "",
+            "current_engine_confirmed": true,
+            "current_engine_code": "CBZB",
+            "current_engine_name": "1.2 TSI",
             "power_hp": 105,
             "drivetrain": "FWD",
-            "transmission": "Не указана",
+            "transmission": "DSG 7",
+            "transmission_family": "0AM / DQ200",
+            "transmission_code": "",
             "nickname": "Моя Yeti"
         },
         "mileage_records": [],
@@ -71,6 +73,7 @@ func demo_data() -> Dictionary:
         "power_hp": 105,
         "drivetrain": "FWD",
         "transmission": "МКПП, демо",
+        "transmission_family": "0AM / DQ200",
         "nickname": "ДЕМО — Yeti"
     }
     demo["mileage_records"] = [
@@ -161,9 +164,8 @@ func _migrate_vehicle_engine_fields() -> void:
     if not vehicle.has("factory_engine_name"):
         vehicle["factory_engine_name"] = str(vehicle.get("engine_name", defaults.get("factory_engine_name", "")))
 
-    # Этот проект изначально настроен под конкретную Yeti пользователя. Мы уже
-    # знаем, что двигатель на ней заменён, но точные данные установленного
-    # агрегата пока не подтверждены. Не выдаём заводской CBZB за текущий.
+    # VIN-профиль Yeti задан владельцем: MY2011, CBZB, FWD, DSG7 / 0AM.
+    # Точный код КПП и PR-коды остаются неизвестными.
     if not vehicle.has("engine_replacement_known"):
         vehicle["engine_replacement_known"] = str(vehicle.get("vin", "")) == "XW8JF25LXBK701304"
     if not vehicle.has("current_engine_confirmed"):
@@ -172,6 +174,18 @@ func _migrate_vehicle_engine_fields() -> void:
         vehicle["current_engine_code"] = ""
     if not vehicle.has("current_engine_name"):
         vehicle["current_engine_name"] = ""
+    if str(vehicle.get("vin", "")) == "XW8JF25LXBK701304":
+        vehicle["year"] = 2011
+        vehicle["generation"] = "5L"
+        vehicle["factory_engine_code"] = "CBZB"
+        vehicle["factory_engine_name"] = "1.2 TSI"
+        vehicle["current_engine_confirmed"] = true
+        vehicle["current_engine_code"] = "CBZB"
+        vehicle["current_engine_name"] = "1.2 TSI"
+        vehicle["drivetrain"] = "FWD"
+        vehicle["transmission"] = "DSG 7"
+        vehicle["transmission_family"] = "0AM / DQ200"
+        vehicle["transmission_code"] = ""
 
     # Старые неоднозначные поля оставляем в файле ради обратной совместимости,
     # но новый интерфейс больше не использует их как сведения о текущем моторе.
