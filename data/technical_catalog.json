@@ -961,7 +961,7 @@
             "markers": [],
             "source": {
               "title": "DSG 0AM / DQ200 — Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(as_of_06.11)/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -971,15 +971,36 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK.",
+              "related_references": [
+                {
+                  "title": "Сцепление 0AM до 06.11",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(up_to_05.11)/"
+                },
+                {
+                  "title": "Сцепление 0AM с 06.11",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(as_of_06.11)/"
+                }
+              ]
             }
           },
           "requires_transmission_families": [
             "0AM"
           ],
-          "variant_note": "Семейство 0AM/DQ200; точный буквенный код КПП не установлен, детали узла применимы на уровне семейства."
+          "variant_note": "Сервисный каталог разделяет двойное сцепление до/с 06.11. Точная дата выпуска неизвестна, поэтому показаны оба источника без выбора OEM-варианта.",
+          "variant_options": [
+            {
+              "id": "clutch_pre_2011_06",
+              "title": "Исполнение до 06.11"
+            },
+            {
+              "id": "clutch_from_2011_06",
+              "title": "Исполнение с 06.11"
+            }
+          ]
         },
         {
           "id": "gearbox_group",
@@ -1011,9 +1032,28 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK.",
+              "related_references": [
+                {
+                  "title": "Валы и шестерни 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearboxmechanicsgearsshaftsinternal_operation/pinions_and_shafts/"
+                },
+                {
+                  "title": "Мехатроник J743",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./mechatronics_for_double_clutch_gearboxj743/"
+                },
+                {
+                  "title": "Электронные компоненты DSG 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./electric/electronic_components_and_fitting_locations_of_the_automatic_gearbox_dsg_0am/"
+                },
+                {
+                  "title": "Снятие коробки DSG 0AM",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./removing_and_installing_the_gearbox/"
+                }
+              ]
             }
           },
           "requires_transmission_families": [
@@ -1037,7 +1077,7 @@
             "markers": [],
             "source": {
               "title": "DSG 0AM / DQ200 — Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/gearbox_mechanicsoperation_constructiondiff./shift_mechanism/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
               "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
               "applicability": {
@@ -1047,9 +1087,10 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "0AM / DQ200"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Прямая сервисная страница Yeti для коробки DSG 0AM подтверждает архитектуру соответствующего узла. Трёхбуквенный код КПП и VIN-специфичная комплектация не утверждаются; изображение источника не включено в APK."
             }
           },
           "requires_transmission_families": [

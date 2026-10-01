@@ -51,3 +51,8 @@ Direct Yeti 1.2/63; 77 kW TSI references are now attached to the engine assembly
 ## Batch 2 — fuel and exhaust
 
 Fuel tank/delivery and CBZB fuel-distributor references now point to the Yeti 1.2 TSI fuel-supply and intake-manifold pages. The front exhaust/catalyst nodes point to the CBZB catalytic-converter component page. The rear silencer has both pre- and post-06.10.2010 source variants recorded; model year alone cannot select one because the production date is unknown. These remain source links, not copied image assets.
+
+
+## Batch 3 — DSG 0AM/DQ200
+
+Gearbox internals, shafts/gears, mechatronic J743, transmission electronics, selector mechanism, and both date-dependent dry double-clutch source pages are now linked from the DSG nodes. The clutch variants (up to 05.11 / as of 06.11) remain alternatives because the exact build date is unknown. No source illustration is copied into the APK.
