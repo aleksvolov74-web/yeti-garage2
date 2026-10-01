@@ -56,3 +56,8 @@ Fuel tank/delivery and CBZB fuel-distributor references now point to the Yeti 1.
 ## Batch 3 — DSG 0AM/DQ200
 
 Gearbox internals, shafts/gears, mechatronic J743, transmission electronics, selector mechanism, and both date-dependent dry double-clutch source pages are now linked from the DSG nodes. The clutch variants (up to 05.11 / as of 06.11) remain alternatives because the exact build date is unknown. No source illustration is copied into the APK.
+
+
+## Batch 4 — front drive shafts and CV joints
+
+Both FWD driveshaft nodes now link to Yeti removal instructions and the Yeti inner/outer joint summaries. Their vehicle scope is recorded as FWD/CBZB, while joint type/dimension and OEM selection remain unclaimed.

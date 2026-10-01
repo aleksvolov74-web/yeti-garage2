@@ -1133,10 +1133,20 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "drivetrain": "FWD",
+                "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Сервисная страница Yeti по снятию левый/правого привода и прямые описания наружного/внутреннего ШРУСов подтверждают архитектуру. Размеры и OEM-исполнение по VIN не выбраны; изображения источника не копируются в APK.",
+              "related_references": [
+                {
+                  "title": "Внутренний ШРУС VL107",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_inner_cv_joint_vl107/summary_of_components/"
+                },
+                {
+                  "title": "Наружный ШРУС RO3700",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_outer_cv_joint_ro3700/"
+                }
+              ]
             }
           }
         },
@@ -1167,10 +1177,20 @@
                   2009,
                   2017
                 ],
-                "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "drivetrain": "FWD",
+                "engine_code": "CBZB"
               },
-              "verification_note": "Источник подтверждает конструкцию/наличие раздела; точная комплектация автомобиля не извлечена из VIN-каталога."
+              "verification_note": "Сервисная страница Yeti по снятию правый/правого привода и прямые описания наружного/внутреннего ШРУСов подтверждают архитектуру. Размеры и OEM-исполнение по VIN не выбраны; изображения источника не копируются в APK.",
+              "related_references": [
+                {
+                  "title": "Внутренний ШРУС VL107",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_inner_cv_joint_vl107/summary_of_components/"
+                },
+                {
+                  "title": "Наружный ШРУС RO3700",
+                  "url": "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/drive_shaft_with_outer_cv_joint_ro3700/"
+                }
+              ]
             }
           }
         }

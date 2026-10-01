@@ -200,6 +200,12 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 	var source_url := str(source.get("url", ""))
 	if source_url.begins_with("https://"):
 		copy.add_child(_action_button("Открыть технический источник", func(): OS.shell_open(source_url)))
+	for related_value in source.get("related_references", []):
+		var related: Dictionary = related_value
+		var related_url := str(related.get("url", ""))
+		if related_url.begins_with("https://"):
+			var related_title := str(related.get("title", "Дополнительный источник"))
+			copy.add_child(_action_button(related_title, func(): OS.shell_open(related_url)))
 	var variant_note := str(node_variant_note())
 	if variant_note != "":
 		var variant_label := _muted_label(variant_note)
