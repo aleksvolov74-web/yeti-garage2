@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 245:
-		failures.append("expected 245 parts after climate visual batch integration, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 266:
+		failures.append("expected 266 parts after electrical and lighting visual batch integration, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -125,6 +125,22 @@ func _run_checks() -> void:
 		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
 			var node: Dictionary = node_value
 			node_by_id[str(node.get("id", ""))] = node
+	var ignition_node: Dictionary = node_by_id.get("ignition", {})
+	if str(PartCatalogService.get_part("ignition_coil").get("name", "")) != "Модуль / трансформатор зажигания N152":
+		failures.append("CBZB ignition transformer does not use the N152 catalog name")
+	if ignition_node.get("part_ids", []) != ["ignition_coil", "ignition_cables", "spark_plugs", "camshaft_position_sensor", "crankshaft_position_sensor"]:
+		failures.append("CBZB ignition node must contain one N152, ignition leads, four plugs, and both timing sensors")
+	if str(PartCatalogService.get_part("body_control_module").get("name", "")) != "Блок бортовой сети (BCM)":
+		failures.append("BCM is not identified as the body network control unit")
+	var fuse_node: Dictionary = node_by_id.get("fuses_relays", {})
+	if not str(fuse_node.get("variant_note", "")).contains("не точная карта предохранителей"):
+		failures.append("fuse and relay diagram lacks its non-map disclaimer")
+	for reference_node_id in ["power_start", "fuses_relays", "control_units", "wiring", "front_lamps", "rear_lamps", "interior_lamps"]:
+		if str(node_by_id.get(reference_node_id, {}).get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
+			failures.append("electrical/lighting node %s must remain REFERENCE_ONLY" % reference_node_id)
+	if str(node_by_id.get("interior_lamps", {}).get("variant_note", "")) != "Исполнение и органы управления освещением салона зависят от комплектации автомобиля.":
+		failures.append("interior lighting variant note is missing")
+
 	var dsg6_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 6", "transmission_family":"02E / DQ250"}
 	for part_id in ["gearbox_housing", "dsg_mechatronics", "dsg_mechatronics_connector", "dsg_mechatronics_actuators", "clutch_k1", "clutch_k2", "clutch_engagement_levers", "gearbox_selector_lever", "selector_cable_support"]:
 		if TechnicalCatalogService.find_part(part_id, dsg6_profile).is_empty():
@@ -155,7 +171,7 @@ func _run_checks() -> void:
 	for reference_node_id in ["rear_carrier", "abs_esp_block", "brake_hydraulics", "fuel_storage", "coolant_circuit"]:
 		if str(node_by_id.get(reference_node_id, {}).get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
 			failures.append("reference-only node %s was promoted to another verification status" % reference_node_id)
-	for new_part_id in ["rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring", "wheel_bearing_housing", "air_filter_housing", "charge_air_cooler", "intake_manifold_pressure_sensor", "charge_pressure_sensor", "charge_pressure_regulator_v465", "turbo_oil_feed_line", "turbo_coolant_lines", "charge_air_pipe", "fuel_pressure_sensor_g247", "fuel_pressure_control_valve_n276", "evap_charcoal_canister", "fuel_tank_straps", "low_temperature_radiator", "cooling_fan_secondary", "coolant_recirculation_pump_v50", "engine_oil_cooler", "turbo_heat_shield", "exhaust_flex_joint", "catalyst_heat_shield", "exhaust_clamp", "exhaust_mounts", "exhaust_heat_shield", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap", "ac_expansion_valve", "ac_pressure_sensor_g65"]:
+	for new_part_id in ["rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring", "wheel_bearing_housing", "air_filter_housing", "charge_air_cooler", "intake_manifold_pressure_sensor", "charge_pressure_sensor", "charge_pressure_regulator_v465", "turbo_oil_feed_line", "turbo_coolant_lines", "charge_air_pipe", "fuel_pressure_sensor_g247", "fuel_pressure_control_valve_n276", "evap_charcoal_canister", "fuel_tank_straps", "low_temperature_radiator", "cooling_fan_secondary", "coolant_recirculation_pump_v50", "engine_oil_cooler", "turbo_heat_shield", "exhaust_flex_joint", "catalyst_heat_shield", "exhaust_clamp", "exhaust_mounts", "exhaust_heat_shield", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap", "ac_expansion_valve", "ac_pressure_sensor_g65", "battery_positive_cable", "battery_ground_cable", "battery_terminal_clamps", "relay_carrier", "high_current_fuse_block", "automotive_relays", "blade_fuses", "control_unit_connectors", "engine_bay_wiring_harness", "cabin_wiring_harness", "ground_straps", "bulkhead_wiring_grommet", "ignition_cables", "headlamp_bulbs", "headlamp_level_actuator", "tail_lamp_bulb_carrier", "rear_lamp_connector", "rear_interior_light", "luggage_compartment_lamp", "interior_light_bulbs", "interior_light_connector"]:
 		var manifest_part := PartCatalogService.get_part(new_part_id)
 		if manifest_part.is_empty():
 			failures.append("new manifest part %s is not searchable in PartCatalogService" % new_part_id)
@@ -268,7 +284,15 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"},
 		"heater_box": {"section":"climate", "count":5, "tap_part":"hvac_housing", "level":"VERIFIED_ARCHITECTURE"},
 		"blower": {"section":"climate", "count":5, "tap_part":"fresh_air_blower_control_unit_j126", "level":"VERIFIED_ARCHITECTURE"},
-		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"VERIFIED_ARCHITECTURE"}
+		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"VERIFIED_ARCHITECTURE"},
+		"power_start": {"section":"electrical", "count":6, "tap_part":"battery_positive_cable", "level":"REFERENCE_ONLY"},
+		"fuses_relays": {"section":"electrical", "count":5, "tap_part":"relay_carrier", "level":"REFERENCE_ONLY"},
+		"control_units": {"section":"electrical", "count":5, "tap_part":"control_unit_connectors", "level":"REFERENCE_ONLY"},
+		"wiring": {"section":"electrical", "count":5, "tap_part":"ground_straps", "level":"REFERENCE_ONLY"},
+		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"VERIFIED_ARCHITECTURE"},
+		"front_lamps": {"section":"lighting", "count":6, "tap_part":"headlamp_bulbs", "level":"REFERENCE_ONLY"},
+		"rear_lamps": {"section":"lighting", "count":5, "tap_part":"tail_lamp_bulb_carrier", "level":"REFERENCE_ONLY"},
+		"interior_lamps": {"section":"lighting", "count":5, "tap_part":"rear_interior_light", "level":"REFERENCE_ONLY"}
 	}
 	var cbzb_dq200_marker_total := 0
 	var all_image_marker_total := 0
@@ -392,8 +416,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		await process_frame
 		if view.get("_diagram") == null or str(view.get("current_section_id")) != section_id:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
-	if all_image_marker_total != 208:
-		failures.append("all technical diagrams should have 208 markers after climate integration, found %d" % all_image_marker_total)
+	if all_image_marker_total != 250:
+		failures.append("all technical diagrams should have 250 markers after electrical/lighting integration, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
 	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:

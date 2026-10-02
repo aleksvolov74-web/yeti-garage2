@@ -4162,19 +4162,59 @@
           "part_ids": [
             "battery",
             "alternator",
-            "starter"
+            "starter",
+            "battery_positive_cable",
+            "battery_ground_cable",
+            "battery_terminal_clamps"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_wiring_diagram",
+            "status": "available",
+            "image": "res://assets/technical_catalog/electrical/power_start.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "battery",
+                "x": 0.24,
+                "y": 0.32
+              },
+              {
+                "number": 2,
+                "part_id": "alternator",
+                "x": 0.68,
+                "y": 0.24
+              },
+              {
+                "number": 3,
+                "part_id": "starter",
+                "x": 0.72,
+                "y": 0.67
+              },
+              {
+                "number": 4,
+                "part_id": "battery_positive_cable",
+                "x": 0.51,
+                "y": 0.48
+              },
+              {
+                "number": 5,
+                "part_id": "battery_ground_cable",
+                "x": 0.25,
+                "y": 0.62
+              },
+              {
+                "number": 6,
+                "part_id": "battery_terminal_clamps",
+                "x": 0.39,
+                "y": 0.16
+              }
+            ],
             "source": {
               "title": "Электрооборудование Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4184,7 +4224,7 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Yeti starter-current supply architecture reference. Exact battery, alternator and starter revision is equipment/engine dependent.",
               "related_references": [
                 {
                   "title": "Аккумулятор и типы",
@@ -4198,27 +4238,64 @@
                   "title": "Генератор",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/starter-current_supply-cc/ac_generator/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Аккумулятор, генератор и стартер показаны как архитектурные компоненты; установленное исполнение для VIN не подтверждено."
         },
         {
           "id": "fuses_relays",
           "name": "Предохранители и реле",
           "part_ids": [
-            "fuse_box"
+            "fuse_box",
+            "relay_carrier",
+            "high_current_fuse_block",
+            "automotive_relays",
+            "blade_fuses"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_wiring_diagram",
+            "status": "available",
+            "image": "res://assets/technical_catalog/electrical/fuses_relays.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "fuse_box",
+                "x": 0.23,
+                "y": 0.38
+              },
+              {
+                "number": 2,
+                "part_id": "relay_carrier",
+                "x": 0.57,
+                "y": 0.23
+              },
+              {
+                "number": 3,
+                "part_id": "high_current_fuse_block",
+                "x": 0.61,
+                "y": 0.53
+              },
+              {
+                "number": 4,
+                "part_id": "automotive_relays",
+                "x": 0.29,
+                "y": 0.79
+              },
+              {
+                "number": 5,
+                "part_id": "blade_fuses",
+                "x": 0.18,
+                "y": 0.85
+              }
+            ],
             "source": {
               "title": "Электрооборудование Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4228,15 +4305,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Yeti fuse-holder/relay-carrier architecture reference. Exact fuse and relay population must not be inferred from the image.",
               "related_references": [
                 {
                   "title": "Блоки предохранителей и реле",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/fuse_holder_and_relay_carrier/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Архитектурная схема, не точная карта предохранителей и реле. Номера F1, F2 и их назначение по этому изображению не определяются."
         },
         {
           "id": "control_units",
@@ -4245,19 +4324,51 @@
             "engine_ecu",
             "body_control_module",
             "crankshaft_position_sensor",
-            "camshaft_position_sensor"
+            "camshaft_position_sensor",
+            "control_unit_connectors"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_wiring_diagram",
+            "status": "available",
+            "image": "res://assets/technical_catalog/electrical/control_units.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "engine_ecu",
+                "x": 0.25,
+                "y": 0.2
+              },
+              {
+                "number": 2,
+                "part_id": "body_control_module",
+                "x": 0.76,
+                "y": 0.23
+              },
+              {
+                "number": 3,
+                "part_id": "crankshaft_position_sensor",
+                "x": 0.43,
+                "y": 0.52
+              },
+              {
+                "number": 4,
+                "part_id": "camshaft_position_sensor",
+                "x": 0.57,
+                "y": 0.66
+              },
+              {
+                "number": 5,
+                "part_id": "control_unit_connectors",
+                "x": 0.22,
+                "y": 0.77
+              }
+            ],
             "source": {
               "title": "Электрооборудование Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4267,33 +4378,70 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Control-unit and engine-sensor architecture reference. Exact ECU/BCM housings and PR-dependent modules are not asserted.",
               "related_references": [
                 {
                   "title": "Блоки управления Yeti",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/control_units/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Показана архитектура блоков и датчиков; точные корпуса, ревизии и комплектация по PR-кодам не установлены."
         },
         {
           "id": "wiring",
           "name": "Жгуты и точки массы",
           "part_ids": [
-            "wiring_harness"
+            "wiring_harness",
+            "engine_bay_wiring_harness",
+            "cabin_wiring_harness",
+            "ground_straps",
+            "bulkhead_wiring_grommet"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_wiring_diagram",
+            "status": "available",
+            "image": "res://assets/technical_catalog/electrical/wiring.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "wiring_harness",
+                "x": 0.5,
+                "y": 0.5
+              },
+              {
+                "number": 2,
+                "part_id": "engine_bay_wiring_harness",
+                "x": 0.5,
+                "y": 0.2
+              },
+              {
+                "number": 3,
+                "part_id": "cabin_wiring_harness",
+                "x": 0.42,
+                "y": 0.68
+              },
+              {
+                "number": 4,
+                "part_id": "ground_straps",
+                "x": 0.71,
+                "y": 0.91
+              },
+              {
+                "number": 5,
+                "part_id": "bulkhead_wiring_grommet",
+                "x": 0.85,
+                "y": 0.37
+              }
+            ],
             "source": {
               "title": "Электрооборудование Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4303,34 +4451,70 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Illustrative harness architecture only. Exact routing, connector population and ground points depend on equipment/PR codes.",
               "related_references": [
                 {
                   "title": "Жгуты и ремонт соединений",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/wiring_loom_and_plug_repair/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Схема показывает общую архитектуру жгутов. Трассировка и точки массы данного VIN не подтверждены."
         },
         {
           "id": "ignition",
           "name": "Система зажигания",
           "part_ids": [
             "ignition_coil",
-            "spark_plugs"
+            "ignition_cables",
+            "spark_plugs",
+            "camshaft_position_sensor",
+            "crankshaft_position_sensor"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_wiring_diagram",
+            "status": "available",
+            "image": "res://assets/technical_catalog/ignition/ignition.webp",
+            "image_type": "technical_illustration",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "ignition_coil",
+                "x": 0.31,
+                "y": 0.21
+              },
+              {
+                "number": 2,
+                "part_id": "ignition_cables",
+                "x": 0.53,
+                "y": 0.47
+              },
+              {
+                "number": 3,
+                "part_id": "spark_plugs",
+                "x": 0.82,
+                "y": 0.16
+              },
+              {
+                "number": 4,
+                "part_id": "camshaft_position_sensor",
+                "x": 0.18,
+                "y": 0.45
+              },
+              {
+                "number": 5,
+                "part_id": "crankshaft_position_sensor",
+                "x": 0.35,
+                "y": 0.54
+              }
+            ],
             "source": {
               "title": "Электрооборудование Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/ignition_system_summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4340,9 +4524,15 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Прямая сервисная страница Yeti для двигателя 1.2/63; 77 kW TSI (CBZB) описывает этот узел. Точная комплектация/OEM для VIN здесь не заявляется; изображение источника доступно по ссылке, но не включено в APK без лицензии на распространение."
+              "verification_note": "CBZB verified architecture: one ignition transformer N152 with four ignition leads to four spark plugs; not four individual pencil coils.",
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Для CBZB: один модуль / трансформатор зажигания N152, четыре высоковольтных провода и четыре свечи; не четыре индивидуальные катушки.",
+          "requires_engine_codes": [
+            "CBZB"
+          ],
+          "summary": "CBZB: один трансформатор N152, четыре высоковольтных провода и четыре свечи зажигания."
         }
       ]
     },
@@ -4359,19 +4549,58 @@
             "headlamp_left",
             "headlamp_right",
             "fog_lamp_left",
-            "fog_lamp_right"
+            "fog_lamp_right",
+            "headlamp_bulbs",
+            "headlamp_level_actuator"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/lighting/front_lamps.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "headlamp_left",
+                "x": 0.27,
+                "y": 0.43
+              },
+              {
+                "number": 2,
+                "part_id": "headlamp_right",
+                "x": 0.73,
+                "y": 0.43
+              },
+              {
+                "number": 3,
+                "part_id": "fog_lamp_left",
+                "x": 0.25,
+                "y": 0.75
+              },
+              {
+                "number": 4,
+                "part_id": "fog_lamp_right",
+                "x": 0.75,
+                "y": 0.75
+              },
+              {
+                "number": 5,
+                "part_id": "headlamp_bulbs",
+                "x": 0.29,
+                "y": 0.14
+              },
+              {
+                "number": 6,
+                "part_id": "headlamp_level_actuator",
+                "x": 0.41,
+                "y": 0.18
+              }
+            ],
             "source": {
               "title": "Освещение Yeti; вариант по комплектации",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4382,7 +4611,7 @@
                 "engine_code": "ANY",
                 "lighting_variant_status": "Lamp type/equipment not identified from available build data; references are alternatives."
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Pre-facelift Yeti 5L lighting reference. Exact halogen/xenon equipment is unknown without PR codes.",
               "related_references": [
                 {
                   "title": "Галогенные фары",
@@ -4392,10 +4621,11 @@
                   "title": "Ксеноновые фары — альтернативное исполнение",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/headlights_with_xenon_discharge_lamps/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Дорестайлинговая архитектура Yeti 5L. Установленный вариант галоген/ксенон для VIN по PR-кодам не подтверждён."
         },
         {
           "id": "rear_lamps",
@@ -4403,19 +4633,52 @@
           "part_ids": [
             "tail_lamp_left",
             "tail_lamp_right",
+            "tail_lamp_bulb_carrier",
+            "rear_lamp_connector",
             "license_plate_lamp"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/lighting/rear_lamps.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "tail_lamp_left",
+                "x": 0.15,
+                "y": 0.29
+              },
+              {
+                "number": 2,
+                "part_id": "tail_lamp_right",
+                "x": 0.85,
+                "y": 0.29
+              },
+              {
+                "number": 3,
+                "part_id": "tail_lamp_bulb_carrier",
+                "x": 0.4,
+                "y": 0.31
+              },
+              {
+                "number": 4,
+                "part_id": "rear_lamp_connector",
+                "x": 0.29,
+                "y": 0.62
+              },
+              {
+                "number": 5,
+                "part_id": "license_plate_lamp",
+                "x": 0.5,
+                "y": 0.7
+              }
+            ],
             "source": {
               "title": "Освещение Yeti; вариант по комплектации",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4426,7 +4689,7 @@
                 "engine_code": "ANY",
                 "lighting_variant_status": "Lamp type/equipment not identified from available build data; references are alternatives."
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Pre-facelift Yeti 5L rear-light architecture reference. Exact lamp carrier/revision is not asserted.",
               "related_references": [
                 {
                   "title": "Задние фонари",
@@ -4436,28 +4699,64 @@
                   "title": "Освещение номерного знака",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/registration_number_lighting/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Архитектурная схема; точная ревизия платы, патронов и OEM-номер для VIN не установлены."
         },
         {
           "id": "interior_lamps",
           "name": "Освещение салона",
           "part_ids": [
-            "interior_lights"
+            "interior_lights",
+            "rear_interior_light",
+            "luggage_compartment_lamp",
+            "interior_light_bulbs",
+            "interior_light_connector"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "real_photo_or_exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/lighting/interior_lamps.webp",
+            "image_type": "technical_illustration",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "interior_lights",
+                "x": 0.28,
+                "y": 0.17
+              },
+              {
+                "number": 2,
+                "part_id": "rear_interior_light",
+                "x": 0.74,
+                "y": 0.18
+              },
+              {
+                "number": 3,
+                "part_id": "luggage_compartment_lamp",
+                "x": 0.77,
+                "y": 0.69
+              },
+              {
+                "number": 4,
+                "part_id": "interior_light_bulbs",
+                "x": 0.5,
+                "y": 0.29
+              },
+              {
+                "number": 5,
+                "part_id": "interior_light_connector",
+                "x": 0.46,
+                "y": 0.49
+              }
+            ],
             "source": {
               "title": "Освещение Yeti; вариант по комплектации",
               "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated project visual; listed workshop materials are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4467,16 +4766,17 @@
                 "drivetrain": "ANY",
                 "engine_code": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Yeti interior-light architecture reference. Lamp shape/control varies with equipment.",
               "related_references": [
                 {
                   "title": "Обзор компонентов салонного освещения",
                   "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_inside/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Исполнение и органы управления освещением салона зависят от комплектации автомобиля."
         }
       ]
     },

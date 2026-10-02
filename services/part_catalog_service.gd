@@ -14,11 +14,11 @@ const SYSTEMS := {
     "suspension": {"name":"Подвеска", "parts":["strut", "spring", "control_arm", "control_arm_left", "control_arm_right", "ball_joint", "stabilizer_link", "wheel", "subframe", "anti_roll_bar", "strut_mount", "strut_bearing", "bump_stop", "strut_dust_boot", "suspension_bushings", "steering_knuckle", "front_stabilizer_bushings", "rear_suspension_arm", "rear_suspension_track_rod", "rear_shock_absorber", "rear_axle_carrier", "rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "wheel_bearing_housing"]},
     "steering": {"name":"Рулевое", "parts":["steering_rack", "steering_tie_rod", "tie_rod_end", "steering_column", "power_steering_motor", "steering_wheel", "steering_angle_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut"]},
     "brakes": {"name":"Тормоза", "parts":["brake_disc", "brake_caliper", "brake_pads", "brake_hose", "brake_master_cylinder", "abs_unit", "brake_booster", "brake_fluid_reservoir", "abs_wheel_sensor_fl", "abs_wheel_sensor_fr", "abs_wheel_sensor_rl", "abs_wheel_sensor_rr", "brake_carrier", "brake_guide_pins", "dust_shield", "parking_brake_cable", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring"]},
-    "electrical": {"name":"Электрика", "parts":["battery", "alternator", "starter", "fuse_box", "body_control_module", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
+    "electrical": {"name":"Электрика", "parts":["battery", "alternator", "starter", "fuse_box", "body_control_module", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor", "battery_positive_cable", "battery_ground_cable", "battery_terminal_clamps", "relay_carrier", "high_current_fuse_block", "automotive_relays", "blade_fuses", "control_unit_connectors", "engine_bay_wiring_harness", "cabin_wiring_harness", "ground_straps", "bulkhead_wiring_grommet", "ignition_cables"]},
     "body": {"name":"Кузов", "parts":["front_bumper", "hood", "front_fender", "tailgate", "front_left_door", "front_right_door", "rear_left_door", "rear_right_door", "windshield", "rear_window", "side_mirrors", "roof_rails", "front_wheel_arch_liner", "rear_wheel_arch_liner", "underbody_guard"]},
     "interior": {"name":"Салон", "parts":["driver_seat", "passenger_seat", "rear_seat", "instrument_cluster", "infotainment", "dashboard", "center_console", "glove_box", "pedal_assembly", "cabin_filter"]},
     "climate": {"name":"Климат", "parts":["ac_compressor", "condenser", "heater_core", "blower_motor", "climate_control_unit", "evaporator", "receiver_drier", "air_flap_actuators", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap", "ac_expansion_valve", "ac_pressure_sensor_g65"]},
-    "lighting": {"name":"Освещение", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right", "tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights"]},
+    "lighting": {"name":"Освещение", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right", "tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights", "headlamp_bulbs", "headlamp_level_actuator", "tail_lamp_bulb_carrier", "rear_lamp_connector", "rear_interior_light", "luggage_compartment_lamp", "interior_light_bulbs", "interior_light_connector"]},
     "safety": {"name":"Безопасность", "parts":["driver_airbag", "passenger_airbag", "side_airbags", "seat_belts", "belt_pretensioners", "crash_sensors_front", "crash_sensors_side"]},
     "wipers_glass": {"name":"Стекло и очистители", "parts":["wiper_motor_front", "wiper_linkage", "wiper_blades_front", "wiper_motor_rear", "washer_pump", "washer_reservoir", "rain_sensor"]},
 }
@@ -68,8 +68,8 @@ const ASSEMBLY_GROUPS := {
         {"id":"ac_circuit", "name":"Контур кондиционера", "parts":["ac_compressor", "condenser", "receiver_drier", "evaporator", "ac_expansion_valve", "ac_pressure_sensor_g65"]}
     ],
     "electrical": [
-        {"id":"engine_bay_electrical", "name":"Электрика моторного отсека", "parts":["battery", "alternator", "starter", "fuse_box", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
-        {"id":"cabin_electrical", "name":"Электрика салона", "parts":["body_control_module"]}
+        {"id":"engine_bay_electrical", "name":"Электрика моторного отсека", "parts":["battery", "alternator", "starter", "fuse_box", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor", "battery_positive_cable", "battery_ground_cable", "battery_terminal_clamps", "high_current_fuse_block", "automotive_relays", "blade_fuses", "relay_carrier", "engine_bay_wiring_harness", "ground_straps", "ignition_cables"]},
+        {"id":"cabin_electrical", "name":"Электрика салона", "parts":["body_control_module", "control_unit_connectors", "cabin_wiring_harness", "bulkhead_wiring_grommet"]}
     ],
     "body": [
         {"id":"front_body", "name":"Передняя часть кузова", "parts":["front_bumper", "hood", "front_fender"]},
@@ -77,8 +77,8 @@ const ASSEMBLY_GROUPS := {
         {"id":"rear_body", "name":"Задняя часть кузова", "parts":["tailgate", "rear_window", "side_mirrors", "windshield", "roof_rails"]}
     ],
     "lighting": [
-        {"id":"front_lighting", "name":"Передняя светотехника", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right"]},
-        {"id":"rear_lighting", "name":"Задняя светотехника", "parts":["tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights"]}
+        {"id":"front_lighting", "name":"Передняя светотехника", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right", "headlamp_bulbs", "headlamp_level_actuator"]},
+        {"id":"rear_lighting", "name":"Задняя светотехника", "parts":["tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights", "tail_lamp_bulb_carrier", "rear_lamp_connector", "rear_interior_light", "luggage_compartment_lamp", "interior_light_bulbs", "interior_light_connector"]}
     ],
     "wipers_glass": [
         {"id":"front_wiper_system", "name":"Передние стеклоочистители", "parts":["wiper_motor_front", "wiper_linkage", "wiper_blades_front", "washer_pump", "washer_reservoir", "rain_sensor"]},
@@ -90,6 +90,27 @@ const ASSEMBLY_GROUPS := {
 }
 
 const PARTS := {
+    "interior_light_connector": {"name":"Разъём плафона освещения салона", "group":"Освещение", "system":"lighting", "keywords":["разъём плафона","разъем плафона"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "interior_light_bulbs": {"name":"Лампы освещения салона", "group":"Освещение", "system":"lighting", "keywords":["лампы салона","лампа салонного освещения"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "luggage_compartment_lamp": {"name":"Плафон багажного отделения", "group":"Освещение", "system":"lighting", "keywords":["лампа багажника","плафон багажного отделения"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "rear_interior_light": {"name":"Задний плафон освещения салона", "group":"Освещение", "system":"lighting", "keywords":["задний плафон","заднее освещение салона"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "rear_lamp_connector": {"name":"Разъём заднего фонаря", "group":"Освещение", "system":"lighting", "keywords":["разъём заднего фонаря","разъем заднего фонаря"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "tail_lamp_bulb_carrier": {"name":"Плата держателя ламп заднего фонаря", "group":"Освещение", "system":"lighting", "keywords":["плата заднего фонаря","держатель ламп фонаря"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "headlamp_level_actuator": {"name":"Электрокорректор фары", "group":"Освещение", "system":"lighting", "keywords":["электрокорректор фары","корректор фар"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "headlamp_bulbs": {"name":"Лампы передних фар", "group":"Освещение", "system":"lighting", "keywords":["лампы передних фар","лампа фары"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "ignition_cables": {"name":"Высоковольтные провода зажигания", "group":"Зажигание", "system":"electrical", "keywords":["высоковольтные провода зажигания","провода зажигания"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "bulkhead_wiring_grommet": {"name":"Уплотнитель прохода жгута через щит передка", "group":"Электрика", "system":"electrical", "keywords":["уплотнитель жгута щита передка","ввод проводки в салон"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "ground_straps": {"name":"Провода массы кузова и двигателя", "group":"Электрика", "system":"electrical", "keywords":["провода массы","масса кузова","масса двигателя"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "cabin_wiring_harness": {"name":"Жгут электропроводки салона", "group":"Электрика", "system":"electrical", "keywords":["жгут проводки салона","проводка салона"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "engine_bay_wiring_harness": {"name":"Жгут электропроводки моторного отсека", "group":"Электрика", "system":"electrical", "keywords":["жгут моторного отсека","проводка моторного отсека"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "control_unit_connectors": {"name":"Разъёмы блоков управления", "group":"Электрика", "system":"electrical", "keywords":["разъёмы блоков управления","разъем эбу"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "blade_fuses": {"name":"Плоские автомобильные предохранители", "group":"Электрика", "system":"electrical", "keywords":["плоские предохранители","ножевые предохранители"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "automotive_relays": {"name":"Автомобильные реле", "group":"Электрика", "system":"electrical", "keywords":["автомобильные реле","реле автомобиля"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "high_current_fuse_block": {"name":"Блок силовых предохранителей", "group":"Электрика", "system":"electrical", "keywords":["силовой блок предохранителей","силовые предохранители"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "relay_carrier": {"name":"Панель реле", "group":"Электрика", "system":"electrical", "keywords":["панель реле","держатель реле"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "battery_terminal_clamps": {"name":"Клеммы аккумулятора", "group":"Электрика", "system":"electrical", "keywords":["клеммы аккумулятора","клемма аккумулятора"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "battery_ground_cable": {"name":"Кабель массы аккумулятора", "group":"Электрика", "system":"electrical", "keywords":["массовый провод аккумулятора","минусовой кабель аккумулятора"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
+    "battery_positive_cable": {"name":"Положительный кабель аккумулятора", "group":"Электрика", "system":"electrical", "keywords":["положительный провод аккумулятора","плюсовой кабель аккумулятора"], "diagnostic_flow":"", "repair_guide":"", "requires_years":[2009,2017]},
     "rear_subframe": {"name":"Подрамник задней подвески", "group":"Передняя подвеска", "system":"suspension", "keywords":["подрамник задней подвески"], "diagnostic_flow":"", "repair_guide":""},
     "rear_upper_control_arm": {"name":"Верхний поперечный рычаг задней подвески", "group":"Передняя подвеска", "system":"suspension", "keywords":["верхний рычаг задней подвески"], "diagnostic_flow":"", "repair_guide":""},
     "rear_lower_control_arm": {"name":"Нижний поперечный рычаг задней подвески", "group":"Передняя подвеска", "system":"suspension", "keywords":["нижний рычаг задней подвески"], "diagnostic_flow":"", "repair_guide":""},
@@ -205,7 +226,7 @@ const PARTS := {
     "alternator": {"name":"Генератор", "group":"Электрика", "system":"electrical", "keywords":["генератор"], "diagnostic_flow":"", "repair_guide":""},
     "starter": {"name":"Стартер", "group":"Электрика", "system":"electrical", "keywords":["стартер"], "diagnostic_flow":"", "repair_guide":""},
     "fuse_box": {"name":"Блок предохранителей", "group":"Электрика", "system":"electrical", "keywords":["блок предохранителей"], "diagnostic_flow":"", "repair_guide":""},
-    "body_control_module": {"name":"Блок управления кузовом", "group":"Электрика", "system":"electrical", "keywords":["блок управления кузовом"], "diagnostic_flow":"", "repair_guide":""},
+    "body_control_module": {"name":"Блок бортовой сети (BCM)", "group":"Электрика", "system":"electrical", "keywords":["блок бортовой сети", "bcm", "блок управления кузовом"], "diagnostic_flow":"", "repair_guide":""},
     "front_bumper": {"name":"Передний бампер", "group":"Кузов", "system":"body", "keywords":["передний бампер"], "diagnostic_flow":"", "repair_guide":""},
     "hood": {"name":"Капот", "group":"Кузов", "system":"body", "keywords":["капот"], "diagnostic_flow":"", "repair_guide":""},
     "front_fender": {"name":"Переднее крыло", "group":"Кузов", "system":"body", "keywords":["переднее крыло"], "diagnostic_flow":"", "repair_guide":""},
@@ -253,7 +274,7 @@ const PARTS := {
     "abs_wheel_sensor_fr": {"name":"Датчик ABS переднего правого колеса", "group":"Тормоза", "system":"brakes", "keywords":["датчик abs передний правый", "датчик абс"], "diagnostic_flow":"", "repair_guide":""},
     "abs_wheel_sensor_rl": {"name":"Датчик ABS заднего левого колеса", "group":"Тормоза", "system":"brakes", "keywords":["датчик abs задний левый", "датчик абс"], "diagnostic_flow":"", "repair_guide":""},
     "abs_wheel_sensor_rr": {"name":"Датчик ABS заднего правого колеса", "group":"Тормоза", "system":"brakes", "keywords":["датчик abs задний правый", "датчик абс"], "diagnostic_flow":"", "repair_guide":""},
-    "ignition_coil": {"name":"Катушка зажигания", "group":"Электрика", "system":"electrical", "keywords":["катушка зажигания", "катушка"], "diagnostic_flow":"engine_misfire", "repair_guide":""},
+    "ignition_coil": {"name":"Модуль / трансформатор зажигания N152", "group":"Зажигание", "system":"electrical", "keywords":["модуль зажигания n152", "трансформатор зажигания", "катушка n152"], "diagnostic_flow":"engine_misfire", "repair_guide":""},
     "spark_plugs": {"name":"Свечи зажигания", "group":"Электрика", "system":"electrical", "keywords":["свечи зажигания", "свечи"], "diagnostic_flow":"engine_misfire", "repair_guide":""},
     "engine_ecu": {"name":"ЭБУ двигателя", "group":"Электрика", "system":"electrical", "keywords":["эбу двигателя", "блок управления двигателем"], "diagnostic_flow":"", "repair_guide":""},
     "wiring_harness": {"name":"Жгуты электропроводки", "group":"Электрика", "system":"electrical", "keywords":["жгут проводов", "электропроводка"], "diagnostic_flow":"", "repair_guide":""},
