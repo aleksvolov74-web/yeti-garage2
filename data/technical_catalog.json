@@ -3916,19 +3916,53 @@
           "name": "Корпус отопителя и радиатор печки",
           "part_ids": [
             "heater_core",
-            "climate_control_unit"
+            "evaporator",
+            "air_flap_actuators",
+            "hvac_housing",
+            "cabin_filter"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/climate/heater_box.webp",
+            "image_type": "technical_illustration",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "heater_core",
+                "x": 0.52,
+                "y": 0.4
+              },
+              {
+                "number": 2,
+                "part_id": "evaporator",
+                "x": 0.48,
+                "y": 0.6
+              },
+              {
+                "number": 3,
+                "part_id": "air_flap_actuators",
+                "x": 0.84,
+                "y": 0.31
+              },
+              {
+                "number": 4,
+                "part_id": "hvac_housing",
+                "x": 0.44,
+                "y": 0.53
+              },
+              {
+                "number": 5,
+                "part_id": "cabin_filter",
+                "x": 0.37,
+                "y": 0.13
+              }
+            ],
             "source": {
               "title": "Контур кондиционера Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated technical visual; workshop sources are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -3939,15 +3973,17 @@
                 "engine_code": "ANY",
                 "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Подтверждена архитектура узла; точное исполнение по комплектации/PR-кодам не установлено. Точные номера компонентов не заявляются.",
               "related_references": [
                 {
                   "title": "Состав и сборка корпуса отопителя",
                   "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/heating/summary_of_components_disassembling_and_assembling_the_heater_unit/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Точное исполнение климатической установки зависит от комплектации автомобиля."
         },
         {
           "id": "blower",
@@ -3955,19 +3991,52 @@
           "part_ids": [
             "blower_motor",
             "air_flap_actuators",
-            "cabin_filter"
+            "cabin_filter",
+            "fresh_air_blower_control_unit_j126",
+            "recirculation_air_flap"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/climate/blower.webp",
+            "image_type": "technical_illustration",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "blower_motor",
+                "x": 0.48,
+                "y": 0.67
+              },
+              {
+                "number": 2,
+                "part_id": "air_flap_actuators",
+                "x": 0.79,
+                "y": 0.3
+              },
+              {
+                "number": 3,
+                "part_id": "cabin_filter",
+                "x": 0.47,
+                "y": 0.16
+              },
+              {
+                "number": 4,
+                "part_id": "fresh_air_blower_control_unit_j126",
+                "x": 0.68,
+                "y": 0.82
+              },
+              {
+                "number": 5,
+                "part_id": "recirculation_air_flap",
+                "x": 0.48,
+                "y": 0.39
+              }
+            ],
             "source": {
               "title": "Контур кондиционера Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated technical visual; workshop sources are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -3978,7 +4047,7 @@
                 "engine_code": "ANY",
                 "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Подтверждена архитектура узла; точное исполнение по комплектации/PR-кодам не установлено. Точные номера компонентов не заявляются.",
               "related_references": [
                 {
                   "title": "Climatic — состав компонентов (ручное управление)",
@@ -3988,9 +4057,11 @@
                   "title": "Climatronic — состав компонентов (автоматическое управление)",
                   "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation)/summary_of_components/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Точное исполнение климатической установки зависит от комплектации автомобиля."
         },
         {
           "id": "ac_circuit",
@@ -3998,20 +4069,59 @@
           "part_ids": [
             "ac_compressor",
             "condenser",
-            "evaporator",
-            "receiver_drier"
+            "receiver_drier",
+            "ac_expansion_valve",
+            "ac_pressure_sensor_g65",
+            "evaporator"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
-            "image_type": "exploded_view",
+            "status": "available",
+            "image": "res://assets/technical_catalog/climate/ac_circuit.webp",
+            "image_type": "technical_illustration",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "ac_compressor",
+                "x": 0.28,
+                "y": 0.44
+              },
+              {
+                "number": 2,
+                "part_id": "condenser",
+                "x": 0.53,
+                "y": 0.67
+              },
+              {
+                "number": 3,
+                "part_id": "receiver_drier",
+                "x": 0.82,
+                "y": 0.68
+              },
+              {
+                "number": 4,
+                "part_id": "ac_expansion_valve",
+                "x": 0.18,
+                "y": 0.18
+              },
+              {
+                "number": 5,
+                "part_id": "ac_pressure_sensor_g65",
+                "x": 0.62,
+                "y": 0.21
+              },
+              {
+                "number": 6,
+                "part_id": "evaporator",
+                "x": 0.7,
+                "y": 0.15
+              }
+            ],
             "source": {
               "title": "Контур кондиционера Yeti",
               "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation%29/summary_of_components/",
               "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "license": "Original generated technical visual; workshop sources are architecture references only.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4022,7 +4132,7 @@
                 "engine_code": "ANY",
                 "equipment_status": "HVAC equipment variant (Climatic/Climatronic) not determined; links are alternatives."
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Подтверждена архитектура узла; точное исполнение по комплектации/PR-кодам не установлено. Точные номера компонентов не заявляются.",
               "related_references": [
                 {
                   "title": "Контур хладагента: структура",
@@ -4032,9 +4142,11 @@
                   "title": "Состав климатической установки Climatic",
                   "url": "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatic_air_conditioning_system_with_manual_control/summary_of_components/"
                 }
-              ]
+              ],
+              "author": "Yeti Garage — original generated technical visual"
             }
-          }
+          },
+          "variant_note": "Точное исполнение климатической установки зависит от комплектации автомобиля."
         }
       ]
     },

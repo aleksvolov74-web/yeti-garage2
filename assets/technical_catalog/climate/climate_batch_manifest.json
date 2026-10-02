@@ -1,0 +1,135 @@
+{
+  "batch": "climate_v1",
+  "vehicle_profile": {
+    "model": "Skoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "gearbox_family": "0AM/DQ200"
+  },
+  "nodes": [
+    {
+      "node_id": "heater_box",
+      "image_path": "assets/technical_catalog/climate/heater_box.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "heater_core",
+          "x": 0.52,
+          "y": 0.4
+        },
+        {
+          "number": 2,
+          "part_id": "evaporator",
+          "x": 0.48,
+          "y": 0.6
+        },
+        {
+          "number": 3,
+          "part_id": "air_flap_actuators",
+          "x": 0.84,
+          "y": 0.31
+        },
+        {
+          "number": 4,
+          "part_key": "hvac_housing",
+          "x": 0.44,
+          "y": 0.53
+        },
+        {
+          "number": 5,
+          "part_id": "cabin_filter",
+          "x": 0.37,
+          "y": 0.13
+        }
+      ],
+      "note": "Original generated technical visual based on Yeti workshop architecture; exact PR-code variant is not asserted."
+    },
+    {
+      "node_id": "blower",
+      "image_path": "assets/technical_catalog/climate/blower.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 5,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "blower_motor",
+          "x": 0.48,
+          "y": 0.67
+        },
+        {
+          "number": 2,
+          "part_id": "air_flap_actuators",
+          "x": 0.79,
+          "y": 0.3
+        },
+        {
+          "number": 3,
+          "part_id": "cabin_filter",
+          "x": 0.47,
+          "y": 0.16
+        },
+        {
+          "number": 4,
+          "part_key": "fresh_air_blower_control_unit_j126",
+          "x": 0.68,
+          "y": 0.82
+        },
+        {
+          "number": 5,
+          "part_key": "recirculation_air_flap",
+          "x": 0.48,
+          "y": 0.39
+        }
+      ],
+      "note": "Original generated technical visual based on Yeti workshop architecture; exact PR-code variant is not asserted."
+    },
+    {
+      "node_id": "ac_circuit",
+      "image_path": "assets/technical_catalog/climate/ac_circuit.webp",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "marker_count": 6,
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "ac_compressor",
+          "x": 0.28,
+          "y": 0.44
+        },
+        {
+          "number": 2,
+          "part_id": "condenser",
+          "x": 0.53,
+          "y": 0.67
+        },
+        {
+          "number": 3,
+          "part_id": "receiver_drier",
+          "x": 0.82,
+          "y": 0.68
+        },
+        {
+          "number": 4,
+          "part_key": "ac_expansion_valve",
+          "x": 0.18,
+          "y": 0.18
+        },
+        {
+          "number": 5,
+          "part_key": "ac_pressure_sensor_g65",
+          "x": 0.62,
+          "y": 0.21
+        },
+        {
+          "number": 6,
+          "part_id": "evaporator",
+          "x": 0.7,
+          "y": 0.15
+        }
+      ],
+      "note": "Original generated technical visual based on Yeti workshop architecture; exact PR-code variant is not asserted."
+    }
+  ]
+}

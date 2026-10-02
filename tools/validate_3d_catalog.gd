@@ -12,8 +12,8 @@ func _run_checks() -> void:
 	var failures: Array[String] = []
 	if PartCatalogService.SYSTEMS.size() != 16:
 		failures.append("expected 16 systems, found %d" % PartCatalogService.SYSTEMS.size())
-	if PartCatalogService.PARTS.size() != 240:
-		failures.append("expected 240 parts after two visual batch integrations, found %d" % PartCatalogService.PARTS.size())
+	if PartCatalogService.PARTS.size() != 245:
+		failures.append("expected 245 parts after climate visual batch integration, found %d" % PartCatalogService.PARTS.size())
 	var covered_parts: Dictionary = {}
 	var assembly_ids: Dictionary = {}
 	for system_id in PartCatalogService.SYSTEMS.keys():
@@ -155,7 +155,7 @@ func _run_checks() -> void:
 	for reference_node_id in ["rear_carrier", "abs_esp_block", "brake_hydraulics", "fuel_storage", "coolant_circuit"]:
 		if str(node_by_id.get(reference_node_id, {}).get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
 			failures.append("reference-only node %s was promoted to another verification status" % reference_node_id)
-	for new_part_id in ["rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring", "wheel_bearing_housing", "air_filter_housing", "charge_air_cooler", "intake_manifold_pressure_sensor", "charge_pressure_sensor", "charge_pressure_regulator_v465", "turbo_oil_feed_line", "turbo_coolant_lines", "charge_air_pipe", "fuel_pressure_sensor_g247", "fuel_pressure_control_valve_n276", "evap_charcoal_canister", "fuel_tank_straps", "low_temperature_radiator", "cooling_fan_secondary", "coolant_recirculation_pump_v50", "engine_oil_cooler", "turbo_heat_shield", "exhaust_flex_joint", "catalyst_heat_shield", "exhaust_clamp", "exhaust_mounts", "exhaust_heat_shield"]:
+	for new_part_id in ["rear_subframe", "rear_upper_control_arm", "rear_lower_control_arm", "rear_trailing_arm", "rear_track_rod", "rear_anti_roll_bar", "rear_hub_carrier", "rear_suspension_bushings", "rear_spring_upper_seat", "rear_spring_lower_seat", "rear_shock_upper_mount", "rear_shock_bump_stop", "rear_abs_encoder_ring", "rear_wheel_speed_sensor", "steering_input_shaft", "steering_rack_boot", "tie_rod_lock_nut", "abs_hydraulic_unit", "abs_control_unit", "abs_pump_motor", "abs_mounting_bracket", "brake_pushrod", "brake_lines", "wheel_speed_sensor", "wheel_speed_sensor_connector", "abs_encoder_ring", "wheel_bearing_housing", "air_filter_housing", "charge_air_cooler", "intake_manifold_pressure_sensor", "charge_pressure_sensor", "charge_pressure_regulator_v465", "turbo_oil_feed_line", "turbo_coolant_lines", "charge_air_pipe", "fuel_pressure_sensor_g247", "fuel_pressure_control_valve_n276", "evap_charcoal_canister", "fuel_tank_straps", "low_temperature_radiator", "cooling_fan_secondary", "coolant_recirculation_pump_v50", "engine_oil_cooler", "turbo_heat_shield", "exhaust_flex_joint", "catalyst_heat_shield", "exhaust_clamp", "exhaust_mounts", "exhaust_heat_shield", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap", "ac_expansion_valve", "ac_pressure_sensor_g65"]:
 		var manifest_part := PartCatalogService.get_part(new_part_id)
 		if manifest_part.is_empty():
 			failures.append("new manifest part %s is not searchable in PartCatalogService" % new_part_id)
@@ -265,7 +265,10 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"timing_drive_node": {"section":"timing", "count":6, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
 		"oil_filter_node": {"section":"lubrication", "count":1, "tap_part":"oil_filter", "level":"VERIFIED_ARCHITECTURE"},
 		"oil_pan_node": {"section":"lubrication", "count":1, "tap_part":"oil_pan", "level":"VERIFIED_ARCHITECTURE"},
-		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"}
+		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"},
+		"heater_box": {"section":"climate", "count":5, "tap_part":"hvac_housing", "level":"VERIFIED_ARCHITECTURE"},
+		"blower": {"section":"climate", "count":5, "tap_part":"fresh_air_blower_control_unit_j126", "level":"VERIFIED_ARCHITECTURE"},
+		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"VERIFIED_ARCHITECTURE"}
 	}
 	var cbzb_dq200_marker_total := 0
 	var all_image_marker_total := 0
@@ -389,6 +392,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		await process_frame
 		if view.get("_diagram") == null or str(view.get("current_section_id")) != section_id:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
+	if all_image_marker_total != 208:
+		failures.append("all technical diagrams should have 208 markers after climate integration, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
 	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:

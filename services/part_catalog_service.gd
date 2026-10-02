@@ -17,7 +17,7 @@ const SYSTEMS := {
     "electrical": {"name":"Электрика", "parts":["battery", "alternator", "starter", "fuse_box", "body_control_module", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
     "body": {"name":"Кузов", "parts":["front_bumper", "hood", "front_fender", "tailgate", "front_left_door", "front_right_door", "rear_left_door", "rear_right_door", "windshield", "rear_window", "side_mirrors", "roof_rails", "front_wheel_arch_liner", "rear_wheel_arch_liner", "underbody_guard"]},
     "interior": {"name":"Салон", "parts":["driver_seat", "passenger_seat", "rear_seat", "instrument_cluster", "infotainment", "dashboard", "center_console", "glove_box", "pedal_assembly", "cabin_filter"]},
-    "climate": {"name":"Климат", "parts":["ac_compressor", "condenser", "heater_core", "blower_motor", "climate_control_unit", "evaporator", "receiver_drier", "air_flap_actuators"]},
+    "climate": {"name":"Климат", "parts":["ac_compressor", "condenser", "heater_core", "blower_motor", "climate_control_unit", "evaporator", "receiver_drier", "air_flap_actuators", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap", "ac_expansion_valve", "ac_pressure_sensor_g65"]},
     "lighting": {"name":"Освещение", "parts":["headlamp_left", "headlamp_right", "fog_lamp_left", "fog_lamp_right", "tail_lamp_left", "tail_lamp_right", "license_plate_lamp", "interior_lights"]},
     "safety": {"name":"Безопасность", "parts":["driver_airbag", "passenger_airbag", "side_airbags", "seat_belts", "belt_pretensioners", "crash_sensors_front", "crash_sensors_side"]},
     "wipers_glass": {"name":"Стекло и очистители", "parts":["wiper_motor_front", "wiper_linkage", "wiper_blades_front", "wiper_motor_rear", "washer_pump", "washer_reservoir", "rain_sensor"]},
@@ -64,8 +64,8 @@ const ASSEMBLY_GROUPS := {
         {"id":"center_console", "name":"Центральная консоль", "parts":["center_console"]}
     ],
     "climate": [
-        {"id":"hvac_box", "name":"Отопитель и вентиляция", "parts":["heater_core", "blower_motor", "climate_control_unit", "evaporator", "air_flap_actuators"]},
-        {"id":"ac_circuit", "name":"Контур кондиционера", "parts":["ac_compressor", "condenser", "receiver_drier"]}
+        {"id":"hvac_box", "name":"Отопитель и вентиляция", "parts":["heater_core", "blower_motor", "climate_control_unit", "evaporator", "air_flap_actuators", "cabin_filter", "hvac_housing", "fresh_air_blower_control_unit_j126", "recirculation_air_flap"]},
+        {"id":"ac_circuit", "name":"Контур кондиционера", "parts":["ac_compressor", "condenser", "receiver_drier", "evaporator", "ac_expansion_valve", "ac_pressure_sensor_g65"]}
     ],
     "electrical": [
         {"id":"engine_bay_electrical", "name":"Электрика моторного отсека", "parts":["battery", "alternator", "starter", "fuse_box", "ignition_coil", "spark_plugs", "engine_ecu", "wiring_harness", "crankshaft_position_sensor", "camshaft_position_sensor"]},
@@ -274,6 +274,11 @@ const PARTS := {
     "cabin_filter": {"name":"Салонный фильтр", "group":"Салон", "system":"interior", "keywords":["салонный фильтр", "фильтр салона"], "diagnostic_flow":"", "repair_guide":""},
     "evaporator": {"name":"Испаритель кондиционера", "group":"Климат", "system":"climate", "keywords":["испаритель кондиционера"], "diagnostic_flow":"", "repair_guide":""},
     "receiver_drier": {"name":"Осушитель кондиционера", "group":"Климат", "system":"climate", "keywords":["осушитель кондиционера", "ресивер осушитель"], "diagnostic_flow":"", "repair_guide":""},
+    "hvac_housing": {"name":"Корпус климатической установки / отопителя", "group":"Климат", "system":"climate", "keywords":["корпус климатической установки", "корпус отопителя"], "diagnostic_flow":"", "repair_guide":""},
+    "fresh_air_blower_control_unit_j126": {"name":"Блок управления вентилятором приточного воздуха J126", "group":"Климат", "system":"climate", "keywords":["блок управления вентилятором j126", "регулятор вентилятора печки"], "diagnostic_flow":"", "repair_guide":""},
+    "recirculation_air_flap": {"name":"Заслонка рециркуляции воздуха", "group":"Климат", "system":"climate", "keywords":["заслонка рециркуляции", "рециркуляция воздуха"], "diagnostic_flow":"", "repair_guide":""},
+    "ac_expansion_valve": {"name":"Расширительный клапан кондиционера", "group":"Климат", "system":"climate", "keywords":["расширительный клапан кондиционера", "клапан испарителя"], "diagnostic_flow":"", "repair_guide":""},
+    "ac_pressure_sensor_g65": {"name":"Датчик давления кондиционера G65", "group":"Климат", "system":"climate", "keywords":["датчик давления кондиционера", "датчик g65"], "diagnostic_flow":"", "repair_guide":""},
     "air_flap_actuators": {"name":"Заслонки и актуаторы климата", "group":"Климат", "system":"climate", "keywords":["заслонки климата", "актуатор заслонки"], "diagnostic_flow":"", "repair_guide":""},
     "headlamp_left": {"name":"Левая фара", "group":"Освещение", "system":"lighting", "keywords":["левая фара", "фара"], "diagnostic_flow":"", "repair_guide":""},
     "headlamp_right": {"name":"Правая фара", "group":"Освещение", "system":"lighting", "keywords":["правая фара", "фара"], "diagnostic_flow":"", "repair_guide":""},
