@@ -239,7 +239,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 	var view := MobileTechnicalCatalogView.new()
 	root.add_child(view)
 	view.size = Vector2(420.0, 780.0)
-	view.set_vehicle_profile({"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"})
+	var vehicle_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
+	view.set_vehicle_profile(vehicle_profile)
 	await process_frame
 	var expected := {
 		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left", "level":"VERIFIED_ARCHITECTURE"},
