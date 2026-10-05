@@ -430,12 +430,12 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 				has_part_card = true
 		if not has_part_card:
 			failures.append("technical diagram node %s part card did not open the selected component" % node_id)
-		var has_back_to_diagram := false
+		var has_clear_selection := false
 		for button_node in view.find_children("*", "Button", true, false):
-			if str((button_node as Button).text) == "Назад к схеме":
-				has_back_to_diagram = true
-		if not has_back_to_diagram:
-			failures.append("technical diagram node %s part card back action is missing" % node_id)
+			if str((button_node as Button).text) == "Снять выделение":
+				has_clear_selection = true
+		if not has_clear_selection:
+			failures.append("technical diagram node %s part card selection action is missing" % node_id)
 		var node_name := str(current_node.get("name", ""))
 		var node_breadcrumb: Button
 		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
