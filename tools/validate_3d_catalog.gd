@@ -424,15 +424,18 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			if selected_after_list == null or str(selected_after_list.get("selected_part_id")) != str(expected_row["tap_part"]):
 				failures.append("technical diagram node %s list selection did not highlight its marker" % node_id)
 		var expected_part := PartCatalogService.get_part(str(expected_row["tap_part"]))
-		var title_label := view.get("_title") as Label
-		if title_label == null or str(title_label.text) != str(expected_part.get("name", "")):
+		var has_part_card := false
+		for label_node in view.find_children("*", "Label", true, false):
+			if str((label_node as Label).text) == str(expected_part.get("name", "")):
+				has_part_card = true
+		if not has_part_card:
 			failures.append("technical diagram node %s part card did not open the selected component" % node_id)
-		var has_clear_selection := false
+		var has_back_to_diagram := false
 		for button_node in view.find_children("*", "Button", true, false):
-			if str((button_node as Button).text) == "Снять выделение":
-				has_clear_selection = true
-		if not has_clear_selection:
-			failures.append("technical diagram node %s part card actions are missing" % node_id)
+			if str((button_node as Button).text) == "Назад к схеме":
+				has_back_to_diagram = true
+		if not has_back_to_diagram:
+			failures.append("technical diagram node %s part card back action is missing" % node_id)
 		var node_name := str(current_node.get("name", ""))
 		var node_breadcrumb: Button
 		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
