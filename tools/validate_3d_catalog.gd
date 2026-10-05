@@ -292,7 +292,16 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"VERIFIED_ARCHITECTURE"},
 		"front_lamps": {"section":"lighting", "count":6, "tap_part":"headlamp_bulbs", "level":"REFERENCE_ONLY"},
 		"rear_lamps": {"section":"lighting", "count":5, "tap_part":"tail_lamp_bulb_carrier", "level":"REFERENCE_ONLY"},
-		"interior_lamps": {"section":"lighting", "count":5, "tap_part":"rear_interior_light", "level":"REFERENCE_ONLY"}
+		"interior_lamps": {"section":"lighting", "count":5, "tap_part":"rear_interior_light", "level":"REFERENCE_ONLY"},
+		"body_front": {"section":"body", "count":3, "tap_part":"front_bumper", "level":"REFERENCE_ONLY"},
+		"doors": {"section":"body", "count":4, "tap_part":"front_left_door", "level":"REFERENCE_ONLY"},
+		"body_rear": {"section":"body", "count":2, "tap_part":"tailgate", "level":"REFERENCE_ONLY"},
+		"body_protection": {"section":"body", "count":3, "tap_part":"front_wheel_arch_liner", "level":"REFERENCE_ONLY"},
+		"mirrors": {"section":"body", "count":1, "tap_part":"side_mirrors", "level":"VERIFIED_ARCHITECTURE"},
+		"glazing": {"section":"glass_wipers", "count":2, "tap_part":"windshield", "level":"REFERENCE_ONLY"},
+		"front_wipers": {"section":"glass_wipers", "count":3, "tap_part":"wiper_motor_front", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_wiper": {"section":"glass_wipers", "count":1, "tap_part":"wiper_motor_rear", "level":"VERIFIED_ARCHITECTURE"},
+		"washers": {"section":"glass_wipers", "count":3, "tap_part":"washer_pump", "level":"REFERENCE_ONLY"}
 	}
 	var cbzb_dq200_marker_total := 0
 	var all_image_marker_total := 0
@@ -385,6 +394,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		pan_release.position = Vector2(145.0, 135.0)
 		canvas.call("_gui_input", pan_release)
 		canvas.call("reset_view")
+		if not is_equal_approx(float(canvas.get("_zoom")), 1.0) or not Vector2(canvas.get("_pan")).is_zero_approx():
+			failures.append("technical diagram node %s reset did not restore the initial view" % node_id)
 		var marker: Dictionary = canvas.markers[0]
 		var image_rect: Rect2 = canvas.call("_image_rect")
 		var point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
@@ -411,13 +422,68 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			var selected_after_list = view.get("_diagram")
 			if selected_after_list == null or str(selected_after_list.get("selected_part_id")) != str(expected_row["tap_part"]):
 				failures.append("technical diagram node %s list selection did not highlight its marker" % node_id)
+		var expected_part := PartCatalogService.get_part(str(expected_row["tap_part"]))
+		var title_label := view.get("_title") as Label
+		if title_label == null or str(title_label.text) != str(expected_part.get("name", "")):
+			failures.append("technical diagram node %s part card did not open the selected component" % node_id)
+		var has_clear_selection := false
+		for button_node in view.find_children("*", "Button", true, false):
+			if str((button_node as Button).text) == "Снять выделение":
+				has_clear_selection = true
+		if not has_clear_selection:
+			failures.append("technical diagram node %s part card actions are missing" % node_id)
+		var node_name := str(current_node.get("name", ""))
+		var node_breadcrumb: Button
+		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
+			if button_node is Button and str((button_node as Button).text) == node_name:
+				node_breadcrumb = button_node as Button
+				break
+		if node_breadcrumb == null:
+			failures.append("technical diagram node %s has no back path from the part card" % node_id)
+		else:
+			node_breadcrumb.pressed.emit()
+			await process_frame
+			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
+				failures.append("technical diagram node %s could not navigate back from its part card" % node_id)
 		view.set("selected_part_id", "")
 		view.call("_render")
 		await process_frame
 		if view.get("_diagram") == null or str(view.get("current_section_id")) != section_id:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
-	if all_image_marker_total != 250:
-		failures.append("all technical diagrams should have 250 markers after electrical/lighting integration, found %d" % all_image_marker_total)
+		var section_name := str(TechnicalCatalogService.section(section_id, vehicle_profile).get("name", ""))
+		var section_breadcrumb: Button
+		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
+			if button_node is Button and str((button_node as Button).text) == section_name:
+				section_breadcrumb = button_node as Button
+				break
+		if section_breadcrumb == null:
+			failures.append("technical diagram node %s has no section back navigation" % node_id)
+		else:
+			section_breadcrumb.pressed.emit()
+			await process_frame
+			var section_path: Array = view.get("current_path")
+			if not section_path.is_empty():
+				failures.append("technical diagram node %s did not return to its section list" % node_id)
+		view.call("_open_section", section_id)
+		var search_edit := view.get("_search_edit") as LineEdit
+		search_edit.text = str(expected_part.get("name", ""))
+		await process_frame
+		var search_hit := false
+		for result_value in TechnicalCatalogService.search(str(expected_part.get("name", "")), vehicle_profile):
+			var result: Dictionary = result_value
+			if str(result.get("part_id", "")) == str(expected_row["tap_part"]):
+				search_hit = true
+				view.call("open_catalog_result", result)
+				break
+		await process_frame
+		if not search_hit or str(view.get("selected_part_id")) != str(expected_row["tap_part"]):
+			failures.append("technical diagram node %s component is not searchable/openable" % node_id)
+		for label_node in view.find_children("*", "Label", true, false):
+			if str((label_node as Label).text) == "Изображение готовится":
+				failures.append("technical diagram node %s shows an image placeholder" % node_id)
+		print("Body/glass catalog UI flow PASS: %s" % node_id)
+	if all_image_marker_total != 272:
+		failures.append("all technical diagrams should have 272 markers after Body/Glass integration, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
 	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:
