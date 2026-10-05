@@ -1,0 +1,541 @@
+{
+  "batch": "body_glass_wipers_v1",
+  "criteria": [
+    {
+      "criterion_id": 1,
+      "requirement": "Exactly one requested node is represented."
+    },
+    {
+      "criterion_id": 2,
+      "requirement": "No collage, grid, montage, contact sheet, or multiple panels."
+    },
+    {
+      "criterion_id": 3,
+      "requirement": "No text, numbers, arrows, legends, callouts, logos, or watermarks."
+    },
+    {
+      "criterion_id": 4,
+      "requirement": "Vehicle/component context is consistent with pre-facelift Škoda Yeti 5L MY2011."
+    },
+    {
+      "criterion_id": 5,
+      "requirement": "No unrelated/foreign body elements are presented as targets."
+    },
+    {
+      "criterion_id": 6,
+      "requirement": "Every required target is visible."
+    },
+    {
+      "criterion_id": 7,
+      "requirement": "Targets are distinct and suitable for marker placement."
+    },
+    {
+      "criterion_id": 8,
+      "requirement": "No duplicate target components."
+    },
+    {
+      "criterion_id": 9,
+      "requirement": "No visibly impossible geometry or attachment."
+    },
+    {
+      "criterion_id": 10,
+      "requirement": "No unrelated vehicle systems."
+    },
+    {
+      "criterion_id": 11,
+      "requirement": "Every target has a unique visible marker location."
+    },
+    {
+      "criterion_id": 12,
+      "requirement": "No placeholder or temporary asset is used."
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "body_front",
+      "accepted_image": "assets/technical_catalog/body/body_front.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "doors",
+      "accepted_image": "assets/technical_catalog/body/doors.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "body_rear",
+      "accepted_image": "assets/technical_catalog/body/body_rear.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "body_protection",
+      "accepted_image": "assets/technical_catalog/body/body_protection.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "mirrors",
+      "accepted_image": "assets/technical_catalog/body/mirrors.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "glazing",
+      "accepted_image": "assets/technical_catalog/body/glazing.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "front_wipers",
+      "accepted_image": "assets/technical_catalog/body/front_wipers.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "rear_wiper",
+      "accepted_image": "assets/technical_catalog/body/rear_wiper.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "node_id": "washers",
+      "accepted_image": "assets/technical_catalog/body/washers.webp",
+      "results": [
+        {
+          "criterion_id": 1,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 2,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 3,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 4,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 5,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 6,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 7,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 8,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 9,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 10,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 11,
+          "result": "PASS"
+        },
+        {
+          "criterion_id": 12,
+          "result": "PASS"
+        }
+      ]
+    }
+  ]
+}

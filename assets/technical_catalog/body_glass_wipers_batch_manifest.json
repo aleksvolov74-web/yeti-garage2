@@ -1,0 +1,305 @@
+{
+  "batch": "body_glass_wipers_v1",
+  "base_commit": "72e954c25b6329331edb8bd9f5f41e0cd43f0132",
+  "source_version": "0.20.26",
+  "source_versionCode": 66,
+  "vehicle_profile": {
+    "model": "Škoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "engine": "1.2 TSI 77 kW",
+    "drivetrain": "FWD",
+    "transmission": "7-speed DSG",
+    "transmission_family": "0AM / DQ200",
+    "vin_exact_geometry_claimed": false
+  },
+  "visual_reference": {
+    "title": "2011 Škoda Yeti S TSi 1.2 Front",
+    "url": "https://commons.wikimedia.org/wiki/File:2011_Skoda_Yeti_S_TSi_1.2_Front.jpg",
+    "creator": "Vauxford",
+    "license": "CC BY-SA 4.0",
+    "role": "Appearance reference only; not used to verify component fitment and not included in the batch."
+  },
+  "nodes": [
+    {
+      "node_id": "body_front",
+      "image": "assets/technical_catalog/body/body_front.webp",
+      "image_path": "assets/technical_catalog/body/body_front.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "front_bumper",
+        "hood",
+        "front_fender"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "front_bumper",
+          "x": 0.36,
+          "y": 0.73
+        },
+        {
+          "number": 2,
+          "part_id": "hood",
+          "x": 0.42,
+          "y": 0.29
+        },
+        {
+          "number": 3,
+          "part_id": "front_fender",
+          "x": 0.86,
+          "y": 0.34
+        }
+      ],
+      "marker_count": 3,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_body/",
+      "note": "Изображение показывает только наружные панели и минимальный кузовной фрагмент. Не заявляет VIN-точную форму, крепёж, датчики парковки, омыватели фар, окраску или комплектацию."
+    },
+    {
+      "node_id": "doors",
+      "image": "assets/technical_catalog/body/doors.webp",
+      "image_path": "assets/technical_catalog/body/doors.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "front_left_door",
+        "front_right_door",
+        "rear_left_door",
+        "rear_right_door"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "front_left_door",
+          "x": 0.16,
+          "y": 0.25
+        },
+        {
+          "number": 2,
+          "part_id": "front_right_door",
+          "x": 0.84,
+          "y": 0.25
+        },
+        {
+          "number": 3,
+          "part_id": "rear_left_door",
+          "x": 0.16,
+          "y": 0.64
+        },
+        {
+          "number": 4,
+          "part_id": "rear_right_door",
+          "x": 0.84,
+          "y": 0.64
+        }
+      ],
+      "marker_count": 4,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/front_door_central_locking/front_door/",
+      "note": "Не заявляет точные внутренние замки, стеклоподъёмники, проводку, боковые подушки или VIN-точную геометрию. Зеркала на передних дверях — лишь контекст комплекта двери, не отдельные markers этого node."
+    },
+    {
+      "node_id": "body_rear",
+      "image": "assets/technical_catalog/body/body_rear.webp",
+      "image_path": "assets/technical_catalog/body/body_rear.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "tailgate",
+        "roof_rails"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "tailgate",
+          "x": 0.75,
+          "y": 0.54
+        },
+        {
+          "number": 2,
+          "part_id": "roof_rails",
+          "x": 0.3,
+          "y": 0.1
+        }
+      ],
+      "marker_count": 2,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate/",
+      "note": "Изображение даёт общую кузовную архитектуру и не претендует на точные крепления/вариант рейлингов или заднего стекла."
+    },
+    {
+      "node_id": "body_protection",
+      "image": "assets/technical_catalog/body/body_protection.webp",
+      "image_path": "assets/technical_catalog/body/body_protection.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "front_wheel_arch_liner",
+        "rear_wheel_arch_liner",
+        "underbody_guard"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "front_wheel_arch_liner",
+          "x": 0.28,
+          "y": 0.32
+        },
+        {
+          "number": 2,
+          "part_id": "rear_wheel_arch_liner",
+          "x": 0.9,
+          "y": 0.56
+        },
+        {
+          "number": 3,
+          "part_id": "underbody_guard",
+          "x": 0.36,
+          "y": 0.74
+        }
+      ],
+      "marker_count": 3,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/wheelhouse_liner/removing_and_installing_the_front_wheelhouse_liner/",
+      "note": "Точная конфигурация нижней защиты не подтверждена по данному VIN; рендер показывает только общий защитный щит без двигателя, трансмиссии и подвески."
+    },
+    {
+      "node_id": "mirrors",
+      "image": "assets/technical_catalog/body/mirrors.webp",
+      "image_path": "assets/technical_catalog/body/mirrors.webp",
+      "verification": "VERIFIED_ARCHITECTURE",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "part_ids": [
+        "side_mirrors"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "side_mirrors",
+          "x": 0.22,
+          "y": 0.49
+        }
+      ],
+      "marker_count": 1,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/rear-view_mirror/",
+      "note": "VERIFIED_ARCHITECTURE подтверждает тип и общую сборку, но не VIN-точную геометрию и не конкретный привод/опции."
+    },
+    {
+      "node_id": "glazing",
+      "image": "assets/technical_catalog/body/glazing.webp",
+      "image_path": "assets/technical_catalog/body/glazing.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "windshield",
+        "rear_window"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "windshield",
+          "x": 0.24,
+          "y": 0.4
+        },
+        {
+          "number": 2,
+          "part_id": "rear_window",
+          "x": 0.89,
+          "y": 0.36
+        }
+      ],
+      "marker_count": 2,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/body/body_work/glazing/window_mechanism/glued_windows/",
+      "note": "Визуал показывает только формы двух стёкол. Не изображает/не утверждает антенну, подогрев, sight window, датчики, оттенок или VIN-маркировку."
+    },
+    {
+      "node_id": "front_wipers",
+      "image": "assets/technical_catalog/body/front_wipers.webp",
+      "image_path": "assets/technical_catalog/body/front_wipers.webp",
+      "verification": "VERIFIED_ARCHITECTURE",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "part_ids": [
+        "wiper_motor_front",
+        "wiper_linkage",
+        "wiper_blades_front"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "wiper_blades_front",
+          "x": 0.34,
+          "y": 0.25
+        },
+        {
+          "number": 2,
+          "part_id": "wiper_linkage",
+          "x": 0.4,
+          "y": 0.56
+        },
+        {
+          "number": 3,
+          "part_id": "wiper_motor_front",
+          "x": 0.6,
+          "y": 0.7
+        }
+      ],
+      "marker_count": 3,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/",
+      "note": "Рендер показывает общую архитектуру, не точный размер щёток, парковочное положение, сторону руля или индекс мотора."
+    },
+    {
+      "node_id": "rear_wiper",
+      "image": "assets/technical_catalog/body/rear_wiper.webp",
+      "image_path": "assets/technical_catalog/body/rear_wiper.webp",
+      "verification": "VERIFIED_ARCHITECTURE",
+      "verification_status": "VERIFIED_ARCHITECTURE",
+      "part_ids": [
+        "wiper_motor_rear"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "wiper_motor_rear",
+          "x": 0.23,
+          "y": 0.56
+        }
+      ],
+      "marker_count": 1,
+      "source_url": "https://dms.kfz-verlag.de/pub/more_downloads/en-ebook-skoda-yeti-5l-0040.pdf",
+      "note": "Изображение показывает общий прямой привод мотора; точная ревизия, электроразъём и washer integration не проверялись по VIN."
+    },
+    {
+      "node_id": "washers",
+      "image": "assets/technical_catalog/body/washers.webp",
+      "image_path": "assets/technical_catalog/body/washers.webp",
+      "verification": "REFERENCE_ONLY",
+      "verification_status": "REFERENCE_ONLY",
+      "part_ids": [
+        "washer_pump",
+        "washer_reservoir",
+        "rain_sensor"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "washer_reservoir",
+          "x": 0.33,
+          "y": 0.49
+        },
+        {
+          "number": 2,
+          "part_id": "washer_pump",
+          "x": 0.23,
+          "y": 0.68
+        },
+        {
+          "number": 3,
+          "part_id": "rain_sensor",
+          "x": 0.81,
+          "y": 0.74
+        }
+      ],
+      "marker_count": 3,
+      "source_url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_washer_system/remove_and_install_reservoir_pumps_and_sensor_for_washer_fluid_level/",
+      "note": "Датчик дождя на рендере показан отдельной опциональной reference-деталью, не как установленный на целевой машине. Рендер не задаёт точную форму/позицию бачка и насоса."
+    }
+  ]
+}

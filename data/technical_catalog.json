@@ -4795,16 +4795,35 @@
             "front_fender"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/body_front.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "front_bumper",
+                "x": 0.36,
+                "y": 0.73
+              },
+              {
+                "number": 2,
+                "part_id": "hood",
+                "x": 0.42,
+                "y": 0.29
+              },
+              {
+                "number": 3,
+                "part_id": "front_fender",
+                "x": 0.86,
+                "y": 0.34
+              }
+            ],
             "source": {
-              "title": "Кузов Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Кузов Yeti 5L: передняя часть, бампер и крыло",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_body/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4812,22 +4831,29 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Документация Yeti описывает переднюю несущую часть, отдельное переднее крыло, передний бампер и капот как отдельные кузовные детали; руководство описывает взаимное освобождение угла бампера при снятии крыла. Изображение показывает только наружные панели и минимальный кузовной фрагмент. Не заявляет VIN-точную форму, крепёж, датчики парковки, омыватели фар, окраску или комплектацию. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Передняя часть кузова",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_body/"
+                  "title": "Переднее крыло — состав и снятие",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_wing/"
                 },
                 {
-                  "title": "Переднее крыло",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_wing/"
+                  "title": "Передний бампер",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bumper/front_bumper/"
+                },
+                {
+                  "title": "Капот и его компоненты",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/engine_bonnet/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Изображение показывает только наружные панели и минимальный кузовной фрагмент. Не заявляет VIN-точную форму, крепёж, датчики парковки, омыватели фар, окраску или комплектацию."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Бамперные накладки/вырезы, ПТФ, парктроники, омыватели фар, PR-коды, рынок и ревизия зависят от исполнения; год/месяц производства и VIN не проверены."
         },
         {
           "id": "doors",
@@ -4839,16 +4865,41 @@
             "rear_right_door"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/doors.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "front_left_door",
+                "x": 0.16,
+                "y": 0.25
+              },
+              {
+                "number": 2,
+                "part_id": "front_right_door",
+                "x": 0.84,
+                "y": 0.25
+              },
+              {
+                "number": 3,
+                "part_id": "rear_left_door",
+                "x": 0.16,
+                "y": 0.64
+              },
+              {
+                "number": 4,
+                "part_id": "rear_right_door",
+                "x": 0.84,
+                "y": 0.64
+              }
+            ],
             "source": {
-              "title": "Кузов Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Двери Škoda Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/front_door_central_locking/front_door/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4856,22 +4907,25 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Руководство Yeti подтверждает отдельные передние и задние двери, петли, ограничители, разъёмы и процедуру снятия. Визуал показывает четыре двери у соответствующих проёмов; сторона обозначена по виду сверху: перед автомобиля сверху, левый/правый борт слева/справа кадра. Не заявляет точные внутренние замки, стеклоподъёмники, проводку, боковые подушки или VIN-точную геометрию. Зеркала на передних дверях — лишь контекст комплекта двери, не отдельные markers этого node. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Передняя дверь",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/front_door_central_locking/front_door/"
+                  "title": "Задняя дверь — Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/rear_doorsliding_doorwing_doorscentral_locking/rear_door/"
                 },
                 {
-                  "title": "Задняя дверь",
+                  "title": "Задние двери: стекло и механизм",
                   "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/rear_doorsliding_doorwing_doorscentral_locking/rear_door/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Не заявляет точные внутренние замки, стеклоподъёмники, проводку, боковые подушки или VIN-точную геометрию. Зеркала на передних дверях — лишь контекст комплекта двери, не отдельные markers этого node."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Форма молдингов, зеркал, остекления, замков и электрического оснащения зависит от PR-кода, рынка, руля, производства и ревизии."
         },
         {
           "id": "body_rear",
@@ -4881,16 +4935,29 @@
             "roof_rails"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/body_rear.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "tailgate",
+                "x": 0.75,
+                "y": 0.54
+              },
+              {
+                "number": 2,
+                "part_id": "roof_rails",
+                "x": 0.3,
+                "y": 0.1
+              }
+            ],
             "source": {
-              "title": "Кузов Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Кузов Yeti 5L: дверь багажника и roof rack",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4898,22 +4965,25 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Сервисное руководство отдельно описывает дверь багажника и roof rack с парой продольных направляющих/креплением; отдельно описаны roof strips, поэтому их не смешиваем с рейлингами. Изображение даёт общую кузовную архитектуру и не претендует на точные крепления/вариант рейлингов или заднего стекла. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Дверь багажника — состав компонентов",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate/"
+                  "title": "Roof rack — Yeti, состав и снятие",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/roof_rack/"
                 },
                 {
-                  "title": "Замок двери багажника — компоненты",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate_lock/"
+                  "title": "Roof strips / водоотводная накладка крыши (отличается от рейлинга)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/roof_strips/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Изображение даёт общую кузовную архитектуру и не претендует на точные крепления/вариант рейлингов или заднего стекла."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Тип roof rack, его наличие/отделка и крепёж зависят от комплектации, рынка, PR-кодов и ревизии; номерной VIN не подтверждает конфигурацию."
         },
         {
           "id": "body_protection",
@@ -4924,16 +4994,35 @@
             "underbody_guard"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/body_protection.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "front_wheel_arch_liner",
+                "x": 0.28,
+                "y": 0.32
+              },
+              {
+                "number": 2,
+                "part_id": "rear_wheel_arch_liner",
+                "x": 0.9,
+                "y": 0.56
+              },
+              {
+                "number": 3,
+                "part_id": "underbody_guard",
+                "x": 0.36,
+                "y": 0.74
+              }
+            ],
             "source": {
-              "title": "Кузов Yeti 5L",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Защита кузова и подкрылки Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/wheelhouse_liner/removing_and_installing_the_front_wheelhouse_liner/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4941,12 +5030,29 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
-            }
+              "verification_note": "Yeti workshop information перечисляет передний и задний wheelhouse liner как отдельные детали и описывает съём шумоизоляции/нижней защиты передней части. Точная конфигурация нижней защиты не подтверждена по данному VIN; рендер показывает только общий защитный щит без двигателя, трансмиссии и подвески. Exact VIN/PR geometry is not claimed.",
+              "related_references": [
+                {
+                  "title": "Задний подкрылок — Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/wheelhouse_liner/removing_and_installing_the_rear_wheelhouse_liner/"
+                },
+                {
+                  "title": "Передняя кузовная часть, снятие noise insulation",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_body/"
+                },
+                {
+                  "title": "Noise insulation в операции по переднему крылу",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/body_front/front_wing/"
+                }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Точная конфигурация нижней защиты не подтверждена по данному VIN; рендер показывает только общий защитный щит без двигателя, трансмиссии и подвески."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Подкрылки, шумоизоляция и нижние панели могут различаться по двигателю, коробке, приводу, рынку, PR-кодам, месяцу выпуска и ревизии; статус оставлен REFERENCE_ONLY."
         },
         {
           "id": "mirrors",
@@ -4955,16 +5061,23 @@
             "side_mirrors"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/mirrors.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "side_mirrors",
+                "x": 0.22,
+                "y": 0.49
+              }
+            ],
             "source": {
-              "title": "Кузов Yeti 5L",
+              "title": "Наружные зеркала Yeti 5L",
               "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/rear-view_mirror/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -4972,18 +5085,21 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Прямая документация Yeti содержит наружное зеркало как обслуживаемую сборку и отдельно описывает сигнал в зеркале; базовая архитектура пары наружных зеркал подтверждена. VERIFIED_ARCHITECTURE подтверждает тип и общую сборку, но не VIN-точную геометрию и не конкретный привод/опции. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Наружное зеркало",
-                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/exterior_equipment/rear-view_mirror/"
+                  "title": "Поворотный сигнал в наружном зеркале — Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/side_turn_signal_in_the_exterior_mirror/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. VERIFIED_ARCHITECTURE подтверждает тип и общую сборку, но не VIN-точную геометрию и не конкретный привод/опции."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Крышка, повторитель, подогрев, электропривод, складывание и память зависят от PR-кода, рынка и комплектации; конкретное оснащение не утверждается."
         }
       ]
     },
@@ -5001,16 +5117,29 @@
             "rear_window"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/glazing.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "windshield",
+                "x": 0.24,
+                "y": 0.4
+              },
+              {
+                "number": 2,
+                "part_id": "rear_window",
+                "x": 0.89,
+                "y": 0.36
+              }
+            ],
             "source": {
-              "title": "Стёкла и стеклоочистители Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Остекление кузова Yeti 5L",
+              "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/glazing/window_mechanism/glued_windows/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -5018,12 +5147,25 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены."
-            }
+              "verification_note": "Документация Yeti подтверждает вклеенное ветровое стекло, клей/уплотнение и процедуру glazing; документация двери багажника подтверждает отдельную заднюю дверь со стеклом. Визуал показывает только формы двух стёкол. Не изображает/не утверждает антенну, подогрев, sight window, датчики, оттенок или VIN-маркировку. Exact VIN/PR geometry is not claimed.",
+              "related_references": [
+                {
+                  "title": "Компоненты двери багажника Yeti (контекст заднего стекла)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/body/body_work/bonnet_flaps_cab_central_locking/tailgate/summary_of_components_of_tailgate/"
+                },
+                {
+                  "title": "Оглавление раздела Glued windows Yeti",
+                  "url": "https://workshop-manuals.com/skoda/yeti/fullindex/"
+                }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Визуал показывает только формы двух стёкол. Не изображает/не утверждает антенну, подогрев, sight window, датчики, оттенок или VIN-маркировку."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Стёкла, окна для датчика дождя/света, обогрев, антенны, оттенок и маркировка зависят от PR-кода, рынка, даты выпуска и замены по VIN."
         },
         {
           "id": "front_wipers",
@@ -5034,16 +5176,35 @@
             "wiper_blades_front"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/front_wipers.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "wiper_blades_front",
+                "x": 0.34,
+                "y": 0.25
+              },
+              {
+                "number": 2,
+                "part_id": "wiper_linkage",
+                "x": 0.4,
+                "y": 0.56
+              },
+              {
+                "number": 3,
+                "part_id": "wiper_motor_front",
+                "x": 0.6,
+                "y": 0.7
+              }
+            ],
             "source": {
-              "title": "Стёкла и стеклоочистители Yeti",
+              "title": "Передний стеклоочиститель Yeti 5L",
               "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -5051,18 +5212,21 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Yeti service information описывает передние щётки/рычаги, motor with linkage, frame, кривошип и электромотор; архитектура единого привода подтверждена. Рендер показывает общую архитектуру, не точный размер щёток, парковочное положение, сторону руля или индекс мотора. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Передние стеклоочистители",
-                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/"
+                  "title": "Yeti 2010/2011 Electrical System workshop manual, chapters 2.2–2.4",
+                  "url": "https://dms.kfz-verlag.de/pub/more_downloads/en-ebook-skoda-yeti-5l-0040.pdf"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Рендер показывает общую архитектуру, не точный размер щёток, парковочное положение, сторону руля или индекс мотора."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Щётки, motor revisions, RHD/LHD arrangement и настройки зависят от даты/ревизии, рынка и PR; точный VIN fitment не заявлен."
         },
         {
           "id": "rear_wiper",
@@ -5071,16 +5235,23 @@
             "wiper_motor_rear"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/rear_wiper.webp",
             "image_type": "exploded_view",
             "verification_level": "VERIFIED_ARCHITECTURE",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "wiper_motor_rear",
+                "x": 0.23,
+                "y": 0.56
+              }
+            ],
             "source": {
-              "title": "Стёкла и стеклоочистители Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Задний стеклоочиститель Yeti 5L",
+              "url": "https://dms.kfz-verlag.de/pub/more_downloads/en-ebook-skoda-yeti-5l-0040.pdf",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -5088,18 +5259,25 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Прямая страница Yeti workshop information перечисляет компоненты этого узла; она подтверждает архитектуру, но не точный вариант комплектации по PR-коду.",
+              "verification_note": "Yeti 2010/2011 Electrical System manual отдельно содержит раздел rear window wiper system и операцию снятия/установки rear window wiper motor; компоновка через заднее стекло подтверждается также обслуживанием оси/форсунки. Изображение показывает общий прямой привод мотора; точная ревизия, электроразъём и washer integration не проверялись по VIN. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Система очистки заднего стекла",
-                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_wiper_and_washer_system/"
+                  "title": "Yeti 2010/2011 Electrical System, chapter 3.2 rear window wiper motor",
+                  "url": "https://dms.kfz-verlag.de/pub/more_downloads/en-ebook-skoda-yeti-5l-0040.pdf"
+                },
+                {
+                  "title": "Форсунка омывателя заднего стекла Yeti (контекст вала)",
+                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_washer_system/removing_and_installing_the_spray_nozzle_for_rear_window_washer_system/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Изображение показывает общий прямой привод мотора; точная ревизия, электроразъём и washer integration не проверялись по VIN."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Опции заднего стеклоочистителя и ревизии мотора могут зависеть от рынка, кузова/комплектации и даты производства."
         },
         {
           "id": "washers",
@@ -5110,16 +5288,35 @@
             "rain_sensor"
           ],
           "diagram": {
-            "status": "missing",
-            "image": "",
+            "status": "available",
+            "image": "res://assets/technical_catalog/body/washers.webp",
             "image_type": "exploded_view",
             "verification_level": "REFERENCE_ONLY",
-            "markers": [],
+            "markers": [
+              {
+                "number": 1,
+                "part_id": "washer_reservoir",
+                "x": 0.33,
+                "y": 0.49
+              },
+              {
+                "number": 2,
+                "part_id": "washer_pump",
+                "x": 0.23,
+                "y": 0.68
+              },
+              {
+                "number": 3,
+                "part_id": "rain_sensor",
+                "x": 0.81,
+                "y": 0.74
+              }
+            ],
             "source": {
-              "title": "Стёкла и стеклоочистители Yeti",
-              "url": "https://workshop-manuals.com/skoda/yeti/fullindex/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Copyright Škoda Auto; redistribution license not established. Link/reference only; image is not bundled.",
+              "title": "Омыватель Yeti и optional rain/light sensor",
+              "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_washer_system/remove_and_install_reservoir_pumps_and_sensor_for_washer_fluid_level/",
+              "publisher": "Škoda Auto Yeti workshop/service information (web-accessible manual transcription)",
+              "license": "Original generated technical visual; no service-manual illustration reproduced or bundled.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -5127,18 +5324,25 @@
                   2017
                 ],
                 "drivetrain": "ANY",
-                "engine_code": "ANY"
+                "engine_code": "ANY",
+                "transmission_family": "ANY"
               },
-              "verification_note": "Найден только раздел в оглавлении Yeti workshop information; конкретная схема и применимость этой позиции не подтверждены.",
+              "verification_note": "Заводская процедура Yeti подтверждает бачок, насосы и датчик уровня; отдельно предупреждает, что расположение зависит от версии и дополнительно отопителя. Электросхема Yeti 2011 перечисляет G397 rain/light sensor как special equipment и V59 как насос омывателя ветрового/заднего стекла. Датчик дождя на рендере показан отдельной опциональной reference-деталью, не как установленный на целевой машине. Рендер не задаёт точную форму/позицию бачка и насоса. Exact VIN/PR geometry is not claimed.",
               "related_references": [
                 {
-                  "title": "Бачок, насосы и датчик уровня омывателя",
-                  "url": "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/windscreen_wipe/wash_system/windscreen_washer_system/remove_and_install_reservoir_pumps_and_sensor_for_washer_fluid_level/"
+                  "title": "Yeti 2011 wiring diagram: rain and light sensor G397 — special equipment",
+                  "url": "https://portal-diagnostov.com/en/2021/01/24/6685833-skoda-yeti-2011-body-electrical-l0r-wiring-diagrams-pin-connector-loca/"
+                },
+                {
+                  "title": "Yeti 2011 wiring diagram: V59 windscreen/rear window washer pump",
+                  "url": "https://portal-diagnostov.com/en/2021/01/24/6685833-skoda-yeti-2011-body-electrical-l0r-wiring-diagrams-pin-connector-loca/"
                 }
-              ]
-            }
+              ],
+              "author": "Yeti Garage — original generated technical visual"
+            },
+            "asset_note": "Original generated technical visual; architecture reference only, no VIN-exact geometry. Датчик дождя на рендере показан отдельной опциональной reference-деталью, не как установленный на целевой машине. Рендер не задаёт точную форму/позицию бачка и насоса."
           },
-          "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
+          "variant_note": "Rain/light sensor зависит от special equipment/PR-кода и стекла. Расположение насосов/шлангов зависит от версии и дополнительного отопителя; рынок, production month, VIN и конкретная комплектация не подтверждены."
         }
       ]
     },
