@@ -4,6 +4,7 @@ const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const Vehicle3DView = preload("res://scenes/vehicle_3d/vehicle_3d_view.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const MobileTechnicalCatalogView = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
+const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 func _initialize() -> void:
 	call_deferred("_run_checks")
@@ -234,6 +235,8 @@ func _run_checks() -> void:
 		failures.append("symptom search did not return its existing diagnostic path")
 	await _check_front_suspension_images(failures)
 	await _check_awd_reference_images(failures)
+	await _check_responsive_catalog_layout(failures)
+	_check_app_icon_assets(failures)
 
 	var mobile_view := MobileTechnicalCatalogView.new()
 	root.add_child(mobile_view)
@@ -495,8 +498,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s part card selection action is missing" % node_id)
 		var node_name := str(current_node.get("name", ""))
 		var node_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
-			if button_node is Button and str((button_node as Button).text) == node_name:
+		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
+			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == node_name:
 				node_breadcrumb = button_node as Button
 				break
 		if node_breadcrumb == null:
@@ -513,8 +516,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
 		var section_name := str(TechnicalCatalogService.section(section_id, vehicle_profile).get("name", ""))
 		var section_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
-			if button_node is Button and str((button_node as Button).text) == section_name:
+		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
+			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == section_name:
 				section_breadcrumb = button_node as Button
 				break
 		if section_breadcrumb == null:
@@ -697,8 +700,8 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 			failures.append("AWD reference node %s did not show the selected part card" % node_id)
 		var node_name := str(node.get("name", ""))
 		var node_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).text) == node_name:
+		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
+			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == node_name:
 				node_crumb = crumb_value as Button
 				break
 		if node_crumb == null:
@@ -710,8 +713,8 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 				failures.append("AWD reference node %s could not return from the part card" % node_id)
 		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
 		var section_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).text) == section_name:
+		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
+			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == section_name:
 				section_crumb = crumb_value as Button
 				break
 		if section_crumb == null:
@@ -737,6 +740,282 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 			failures.append("AWD reference node %s detail was not searchable" % node_id)
 		print("AWD reference UI flow PASS: %s" % node_id)
 	view.queue_free()
+
+func _check_responsive_catalog_layout(failures: Array[String]) -> void:
+	var fwd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
+	for viewport_width in [360, 420]:
+		var test_viewport := SubViewport.new()
+		test_viewport.size = Vector2i(viewport_width, 780)
+		test_viewport.size_2d_override = Vector2i(viewport_width, 780)
+		test_viewport.size_2d_override_stretch = true
+		test_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		test_viewport.gui_embed_subwindows = true
+		root.add_child(test_viewport)
+		await process_frame
+		var host := Control.new()
+		host.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+		host.position = Vector2.ZERO
+		host.size = Vector2(viewport_width, 780)
+		test_viewport.add_child(host)
+		var outer := ScrollContainer.new()
+		outer.name = "Technical catalog test scroll"
+		outer.position = Vector2.ZERO
+		outer.size = Vector2(viewport_width, 780)
+		outer.custom_minimum_size = outer.size
+		outer.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		outer.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+		outer.scroll_deadzone = 10
+		outer.mouse_filter = Control.MOUSE_FILTER_STOP
+		host.add_child(outer)
+		outer.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+		outer.anchor_left = 0.0
+		outer.anchor_right = 0.0
+		outer.anchor_top = 0.0
+		outer.anchor_bottom = 0.0
+		outer.offset_left = 0.0
+		outer.offset_top = 0.0
+		outer.offset_right = float(viewport_width)
+		outer.offset_bottom = 780.0
+		outer.size = Vector2(viewport_width, 780)
+		var page := VBoxContainer.new()
+		page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		page.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		page.mouse_filter = Control.MOUSE_FILTER_PASS
+		outer.add_child(page)
+		var view := MobileTechnicalCatalogView.new()
+		view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		view.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		view.set_vehicle_profile(fwd_profile)
+		page.add_child(view)
+		await _wait_for_layout(4)
+		var content: VBoxContainer = view.get("_content")
+		var grids := content.find_children("*", "GridContainer", true, false)
+		if grids.is_empty():
+			failures.append("%dpx system page has no responsive grid" % viewport_width)
+			outer.queue_free()
+			continue
+		var section_grid := grids[0] as GridContainer
+		print("Mobile layout dimensions: requested=%d subviewport=%s outer=%s host=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.size, host.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
+		if section_grid.columns != 1:
+			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
+		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
+			failures.append("%dpx system grid exceeds the mobile viewport" % viewport_width)
+		var section_card: Button
+		if section_grid.get_child_count() > 0:
+			section_card = section_grid.get_child(0) as Button
+		if section_card == null:
+			failures.append("%dpx system grid has no section card" % viewport_width)
+		else:
+			if section_card.mouse_filter != Control.MOUSE_FILTER_PASS or section_card.get_child_count() == 0:
+				failures.append("%dpx system card does not pass touch or contain its full-rect layout" % viewport_width)
+			else:
+				var section_margin := section_card.get_child(0) as MarginContainer
+				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
+					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
+			await _send_mobile_drag(test_viewport, section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
+			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
+				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
+
+		outer.scroll_vertical = 0
+		view.call("_open_section", "engine")
+		await _wait_for_layout(3)
+		var node_card := _first_catalog_card(content, false)
+		if node_card == null:
+			failures.append("%dpx engine node list has no tappable node card" % viewport_width)
+		else:
+			if node_card.mouse_filter != Control.MOUSE_FILTER_PASS or node_card.size.x > outer.size.x + 1.0 or node_card.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
+				failures.append("%dpx node card has incorrect touch policy or horizontal overflow" % viewport_width)
+			await _send_mobile_drag(test_viewport, node_card.get_global_rect().get_center(), node_card.get_global_rect().get_center() + Vector2(0, -100))
+			if outer.scroll_vertical <= 0 or not (view.get("current_path") as Array).is_empty():
+				failures.append("%dpx swipe over a node card did not scroll without opening it" % viewport_width)
+
+		outer.scroll_vertical = 0
+		view.call("_open_node", "engine_upper_end")
+		await _wait_for_layout(4)
+		var part_card := _first_catalog_card(content, true)
+		if part_card == null:
+			failures.append("%dpx cylinder-head page has no part list card" % viewport_width)
+		else:
+			outer.scroll_vertical = maxi(0, int(part_card.position.y - 180.0))
+			await _wait_for_layout(2)
+			if part_card.mouse_filter != Control.MOUSE_FILTER_PASS or part_card.size.x > outer.size.x + 1.0:
+				failures.append("%dpx part card has incorrect touch policy or horizontal overflow" % viewport_width)
+			await _send_mobile_drag(test_viewport, part_card.get_global_rect().get_center(), part_card.get_global_rect().get_center() + Vector2(0, -100))
+			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
+				failures.append("%dpx swipe over a part card did not scroll without selecting it" % viewport_width)
+
+		view.call("_open_node", "cylinder_head_group")
+		outer.scroll_vertical = 0
+		await _wait_for_layout(4)
+		var viewport_rect := outer.get_global_rect()
+		var title: Label = view.get("_title")
+		if title.get_global_rect().end.x > viewport_rect.end.x + 1.0 or title.size.x < viewport_width - 24.0 or title.autowrap_mode != TextServer.AUTOWRAP_WORD_SMART:
+			failures.append("%dpx long node title overflows or does not use the available width" % viewport_width)
+		var breadcrumb: HFlowContainer = view.get("_breadcrumb")
+		if breadcrumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
+			failures.append("%dpx breadcrumb container exceeds viewport width" % viewport_width)
+		for breadcrumb_child in breadcrumb.get_children():
+			if breadcrumb_child is Button:
+				var crumb := breadcrumb_child as Button
+				if crumb.mouse_filter != Control.MOUSE_FILTER_PASS or crumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
+					failures.append("%dpx breadcrumb item overflows or blocks navigation gestures" % viewport_width)
+
+		var canvas: Control = view.get("_diagram")
+		if canvas == null:
+			failures.append("%dpx long-title node has no diagram canvas" % viewport_width)
+		else:
+			var marker: Dictionary = canvas.get("markers")[0]
+			var image_rect: Rect2 = canvas.call("_image_rect")
+			var marker_position := canvas.global_position + image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+			outer.scroll_vertical = 0
+			await _send_mobile_drag(test_viewport, marker_position, marker_position + Vector2(0, -115))
+			if outer.scroll_vertical <= 0:
+				failures.append("%dpx zoom=1 swipe over the diagram did not scroll the page" % viewport_width)
+			if not Vector2(canvas.get("_pan")).is_zero_approx() or str(view.get("selected_part_id")) != "":
+				failures.append("%dpx zoom=1 scroll panned the image or falsely selected a marker" % viewport_width)
+
+			outer.scroll_vertical = 0
+			canvas.set("_zoom", 2.0)
+			canvas.call("_update_input_routing")
+			var zoomed_origin := canvas.get_global_rect().get_center()
+			await _send_mobile_drag(test_viewport, zoomed_origin, zoomed_origin + Vector2(-100, 0))
+			if Vector2(canvas.get("_pan")).is_zero_approx() or outer.scroll_vertical != 0:
+				failures.append("%dpx zoomed diagram drag did not pan exclusively inside the image" % viewport_width)
+
+			canvas.call("reset_view")
+			outer.scroll_vertical = 0
+			await _send_mobile_drag(test_viewport, canvas.get_global_rect().get_center(), canvas.get_global_rect().get_center() + Vector2(0, -115))
+			if outer.scroll_vertical <= 0 or not Vector2(canvas.get("_pan")).is_zero_approx():
+				failures.append("%dpx reset zoom did not restore page scrolling over the diagram" % viewport_width)
+
+			outer.scroll_vertical = 0
+			await _send_mobile_pinch(test_viewport, canvas.get_global_rect().get_center(), 28.0)
+			if float(canvas.get("_zoom")) <= 1.01:
+				failures.append("%dpx two-finger pinch did not zoom the diagram" % viewport_width)
+			canvas.call("reset_view")
+			var final_part_card := _first_catalog_card(content, true)
+			if final_part_card != null:
+				var bar := outer.get_v_scroll_bar()
+				outer.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
+				await _wait_for_layout(3)
+				var last_content := content.get_child(content.get_child_count() - 1) as Control
+				if outer.scroll_vertical <= 0 or last_content.get_global_rect().end.y > outer.get_global_rect().end.y + 2.0:
+					failures.append("%dpx technical catalog page bottom is not reachable" % viewport_width)
+		print("Responsive catalog layout and scroll PASS: %dpx" % viewport_width)
+		test_viewport.queue_free()
+		await process_frame
+
+	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
+	var app_source := app_source_file.get_as_text() if app_source_file != null else ""
+	if not app_source.contains("_style_global_search_result_button(catalog_button)") or not app_source.contains("GlobalSearchLayout.style_result_button(button)"):
+		failures.append("global search result rows are not wired to the responsive layout helper")
+	for viewport_width in [360, 420]:
+		var popup_size: Vector2i = GlobalSearchLayout.popup_size(Vector2i(400, 700), Vector2i(viewport_width, 780))
+		var content_width := GlobalSearchLayout.content_width(370.0, float(viewport_width))
+		if popup_size.x > viewport_width or content_width > viewport_width - 24.0:
+			failures.append("global search popup sizing exceeds %dpx viewport" % viewport_width)
+		var results := VBoxContainer.new()
+		results.size = Vector2(content_width - 28.0, 500)
+		results.custom_minimum_size.x = content_width - 28.0
+		root.add_child(results)
+		var long_result := Button.new()
+		long_result.text = "Головка блока цилиндров и клапанный механизм — техническое описание"
+		long_result.custom_minimum_size.y = 48
+		GlobalSearchLayout.style_result_button(long_result)
+		results.add_child(long_result)
+		await _wait_for_layout(2)
+		if not long_result.clip_text or long_result.text_overrun_behavior != TextServer.OVERRUN_TRIM_ELLIPSIS or long_result.size.x > results.size.x + 1.0:
+			failures.append("global search result is not safely ellipsized within its %dpx popup" % viewport_width)
+		results.queue_free()
+	print("Responsive global search layout PASS: 360px / 420px")
+
+func _first_catalog_card(content: VBoxContainer, require_part_id: bool) -> Button:
+	for button_value in content.find_children("*", "Button", true, false):
+		var button := button_value as Button
+		if require_part_id and button.has_meta("part_id"):
+			return button
+		if not require_part_id and button.get_child_count() > 0 and button.get_child(0) is MarginContainer and not button.has_meta("part_id"):
+			return button
+	return null
+
+func _wait_for_layout(frame_count: int) -> void:
+	for _index in range(frame_count):
+		await process_frame
+
+func _send_mobile_drag(viewport: Viewport, start: Vector2, finish: Vector2) -> void:
+	var press := InputEventScreenTouch.new()
+	press.device = 0
+	press.index = 0
+	press.pressed = true
+	press.position = start
+	viewport.push_input(press)
+	await process_frame
+	var drag := InputEventScreenDrag.new()
+	drag.device = 0
+	drag.index = 0
+	drag.position = finish
+	drag.relative = finish - start
+	viewport.push_input(drag)
+	await process_frame
+	var release := InputEventScreenTouch.new()
+	release.device = 0
+	release.index = 0
+	release.pressed = false
+	release.position = finish
+	viewport.push_input(release)
+	await _wait_for_layout(2)
+
+func _send_mobile_pinch(viewport: Viewport, center: Vector2, radius: float) -> void:
+	var first := InputEventScreenTouch.new()
+	first.device = 0
+	first.index = 0
+	first.pressed = true
+	first.position = center + Vector2(-radius, 0)
+	viewport.push_input(first)
+	await process_frame
+	var second := InputEventScreenTouch.new()
+	second.device = 0
+	second.index = 1
+	second.pressed = true
+	second.position = center + Vector2(radius, 0)
+	viewport.push_input(second)
+	await process_frame
+	var pinch := InputEventScreenDrag.new()
+	pinch.device = 0
+	pinch.index = 1
+	pinch.position = center + Vector2(radius * 2.0, 0)
+	pinch.relative = Vector2(radius, 0)
+	viewport.push_input(pinch)
+	await process_frame
+	second.pressed = false
+	viewport.push_input(second)
+	await process_frame
+	first.pressed = false
+	viewport.push_input(first)
+	await _wait_for_layout(2)
+
+func _check_app_icon_assets(failures: Array[String]) -> void:
+	var expected_sizes := {
+		"res://assets/icons/app_icon_192.png": Vector2i(192, 192),
+		"res://assets/icons/app_icon_512.png": Vector2i(512, 512),
+		"res://assets/icons/adaptive_foreground_432.png": Vector2i(432, 432),
+		"res://assets/icons/adaptive_background_432.png": Vector2i(432, 432)
+	}
+	for path_value in expected_sizes:
+		var path := str(path_value)
+		var texture := ResourceLoader.load(path) as Texture2D
+		if texture == null or Vector2i(texture.get_width(), texture.get_height()) != expected_sizes[path]:
+			failures.append("application icon asset %s is missing, unreadable, or has the wrong size" % path)
+	if str(ProjectSettings.get_setting("application/config/icon", "")) != "res://assets/icons/app_icon_512.png":
+		failures.append("project icon setting does not use the refreshed 512px app icon")
+	var presets := ConfigFile.new()
+	if presets.load("res://export_presets.cfg") != OK:
+		failures.append("Android export presets could not be loaded for icon validation")
+	else:
+		for key in ["launcher_icons/main_192x192", "launcher_icons/adaptive_foreground_432x432", "launcher_icons/adaptive_background_432x432"]:
+			var path := str(presets.get_value("preset.0.options", key, ""))
+			if not expected_sizes.has(path):
+				failures.append("Android export preset %s does not point to a checked updated icon" % key)
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
 	var result: Array = []

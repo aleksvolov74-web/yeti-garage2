@@ -15,6 +15,8 @@ const TEXT := Color("edf8fa")
 const MUTED := Color("8da4b1")
 const CYAN := Color("20e7eb")
 const BORDER := Color("184955")
+const MIN_SECTION_CARD_WIDTH := 264.0
+const SECTION_GRID_SEPARATION := 8.0
 
 var current_section_id := ""
 var current_path: Array[String] = []
@@ -24,15 +26,27 @@ var history_provider: Callable
 var search_query := ""
 var _search_edit: LineEdit
 var _content: VBoxContainer
-var _breadcrumb: HBoxContainer
+var _breadcrumb: HFlowContainer
 var _title: Label
 var _diagram: TechnicalDiagramCanvas
 var _vehicle: Dictionary = {}
+var _section_columns := 0
+var _root_resize_queued := false
+var _catalog_touch_index := -1
+var _catalog_touch_start := Vector2.ZERO
+var _catalog_scroll_start := 0.0
+var _catalog_touch_scroll: ScrollContainer
+var _catalog_touch_canvas: TechnicalDiagramCanvas
+var _catalog_touch_button: BaseButton
+var _catalog_touch_claimed := false
+var _catalog_touch_count := 0
+const CATALOG_SCROLL_THRESHOLD := 9.0
 
 func _ready() -> void:
 	add_theme_constant_override("separation", 10)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_build_shell()
+	_content.resized.connect(_on_content_resized)
 	_render()
 
 func set_history_provider(provider: Callable) -> void:
@@ -43,30 +57,116 @@ func set_vehicle_profile(vehicle: Dictionary) -> void:
 	if _content != null:
 		_render()
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			if not get_global_rect().has_point(touch.position):
+				return
+			_catalog_touch_count += 1
+			if _catalog_touch_count > 1:
+				_cancel_catalog_scroll_tracking()
+			else:
+				_begin_catalog_scroll_tracking(touch.position, touch.index)
+			return
+		_catalog_touch_count = maxi(0, _catalog_touch_count - 1)
+		if touch.index == _catalog_touch_index:
+			if _catalog_touch_claimed:
+				get_viewport().set_input_as_handled()
+			_cancel_catalog_scroll_tracking()
+		return
+	if not (event is InputEventScreenDrag):
+		return
+	var drag := event as InputEventScreenDrag
+	if drag.index != _catalog_touch_index or _catalog_touch_scroll == null:
+		return
+	if _catalog_touch_canvas != null and float(_catalog_touch_canvas.get("_zoom")) > 1.01:
+		_cancel_catalog_scroll_tracking()
+		return
+	var displacement := drag.position - _catalog_touch_start
+	if not _catalog_touch_claimed and displacement.length() >= CATALOG_SCROLL_THRESHOLD and absf(displacement.y) > absf(displacement.x):
+		_catalog_touch_claimed = true
+		if _catalog_touch_canvas != null:
+			_catalog_touch_canvas.cancel_touch_sequence()
+		if _catalog_touch_button != null:
+			_catalog_touch_button.set_pressed_no_signal(false)
+	if _catalog_touch_claimed:
+		_catalog_touch_scroll.scroll_vertical = clampf(_catalog_scroll_start - displacement.y, 0.0, _catalog_touch_scroll.get_v_scroll_bar().max_value)
+		get_viewport().set_input_as_handled()
+
+func _input_event_target_control(position: Vector2) -> Control:
+	for candidate in find_children("*", "Control", true, false):
+		var control := candidate as Control
+		if control is BaseButton and control.get_global_rect().has_point(position):
+			return control
+		if control is TechnicalDiagramCanvas and control.get_global_rect().has_point(position):
+			return control
+	return null
+
+func _begin_catalog_scroll_tracking(position: Vector2, touch_index: int) -> void:
+	if not get_global_rect().has_point(position):
+		return
+	var ancestor: Node = get_parent()
+	while ancestor != null and not (ancestor is ScrollContainer):
+		ancestor = ancestor.get_parent()
+	if ancestor == null:
+		return
+	_catalog_touch_scroll = ancestor as ScrollContainer
+	_catalog_scroll_start = _catalog_touch_scroll.scroll_vertical
+	_catalog_touch_start = position
+	_catalog_touch_index = touch_index
+	_catalog_touch_claimed = false
+	_catalog_touch_button = null
+	_catalog_touch_canvas = null
+	var target := _input_event_target_control(position)
+	if target is BaseButton:
+		_catalog_touch_button = target as BaseButton
+	elif target is TechnicalDiagramCanvas:
+		_catalog_touch_canvas = target as TechnicalDiagramCanvas
+
+func _cancel_catalog_scroll_tracking() -> void:
+	_catalog_touch_index = -1
+	_catalog_touch_scroll = null
+	_catalog_touch_canvas = null
+	_catalog_touch_button = null
+	_catalog_touch_claimed = false
+
 func _build_shell() -> void:
 	var heading := HBoxContainer.new()
 	heading.add_theme_constant_override("separation", 10)
 	add_child(heading)
 	var title_stack := VBoxContainer.new()
 	title_stack.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	title_stack.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	title_stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	title_stack.add_theme_constant_override("separation", 2)
 	heading.add_child(title_stack)
 	_title = _label("Технический справочник", 23, TEXT)
+	_title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title_stack.add_child(_title)
 	var subtitle := _label("Škoda Yeti 5L · система → узел → деталь", 12, MUTED)
+	subtitle.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	title_stack.add_child(subtitle)
-	_breadcrumb = HBoxContainer.new()
+	_breadcrumb = HFlowContainer.new()
+	_breadcrumb.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_breadcrumb.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_breadcrumb.add_theme_constant_override("separation", 4)
+	_breadcrumb.resized.connect(_update_breadcrumb_widths)
 	add_child(_breadcrumb)
 	_search_edit = LineEdit.new()
 	_search_edit.placeholder_text = "Поиск системы, узла, детали или симптома"
 	_search_edit.custom_minimum_size.y = 48
+	_search_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_search_edit.mouse_filter = Control.MOUSE_FILTER_PASS
 	_search_edit.clear_button_enabled = true
 	_search_edit.text_changed.connect(_on_search_changed)
 	_style_edit(_search_edit)
 	add_child(_search_edit)
 	_content = VBoxContainer.new()
 	_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_content.mouse_filter = Control.MOUSE_FILTER_PASS
 	_content.add_theme_constant_override("separation", 10)
 	add_child(_content)
 
@@ -80,14 +180,17 @@ func _render() -> void:
 		_title.text = "Результаты поиска"
 		_add_breadcrumb("Каталог", Callable(self, "_reset_catalog"))
 		_render_search_results()
+		_queue_minimum_refresh()
 		return
 	if selected_part_id != "" and (current_section_id == "" or current_path.is_empty()):
 		_render_part_detail()
+		_queue_minimum_refresh()
 		return
 	if current_section_id == "":
 		_title.text = "Технический справочник"
 		_add_breadcrumb("Системы", Callable(self, "_reset_catalog"))
 		_render_sections()
+		_queue_minimum_refresh()
 		return
 	var section := TechnicalCatalog.section(current_section_id, _vehicle)
 	if section.is_empty():
@@ -104,28 +207,37 @@ func _render() -> void:
 		_render_section_nodes(section)
 	else:
 		_render_node(section, _current_node())
+	_queue_minimum_refresh()
 
 func _render_sections() -> void:
-	_content.add_child(_muted_label("Выберите раздел автомобиля. Схемы без проверенного источника отмечены отдельно."))
+	var intro := _muted_label("Выберите раздел автомобиля. Схемы без проверенного источника отмечены отдельно.")
+	intro.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_content.add_child(intro)
 	var grid := GridContainer.new()
-	grid.columns = 2
+	grid.columns = 2 if _content.size.x >= MIN_SECTION_CARD_WIDTH * 2.0 + SECTION_GRID_SEPARATION else 1
+	_section_columns = grid.columns
 	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("h_separation", int(SECTION_GRID_SEPARATION))
 	grid.add_theme_constant_override("v_separation", 8)
 	_content.add_child(grid)
 	for section_value in TechnicalCatalog.sections(_vehicle):
 		var section: Dictionary = section_value
 		var button := _card_button()
-		button.custom_minimum_size.y = 82
+		button.custom_minimum_size.y = 88
 		grid.add_child(button)
+		var margin := _card_margin(button)
 		var copy := VBoxContainer.new()
+		copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		copy.add_theme_constant_override("separation", 4)
-		button.add_child(copy)
+		margin.add_child(copy)
 		var name_label := _label(str(section.get("name", "Система")), 14, TEXT)
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		copy.add_child(name_label)
 		var summary_label := _label(_section_summary(section), 10, MUTED)
+		summary_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		summary_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		copy.add_child(summary_label)
 		button.pressed.connect(_open_section.bind(str(section.get("id", ""))))
@@ -267,20 +379,33 @@ func _render_part_detail() -> void:
 			_add_breadcrumb(str(row.get("name", "Узел")), func(): selected_part_id = ""; _render())
 			break
 	var hero := PanelContainer.new()
+	hero.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hero.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	hero.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 18, BORDER))
 	_content.add_child(hero)
+	var hero_margin := MarginContainer.new()
+	hero_margin.add_theme_constant_override("margin_left", 14)
+	hero_margin.add_theme_constant_override("margin_right", 14)
+	hero_margin.add_theme_constant_override("margin_top", 12)
+	hero_margin.add_theme_constant_override("margin_bottom", 12)
+	hero_margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	hero.add_child(hero_margin)
 	var text := VBoxContainer.new()
+	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	text.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	text.add_theme_constant_override("separation", 8)
-	hero.add_child(text)
+	hero_margin.add_child(text)
 	text.add_child(_label(str(part.get("name", selected_part_id)), 20, TEXT))
 	text.add_child(_muted_label("%s · %s" % [str(section.get("name", part.get("group", "Система"))), str(node.get("name", part.get("group", "Узел")))]))
 	var description := str(part.get("description", ""))
 	if description == "":
 		description = "Деталь внесена в каталог. Технические сведения для этой модификации пока не подтверждены источником."
 	var body := _muted_label(description)
+	body.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.add_child(body)
 	var note := _muted_label("Оригинальный номер, процедура проверки и снятия появятся только после сверки с документацией для этой комплектации.")
+	note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.add_child(note)
 	var actions := GridContainer.new()
@@ -505,18 +630,26 @@ func _toggle_markers() -> void:
 
 func _add_breadcrumb(text_value: String, action: Callable) -> void:
 	var button := Button.new()
-	button.text = text_value
+	button.mouse_filter = Control.MOUSE_FILTER_PASS
+	button.clip_text = true
+	button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	var available_width := _breadcrumb.size.x if _breadcrumb.size.x > 0.0 else size.x
+	var item_width := maxf(84.0, minf(available_width * 0.48, 220.0))
+	button.custom_minimum_size.x = item_width
+	var max_chars := maxi(12, int((item_width - 28.0) / 7.0))
+	button.text = text_value if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
+	button.set_meta("full_breadcrumb_text", text_value)
+	button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	button.custom_minimum_size.y = 40
 	button.add_theme_font_size_override("font_size", 11)
 	button.add_theme_color_override("font_color", CYAN if _breadcrumb.get_child_count() == 0 else MUTED)
 	button.add_theme_stylebox_override("normal", _panel_style(Color("071820d8"), 11, BORDER))
 	button.pressed.connect(action)
-	_breadcrumb.add_child(button)
-	if _breadcrumb.get_child_count() > 1:
+	if _breadcrumb.get_child_count() > 0:
 		var separator := _label("›", 13, MUTED)
-		_breadcrumb.move_child(button, _breadcrumb.get_child_count() - 1)
 		_breadcrumb.add_child(separator)
-		_breadcrumb.move_child(separator, _breadcrumb.get_child_count() - 2)
+	_breadcrumb.add_child(button)
+	call_deferred("_update_breadcrumb_widths")
 
 func _add_action(container: GridContainer, title: String, action: Callable) -> void:
 	container.add_child(_action_button(title, action))
@@ -531,6 +664,7 @@ func _action_button(text_value: String, action: Callable) -> Button:
 func _card_button() -> Button:
 	var button := Button.new()
 	button.text = ""
+	button.mouse_filter = Control.MOUSE_FILTER_PASS
 	button.custom_minimum_size = Vector2(0, 54)
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	button.focus_mode = Control.FOCUS_NONE
@@ -541,17 +675,33 @@ func _card_button() -> Button:
 	button.add_theme_stylebox_override("pressed", _panel_style(Color("0b3039f5"), 15, CYAN))
 	return button
 
+func _card_margin(button: Button) -> MarginContainer:
+	var margin := MarginContainer.new()
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	margin.add_theme_constant_override("margin_left", 13)
+	margin.add_theme_constant_override("margin_right", 13)
+	margin.add_theme_constant_override("margin_top", 9)
+	margin.add_theme_constant_override("margin_bottom", 9)
+	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	button.add_child(margin)
+	return margin
+
 func _node_card(title: String, subtitle: String, action: Callable) -> Button:
 	var button := _card_button()
-	button.custom_minimum_size.y = 62
+	button.custom_minimum_size.y = 70
+	var margin := _card_margin(button)
 	var copy := VBoxContainer.new()
+	copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	copy.add_theme_constant_override("separation", 3)
-	button.add_child(copy)
+	margin.add_child(copy)
 	var title_label := _label(title + "   ›", 14, TEXT)
+	title_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	copy.add_child(title_label)
 	var subtitle_label := _label(subtitle, 10, MUTED)
+	subtitle_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	subtitle_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	copy.add_child(subtitle_label)
 	button.pressed.connect(action)
@@ -560,14 +710,19 @@ func _node_card(title: String, subtitle: String, action: Callable) -> Button:
 func _part_card(number: int, title: String, part_id: String) -> Button:
 	var button := _card_button()
 	button.set_meta("part_id", part_id)
-	button.custom_minimum_size.y = 50
+	button.custom_minimum_size.y = 66
 	if part_id == selected_part_id:
 		button.add_theme_stylebox_override("normal", _panel_style(Color("0b3039"), 15, CYAN))
 	var row := HBoxContainer.new()
+	row.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	row.add_theme_constant_override("separation", 10)
-	button.add_child(row)
-	row.add_child(_label("№%d" % number, 13, CYAN))
+	var margin := _card_margin(button)
+	margin.add_child(row)
+	var number_label := _label("№%d" % number, 13, CYAN)
+	number_label.custom_minimum_size.x = 38
+	number_label.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
+	row.add_child(number_label)
 	var title_label := _label(title, 13, TEXT)
 	title_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	title_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -577,6 +732,7 @@ func _part_card(number: int, title: String, part_id: String) -> Button:
 
 func _label(value: String, font_size: int, color: Color) -> Label:
 	var label := Label.new()
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.text = value
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
@@ -609,6 +765,41 @@ func _section_summary(section: Dictionary) -> String:
 		for part_id in _node_part_ids(node_value):
 			unique_parts[str(part_id)] = true
 	return "%d узлов · %d компонентов" % [TechnicalCatalog.nodes(section, _vehicle).size(), unique_parts.size()]
+
+func _on_content_resized() -> void:
+	if current_section_id != "" or search_query != "" or selected_part_id != "":
+		return
+	var desired_columns := 2 if _content.size.x >= MIN_SECTION_CARD_WIDTH * 2.0 + SECTION_GRID_SEPARATION else 1
+	if desired_columns == _section_columns or _root_resize_queued:
+		return
+	_root_resize_queued = true
+	call_deferred("_rerender_root_after_resize")
+
+func _update_breadcrumb_widths() -> void:
+	if not is_instance_valid(_breadcrumb) or _breadcrumb.size.x <= 0.0:
+		return
+	var item_width := maxf(84.0, minf(_breadcrumb.size.x * 0.48, 220.0))
+	for child in _breadcrumb.get_children():
+		if child is Button:
+			var button := child as Button
+			button.custom_minimum_size.x = item_width
+			var full_text := str(button.get_meta("full_breadcrumb_text", button.text))
+			var max_chars := maxi(12, int((item_width - 28.0) / 7.0))
+			button.text = full_text if full_text.length() <= max_chars else full_text.substr(0, max_chars - 1) + "…"
+
+func _rerender_root_after_resize() -> void:
+	_root_resize_queued = false
+	if current_section_id == "" and search_query == "" and selected_part_id == "":
+		_render()
+
+func _queue_minimum_refresh() -> void:
+	call_deferred("_refresh_minimum_sizes")
+
+func _refresh_minimum_sizes() -> void:
+	if not is_instance_valid(self) or not is_instance_valid(_content):
+		return
+	_content.update_minimum_size()
+	update_minimum_size()
 
 func _has_confirmed_awd() -> bool:
 	return str(_vehicle.get("drivetrain", "")).to_upper() in ["AWD", "4WD", "4X4"]

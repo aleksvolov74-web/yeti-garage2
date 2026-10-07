@@ -13,6 +13,7 @@ const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
+const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
 const OFFICIAL_MANUAL_SECTIONS := [
@@ -2094,6 +2095,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
             catalog_button.text = "%s • %s" % [str(catalog_row.get("name", "Узел")), str(catalog_row.get("subtitle", "Каталог"))]
             catalog_button.custom_minimum_size.y = 48
             catalog_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+            _style_global_search_result_button(catalog_button)
             var catalog_action := _open_technical_result_from_search.bind(catalog_row, dialog)
             catalog_button.set_meta("search_action", catalog_action)
             catalog_button.pressed.connect(catalog_action)
@@ -2113,6 +2115,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
             button.text = "%s • %s" % [str(row.get("name", "Деталь")), str(row.get("group", ""))]
             button.custom_minimum_size.y = 48
             button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+            _style_global_search_result_button(button)
             var action := _open_part_from_search.bind(str(row.get("id", "")), dialog)
             button.set_meta("search_action", action)
             button.pressed.connect(action)
@@ -2132,6 +2135,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
             diag_btn.text = str(diag_row.get("title", "Диагностика"))
             diag_btn.custom_minimum_size.y = 48
             diag_btn.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+            _style_global_search_result_button(diag_btn)
             var diagnostic_action := _open_diagnostic_from_search.bind(str(diag_row.get("id", "")), dialog)
             diag_btn.set_meta("search_action", diagnostic_action)
             diag_btn.pressed.connect(diagnostic_action)
@@ -2152,6 +2156,11 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
         empty.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         empty.modulate = Color("9ba6b2")
         results.add_child(empty)
+
+func _style_global_search_result_button(button: Button) -> void:
+    # Search rows remain one line and trim at word boundaries so a long result
+    # cannot widen the popup or wrap into a narrow vertical strip on mobile.
+    GlobalSearchLayout.style_result_button(button)
 
 func _add_search_section_label(results: VBoxContainer, text_value: String) -> void:
     var label := Label.new()
@@ -2890,18 +2899,13 @@ func _popup_close_button() -> Button:
     button.add_theme_stylebox_override("pressed", _style_box(Color("092229e8"), 12, Color("22e7ea"), 1))
     return button
 
-func _mobile_dialog_content_width(preferred: float = 370.0) -> float:
-    var viewport_width := get_viewport_rect().size.x
-    return max(280.0, min(preferred, viewport_width - 48.0))
+func _mobile_dialog_content_width(preferred: float = 370.0, viewport_width_override: float = -1.0) -> float:
+    var viewport_width := viewport_width_override if viewport_width_override > 0.0 else get_viewport_rect().size.x
+    return GlobalSearchLayout.content_width(preferred, viewport_width)
 
-func _mobile_dialog_size(preferred: Vector2i) -> Vector2i:
-    var viewport_size := get_viewport_rect().size
-    var max_width := maxi(300, int(viewport_size.x) - 24)
-    var max_height := maxi(360, int(viewport_size.y) - 48)
-    return Vector2i(
-        mini(preferred.x, max_width),
-        mini(preferred.y, max_height)
-    )
+func _mobile_dialog_size(preferred: Vector2i, viewport_size_override: Vector2i = Vector2i.ZERO) -> Vector2i:
+    var viewport_size := Vector2(get_viewport_rect().size) if viewport_size_override == Vector2i.ZERO else Vector2(viewport_size_override)
+    return GlobalSearchLayout.popup_size(preferred, Vector2i(viewport_size))
 
 func _mini_round_button(icon_path: String) -> Button:
     var button := Button.new()
