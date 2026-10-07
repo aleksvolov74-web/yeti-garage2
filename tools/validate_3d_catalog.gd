@@ -752,6 +752,11 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		test_viewport.gui_embed_subwindows = true
 		root.add_child(test_viewport)
 		await process_frame
+		var host := Control.new()
+		host.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+		host.position = Vector2.ZERO
+		host.size = Vector2(viewport_width, 780)
+		test_viewport.add_child(host)
 		var outer := ScrollContainer.new()
 		outer.name = "Technical catalog test scroll"
 		outer.position = Vector2.ZERO
@@ -761,7 +766,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		outer.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 		outer.scroll_deadzone = 10
 		outer.mouse_filter = Control.MOUSE_FILTER_STOP
-		test_viewport.add_child(outer)
+		host.add_child(outer)
 		outer.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
 		outer.anchor_left = 0.0
 		outer.anchor_right = 0.0
@@ -790,7 +795,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var section_grid := grids[0] as GridContainer
-		print("Mobile layout dimensions: requested=%d subviewport=%s actual=%s outer=%s anchors=(%s,%s) offsets=(%s,%s) page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.get_viewport().size, outer.size, outer.anchor_right, outer.anchor_bottom, outer.offset_right, outer.offset_bottom, page.size, view.size, content.size, section_grid.size, section_grid.columns])
+		print("Mobile layout dimensions: requested=%d subviewport=%s outer=%s host=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.size, host.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
 		if section_grid.columns != 1:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
