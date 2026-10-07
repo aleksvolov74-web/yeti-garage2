@@ -743,10 +743,13 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 
 func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 	var fwd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
-	var original_window_size := root.size
 	for viewport_width in [360, 420]:
-		root.size = Vector2i(viewport_width, 780)
-		await _wait_for_layout(2)
+		var test_viewport := SubViewport.new()
+		test_viewport.size = Vector2i(viewport_width, 780)
+		test_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+		test_viewport.gui_embed_subwindows = true
+		root.add_child(test_viewport)
+		await process_frame
 		var outer := ScrollContainer.new()
 		outer.name = "Technical catalog test scroll"
 		outer.position = Vector2.ZERO
@@ -756,7 +759,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		outer.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
 		outer.scroll_deadzone = 10
 		outer.mouse_filter = Control.MOUSE_FILTER_STOP
-		root.add_child(outer)
+		test_viewport.add_child(outer)
 		var page := VBoxContainer.new()
 		page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		page.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
@@ -792,7 +795,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 				var section_margin := section_card.get_child(0) as MarginContainer
 				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
-			await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
+			await _send_mobile_drag(test_viewport, section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
 			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
 				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
 
@@ -805,7 +808,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		else:
 			if node_card.mouse_filter != Control.MOUSE_FILTER_PASS or node_card.size.x > outer.size.x + 1.0 or node_card.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 				failures.append("%dpx node card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(node_card.get_global_rect().get_center(), node_card.get_global_rect().get_center() + Vector2(0, -100))
+			await _send_mobile_drag(test_viewport, node_card.get_global_rect().get_center(), node_card.get_global_rect().get_center() + Vector2(0, -100))
 			if outer.scroll_vertical <= 0 or not (view.get("current_path") as Array).is_empty():
 				failures.append("%dpx swipe over a node card did not scroll without opening it" % viewport_width)
 
@@ -820,7 +823,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			await _wait_for_layout(2)
 			if part_card.mouse_filter != Control.MOUSE_FILTER_PASS or part_card.size.x > outer.size.x + 1.0:
 				failures.append("%dpx part card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(part_card.get_global_rect().get_center(), part_card.get_global_rect().get_center() + Vector2(0, -100))
+			await _send_mobile_drag(test_viewport, part_card.get_global_rect().get_center(), part_card.get_global_rect().get_center() + Vector2(0, -100))
 			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
 				failures.append("%dpx swipe over a part card did not scroll without selecting it" % viewport_width)
 
@@ -848,7 +851,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			var image_rect: Rect2 = canvas.call("_image_rect")
 			var marker_position := canvas.global_position + image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
 			outer.scroll_vertical = 0
-			await _send_mobile_drag(marker_position, marker_position + Vector2(0, -115))
+			await _send_mobile_drag(test_viewport, marker_position, marker_position + Vector2(0, -115))
 			if outer.scroll_vertical <= 0:
 				failures.append("%dpx zoom=1 swipe over the diagram did not scroll the page" % viewport_width)
 			if not Vector2(canvas.get("_pan")).is_zero_approx() or str(view.get("selected_part_id")) != "":
@@ -858,18 +861,18 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			canvas.set("_zoom", 2.0)
 			canvas.call("_update_input_routing")
 			var zoomed_origin := canvas.get_global_rect().get_center()
-			await _send_mobile_drag(zoomed_origin, zoomed_origin + Vector2(-100, 0))
+			await _send_mobile_drag(test_viewport, zoomed_origin, zoomed_origin + Vector2(-100, 0))
 			if Vector2(canvas.get("_pan")).is_zero_approx() or outer.scroll_vertical != 0:
 				failures.append("%dpx zoomed diagram drag did not pan exclusively inside the image" % viewport_width)
 
 			canvas.call("reset_view")
 			outer.scroll_vertical = 0
-			await _send_mobile_drag(canvas.get_global_rect().get_center(), canvas.get_global_rect().get_center() + Vector2(0, -115))
+			await _send_mobile_drag(test_viewport, canvas.get_global_rect().get_center(), canvas.get_global_rect().get_center() + Vector2(0, -115))
 			if outer.scroll_vertical <= 0 or not Vector2(canvas.get("_pan")).is_zero_approx():
 				failures.append("%dpx reset zoom did not restore page scrolling over the diagram" % viewport_width)
 
 			outer.scroll_vertical = 0
-			await _send_mobile_pinch(canvas.get_global_rect().get_center(), 28.0)
+			await _send_mobile_pinch(test_viewport, canvas.get_global_rect().get_center(), 28.0)
 			if float(canvas.get("_zoom")) <= 1.01:
 				failures.append("%dpx two-finger pinch did not zoom the diagram" % viewport_width)
 			canvas.call("reset_view")
@@ -882,10 +885,8 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 				if outer.scroll_vertical <= 0 or last_content.get_global_rect().end.y > outer.get_global_rect().end.y + 2.0:
 					failures.append("%dpx technical catalog page bottom is not reachable" % viewport_width)
 		print("Responsive catalog layout and scroll PASS: %dpx" % viewport_width)
-		outer.queue_free()
+		test_viewport.queue_free()
 		await process_frame
-	root.size = original_window_size
-	await _wait_for_layout(2)
 
 	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
 	var app_source := app_source_file.get_as_text() if app_source_file != null else ""
@@ -924,8 +925,7 @@ func _wait_for_layout(frame_count: int) -> void:
 	for _index in range(frame_count):
 		await process_frame
 
-func _send_mobile_drag(start: Vector2, finish: Vector2) -> void:
-	var viewport := root as Viewport
+func _send_mobile_drag(viewport: Viewport, start: Vector2, finish: Vector2) -> void:
 	var press := InputEventScreenTouch.new()
 	press.index = 0
 	press.pressed = true
@@ -945,8 +945,7 @@ func _send_mobile_drag(start: Vector2, finish: Vector2) -> void:
 	viewport.push_input(release)
 	await _wait_for_layout(2)
 
-func _send_mobile_pinch(center: Vector2, radius: float) -> void:
-	var viewport := root as Viewport
+func _send_mobile_pinch(viewport: Viewport, center: Vector2, radius: float) -> void:
 	var first := InputEventScreenTouch.new()
 	first.index = 0
 	first.pressed = true
