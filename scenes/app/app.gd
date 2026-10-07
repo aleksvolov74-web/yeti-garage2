@@ -13,6 +13,7 @@ const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
+const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
 const OFFICIAL_MANUAL_SECTIONS := [
@@ -2159,11 +2160,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
 func _style_global_search_result_button(button: Button) -> void:
     # Search rows remain one line and trim at word boundaries so a long result
     # cannot widen the popup or wrap into a narrow vertical strip on mobile.
-    button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-    button.clip_text = true
-    button.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
-    button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-    button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    GlobalSearchLayout.style_result_button(button)
 
 func _add_search_section_label(results: VBoxContainer, text_value: String) -> void:
     var label := Label.new()
@@ -2904,16 +2901,11 @@ func _popup_close_button() -> Button:
 
 func _mobile_dialog_content_width(preferred: float = 370.0, viewport_width_override: float = -1.0) -> float:
     var viewport_width := viewport_width_override if viewport_width_override > 0.0 else get_viewport_rect().size.x
-    return maxf(1.0, minf(preferred, viewport_width - 48.0))
+    return GlobalSearchLayout.content_width(preferred, viewport_width)
 
 func _mobile_dialog_size(preferred: Vector2i, viewport_size_override: Vector2i = Vector2i.ZERO) -> Vector2i:
     var viewport_size := Vector2(get_viewport_rect().size) if viewport_size_override == Vector2i.ZERO else Vector2(viewport_size_override)
-    var max_width := maxi(1, int(viewport_size.x) - 24)
-    var max_height := maxi(1, int(viewport_size.y) - 48)
-    return Vector2i(
-        mini(preferred.x, max_width),
-        mini(preferred.y, max_height)
-    )
+    return GlobalSearchLayout.popup_size(preferred, Vector2i(viewport_size))
 
 func _mini_round_button(icon_path: String) -> Button:
     var button := Button.new()

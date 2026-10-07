@@ -77,7 +77,6 @@ func _build_shell() -> void:
 	_search_edit.custom_minimum_size.y = 48
 	_search_edit.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_search_edit.mouse_filter = Control.MOUSE_FILTER_PASS
-	_search_edit.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	_search_edit.clear_button_enabled = true
 	_search_edit.text_changed.connect(_on_search_changed)
 	_style_edit(_search_edit)

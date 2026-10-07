@@ -4,7 +4,7 @@ const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const Vehicle3DView = preload("res://scenes/vehicle_3d/vehicle_3d_view.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const MobileTechnicalCatalogView = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
-const AppScene = preload("res://scenes/app/app.gd")
+const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 func _initialize() -> void:
 	call_deferred("_run_checks")
@@ -877,27 +877,28 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		outer.queue_free()
 		await process_frame
 
-	var app := AppScene.new()
-	app.set("mobile_technical_catalog", true)
+	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
+	var app_source := app_source_file.get_as_text() if app_source_file != null else ""
+	if not app_source.contains("_style_global_search_result_button(catalog_button)") or not app_source.contains("GlobalSearchLayout.style_result_button(button)"):
+		failures.append("global search result rows are not wired to the responsive layout helper")
 	for viewport_width in [360, 420]:
-		var popup_size: Vector2i = app.call("_mobile_dialog_size", Vector2i(400, 700), Vector2i(viewport_width, 780))
-		var content_width := float(app.call("_mobile_dialog_content_width", 370.0, float(viewport_width)))
+		var popup_size: Vector2i = GlobalSearchLayout.popup_size(Vector2i(400, 700), Vector2i(viewport_width, 780))
+		var content_width := GlobalSearchLayout.content_width(370.0, float(viewport_width))
 		if popup_size.x > viewport_width or content_width > viewport_width - 24.0:
 			failures.append("global search popup sizing exceeds %dpx viewport" % viewport_width)
 		var results := VBoxContainer.new()
-		results.size = Vector2(viewport_width - 40, 500)
-		results.custom_minimum_size.x = viewport_width - 40
+		results.size = Vector2(content_width - 28.0, 500)
+		results.custom_minimum_size.x = content_width - 28.0
 		root.add_child(results)
-		var popup := PopupPanel.new()
-		root.add_child(popup)
-		app.call("_render_global_search_results", results, "тормоз", popup)
+		var long_result := Button.new()
+		long_result.text = "Головка блока цилиндров и клапанный механизм — техническое описание"
+		long_result.custom_minimum_size.y = 48
+		GlobalSearchLayout.style_result_button(long_result)
+		results.add_child(long_result)
 		await _wait_for_layout(2)
-		for result_button_value in results.find_children("*", "Button", true, false):
-			var result_button := result_button_value as Button
-			if not result_button.clip_text or result_button.text_overrun_behavior != TextServer.OVERRUN_TRIM_ELLIPSIS or result_button.size.x > results.size.x + 1.0:
-				failures.append("global search result is not safely ellipsized within its %dpx popup" % viewport_width)
+		if not long_result.clip_text or long_result.text_overrun_behavior != TextServer.OVERRUN_TRIM_ELLIPSIS or long_result.size.x > results.size.x + 1.0:
+			failures.append("global search result is not safely ellipsized within its %dpx popup" % viewport_width)
 		results.queue_free()
-		popup.queue_free()
 	print("Responsive global search layout PASS: 360px / 420px")
 
 func _first_catalog_card(content: VBoxContainer, require_part_id: bool) -> Button:
