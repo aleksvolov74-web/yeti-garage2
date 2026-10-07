@@ -48,6 +48,13 @@ func reset_view() -> void:
 	_update_input_routing()
 	queue_redraw()
 
+func cancel_touch_sequence() -> void:
+	_touches.clear()
+	_pinch_distance = 0.0
+	_touch_gesture_moved = false
+	_dragging = false
+	_update_input_routing()
+
 func _image_rect() -> Rect2:
 	if texture == null or texture.get_width() <= 0 or texture.get_height() <= 0:
 		return Rect2()

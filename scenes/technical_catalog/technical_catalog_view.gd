@@ -32,6 +32,15 @@ var _diagram: TechnicalDiagramCanvas
 var _vehicle: Dictionary = {}
 var _section_columns := 0
 var _root_resize_queued := false
+var _catalog_touch_index := -1
+var _catalog_touch_start := Vector2.ZERO
+var _catalog_scroll_start := 0.0
+var _catalog_touch_scroll: ScrollContainer
+var _catalog_touch_canvas: TechnicalDiagramCanvas
+var _catalog_touch_button: BaseButton
+var _catalog_touch_claimed := false
+var _catalog_touch_count := 0
+const CATALOG_SCROLL_THRESHOLD := 9.0
 
 func _ready() -> void:
 	add_theme_constant_override("separation", 10)
@@ -47,6 +56,80 @@ func set_vehicle_profile(vehicle: Dictionary) -> void:
 	_vehicle = vehicle.duplicate(true)
 	if _content != null:
 		_render()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventScreenTouch:
+		var touch := event as InputEventScreenTouch
+		if touch.pressed:
+			if not get_global_rect().has_point(touch.position):
+				return
+			_catalog_touch_count += 1
+			if _catalog_touch_count > 1:
+				_cancel_catalog_scroll_tracking()
+			else:
+				_begin_catalog_scroll_tracking(touch.position, touch.index)
+			return
+		_catalog_touch_count = maxi(0, _catalog_touch_count - 1)
+		if touch.index == _catalog_touch_index:
+			if _catalog_touch_claimed:
+				get_viewport().set_input_as_handled()
+			_cancel_catalog_scroll_tracking()
+		return
+	if not (event is InputEventScreenDrag):
+		return
+	var drag := event as InputEventScreenDrag
+	if drag.index != _catalog_touch_index or _catalog_touch_scroll == null:
+		return
+	if _catalog_touch_canvas != null and float(_catalog_touch_canvas.get("_zoom")) > 1.01:
+		_cancel_catalog_scroll_tracking()
+		return
+	var displacement := drag.position - _catalog_touch_start
+	if not _catalog_touch_claimed and displacement.length() >= CATALOG_SCROLL_THRESHOLD and absf(displacement.y) > absf(displacement.x):
+		_catalog_touch_claimed = true
+		if _catalog_touch_canvas != null:
+			_catalog_touch_canvas.cancel_touch_sequence()
+		if _catalog_touch_button != null:
+			_catalog_touch_button.set_pressed_no_signal(false)
+	if _catalog_touch_claimed:
+		_catalog_touch_scroll.scroll_vertical = clampf(_catalog_scroll_start - displacement.y, 0.0, _catalog_touch_scroll.get_v_scroll_bar().max_value)
+		get_viewport().set_input_as_handled()
+
+func _input_event_target_control(position: Vector2) -> Control:
+	for candidate in find_children("*", "Control", true, false):
+		var control := candidate as Control
+		if control is BaseButton and control.get_global_rect().has_point(position):
+			return control
+		if control is TechnicalDiagramCanvas and control.get_global_rect().has_point(position):
+			return control
+	return null
+
+func _begin_catalog_scroll_tracking(position: Vector2, touch_index: int) -> void:
+	if not get_global_rect().has_point(position):
+		return
+	var ancestor: Node = get_parent()
+	while ancestor != null and not (ancestor is ScrollContainer):
+		ancestor = ancestor.get_parent()
+	if ancestor == null:
+		return
+	_catalog_touch_scroll = ancestor as ScrollContainer
+	_catalog_scroll_start = _catalog_touch_scroll.scroll_vertical
+	_catalog_touch_start = position
+	_catalog_touch_index = touch_index
+	_catalog_touch_claimed = false
+	_catalog_touch_button = null
+	_catalog_touch_canvas = null
+	var target := _input_event_target_control(position)
+	if target is BaseButton:
+		_catalog_touch_button = target as BaseButton
+	elif target is TechnicalDiagramCanvas:
+		_catalog_touch_canvas = target as TechnicalDiagramCanvas
+
+func _cancel_catalog_scroll_tracking() -> void:
+	_catalog_touch_index = -1
+	_catalog_touch_scroll = null
+	_catalog_touch_canvas = null
+	_catalog_touch_button = null
+	_catalog_touch_claimed = false
 
 func _build_shell() -> void:
 	var heading := HBoxContainer.new()
