@@ -517,7 +517,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var section_name := str(TechnicalCatalogService.section(section_id, vehicle_profile).get("name", ""))
 		var section_breadcrumb: Button
 		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if button_node is Button and str((button_node as Button).text) == section_name:
+			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == section_name:
 				section_breadcrumb = button_node as Button
 				break
 		if section_breadcrumb == null:
@@ -701,7 +701,7 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		var node_name := str(node.get("name", ""))
 		var node_crumb: Button
 		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).text) == node_name:
+			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == node_name:
 				node_crumb = crumb_value as Button
 				break
 		if node_crumb == null:
@@ -714,7 +714,7 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
 		var section_crumb: Button
 		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).text) == section_name:
+			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == section_name:
 				section_crumb = crumb_value as Button
 				break
 		if section_crumb == null:
