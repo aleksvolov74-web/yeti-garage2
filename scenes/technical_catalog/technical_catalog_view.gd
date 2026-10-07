@@ -127,7 +127,10 @@ func _render() -> void:
 	_queue_minimum_refresh()
 
 func _render_sections() -> void:
-	_content.add_child(_muted_label("Выберите раздел автомобиля. Схемы без проверенного источника отмечены отдельно."))
+	var intro := _muted_label("Выберите раздел автомобиля. Схемы без проверенного источника отмечены отдельно.")
+	intro.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_content.add_child(intro)
 	var grid := GridContainer.new()
 	grid.columns = 2 if _content.size.x >= MIN_SECTION_CARD_WIDTH * 2.0 + SECTION_GRID_SEPARATION else 1
 	_section_columns = grid.columns
