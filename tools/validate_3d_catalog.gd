@@ -760,6 +760,8 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		outer.scroll_deadzone = 10
 		outer.mouse_filter = Control.MOUSE_FILTER_STOP
 		test_viewport.add_child(outer)
+		outer.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+		outer.size = Vector2(viewport_width, 780)
 		var page := VBoxContainer.new()
 		page.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		page.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
