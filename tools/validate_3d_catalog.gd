@@ -944,18 +944,21 @@ func _wait_for_layout(frame_count: int) -> void:
 
 func _send_mobile_drag(viewport: Viewport, start: Vector2, finish: Vector2) -> void:
 	var press := InputEventScreenTouch.new()
+	press.device = 0
 	press.index = 0
 	press.pressed = true
 	press.position = start
 	viewport.push_input(press)
 	await process_frame
 	var drag := InputEventScreenDrag.new()
+	drag.device = 0
 	drag.index = 0
 	drag.position = finish
 	drag.relative = finish - start
 	viewport.push_input(drag)
 	await process_frame
 	var release := InputEventScreenTouch.new()
+	release.device = 0
 	release.index = 0
 	release.pressed = false
 	release.position = finish
@@ -964,18 +967,21 @@ func _send_mobile_drag(viewport: Viewport, start: Vector2, finish: Vector2) -> v
 
 func _send_mobile_pinch(viewport: Viewport, center: Vector2, radius: float) -> void:
 	var first := InputEventScreenTouch.new()
+	first.device = 0
 	first.index = 0
 	first.pressed = true
 	first.position = center + Vector2(-radius, 0)
 	viewport.push_input(first)
 	await process_frame
 	var second := InputEventScreenTouch.new()
+	second.device = 0
 	second.index = 1
 	second.pressed = true
 	second.position = center + Vector2(radius, 0)
 	viewport.push_input(second)
 	await process_frame
 	var pinch := InputEventScreenDrag.new()
+	pinch.device = 0
 	pinch.index = 1
 	pinch.position = center + Vector2(radius * 2.0, 0)
 	pinch.relative = Vector2(radius, 0)
