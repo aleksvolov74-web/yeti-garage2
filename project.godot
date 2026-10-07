@@ -5,7 +5,7 @@ config_version=5
 [application]
 config/name="Yeti Garage"
 config/unique_name="yeti_garage"
-config/version="0.20.27"
+config/version="0.20.28"
 config/icon="res://assets/icons/app_icon_512.png"
 run/main_scene="res://scenes/app/app.tscn"
 config/features=PackedStringArray("4.7")
