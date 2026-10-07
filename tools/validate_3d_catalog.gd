@@ -746,6 +746,8 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 	for viewport_width in [360, 420]:
 		var test_viewport := SubViewport.new()
 		test_viewport.size = Vector2i(viewport_width, 780)
+		test_viewport.size_2d_override = Vector2i(viewport_width, 780)
+		test_viewport.size_2d_override_stretch = true
 		test_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 		test_viewport.gui_embed_subwindows = true
 		root.add_child(test_viewport)
@@ -780,7 +782,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var section_grid := grids[0] as GridContainer
-		print("Mobile layout dimensions: requested=%d outer=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, outer.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
+		print("Mobile layout dimensions: requested=%d subviewport=%s outer=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
 		if section_grid.columns != 1:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
