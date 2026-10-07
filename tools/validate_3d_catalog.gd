@@ -498,7 +498,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s part card selection action is missing" % node_id)
 		var node_name := str(current_node.get("name", ""))
 		var node_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
+		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
 			if button_node is Button and str((button_node as Button).text) == node_name:
 				node_breadcrumb = button_node as Button
 				break
@@ -516,7 +516,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s did not return to its diagram in the catalog" % node_id)
 		var section_name := str(TechnicalCatalogService.section(section_id, vehicle_profile).get("name", ""))
 		var section_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HBoxContainer).get_children():
+		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
 			if button_node is Button and str((button_node as Button).text) == section_name:
 				section_breadcrumb = button_node as Button
 				break
@@ -700,7 +700,7 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 			failures.append("AWD reference node %s did not show the selected part card" % node_id)
 		var node_name := str(node.get("name", ""))
 		var node_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
+		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
 			if crumb_value is Button and str((crumb_value as Button).text) == node_name:
 				node_crumb = crumb_value as Button
 				break
@@ -713,7 +713,7 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 				failures.append("AWD reference node %s could not return from the part card" % node_id)
 		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
 		var section_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
+		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
 			if crumb_value is Button and str((crumb_value as Button).text) == section_name:
 				section_crumb = crumb_value as Button
 				break
@@ -772,6 +772,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var section_grid := grids[0] as GridContainer
+		print("Mobile layout dimensions: requested=%d outer=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, outer.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
 		if section_grid.columns != 1:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
@@ -784,7 +785,8 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 				var section_margin := section_card.get_child(0) as MarginContainer
 				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
-			await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
+		await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
+	print("Section-card touch result: rect=%s outer_scroll=%d section=%s" % [section_card.get_global_rect(), outer.scroll_vertical, str(view.get("current_section_id"))])
 		if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
 			failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
 
@@ -971,9 +973,8 @@ func _check_app_icon_assets(failures: Array[String]) -> void:
 	}
 	for path_value in expected_sizes:
 		var path := str(path_value)
-		var image := Image.new()
-		var error := image.load(path)
-		if error != OK or Vector2i(image.get_width(), image.get_height()) != expected_sizes[path]:
+		var texture := ResourceLoader.load(path) as Texture2D
+		if texture == null or Vector2i(texture.get_width(), texture.get_height()) != expected_sizes[path]:
 			failures.append("application icon asset %s is missing, unreadable, or has the wrong size" % path)
 	if str(ProjectSettings.get_setting("application/config/icon", "")) != "res://assets/icons/app_icon_512.png":
 		failures.append("project icon setting does not use the refreshed 512px app icon")
