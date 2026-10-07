@@ -777,18 +777,22 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 			failures.append("%dpx system grid exceeds the mobile viewport" % viewport_width)
+		var section_card: Button
 		if section_grid.get_child_count() > 0:
-			var section_card := section_grid.get_child(0) as Button
+			section_card = section_grid.get_child(0) as Button
+		if section_card == null:
+			failures.append("%dpx system grid has no section card" % viewport_width)
+		else:
 			if section_card.mouse_filter != Control.MOUSE_FILTER_PASS or section_card.get_child_count() == 0:
 				failures.append("%dpx system card does not pass touch or contain its full-rect layout" % viewport_width)
 			else:
 				var section_margin := section_card.get_child(0) as MarginContainer
 				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
-		await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
-		print("Section-card touch result: rect=%s outer_scroll=%d section=%s" % [section_card.get_global_rect(), outer.scroll_vertical, str(view.get("current_section_id"))])
-		if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
-			failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
+			await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
+			print("Section-card touch result: rect=%s outer_scroll=%d section=%s" % [section_card.get_global_rect(), outer.scroll_vertical, str(view.get("current_section_id"))])
+			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
+				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
 
 		outer.scroll_vertical = 0
 		view.call("_open_section", "engine")
