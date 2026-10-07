@@ -17,9 +17,12 @@ var _pinch_distance := 0.0
 var _start_position := Vector2.ZERO
 var _start_pan := Vector2.ZERO
 var _dragging := false
+var _touch_gesture_moved := false
+var _mouse_gesture_moved := false
+const TOUCH_DRAG_THRESHOLD := 9.0
 
 func _ready() -> void:
-	mouse_filter = Control.MOUSE_FILTER_STOP
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	custom_minimum_size = Vector2(0, 230)
 
 func configure(image: Texture2D, points: Array, active_part_id: String = "", show_points: bool = true) -> void:
@@ -42,6 +45,7 @@ func set_markers_visible(is_visible: bool) -> void:
 func reset_view() -> void:
 	_zoom = 1.0
 	_pan = Vector2.ZERO
+	_update_input_routing()
 	queue_redraw()
 
 func _image_rect() -> Rect2:
@@ -84,33 +88,52 @@ func _gui_input(event: InputEvent) -> void:
 				_start_position = touch.position
 				_start_pan = _pan
 				_dragging = false
-			elif _touches.size() >= 2:
-				_pinch_distance = _distance_between_touches()
-				accept_event()
-		else:
-			if _touches.has(touch.index):
-				var moved := _dragging
-				if not moved:
-					_pick_marker(touch.position)
-				_touches.erase(touch.index)
-				if _touches.size() < 2:
-					_pinch_distance = 0.0
-				if moved or _zoom > 1.01:
+				if _zoom > 1.01:
 					accept_event()
+			elif _touches.size() >= 2:
+				_touch_gesture_moved = true
+				_pinch_distance = _distance_between_touches()
+				_update_input_routing()
+				accept_event()
+		elif _touches.has(touch.index):
+			var was_multi_touch := _touches.size() >= 2
+			var was_zoomed := _zoom > 1.01
+			if not _touch_gesture_moved and not was_multi_touch and not was_zoomed:
+				_pick_marker(touch.position)
+			_touches.erase(touch.index)
+			if _touches.size() < 2:
+				_pinch_distance = 0.0
+			if _touches.size() == 1:
+				var remaining_id = _touches.keys()[0]
+				_start_position = Vector2(_touches[remaining_id])
+				_start_pan = _pan
+			if was_multi_touch or was_zoomed or _touch_gesture_moved:
+				accept_event()
+			if _touches.is_empty():
+				_touch_gesture_moved = false
+				_dragging = false
+			_update_input_routing()
 		return
 	if event is InputEventScreenDrag:
 		var drag := event as InputEventScreenDrag
 		if _touches.size() >= 2:
+			_touch_gesture_moved = true
 			_touches[drag.index] = drag.position
 			var distance := _distance_between_touches()
 			if _pinch_distance > 0.0:
 				_zoom = clampf(_zoom * distance / _pinch_distance, 1.0, 4.0)
 				_clamp_pan()
 			_pinch_distance = distance
+			_update_input_routing()
 			queue_redraw()
 			accept_event()
 			return
-		if _zoom > 1.01:
+		if not _touches.has(drag.index):
+			return
+		_touches[drag.index] = drag.position
+		if drag.position.distance_to(_start_position) >= TOUCH_DRAG_THRESHOLD:
+			_touch_gesture_moved = true
+		if _zoom > 1.01 and _touch_gesture_moved:
 			_dragging = true
 			_pan = _start_pan + drag.position - _start_position
 			_clamp_pan()
@@ -121,11 +144,13 @@ func _gui_input(event: InputEvent) -> void:
 		var mouse := event as InputEventMouseButton
 		if mouse.button_index == MOUSE_BUTTON_WHEEL_UP and mouse.pressed:
 			_zoom = minf(_zoom * 1.15, 4.0)
+			_update_input_routing()
 			queue_redraw()
 			accept_event()
 		elif mouse.button_index == MOUSE_BUTTON_WHEEL_DOWN and mouse.pressed:
 			_zoom = maxf(_zoom / 1.15, 1.0)
 			_clamp_pan()
+			_update_input_routing()
 			queue_redraw()
 			accept_event()
 		elif mouse.button_index == MOUSE_BUTTON_LEFT:
@@ -133,20 +158,29 @@ func _gui_input(event: InputEvent) -> void:
 				_start_position = mouse.position
 				_start_pan = _pan
 				_dragging = false
+				_mouse_gesture_moved = false
+				_update_input_routing()
+				if _zoom > 1.01:
+					accept_event()
 			else:
-				if not _dragging:
+				if not _mouse_gesture_moved:
 					_pick_marker(mouse.position)
 				if _dragging or _zoom > 1.01:
 					accept_event()
 		return
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _zoom > 1.01:
+	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var motion := event as InputEventMouseMotion
-		if motion.position.distance_to(_start_position) > 6.0:
+		if motion.position.distance_to(_start_position) >= TOUCH_DRAG_THRESHOLD:
+			_mouse_gesture_moved = true
+		if _zoom > 1.01 and _mouse_gesture_moved:
 			_dragging = true
 			_pan = _start_pan + motion.position - _start_position
 			_clamp_pan()
 			queue_redraw()
 			accept_event()
+
+func _update_input_routing() -> void:
+	mouse_filter = Control.MOUSE_FILTER_STOP if _zoom > 1.01 or _touches.size() >= 2 else Control.MOUSE_FILTER_PASS
 
 func _distance_between_touches() -> float:
 	var ids := _touches.keys()
