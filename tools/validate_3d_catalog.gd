@@ -98,15 +98,35 @@ func _run_checks() -> void:
 		failures.append("4x4 section was not filtered for the saved FWD configuration")
 	var recursive_nodes := 0
 	var all_catalog_nodes := 0
-	for section_value in TechnicalCatalogService.sections({"drivetrain":"AWD"}):
-		var all_section: Dictionary = section_value
-		all_catalog_nodes += _count_all_nodes(all_section.get("nodes", []))
+	var all_image_nodes := 0
+	var all_marker_total := 0
+	var verified_architecture_total := 0
+	var reference_only_total := 0
+	var fwd_ui_image_node_count := 0
+	var fwd_ui_marker_total := 0
+	var all_node_rows: Array = []
+	for all_section_value in TechnicalCatalogService.catalog().get("sections", []):
+		var all_section: Dictionary = all_section_value
+		all_node_rows.append_array(_all_nodes_unfiltered(all_section.get("nodes", [])))
+	all_catalog_nodes = all_node_rows.size()
+	for all_node_value in all_node_rows:
+		var all_node: Dictionary = all_node_value
+		var all_diagram: Dictionary = all_node.get("diagram", {})
+		if str(all_diagram.get("image", "")) != "":
+			all_image_nodes += 1
+		all_marker_total += all_diagram.get("markers", []).size()
+		match str(all_diagram.get("verification_level", "")):
+			"VERIFIED_ARCHITECTURE": verified_architecture_total += 1
+			"REFERENCE_ONLY": reference_only_total += 1
 	for section_value in TechnicalCatalogService.sections(vehicle_profile):
 		var section: Dictionary = section_value
 		for node_value in _walk_nodes(section.get("nodes", []), vehicle_profile):
 			var node: Dictionary = node_value
 			recursive_nodes += 1
-			if str(node.get("id", "")) == "gearbox_group" and "dsg_mechatronic" not in node.get("part_ids", []):
+			if str(node.get("diagram", {}).get("image", "")) != "":
+				fwd_ui_image_node_count += 1
+			fwd_ui_marker_total += node.get("diagram", {}).get("markers", []).size()
+			if str(node.get("id", "")) == "gearbox_group" and "dsg_mechatronics" not in node.get("part_ids", []):
 				failures.append("DSG assembly is missing its mechatronic component")
 			if str(node.get("id", "")) == "rear_carrier" and str(node.get("variant", "")) != "FWD_POST_CW22_2010":
 				failures.append("FWD rear-carrier construction is not identified")
@@ -117,8 +137,18 @@ func _run_checks() -> void:
 					failures.append("technical node %s refers to missing part %s" % [str(node.get("id", "")), str(part_id)])
 	if all_catalog_nodes != 90:
 		failures.append("expected 90 recursive technical nodes in the full catalog, found %d" % all_catalog_nodes)
+	if all_image_nodes != 90:
+		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
+	if all_marker_total != 376:
+		failures.append("expected 376 technical markers, found %d" % all_marker_total)
+	if verified_architecture_total != 57 or reference_only_total != 33:
+		failures.append("expected 57 VERIFIED_ARCHITECTURE / 33 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
+	if fwd_ui_image_node_count != 86:
+		failures.append("expected 86 FWD UI nodes with images, found %d" % fwd_ui_image_node_count)
+	if fwd_ui_marker_total != 367:
+		failures.append("expected 367 FWD UI markers, found %d" % fwd_ui_marker_total)
 	var node_by_id: Dictionary = {}
 	for section_value in TechnicalCatalogService.sections(vehicle_profile):
 		var section: Dictionary = section_value
@@ -203,6 +233,7 @@ func _run_checks() -> void:
 	if not found_suspension_symptom:
 		failures.append("symptom search did not return its existing diagnostic path")
 	await _check_front_suspension_images(failures)
+	await _check_awd_reference_images(failures)
 
 	var mobile_view := MobileTechnicalCatalogView.new()
 	root.add_child(mobile_view)
@@ -302,7 +333,33 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"glazing": {"section":"glass_wipers", "count":2, "tap_part":"windshield", "level":"REFERENCE_ONLY"},
 		"front_wipers": {"section":"glass_wipers", "count":3, "tap_part":"wiper_motor_front", "level":"VERIFIED_ARCHITECTURE"},
 		"rear_wiper": {"section":"glass_wipers", "count":1, "tap_part":"wiper_motor_rear", "level":"VERIFIED_ARCHITECTURE"},
-		"washers": {"section":"glass_wipers", "count":3, "tap_part":"washer_pump", "level":"REFERENCE_ONLY"}
+		"washers": {"section":"glass_wipers", "count":3, "tap_part":"washer_pump", "level":"REFERENCE_ONLY"},
+		"fuel_sensors": {"section":"fuel", "count":2, "tap_part":"fuel_pressure_sensor", "level":"VERIFIED_ARCHITECTURE"},
+		"left_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
+		"right_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
+		"front_suspension_overview": {"section":"front_suspension", "count":9, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"front_left_corner": {"section":"front_suspension", "count":9, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
+		"front_right_corner": {"section":"front_suspension", "count":6, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
+		"front_axle_carrier": {"section":"front_suspension", "count":3, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"front_hub_bearing": {"section":"front_suspension", "count":2, "tap_part":"hub", "level":"VERIFIED_ARCHITECTURE"},
+		"front_brake_at_hub": {"section":"front_suspension", "count":4, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
+		"front_drive_at_hub": {"section":"front_suspension", "count":3, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
+		"front_stabilizer": {"section":"front_suspension", "count":2, "tap_part":"anti_roll_bar", "level":"VERIFIED_ARCHITECTURE"},
+		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"VERIFIED_ARCHITECTURE"},
+		"front_brake_hose": {"section":"front_brakes", "count":4, "tap_part":"brake_carrier", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
+		"parking_brake": {"section":"rear_brakes", "count":2, "tap_part":"parking_brake_cable", "level":"VERIFIED_ARCHITECTURE"},
+		"dashboard": {"section":"interior", "count":4, "tap_part":"dashboard", "level":"REFERENCE_ONLY"},
+		"console": {"section":"interior", "count":2, "tap_part":"center_console", "level":"REFERENCE_ONLY"},
+		"seats": {"section":"interior", "count":3, "tap_part":"driver_seat", "level":"REFERENCE_ONLY"},
+		"interior_trim": {"section":"interior", "count":2, "tap_part":"front_left_door", "level":"REFERENCE_ONLY"},
+		"airbags": {"section":"safety", "count":3, "tap_part":"driver_airbag", "level":"REFERENCE_ONLY"},
+		"belts": {"section":"safety", "count":2, "tap_part":"seat_belts", "level":"VERIFIED_ARCHITECTURE"},
+		"srs_sensors": {"section":"safety", "count":2, "tap_part":"crash_sensors_front", "level":"REFERENCE_ONLY"},
+		"filters": {"section":"maintenance", "count":4, "tap_part":"oil_filter", "level":"REFERENCE_ONLY"},
+		"fluids": {"section":"maintenance", "count":3, "tap_part":"oil_system", "level":"REFERENCE_ONLY"},
+		"service_ignition": {"section":"maintenance", "count":2, "tap_part":"spark_plugs", "level":"VERIFIED_ARCHITECTURE"},
+		"service_brakes": {"section":"maintenance", "count":2, "tap_part":"brake_pads", "level":"REFERENCE_ONLY"}
 	}
 	var cbzb_dq200_marker_total := 0
 	var all_image_marker_total := 0
@@ -485,13 +542,198 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		for label_node in view.find_children("*", "Label", true, false):
 			if str((label_node as Label).text) == "Изображение готовится":
 				failures.append("technical diagram node %s shows an image placeholder" % node_id)
-		print("Body/glass catalog UI flow PASS: %s" % node_id)
-	if all_image_marker_total != 272:
-		failures.append("all technical diagrams should have 272 markers after Body/Glass integration, found %d" % all_image_marker_total)
+		print("Technical catalog UI flow PASS: %s" % node_id)
+	if expected.size() != 86:
+		failures.append("expected 86 FWD diagram nodes in the UI map, found %d" % expected.size())
+	if all_image_marker_total != 367:
+		failures.append("FWD technical diagrams should have 367 markers, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
 	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:
 		failures.append("expected %d image nodes / %d markers, found %d opened nodes / %d markers" % [expected.size(), expected_marker_total, opened_image_node_count, all_image_marker_total])
+	view.queue_free()
+
+func _check_awd_reference_images(failures: Array[String]) -> void:
+	var view := MobileTechnicalCatalogView.new()
+	root.add_child(view)
+	view.size = Vector2(420.0, 780.0)
+	var awd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"AWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
+	view.set_vehicle_profile(awd_profile)
+	await process_frame
+	var expected := {
+		"angle_drive":{"count":2, "tap_part":"gearbox"},
+		"propshaft":{"count":2, "tap_part":"propshaft"},
+		"haldex":{"count":1, "tap_part":"haldex_coupling"},
+		"rear_differential":{"count":4, "tap_part":"differential"}
+	}
+	var marker_total := 0
+	for section_value in TechnicalCatalogService.sections(awd_profile):
+		var section: Dictionary = section_value
+		for node_value in _walk_nodes(section.get("nodes", []), awd_profile):
+			var catalog_node: Dictionary = node_value
+			if str(catalog_node.get("id", "")) in expected:
+				if str(catalog_node.get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
+					failures.append("AWD reference node %s must remain REFERENCE_ONLY" % catalog_node.get("id", ""))
+				marker_total += catalog_node.get("diagram", {}).get("markers", []).size()
+	if marker_total != 9:
+		failures.append("AWD reference nodes should have 9 markers total, found %d" % marker_total)
+	if not TechnicalCatalogService.find_part("haldex_coupling", awd_profile).is_empty():
+		print("AWD reference part lookup available only in temporary AWD smoke profile")
+	else:
+		failures.append("temporary AWD profile did not expose the Haldex reference part")
+	view.call("_open_section", "awd")
+	await process_frame
+	for node_id_value in expected:
+		var node_id := str(node_id_value)
+		var row: Dictionary = expected[node_id]
+		view.call("_open_node", node_id)
+		await process_frame
+		var node: Dictionary = view.call("_current_node")
+		var canvas = view.get("_diagram")
+		if node.is_empty() or canvas == null or canvas.texture == null:
+			failures.append("AWD reference node %s did not load an image" % node_id)
+			continue
+		if str(node.get("diagram", {}).get("verification_level", "")) != "REFERENCE_ONLY":
+			failures.append("AWD reference node %s was promoted beyond REFERENCE_ONLY" % node_id)
+		if canvas.markers.size() != int(row["count"]):
+			failures.append("AWD reference node %s marker count mismatch" % node_id)
+		var seen_numbers: Dictionary = {}
+		for marker_value in canvas.markers:
+			var marker: Dictionary = marker_value
+			var part_id := str(marker.get("part_id", ""))
+			var number := int(marker.get("number", -1))
+			if not PartCatalogService.PARTS.has(part_id) or part_id not in node.get("part_ids", []):
+				failures.append("AWD reference node %s has an invalid marker part %s" % [node_id, part_id])
+			if seen_numbers.has(number):
+				failures.append("AWD reference node %s has duplicate marker number %d" % [node_id, number])
+			seen_numbers[number] = true
+			if float(marker.get("x", -1.0)) < 0.0 or float(marker.get("x", 2.0)) > 1.0 or float(marker.get("y", -1.0)) < 0.0 or float(marker.get("y", 2.0)) > 1.0:
+				failures.append("AWD reference node %s has an out-of-range marker" % node_id)
+		view.call("_toggle_markers")
+		if canvas.markers_visible:
+			failures.append("AWD reference node %s could not hide markers" % node_id)
+		view.call("_toggle_markers")
+		if not canvas.markers_visible:
+			failures.append("AWD reference node %s could not show markers" % node_id)
+		canvas.size = Vector2(420.0, 320.0)
+		canvas.call("reset_view")
+		var touch_a := InputEventScreenTouch.new()
+		touch_a.index = 0
+		touch_a.pressed = true
+		touch_a.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", touch_a)
+		var touch_b := InputEventScreenTouch.new()
+		touch_b.index = 1
+		touch_b.pressed = true
+		touch_b.position = Vector2(220.0, 120.0)
+		canvas.call("_gui_input", touch_b)
+		var pinch := InputEventScreenDrag.new()
+		pinch.index = 1
+		pinch.position = Vector2(250.0, 120.0)
+		canvas.call("_gui_input", pinch)
+		if float(canvas.get("_zoom")) <= 1.0:
+			failures.append("AWD reference node %s pinch zoom did not change scale" % node_id)
+		var release_a := InputEventScreenTouch.new()
+		release_a.index = 0
+		release_a.pressed = false
+		release_a.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", release_a)
+		var release_b := InputEventScreenTouch.new()
+		release_b.index = 1
+		release_b.pressed = false
+		release_b.position = Vector2(250.0, 120.0)
+		canvas.call("_gui_input", release_b)
+		canvas.set("_zoom", 2.0)
+		var pan_touch := InputEventScreenTouch.new()
+		pan_touch.index = 0
+		pan_touch.pressed = true
+		pan_touch.position = Vector2(120.0, 120.0)
+		canvas.call("_gui_input", pan_touch)
+		var pan_drag := InputEventScreenDrag.new()
+		pan_drag.index = 0
+		pan_drag.position = Vector2(145.0, 135.0)
+		canvas.call("_gui_input", pan_drag)
+		if Vector2(canvas.get("_pan")).is_zero_approx():
+			failures.append("AWD reference node %s pan did not move the zoomed image" % node_id)
+		var pan_release := InputEventScreenTouch.new()
+		pan_release.index = 0
+		pan_release.pressed = false
+		pan_release.position = Vector2(145.0, 135.0)
+		canvas.call("_gui_input", pan_release)
+		canvas.call("reset_view")
+		if not is_equal_approx(float(canvas.get("_zoom")), 1.0) or not Vector2(canvas.get("_pan")).is_zero_approx():
+			failures.append("AWD reference node %s reset did not restore the initial view" % node_id)
+		var marker: Dictionary = canvas.markers[0]
+		var image_rect: Rect2 = canvas.call("_image_rect")
+		var tap_point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		canvas.call("_pick_marker", tap_point)
+		await process_frame
+		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
+			failures.append("AWD reference node %s marker tap selected the wrong part" % node_id)
+		var list_button: Button
+		for button_node in view.find_children("*", "Button", true, false):
+			var button := button_node as Button
+			if button.has_meta("part_id") and str(button.get_meta("part_id")) == str(row["tap_part"]):
+				list_button = button
+				break
+		if list_button == null:
+			failures.append("AWD reference node %s has no matching part list row" % node_id)
+		else:
+			list_button.pressed.emit()
+			await process_frame
+			var list_selected_canvas = view.get("_diagram")
+			if str(view.get("selected_part_id")) != str(row["tap_part"]) or list_selected_canvas == null or str(list_selected_canvas.get("selected_part_id")) != str(row["tap_part"]):
+				failures.append("AWD reference node %s list/marker selection is out of sync" % node_id)
+		var part: Dictionary = PartCatalogService.get_part(str(row["tap_part"]))
+		var found_card := false
+		for label_node in view.find_children("*", "Label", true, false):
+			if str((label_node as Label).text) == str(part.get("name", "")):
+				found_card = true
+			if str((label_node as Label).text) == "Изображение готовится":
+				failures.append("AWD reference node %s shows an image placeholder" % node_id)
+		if not found_card:
+			failures.append("AWD reference node %s did not show the selected part card" % node_id)
+		var node_name := str(node.get("name", ""))
+		var node_crumb: Button
+		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
+			if crumb_value is Button and str((crumb_value as Button).text) == node_name:
+				node_crumb = crumb_value as Button
+				break
+		if node_crumb == null:
+			failures.append("AWD reference node %s has no back navigation" % node_id)
+		else:
+			node_crumb.pressed.emit()
+			await process_frame
+			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
+				failures.append("AWD reference node %s could not return from the part card" % node_id)
+		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
+		var section_crumb: Button
+		for crumb_value in (view.get("_breadcrumb") as HBoxContainer).get_children():
+			if crumb_value is Button and str((crumb_value as Button).text) == section_name:
+				section_crumb = crumb_value as Button
+				break
+		if section_crumb == null:
+			failures.append("AWD reference node %s has no back navigation to AWD list" % node_id)
+		else:
+			section_crumb.pressed.emit()
+			await process_frame
+			if not (view.get("current_path") as Array).is_empty():
+				failures.append("AWD reference node %s did not return to AWD section list" % node_id)
+		view.call("_open_section", "awd")
+		var search_edit := view.get("_search_edit") as LineEdit
+		search_edit.text = str(part.get("name", ""))
+		await process_frame
+		var search_opened := false
+		for result_value in TechnicalCatalogService.search(str(part.get("name", "")), awd_profile):
+			var result: Dictionary = result_value
+			if str(result.get("part_id", "")) == str(row["tap_part"]):
+				view.call("open_catalog_result", result)
+				search_opened = true
+				break
+		await process_frame
+		if not search_opened or str(view.get("selected_part_id")) != str(row["tap_part"]):
+			failures.append("AWD reference node %s detail was not searchable" % node_id)
+		print("AWD reference UI flow PASS: %s" % node_id)
 	view.queue_free()
 
 func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
@@ -502,6 +744,14 @@ func _walk_nodes(rows: Array, vehicle: Dictionary) -> Array:
 			continue
 		result.append(node)
 		result.append_array(_walk_nodes(node.get("children", []), vehicle))
+	return result
+
+func _all_nodes_unfiltered(rows: Array) -> Array:
+	var result: Array = []
+	for value in rows:
+		var node: Dictionary = value
+		result.append(node)
+		result.append_array(_all_nodes_unfiltered(node.get("children", [])))
 	return result
 
 func _count_all_nodes(rows: Array) -> int:

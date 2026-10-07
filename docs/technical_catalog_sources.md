@@ -12,7 +12,7 @@ The mobile technical catalog is defined by `data/technical_catalog.json`. Its sy
 
 The Android catalog bundles original generated technical visuals in `assets/technical_catalog/`; they are not copies of Škoda/VAG workshop illustrations. Workshop documentation is used as an architecture and source reference. The diagrams use overlays stored as normalized coordinates and part IDs in each node's `diagram.markers` array; numbers are not baked into image files. Nodes without an eligible bundled image continue to show their documented empty state.
 
-`VERIFIED_ARCHITECTURE` means the depicted general construction is supported by the linked technical reference; it does not mean `VERIFIED_EXACT`. Exact PR-code or VIN-specific geometry and OEM selection require direct supporting evidence. `REFERENCE_ONLY` remains supplemental and must not be presented as verified fitment.
+`VERIFIED_ARCHITECTURE` means the general construction is supported by the linked technical reference; it does not mean `VERIFIED_EXACT`. Exact PR-code or VIN-specific geometry and OEM selection require direct supporting evidence. `REFERENCE_ONLY` remains supplemental and must not be presented as verified fitment. Current catalog-wide inventory and visual-audit findings are recorded in the final status section at the end of this file; older batch notes below describe their historical state at the time they were written.
 
 ## Compatibility
 
@@ -36,11 +36,11 @@ Key Yeti-specific references:
 
 Historical baseline before visual batches: 89 recursive nodes with no bundled technical diagrams. The current catalog has 90 recursive nodes; totals for bundled images and markers are maintained by `tools/validate_3d_catalog.gd` so new visual batches do not require hardcoded total updates.
 
-## Current fill pass (VIN profile)
+## Historical source pass (VIN profile)
 
-The catalog has 81 top-level nodes and 8 nested nodes. It currently has 58 `VERIFIED_ARCHITECTURE` source references and 31 `REFERENCE_ONLY` references; none is marked `VERIFIED_EXACT`. These labels describe evidence for construction, not the presence of an embedded image. No technical images are bundled and no marker coordinates are claimed: copying the source workshop illustrations into the APK is not permitted by a license identified in the source.
+At the time of this documentation pass, the catalog contained 81 top-level nodes and 8 nested nodes, with 58 `VERIFIED_ARCHITECTURE` and 31 `REFERENCE_ONLY` references. This is a historical snapshot, superseded by the current status below. None of the statuses means `VERIFIED_EXACT`.
 
-Direct Yeti/CBZB references used for this pass include the 1.2 TSI timing-chain and oil-pump-chain procedure, intake/fuel-distributor component pages, engine lubrication component list, CBZB cooling hose/radiator pages, Yeti brake repair and handbrake-cable pages, FWD rear-axle overview, front-axle overview, and 0AM DSG overview. The app exposes source links and component lists in place of a fabricated diagram. Brake sizes, spring/damper selections, lighting equipment, climate-control variant, gearbox code, and the fitted front-carrier material remain unresolved where the PR/build data is required.
+Direct Yeti/CBZB references used for this pass include the 1.2 TSI timing-chain and oil-pump-chain procedure, intake/fuel-distributor component pages, engine lubrication component list, CBZB cooling hose/radiator pages, Yeti brake repair and handbrake-cable pages, FWD rear-axle overview, front-axle overview, and 0AM DSG overview. At the time of that source pass, the app exposed source links and component lists in place of diagrams; this was later superseded by the separately generated technical visuals recorded in the catalog. Brake sizes, spring/damper selections, lighting equipment, climate-control variant, gearbox code, and the fitted front-carrier material remain unresolved where the PR/build data is required.
 
 
 ## Batch 1 — CBZB source pass
@@ -110,3 +110,12 @@ Completed the maintenance pass with CBZB-compatible Yeti references for air filt
 The catalog currently contains 40 nodes with bundled technical images and 50 nodes without images. The 40 images have 192 interactive markers in total. Their image metadata and markers live in `data/technical_catalog.json`; original generated CBZB core assets and node mappings are also summarized in `assets/technical_catalog/cbzb_engine_core_manifest.json`. Reused assets are intentional for the bottom-end and upper-end node pairs.
 
 All bundled visuals in this project are original generated technical visuals, not copied workshop illustrations. They are illustrative architecture views: the label `VERIFIED_ARCHITECTURE` does not certify exact CBZB production geometry, VIN fitment, PR variant, or OEM dimensions. Do not infer exact PR/VIN fitment from these images.
+
+
+## Current catalog status — 2026-10-06
+
+The current catalog contains 24 sections and 90 recursive nodes. All 90 have a non-empty `diagram.image` and a distinct resolvable image path except for two intentional reuse pairs: `engine_bottom_end` / `engine_block_group` and `engine_upper_end` / `cylinder_head_group`, which share identical node-appropriate illustrations. The resulting inventory is 88 unique WebP files, 376 markers, 57 `VERIFIED_ARCHITECTURE`, and 33 `REFERENCE_ONLY`; no node claims `VERIFIED_EXACT`. The 30 nodes filled in the latest integration are documented in the full-catalog manifest and audit report. No new `part_id` was introduced in that integration.
+
+The visual audit opened all 90 assigned images and reviewed their marker overlays. Full-resolution review of `srs_sensors` showed both representative modules; its two markers were moved onto the visible sensor bodies. The node remains `REFERENCE_ONLY` because exact installed count/locations depend on build data. Runtime UI, Godot import, startup smoke, and Android export are not claimed as passed when the required Godot executable is unavailable in the current environment.
+
+The four 4×4-only entries (`angle_drive`, `propshaft`, `haldex`, `rear_differential`) stay `REFERENCE_ONLY`, explicitly marked as 4×4 references and not installed on this FWD project vehicle.
