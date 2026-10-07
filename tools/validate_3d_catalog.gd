@@ -499,7 +499,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var node_name := str(current_node.get("name", ""))
 		var node_breadcrumb: Button
 		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if button_node is Button and str((button_node as Button).text) == node_name:
+			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == node_name:
 				node_breadcrumb = button_node as Button
 				break
 		if node_breadcrumb == null:
@@ -743,11 +743,14 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 
 func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 	var fwd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
+	var original_window_size := root.size
 	for viewport_width in [360, 420]:
+		root.size = Vector2i(viewport_width, 780)
+		await _wait_for_layout(2)
 		var outer := ScrollContainer.new()
 		outer.name = "Technical catalog test scroll"
 		outer.position = Vector2.ZERO
-		outer.size = Vector2(viewport_width, 600)
+		outer.size = Vector2(viewport_width, 780)
 		outer.custom_minimum_size = outer.size
 		outer.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 		outer.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
@@ -790,7 +793,6 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
 			await _send_mobile_drag(section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
-			print("Section-card touch result: rect=%s outer_scroll=%d section=%s" % [section_card.get_global_rect(), outer.scroll_vertical, str(view.get("current_section_id"))])
 			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
 				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
 
@@ -882,6 +884,8 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		print("Responsive catalog layout and scroll PASS: %dpx" % viewport_width)
 		outer.queue_free()
 		await process_frame
+	root.size = original_window_size
+	await _wait_for_layout(2)
 
 	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
 	var app_source := app_source_file.get_as_text() if app_source_file != null else ""
