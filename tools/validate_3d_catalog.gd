@@ -557,7 +557,9 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 	var view := MobileTechnicalCatalogView.new()
 	root.add_child(view)
 	view.size = Vector2(420.0, 780.0)
-	var awd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"AWD", "transmission":"DSG 7", "transmission_family":"0AM / DQ200"}
+	# A separate 4x4 reference profile uses the AWD-era 02E context; it never
+	# replaces the saved FWD/DQ200 profile used by the app.
+	var awd_profile := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"AWD", "transmission":"DSG 6", "transmission_family":"02E / DQ250"}
 	view.set_vehicle_profile(awd_profile)
 	await process_frame
 	var expected := {
