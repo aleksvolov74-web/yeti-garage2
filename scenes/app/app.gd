@@ -107,6 +107,7 @@ var repair_finish_box: VBoxContainer
 
 func _ready() -> void:
     _build_ui()
+    resized.connect(_update_nav_styles)
     _connect_signals()
     _refresh_all()
 
@@ -287,6 +288,7 @@ func _add_nav_button(label_text: String, icon_path: String, target_box: VBoxCont
 
     var label := Label.new()
     label.text = label_text
+    label.set_meta("nav_label", label_text)
     label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     label.add_theme_font_size_override("font_size", 11)
@@ -367,6 +369,8 @@ func _update_nav_styles() -> void:
         if icon != null:
             icon.modulate = Color("16edf0") if active else Color("91a6b2")
         if label != null:
+            var full_label := str(label.get_meta("nav_label", label.text))
+            label.text = {"Диагностика":"Диагн.", "Справочник":"Каталог"}.get(full_label, full_label) if get_viewport_rect().size.x < 400.0 else full_label
             label.add_theme_color_override("font_color", Color("16edf0") if active else Color("91a6b2"))
         if line != null:
             line.visible = active
@@ -4546,7 +4550,7 @@ func _apply_touch_targets(node: Node) -> void:
         if hbar != null:
             hbar.modulate = Color(1, 1, 1, 0)
             hbar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    if node is Button and not (node is CheckBox):
+    if node is Button and not (node is CheckBox) and not (node is OptionButton):
         var button := node as Button
         if bool(button.get_meta("compact_icon_button", false)):
             # Compact icon actions must stay square; the previous global 48px height
@@ -4556,7 +4560,7 @@ func _apply_touch_targets(node: Node) -> void:
         else:
             button.custom_minimum_size.y = max(button.custom_minimum_size.y, 48.0)
         button.mouse_filter = Control.MOUSE_FILTER_PASS
-        button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        button.autowrap_mode = TextServer.AUTOWRAP_OFF if node.get_parent() is HBoxContainer else TextServer.AUTOWRAP_WORD_SMART
         button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
         if not button.has_theme_stylebox_override("normal"):
             button.add_theme_stylebox_override("normal", _style_box(Color("0a1d27e8"), 14, Color("194956"), 1))
@@ -4587,6 +4591,11 @@ func _apply_touch_targets(node: Node) -> void:
         if control != null:
             control.custom_minimum_size.y = max(control.custom_minimum_size.y, 48.0)
             control.mouse_filter = Control.MOUSE_FILTER_PASS
+        if node is OptionButton:
+            var selector := node as OptionButton
+            selector.fit_to_longest_item = false
+            selector.clip_text = true
+            selector.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
     elif node is CheckBox:
         var check := node as CheckBox
         check.custom_minimum_size.y = max(check.custom_minimum_size.y, 44.0)
@@ -4594,7 +4603,7 @@ func _apply_touch_targets(node: Node) -> void:
         check.add_theme_color_override("font_color", Color("d7e6ea"))
     elif node is Label or node is TextureRect or node is ColorRect or node is HSeparator or node is VSeparator:
         var passive := node as Control
-        if node is Label and not (node.get_parent() is HBoxContainer):
+        if node is Label and (not (node.get_parent() is HBoxContainer) or (node.size_flags_horizontal & Control.SIZE_EXPAND) != 0):
             (node as Label).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         if passive != null:
             passive.mouse_filter = Control.MOUSE_FILTER_IGNORE

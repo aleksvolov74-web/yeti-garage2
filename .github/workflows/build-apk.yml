@@ -49,7 +49,7 @@ jobs:
         shell: bash
         run: |
           apt-get update -qq
-          apt-get install -y -qq xvfb libgl1-mesa-dri libglx-mesa0 libfontconfig1 libxcursor1 libxinerama1 libxrandr2 libxi6 libxrender1
+          apt-get install -y -qq python3 xvfb libgl1-mesa-dri libglx-mesa0 libfontconfig1 libxcursor1 libxinerama1 libxrandr2 libxi6 libxrender1
 
       - name: Resolve app version
         shell: bash

@@ -40,9 +40,11 @@ func _initialize() -> void:
 		var pages: TabContainer = app.get("pages")
 		for index in range(pages.get_tab_count()):
 			pages.current_tab = index
+			app.call("_update_nav_styles")
 			await _frames(5)
 			await _check_page("tab_%d" % index, pages.get_child(index) as ScrollContainer)
 		pages.current_tab = 4
+		app.call("_update_nav_styles")
 		for method in ["_show_warning_lights", "_show_dtc_lookup", "_show_diagnostic_scenarios"]:
 			app.call(method)
 			await _frames(5)
@@ -60,6 +62,7 @@ func _initialize() -> void:
 		await _frames(6)
 		await _check_page("dtc_P0301", pages.get_child(4) as ScrollContainer)
 		pages.current_tab = 5
+		app.call("_update_nav_styles")
 		var catalog: Control = app.get("vehicle_3d_view")
 		catalog.call("focus_node", "engine_complete")
 		await _frames(6)
@@ -79,6 +82,7 @@ func _initialize() -> void:
 			await _capture("scheme_popup")
 			popup.hide()
 		pages.current_tab = 4
+		app.call("_update_nav_styles")
 		app.call("_show_dtc_lookup")
 		await _frames(3)
 		root.size = Vector2i(width, 480)
@@ -122,7 +126,7 @@ func _check_page(id: String, scroll: ScrollContainer) -> void:
 	var rect := scroll.get_global_rect()
 	for child in scroll.find_children("*", "Control", true, false):
 		var control := child as Control
-		if not control.is_visible_in_tree() or not (control is Button or control is Label or control is LineEdit or control is OptionButton): continue
+		if not control.is_visible_in_tree(): continue
 		var child_rect := control.get_global_rect()
 		if child_rect.end.x > rect.end.x + 1 or child_rect.position.x < rect.position.x - 1:
 			errors.append("%dpx %s horizontal overflow: %s %s" % [width, id, control.get_class(), str(child_rect)])
