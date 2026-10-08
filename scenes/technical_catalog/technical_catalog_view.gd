@@ -59,80 +59,6 @@ func set_vehicle_profile(vehicle: Dictionary) -> void:
 	if _content != null:
 		_render()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
-		var touch := event as InputEventScreenTouch
-		if touch.pressed:
-			if not get_global_rect().has_point(touch.position):
-				return
-			_catalog_touch_count += 1
-			if _catalog_touch_count > 1:
-				_cancel_catalog_scroll_tracking()
-			else:
-				_begin_catalog_scroll_tracking(touch.position, touch.index)
-			return
-		_catalog_touch_count = maxi(0, _catalog_touch_count - 1)
-		if touch.index == _catalog_touch_index:
-			if _catalog_touch_claimed:
-				get_viewport().set_input_as_handled()
-			_cancel_catalog_scroll_tracking()
-		return
-	if not (event is InputEventScreenDrag):
-		return
-	var drag := event as InputEventScreenDrag
-	if drag.index != _catalog_touch_index or _catalog_touch_scroll == null:
-		return
-	if _catalog_touch_canvas != null and float(_catalog_touch_canvas.get("_zoom")) > 1.01:
-		_cancel_catalog_scroll_tracking()
-		return
-	var displacement := drag.position - _catalog_touch_start
-	if not _catalog_touch_claimed and displacement.length() >= CATALOG_SCROLL_THRESHOLD and absf(displacement.y) > absf(displacement.x):
-		_catalog_touch_claimed = true
-		if _catalog_touch_canvas != null:
-			_catalog_touch_canvas.cancel_touch_sequence()
-		if _catalog_touch_button != null:
-			_catalog_touch_button.set_pressed_no_signal(false)
-	if _catalog_touch_claimed:
-		_catalog_touch_scroll.scroll_vertical = clampf(_catalog_scroll_start - displacement.y, 0.0, _catalog_touch_scroll.get_v_scroll_bar().max_value)
-		get_viewport().set_input_as_handled()
-
-func _input_event_target_control(position: Vector2) -> Control:
-	for candidate in find_children("*", "Control", true, false):
-		var control := candidate as Control
-		if control is BaseButton and control.get_global_rect().has_point(position):
-			return control
-		if control is TechnicalDiagramCanvas and control.get_global_rect().has_point(position):
-			return control
-	return null
-
-func _begin_catalog_scroll_tracking(position: Vector2, touch_index: int) -> void:
-	if not get_global_rect().has_point(position):
-		return
-	var ancestor: Node = get_parent()
-	while ancestor != null and not (ancestor is ScrollContainer):
-		ancestor = ancestor.get_parent()
-	if ancestor == null:
-		return
-	_catalog_touch_scroll = ancestor as ScrollContainer
-	_catalog_scroll_start = _catalog_touch_scroll.scroll_vertical
-	_catalog_touch_start = position
-	_catalog_touch_index = touch_index
-	_catalog_touch_claimed = false
-	_catalog_touch_button = null
-	_catalog_touch_canvas = null
-	var target := _input_event_target_control(position)
-	if target is BaseButton:
-		_catalog_touch_button = target as BaseButton
-	elif target is TechnicalDiagramCanvas:
-		_catalog_touch_canvas = target as TechnicalDiagramCanvas
-
-func _cancel_catalog_scroll_tracking() -> void:
-	_catalog_touch_index = -1
-	_catalog_touch_scroll = null
-	_catalog_touch_canvas = null
-	_catalog_touch_button = null
-	_catalog_touch_claimed = false
-
 func _build_shell() -> void:
 	var heading := HBoxContainer.new()
 	heading.add_theme_constant_override("separation", 10)
@@ -309,12 +235,13 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 			canvas.set_view_state(_pending_diagram_state)
 			_pending_diagram_state.clear()
 		_diagram = canvas
-		var controls := HBoxContainer.new()
+		var controls := HFlowContainer.new()
 		controls.add_theme_constant_override("separation", 8)
 		_content.add_child(controls)
 		controls.add_child(_action_button("Показать целиком", func(): canvas.reset_view()))
 		controls.add_child(_action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", _toggle_markers))
 		controls.add_child(_action_button("На весь экран", func(): _show_fullscreen_diagram()))
+		_add_visual_audit_note()
 		return
 	var empty := PanelContainer.new()
 	empty.add_theme_stylebox_override("panel", _panel_style(Color("091b25"), 16, BORDER))
@@ -445,34 +372,56 @@ func _render_part_detail() -> void:
 
 func _render_selected_part_card() -> void:
 	var part := PartCatalog.get_part(selected_part_id)
-	if part.is_empty():
-		return
+	if part.is_empty(): return
+	var number := 0
+	for marker in _current_node().get("diagram", {}).get("markers", []):
+		if str(marker.get("part_id", "")) == selected_part_id: number = int(marker.get("number", 0))
 	var card := PanelContainer.new()
-	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 16, CYAN))
+	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 14, CYAN))
 	_content.add_child(card)
 	var copy := VBoxContainer.new()
-	copy.add_theme_constant_override("separation", 7)
+	copy.add_theme_constant_override("separation", 8)
 	card.add_child(copy)
-	copy.add_child(_label(str(part.get("name", selected_part_id)), 18, TEXT))
-	var description := str(part.get("description", ""))
-	if description == "":
-		description = "Деталь выделена на схеме. Точное исполнение зависит от комплектации автомобиля."
-	var body := _muted_label(description)
-	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	copy.add_child(body)
+	copy.add_child(_label("№%d · %s" % [number, str(part.get("name", selected_part_id))], 18, TEXT))
+	var description := str(part.get("description", "Деталь выбрана. Исполнение сверяется по комплектации."))
+	copy.add_child(_muted_label(description))
+	var audit := _visual_audit_entry()
+	for marker in audit.get("markers", []):
+		if str(marker.get("part_id", "")) == selected_part_id and str(marker.get("visual_status", "")) in ["FAIL_MARKER", "NEEDS_REVIEW"]:
+			copy.add_child(_label("Расположение не подтверждено: " + str(marker.get("finding_ru", "")), 13, Color("ffd07b")))
 	var primary := _action_button("Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	primary.add_theme_color_override("font_color", CYAN)
-	_content.add_child(primary)
+	copy.add_child(primary)
 	var actions := GridContainer.new()
-	actions.columns = 3
+	actions.columns = 2
 	actions.add_theme_constant_override("h_separation", 6)
 	actions.add_theme_constant_override("v_separation", 6)
-	_content.add_child(actions)
+	copy.add_child(actions)
 	_add_action(actions, "Диагностика", func(): diagnostic_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	_add_action(actions, "Руководство", func(): manual_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	_add_action(actions, "История", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_content.add_child(_action_button("Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id)))))
-	_content.add_child(_action_button("Снять выделение", func(): selected_part_id = ""; _render()))
+	_add_action(actions, "Снять выделение", func(): selected_part_id = ""; _render())
+	var extra := _action_button("Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	extra.add_theme_color_override("font_color", MUTED)
+	copy.add_child(extra)
+
+func _visual_audit_entry() -> Dictionary:
+	var file := FileAccess.open("res://data/technical_visual_audit.json", FileAccess.READ)
+	if file == null: return {}
+	var value: Variant = JSON.parse_string(file.get_as_text())
+	if not value is Dictionary: return {}
+	return value.get("nodes", {}).get(str(_current_node().get("id", "")), {})
+
+func _add_visual_audit_note() -> void:
+	var audit := _visual_audit_entry()
+	if audit.is_empty(): return
+	var status := str(audit.get("architecture_status", "NEEDS_REVIEW"))
+	var text_value := "Справочная визуализация · точное исполнение не подтверждено"
+	if status == "FAIL_ARCHITECTURE": text_value = "Несоответствие конструкции · FAIL_ARCHITECTURE"
+	elif status == "NEEDS_REVIEW": text_value = "Схема требует проверки · NEEDS_REVIEW"
+	elif status == "NOT_APPLICABLE_FWD": text_value = "Не применяется к переднему приводу"
+	_content.add_child(_label(text_value, 13, Color("ffd07b")))
+	_content.add_child(_muted_label(str(audit.get("finding_ru", ""))))
 
 func _render_search_results() -> void:
 	var matches := TechnicalCatalog.search(search_query, _vehicle)
@@ -561,6 +510,10 @@ func _add_scheme_selector(section: Dictionary, selected: Dictionary) -> void:
 	var selector := OptionButton.new()
 	selector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	selector.custom_minimum_size.y = 48
+	selector.fit_to_longest_item = false
+	selector.clip_text = true
+	selector.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	selector.set_meta("scheme_selector", true)
 	for i in range(rows.size()):
 		var row: Dictionary = rows[i]
 		selector.add_item("%d / %d · %s" % [i + 1, rows.size(), str(row.get("name", "Узел"))], i)
@@ -568,6 +521,22 @@ func _add_scheme_selector(section: Dictionary, selected: Dictionary) -> void:
 			selector.select(i)
 	selector.item_selected.connect(func(index: int): _open_node(str(rows[index].get("id", ""))))
 	bar.add_child(selector)
+	selector.get_popup().about_to_popup.connect(func(): _bound_scheme_popup(selector, rows))
+
+func _bound_scheme_popup(selector: OptionButton, rows: Array) -> void:
+	var popup := selector.get_popup()
+	var width_limit := maxf(180.0, get_viewport_rect().size.x - 24.0)
+	var font := selector.get_theme_font("font")
+	var font_size := selector.get_theme_font_size("font_size")
+	for i in range(rows.size()):
+		var full := "%d / %d · %s" % [i + 1, rows.size(), str(rows[i].get("name", "Узел"))]
+		var shown := full
+		while shown.length() > 5 and font.get_string_size(shown + "…", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > width_limit - 56.0:
+			shown = shown.left(shown.length() - 1)
+		popup.set_item_text(i, shown + "…" if shown != full else full)
+		popup.set_item_tooltip(i, full)
+	popup.max_size = Vector2i(int(width_limit), int(get_viewport_rect().size.y * 0.65))
+	popup.size = Vector2i(int(width_limit), mini(popup.size.y, popup.max_size.y))
 
 func _open_section_root() -> void:
 	current_path.clear()
@@ -610,10 +579,11 @@ func _show_fullscreen_diagram() -> void:
 	var canvas := _diagram
 	var original_index := _content.get_children().find(canvas)
 	_content.remove_child(canvas)
+	canvas.custom_minimum_size.y = 0
 	canvas.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	layout.add_child(canvas)
-	var controls := HBoxContainer.new()
+	var controls := HFlowContainer.new()
 	controls.add_child(_action_button("Показать целиком", func(): canvas.reset_view()))
 	controls.add_child(_action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", func():
 		marker_numbers_visible = not marker_numbers_visible
@@ -825,7 +795,8 @@ func _add_breadcrumb(text_value: String, action: Callable) -> void:
 	var item_width := maxf(84.0, minf(available_width * 0.48, 220.0))
 	button.custom_minimum_size.x = item_width
 	var max_chars := maxi(12, int((item_width - 28.0) / 7.0))
-	button.text = text_value if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
+	button.text = text_value
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
 	button.set_meta("full_breadcrumb_text", text_value)
 	button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
 	button.custom_minimum_size.y = 40
@@ -846,6 +817,7 @@ func _action_button(text_value: String, action: Callable) -> Button:
 	var button := _card_button()
 	button.custom_minimum_size.y = 48
 	button.text = text_value
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.pressed.connect(action)
 	return button
 
@@ -922,6 +894,8 @@ func _label(value: String, font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.text = value
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
 	return label

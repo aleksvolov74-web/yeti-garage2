@@ -48,7 +48,15 @@
         "масло",
         "давление масла",
         "масленка"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "oil_level",
@@ -96,7 +104,15 @@
       "keywords": [
         "уровень масла",
         "масло"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "oil_sensor",
@@ -144,7 +160,15 @@
       "keywords": [
         "датчик масла",
         "масло"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "epc",
@@ -193,7 +217,15 @@
         "epc",
         "чек",
         "двигатель"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "check_engine",
@@ -243,7 +275,15 @@
         "чек",
         "mil",
         "двигатель"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "coolant",
@@ -293,7 +333,15 @@
         "температура",
         "перегрев",
         "охлаждение"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "charging",
@@ -342,7 +390,15 @@
         "аккумулятор",
         "генератор",
         "зарядка"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "brake",
@@ -391,7 +447,15 @@
         "тормоз",
         "тормоза",
         "brake"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "abs",
@@ -439,7 +503,15 @@
       "keywords": [
         "abs",
         "абс"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "esc",
@@ -488,14 +560,22 @@
         "esc",
         "esp",
         "стабилизация"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "asr_off",
       "title": "ASR отключена",
       "severity": "INFORMATION",
       "image": "res://assets/warning_lights/asr_off.svg",
-      "symbol_color": "#d9e0e5",
+      "symbol_color": "#f6a623",
       "summary": "Учитывайте, что противобуксовочная система отключена.",
       "meaning": "Лампа ASR OFF сообщает об отключённой противобуксовочной функции.",
       "what_to_do": "Включите ASR штатной кнопкой, если отключение не требуется для текущих условий.",
@@ -536,7 +616,15 @@
       "keywords": [
         "asr",
         "пробуксовка"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "steering",
@@ -584,7 +672,15 @@
       "keywords": [
         "усилитель руля",
         "рулевое"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "tire_pressure",
@@ -633,14 +729,22 @@
         "шины",
         "давление шин",
         "tpms"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "airbag",
       "title": "Подушки безопасности / SRS",
       "severity": "CHECK_SOON",
       "image": "res://assets/warning_lights/airbag.svg",
-      "symbol_color": "#f2b84b",
+      "symbol_color": "#f6a623",
       "summary": "Проверьте систему безопасности.",
       "meaning": "Лампа сообщает о неисправности системы подушек безопасности; защита при столкновении может быть ограничена.",
       "what_to_do": "Обратитесь в сервис для диагностики. Не проверяйте разъёмы системы SRS контрольной лампой.",
@@ -682,7 +786,15 @@
         "подушка",
         "srs",
         "airbag"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "seat_belt",
@@ -730,7 +842,15 @@
       "keywords": [
         "ремень",
         "ремень безопасности"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "parking_brake",
@@ -778,7 +898,15 @@
       "keywords": [
         "ручник",
         "стояночный тормоз"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "low_fuel",
@@ -826,7 +954,15 @@
       "keywords": [
         "топливо",
         "бензин"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     },
     {
       "id": "bulb",
@@ -875,7 +1011,15 @@
         "лампа",
         "лампочка",
         "освещение"
-      ]
+      ],
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
     }
   ]
 }

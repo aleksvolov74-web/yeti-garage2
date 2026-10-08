@@ -14,6 +14,7 @@ const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
 const FaultCatalog = preload("res://services/fault_catalog_service.gd")
+const ScrollGesture = preload("res://services/mobile_scroll_gesture.gd")
 const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
@@ -200,26 +201,14 @@ func _build_ui() -> void:
     _update_nav_styles()
 
 func _make_scroll_page(title: String) -> VBoxContainer:
-    # The home dashboard is a fixed screen by design. It must not move under a finger.
-    # Other sections remain scrollable because their content can legitimately be longer
-    # than one screen.
-    if title == "Машина":
-        var fixed_box := VBoxContainer.new()
-        fixed_box.name = title
-        fixed_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-        fixed_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
-        fixed_box.add_theme_constant_override("separation", 10)
-        fixed_box.mouse_filter = Control.MOUSE_FILTER_PASS
-        pages.add_child(fixed_box)
-        return fixed_box
-
     var scroll := ScrollContainer.new()
     scroll.name = title
     scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
     scroll.scroll_deadzone = 10
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     pages.add_child(scroll)
+    ScrollGesture.attach(scroll)
     # Long sections keep swipe scrolling, but never expose scrollbars.
     # Scrollable sections hide their bars; the technical catalog remains in this
     # same outer scroll area while its diagram canvas handles zoomed image gestures.
@@ -1230,7 +1219,7 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.scroll_deadzone = 4
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     scroll.set_meta("preserve_scroll_modes", true)
     var source_w := maxf(1.0, float(texture.get_width()))
     var source_h := maxf(1.0, float(texture.get_height()))
@@ -1648,7 +1637,7 @@ func _build_reminders_page() -> void:
     notification_enabled_toggle.toggled.connect(func(value: bool): Notifications.set_notifications_enabled(value))
     notification_controls_box.add_child(notification_enabled_toggle)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     notification_controls_box.add_child(actions)
     var permission_btn := Button.new()
@@ -2199,7 +2188,7 @@ func _show_diagnostic_result(result_text: String) -> void:
     note.modulate = Color("8793a1")
     diagnostic_content.add_child(note)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     diagnostic_content.add_child(actions)
 
@@ -2350,7 +2339,7 @@ func _open_global_search() -> void:
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.scroll_deadzone = 8
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     scroll.set_meta("preserve_scroll_modes", true)
     root.add_child(scroll)
     var results := VBoxContainer.new()
@@ -3070,7 +3059,7 @@ func _build_event_dialog() -> void:
     event_notes.placeholder_text = "Что делали, какие детали поставили, что заметили..."
     form.add_child(event_notes)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var cancel := Button.new()
@@ -3278,7 +3267,7 @@ func _create_sheet_popup(title_text: String, preferred_size: Vector2i = Vector2i
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.scroll_deadzone = 10
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     root.add_child(scroll)
 
     var content := VBoxContainer.new()
@@ -3302,7 +3291,7 @@ func _show_sheet_popup(sheet: Dictionary, preferred_size: Vector2i) -> void:
     popup.popup_centered(_mobile_dialog_size(preferred_size))
 
 func _add_sheet_actions(root: VBoxContainer, popup: PopupPanel, primary_text: String, on_primary: Callable) -> void:
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var cancel := Button.new()
@@ -3696,7 +3685,7 @@ func _refresh_history() -> void:
             notes.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
             notes.modulate = Color("b3bdc8")
             card.add_child(notes)
-        var actions := HBoxContainer.new()
+        var actions := VBoxContainer.new()
         card.add_child(actions)
         var details := Button.new()
         details.text = "Открыть"
@@ -3723,7 +3712,7 @@ func _refresh_maintenance() -> void:
         status.text = _maintenance_summary(item)
         status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         card.add_child(status)
-        var actions := HBoxContainer.new()
+        var actions := VBoxContainer.new()
         actions.add_theme_constant_override("separation", 8)
         card.add_child(actions)
         var done := Button.new()
@@ -3775,7 +3764,7 @@ func _refresh_reminders() -> void:
             message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
             message.modulate = Color("b9c3ce")
             card.add_child(message)
-            var actions := HBoxContainer.new()
+            var actions := VBoxContainer.new()
             actions.add_theme_constant_override("separation", 8)
             card.add_child(actions)
             var done := Button.new()
@@ -4080,7 +4069,7 @@ func _open_mileage_history() -> void:
             meta.add_theme_color_override("font_color", Color("9ba6b2"))
             card.add_child(meta)
 
-            var actions := HBoxContainer.new()
+            var actions := VBoxContainer.new()
             actions.add_theme_constant_override("separation", 8)
             card.add_child(actions)
 
@@ -4292,7 +4281,7 @@ func _show_event_details(event: Dictionary) -> void:
         notes.add_theme_color_override("font_color", Color("c9d9df"))
         box.add_child(notes)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var close := Button.new()
@@ -4411,7 +4400,7 @@ func _open_confirm_popup(title_text: String, body_text: String, confirm_text: St
     body.add_theme_font_size_override("font_size", 14)
     body.add_theme_color_override("font_color", Color("c6d7de"))
     box.add_child(body)
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     box.add_child(actions)
     var cancel := Button.new()
@@ -4543,15 +4532,12 @@ func _apply_touch_targets(node: Node) -> void:
     if node is ScrollContainer:
         var scroll := node as ScrollContainer
         scroll.scroll_deadzone = 10
-        scroll.follow_focus = false
+        scroll.follow_focus = true
+        ScrollGesture.attach(scroll)
         scroll.mouse_filter = Control.MOUSE_FILTER_STOP
         if not bool(scroll.get_meta("preserve_scroll_modes", false)):
             scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-            scroll.vertical_scroll_mode = (
-                ScrollContainer.SCROLL_MODE_DISABLED
-                if str(scroll.name) == "Машина" and get_viewport_rect().size.y >= 900.0
-                else ScrollContainer.SCROLL_MODE_SHOW_NEVER
-            )
+            scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
         var vbar := scroll.get_v_scroll_bar()
         if vbar != null:
             vbar.modulate = Color(1, 1, 1, 0)
@@ -4570,6 +4556,8 @@ func _apply_touch_targets(node: Node) -> void:
         else:
             button.custom_minimum_size.y = max(button.custom_minimum_size.y, 48.0)
         button.mouse_filter = Control.MOUSE_FILTER_PASS
+        button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
         if not button.has_theme_stylebox_override("normal"):
             button.add_theme_stylebox_override("normal", _style_box(Color("0a1d27e8"), 14, Color("194956"), 1))
             button.add_theme_stylebox_override("hover", _style_box(Color("0b2c36f2"), 14, Color("1edee6"), 1, Color("00e7e74b"), 5))
@@ -4606,6 +4594,8 @@ func _apply_touch_targets(node: Node) -> void:
         check.add_theme_color_override("font_color", Color("d7e6ea"))
     elif node is Label or node is TextureRect or node is ColorRect or node is HSeparator or node is VSeparator:
         var passive := node as Control
+        if node is Label:
+            (node as Label).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         if passive != null:
             passive.mouse_filter = Control.MOUSE_FILTER_IGNORE
     elif (node is Container or node is Panel) and not (node is ScrollContainer):

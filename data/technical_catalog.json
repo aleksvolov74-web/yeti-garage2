@@ -182,8 +182,8 @@
               {
                 "number": 2,
                 "part_id": "cylinder_head",
-                "x": 0.55,
-                "y": 0.4
+                "x": 0.54,
+                "y": 0.2
               },
               {
                 "number": 3,
@@ -424,7 +424,7 @@
                 "number": 2,
                 "part_id": "accessory_belt_drive",
                 "x": 0.42,
-                "y": 0.72
+                "y": 0.82
               },
               {
                 "number": 3,
@@ -496,8 +496,8 @@
               {
                 "number": 3,
                 "part_id": "timing_chain_tensioner",
-                "x": 0.62,
-                "y": 0.52
+                "x": 0.63,
+                "y": 0.4
               },
               {
                 "number": 4,
@@ -612,8 +612,8 @@
               {
                 "number": 1,
                 "part_id": "timing_sprockets",
-                "x": 0.51,
-                "y": 0.2
+                "x": 0.55,
+                "y": 0.13
               },
               {
                 "number": 2,
@@ -860,8 +860,8 @@
               {
                 "number": 4,
                 "part_id": "fuel_filter",
-                "x": 0.65,
-                "y": 0.25
+                "x": 0.64,
+                "y": 0.36
               },
               {
                 "number": 5,
@@ -872,8 +872,8 @@
               {
                 "number": 6,
                 "part_id": "fuel_tank_straps",
-                "x": 0.56,
-                "y": 0.79
+                "x": 0.59,
+                "y": 0.84
               }
             ],
             "source": {
@@ -943,7 +943,7 @@
               {
                 "number": 5,
                 "part_id": "injectors",
-                "x": 0.63,
+                "x": 0.68,
                 "y": 0.65
               }
             ],
@@ -987,8 +987,8 @@
               {
                 "number": 1,
                 "part_id": "fuel_pressure_sensor",
-                "x": 0.49,
-                "y": 0.17
+                "x": 0.45,
+                "y": 0.2
               },
               {
                 "number": 2,
@@ -1084,8 +1084,8 @@
               {
                 "number": 6,
                 "part_id": "coolant_hoses",
-                "x": 0.84,
-                "y": 0.25
+                "x": 0.77,
+                "y": 0.15
               }
             ],
             "source": {
@@ -1153,8 +1153,8 @@
               {
                 "number": 4,
                 "part_id": "thermostat",
-                "x": 0.36,
-                "y": 0.38
+                "x": 0.42,
+                "y": 0.31
               },
               {
                 "number": 5,
@@ -1504,8 +1504,8 @@
               {
                 "number": 2,
                 "part_id": "oxygen_sensor",
-                "x": 0.35,
-                "y": 0.15
+                "x": 0.28,
+                "y": 0.16
               },
               {
                 "number": 3,
@@ -1522,8 +1522,8 @@
               {
                 "number": 5,
                 "part_id": "front_exhaust_pipe",
-                "x": 0.81,
-                "y": 0.61
+                "x": 0.86,
+                "y": 0.7
               },
               {
                 "number": 6,
@@ -1599,8 +1599,8 @@
               {
                 "number": 5,
                 "part_id": "exhaust_heat_shield",
-                "x": 0.66,
-                "y": 0.3
+                "x": 0.75,
+                "y": 0.48
               }
             ],
             "source": {
@@ -2016,8 +2016,8 @@
               {
                 "number": 4,
                 "part_id": "outer_cv_boot",
-                "x": 0.68,
-                "y": 0.35
+                "x": 0.74,
+                "y": 0.43
               },
               {
                 "number": 5,
@@ -2589,8 +2589,8 @@
               {
                 "number": 4,
                 "part_id": "suspension_bushings",
-                "x": 0.56,
-                "y": 0.64
+                "x": 0.61,
+                "y": 0.7
               },
               {
                 "number": 5,
@@ -2690,7 +2690,7 @@
               {
                 "number": 6,
                 "part_id": "strut",
-                "x": 0.68,
+                "x": 0.73,
                 "y": 0.73
               }
             ],
@@ -2810,8 +2810,8 @@
                   {
                     "number": 2,
                     "part_id": "brake_caliper",
-                    "x": 0.9,
-                    "y": 0.65
+                    "x": 0.82,
+                    "y": 0.55
                   },
                   {
                     "number": 3,
@@ -2876,7 +2876,7 @@
                   {
                     "number": 2,
                     "part_id": "cv_joint_outer",
-                    "x": 0.72,
+                    "x": 0.63,
                     "y": 0.5
                   },
                   {
@@ -3113,8 +3113,8 @@
               {
                 "number": 7,
                 "part_id": "rear_shock_absorber",
-                "x": 0.88,
-                "y": 0.3
+                "x": 0.865,
+                "y": 0.34
               },
               {
                 "number": 8,
@@ -3125,8 +3125,8 @@
               {
                 "number": 9,
                 "part_id": "rear_hub_carrier",
-                "x": 0.84,
-                "y": 0.6
+                "x": 0.92,
+                "y": 0.64
               }
             ],
             "source": {
@@ -3202,8 +3202,8 @@
               {
                 "number": 5,
                 "part_id": "rear_track_rod",
-                "x": 0.75,
-                "y": 0.32
+                "x": 0.79,
+                "y": 0.36
               },
               {
                 "number": 6,
@@ -3283,7 +3283,7 @@
               {
                 "number": 4,
                 "part_id": "rear_shock_absorber",
-                "x": 0.67,
+                "x": 0.63,
                 "y": 0.48
               },
               {
@@ -3373,8 +3373,8 @@
               {
                 "number": 5,
                 "part_id": "rear_wheel_speed_sensor",
-                "x": 0.52,
-                "y": 0.21
+                "x": 0.515,
+                "y": 0.29
               },
               {
                 "number": 6,
@@ -3519,7 +3519,7 @@
                 "number": 4,
                 "part_id": "steering_tie_rod",
                 "x": 0.82,
-                "y": 0.56
+                "y": 0.63
               },
               {
                 "number": 5,
@@ -3594,13 +3594,13 @@
                 "number": 1,
                 "part_id": "steering_tie_rod",
                 "x": 0.37,
-                "y": 0.55
+                "y": 0.46
               },
               {
                 "number": 2,
                 "part_id": "tie_rod_end",
-                "x": 0.13,
-                "y": 0.59
+                "x": 0.12,
+                "y": 0.51
               },
               {
                 "number": 3,
@@ -3611,8 +3611,8 @@
               {
                 "number": 4,
                 "part_id": "tie_rod_lock_nut",
-                "x": 0.25,
-                "y": 0.53
+                "x": 0.2,
+                "y": 0.51
               }
             ],
             "source": {
@@ -4738,8 +4738,8 @@
               {
                 "number": 5,
                 "part_id": "battery_ground_cable",
-                "x": 0.25,
-                "y": 0.62
+                "x": 0.27,
+                "y": 0.7
               },
               {
                 "number": 6,
@@ -4819,14 +4819,14 @@
               {
                 "number": 4,
                 "part_id": "automotive_relays",
-                "x": 0.29,
-                "y": 0.79
+                "x": 0.33,
+                "y": 0.73
               },
               {
                 "number": 5,
                 "part_id": "blade_fuses",
                 "x": 0.18,
-                "y": 0.85
+                "y": 0.9
               }
             ],
             "source": {
@@ -5032,8 +5032,8 @@
               {
                 "number": 3,
                 "part_id": "spark_plugs",
-                "x": 0.82,
-                "y": 0.16
+                "x": 0.86,
+                "y": 0.21
               },
               {
                 "number": 4,
@@ -5208,8 +5208,8 @@
               {
                 "number": 5,
                 "part_id": "license_plate_lamp",
-                "x": 0.5,
-                "y": 0.7
+                "x": 0.37,
+                "y": 0.75
               }
             ],
             "source": {
@@ -5728,8 +5728,8 @@
               {
                 "number": 2,
                 "part_id": "wiper_linkage",
-                "x": 0.4,
-                "y": 0.56
+                "x": 0.34,
+                "y": 0.61
               },
               {
                 "number": 3,
