@@ -35,19 +35,31 @@ static func valid_code(value: String) -> bool:
 	regex.compile("^[PUCB][0-9A-F]{4}$")
 	return regex.search(normalize_code(value)) != null
 
+static func valid_lookup_code(value: String) -> bool:
+	var regex := RegEx.new()
+	regex.compile("^[0-9]{5,6}$")
+	for token in normalize_code(value).split("/", true):
+		if not valid_code(token) and regex.search(token) == null: return false
+	return value.strip_edges() != ""
+
 static func dtc(code: String) -> Dictionary:
 	_load()
-	var normalized := normalize_code(code)
+	var tokens := normalize_code(code).split("/", true)
+	if not valid_lookup_code(code): return {}
 	for row_value in _dtcs:
 		var row: Dictionary = row_value
-		if str(row.get("code", "")) == normalized:
-			return row.duplicate(true)
+		var matches := true
+		for token in tokens:
+			if str(row.get("code", "")) != token and token not in row.get("vag_codes", []):
+				matches = false
+		if matches: return row.duplicate(true)
 	return {}
 
 static func search(query: String) -> Array:
 	_load()
 	var q := query.strip_edges().to_lower().replace("ё", "е")
 	var normalized_code := normalize_code(query)
+	var exact_match := dtc(query)
 	var result: Array = []
 	if q == "":
 		return result
@@ -58,7 +70,8 @@ static func search(query: String) -> Array:
 			result.append({"kind":"warning", "id":str(row.get("id", "")), "name":str(row.get("title", "")), "subtitle":"Лампа"})
 	for row_value in _dtcs:
 		var row: Dictionary = row_value
-		if normalized_code in str(row.get("code", "")) or q in str(row.get("title_ru", "")).to_lower():
+		var aliases := " ".join(row.get("vag_codes", []))
+		if normalized_code in str(row.get("code", "")) or normalized_code in aliases or str(exact_match.get("code", "")) == str(row.get("code", "")) or q in str(row.get("title_ru", "")).to_lower():
 			result.append({"kind":"dtc", "id":str(row.get("code", "")), "name":str(row.get("code", "")) + " · " + str(row.get("title_ru", "")), "subtitle":"Код ошибки"})
 	return result
 
@@ -88,6 +101,7 @@ static func validate() -> Array[String]:
 		var flow := str(row.get("related_diagnostic_flow", ""))
 		if flow != "" and DiagnosticService.flow(flow).is_empty(): errors.append("warning flow missing: " + id + " -> " + flow)
 	var seen_codes: Dictionary = {}
+	var seen_vag_aliases: Dictionary = {}
 	for row_value in _dtcs:
 		var row: Dictionary = row_value
 		var code := str(row.get("code", ""))
@@ -97,6 +111,13 @@ static func validate() -> Array[String]:
 		var dtc_source: Dictionary = row.get("source", {})
 		if dtc_source.is_empty() or not str(dtc_source.get("url", "")).begins_with("https://"): errors.append("DTC source missing: " + code)
 		if str(row.get("verification_status", "")) not in ["GENERIC_OBD", "VAG_SPECIFIC", "REFERENCE_ONLY"]: errors.append("DTC verification status invalid: " + code)
+		if str(row.get("verification_status", "")) == "VAG_SPECIFIC" and str(row.get("applicability", "")) == "": errors.append("VAG applicability missing: " + code)
+		for alias_value in row.get("vag_codes", []):
+			var alias := str(alias_value)
+			if not valid_lookup_code(alias): errors.append("invalid VAG alias: " + code + " -> " + alias)
+			if seen_vag_aliases.has(alias): errors.append("duplicate VAG alias: " + alias)
+			if seen_codes.has(alias): errors.append("alias collides with a canonical DTC: " + alias)
+			seen_vag_aliases[alias] = true
 		for node_id in row.get("related_node_ids", []):
 			if TechnicalCatalog.find_node(str(node_id), vehicle).is_empty(): errors.append("DTC node missing: " + code + " -> " + str(node_id))
 		for part_id in row.get("related_part_ids", []):

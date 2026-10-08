@@ -1867,13 +1867,16 @@ func _show_dtc_lookup(saved_id: String = "") -> void:
     heading.add_theme_font_size_override("font_size", 21)
     diagnostic_content.add_child(heading)
     var field := LineEdit.new()
-    field.placeholder_text = "P0301, Uxxxx, Cxxxx или Bxxxx"
+    field.placeholder_text = "P189C, 006300, P130A или P0301"
     field.custom_minimum_size.y = 50
     diagnostic_content.add_child(field)
     var result_box := VBoxContainer.new()
     result_box.add_theme_constant_override("separation", 9)
     diagnostic_content.add_child(result_box)
-    var lookup := func(): _show_dtc_detail(FaultCatalog.normalize_code(field.text), result_box)
+    var lookup := func():
+        field.release_focus()
+        DisplayServer.virtual_keyboard_hide()
+        _show_dtc_detail(FaultCatalog.normalize_code(field.text), result_box)
     field.text_submitted.connect(func(_text: String): lookup.call())
     var button := Button.new()
     button.text = "Найти код"
@@ -1884,12 +1887,12 @@ func _show_dtc_lookup(saved_id: String = "") -> void:
 
 func _show_dtc_detail(code: String, target: VBoxContainer) -> void:
     _clear_children(target)
-    if not FaultCatalog.valid_code(code):
-        _fault_text_block(target, "Формат кода", "Введите полный код: Pxxxx, Uxxxx, Cxxxx или Bxxxx.")
-        return
     var row := FaultCatalog.dtc(code)
     if row.is_empty():
-        _fault_text_block(target, "Код отсутствует", "Код пока отсутствует в локальной базе Yeti Garage. Сохраните полный код и текст сканера.")
+        if not FaultCatalog.valid_lookup_code(code):
+            _fault_text_block(target, "Формат кода", "Введите Pxxxx, Uxxxx, Cxxxx, Bxxxx или 5–6-значный код VAG из сканера.")
+        else:
+            _fault_text_block(target, "Код отсутствует", "Код пока отсутствует в локальной базе Yeti Garage. Сохраните полный код, название блока и текст сканера. Не придумываем трактовку неизвестной ошибки.")
         return
     var badge := Label.new()
     badge.text = str(row.get("code", "")) + " · " + str(row.get("title_ru", ""))
@@ -1904,7 +1907,15 @@ func _show_dtc_detail(code: String, target: VBoxContainer) -> void:
         image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
         image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
         target.add_child(image)
-    _fault_text_block(target, "Срочность", "Проверьте код до дальнейшей эксплуатации. Если двигатель сильно трясёт или Check Engine мигает, остановитесь и не нагружайте двигатель.")
+    var severity_note := "Сохраните код и проверьте систему до продолжения обычной эксплуатации."
+    match str(row.get("severity", "CHECK_SOON")):
+        "STOP":
+            severity_note = "Если горит красная лампа давления масла или есть признаки потери давления, безопасно остановитесь и заглушите двигатель. Не продолжайте движение до проверки."
+        "URGENT_CHECK":
+            severity_note = "Нужна срочная диагностика. При сильной тряске двигателя, мигании Check Engine, исчезновении тяги или неконтролируемом переключении передач безопасно остановитесь."
+        "INFORMATION":
+            severity_note = "Сохраните код и проверьте обстоятельства его появления."
+    _fault_text_block(target, "Срочность", severity_note)
     _fault_text_block(target, "Что означает", str(row.get("description", "")))
     _fault_text_list(target, "Что водитель может заметить", row.get("driver_symptoms", []))
     _fault_text_list(target, "Возможные причины", row.get("possible_causes", []))
@@ -1926,8 +1937,20 @@ func _show_dtc_detail(code: String, target: VBoxContainer) -> void:
         diagram.custom_minimum_size.y = 48
         diagram.pressed.connect(_open_fault_node.bind(str(nodes[0])))
         actions.add_child(diagram)
-    _fault_text_block(target, "Тип кода", "GENERIC OBD-II · общее описание SAE J2012; точная трактовка зависит от блока управления.")
-    _add_save_fault_action(target, "", code, str(row.get("title_ru", "Код ошибки")))
+    var code_kind := "GENERIC OBD-II · общее описание SAE J2012."
+    if str(row.get("verification_status", "")) == "VAG_SPECIFIC":
+        code_kind = "VAG_SPECIFIC · Код VAG · проверенная трактовка семейства VAG, не гарантия появления на конкретном ЭБУ."
+    elif str(row.get("verification_status", "")) == "REFERENCE_ONLY":
+        code_kind = "Справочное описание · проверьте по номеру блока управления."
+    _fault_text_block(target, "Тип кода", code_kind)
+    var aliases: Array = row.get("vag_codes", [])
+    if not aliases.is_empty():
+        _fault_text_block(target, "Другие номера сканера", " / ".join(aliases))
+    _fault_text_block(target, "Для какого автомобиля", str(row.get("applicability", "Требуется сверка с автомобилем и блоком управления.")))
+    var code_source: Dictionary = row.get("source", {})
+    if not code_source.is_empty():
+        _fault_text_block(target, "Источник", str(code_source.get("title", "")) + "\n" + str(code_source.get("url", "")))
+    _add_save_fault_action(target, "", str(row.get("code", code)), str(row.get("title_ru", "Код ошибки")))
     _add_saved_fault_status(target)
 
 func _fault_text_block(parent: Control, heading_text: String, body_text: String) -> void:
@@ -2482,7 +2505,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
                 dtc_button.pressed.connect(dtc_action)
                 results.add_child(dtc_button)
                 total_shown += 1
-    elif FaultCatalog.valid_code(query):
+    elif FaultCatalog.valid_lookup_code(query):
         _add_search_section_label(results, "Код ошибки")
         var unknown_code := FaultCatalog.normalize_code(query)
         var unknown_button := Button.new()

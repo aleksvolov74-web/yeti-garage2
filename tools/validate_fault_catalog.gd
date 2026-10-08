@@ -3,6 +3,7 @@ extends SceneTree
 const TechnicalCatalog = preload("res://services/technical_catalog_service.gd")
 const FaultCatalog = preload("res://services/fault_catalog_service.gd")
 const PartCatalog = preload("res://services/part_catalog_service.gd")
+const AppScript = preload("res://scenes/app/app.gd")
 const CatalogViewScript = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
 
 func _initialize() -> void:
@@ -74,9 +75,34 @@ func _initialize() -> void:
 		if route_index % 8 == 0: await process_frame
 	if not FaultCatalog.dtc("P9999").is_empty(): errors.append("unknown DTC unexpectedly has a description")
 	var warning_count := FaultCatalog.warnings().size()
-	var dtc_count := FaultCatalog.dtcs().size()
+	var dtc_rows: Array = FaultCatalog.dtcs()
+	var dtc_count := dtc_rows.size()
+	var generic_count := 0
+	var vag_count := 0
+	var mapped_count := 0
+	for row_value in dtc_rows:
+		var dtc_row: Dictionary = row_value
+		if str(dtc_row.get("verification_status", "")) == "GENERIC_OBD": generic_count += 1
+		if str(dtc_row.get("verification_status", "")) == "VAG_SPECIFIC": vag_count += 1
+		if str(dtc_row.get("dashboard_warning_id", "")) != "": mapped_count += 1
+	if warning_count != 18: errors.append("warning total changed: %d" % warning_count)
+	if dtc_count != 41 or generic_count != 31 or vag_count != 10 or mapped_count != 36:
+		errors.append("DTC counts changed: total=%d generic=%d VAG=%d warning_mapped=%d" % [dtc_count, generic_count, vag_count, mapped_count])
+	for expected in [["006300", "P189C"], ["005634", "P1602"], ["18010", "P1602"], ["013131", "P334B"], ["P189C/006300", "P189C"]]:
+		var result: Dictionary = FaultCatalog.dtc(str(expected[0]))
+		if str(result.get("code", "")) != str(expected[1]): errors.append("VAG code lookup failed: " + str(expected[0]))
+	if not FaultCatalog.dtc("012345").is_empty(): errors.append("unknown VAG numeric code fabricated")
+	for query in ["P189C", "006300", "P189C/006300", " p189c / 006300 ", "P1602", "18010", "005634", "P334B", "013131"]:
+		var lookup: Dictionary = FaultCatalog.dtc(query)
+		var hits: Array = FaultCatalog.search(query)
+		var found := false
+		for hit in hits:
+			if str(hit.get("kind", "")) == "dtc" and str(hit.get("id", "")) == str(lookup.get("code", "")): found = true
+		if not found: errors.append("VAG global search failed: " + query)
+	await _check_vag_diagnostics_ui(errors, view)
+
 	print("Catalog validation: sections=%d nodes=%d images=%d markers=%d unique_marker_parts=%d" % [sections.size(), int(counts.nodes), int(counts.images), int(counts.markers), marker_parts.size()])
-	print("Fault validation: warnings=%d warning_images=%d dtcs=%d generic_obd=%d" % [warning_count, warning_count, dtc_count, dtc_count])
+	print("Fault validation: warnings=%d warning_images=%d dtcs=%d generic_obd=%d vag_specific=%d warning_mapped=%d" % [warning_count, warning_count, dtc_count, generic_count, vag_count, mapped_count])
 	if errors.is_empty():
 		print("FAULT_AND_CATALOG_VALIDATION=PASS")
 		quit(0)
@@ -102,3 +128,73 @@ func _walk(rows: Array, counts: Dictionary, marker_parts: Dictionary) -> void:
 			marker_parts[str(marker.get("part_id", ""))] = true
 		var child_rows: Array = row.get("nodes", row.get("children", []))
 		_walk(child_rows, counts, marker_parts)
+
+func _check_vag_diagnostics_ui(errors: Array[String], catalog_view: Control) -> void:
+	for width in [360, 420]:
+		var viewport := SubViewport.new()
+		viewport.size = Vector2i(width, 780)
+		root.add_child(viewport)
+		var scroll := ScrollContainer.new()
+		scroll.size = Vector2(width, 780)
+		scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+		viewport.add_child(scroll)
+		var content := VBoxContainer.new()
+		content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		scroll.add_child(content)
+		# Use the production diagnostics methods with a real mobile container.
+		# The app stays detached so its dashboard does not alter user storage.
+		var app: Control = AppScript.new()
+		app.set("diagnostic_content", content)
+		app.set("mobile_technical_catalog", true)
+		app.set("vehicle_3d_view", catalog_view)
+		var catalog_box := VBoxContainer.new()
+		app.set("vehicle_3d_box", catalog_box)
+		for code in ["P189C", "P189A", "P334B", "P130A", "P164B", "P1602", "P1570", "P1297", "P307A", "P1558", "P0301"]:
+			app.call("_show_dtc_lookup")
+			await process_frame
+			var field: LineEdit = content.find_children("*", "LineEdit", true, false)[0]
+			field.text = "006300" if code == "P189C" else code
+			field.text_submitted.emit(field.text)
+			for frame in range(4): await process_frame
+			if field.has_focus(): errors.append("DTC submission did not dismiss keyboard focus")
+			var texts := _ui_text(content)
+			for heading in [code, "Что означает", "Возможные причины", "Что проверить сначала", "Возможные решения", "Для какого автомобиля", "Источник"]:
+				if heading not in texts: errors.append("DTC UI missing %s at %dpx: %s" % [heading, width, code])
+			if code != "P0301" and "VAG_SPECIFIC" not in texts: errors.append("VAG status not visible: " + code)
+			var record: Dictionary = FaultCatalog.dtc(code)
+			var images := content.find_children("*", "TextureRect", true, false)
+			if str(record.get("dashboard_warning_id", "")) == "" and not images.is_empty(): errors.append("invented dashboard icon: " + code)
+			if str(record.get("dashboard_warning_id", "")) != "" and images.is_empty(): errors.append("mapped dashboard icon missing: " + code)
+			if code == "P164B" and "заглушите двигатель" not in texts: errors.append("oil pressure immediate action missing")
+			if code == "P130A" and "безопасно остановитесь" not in texts: errors.append("misfire immediate action missing")
+			if content.get_combined_minimum_size().x > width + 1: errors.append("DTC horizontal overflow %dpx: %s" % [width, code])
+			var bar := scroll.get_v_scroll_bar()
+			scroll.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
+			await process_frame
+			if scroll.scroll_vertical <= 0: errors.append("DTC page bottom unreachable: " + code)
+			for node in content.find_children("*", "Button", true, false):
+				var button := node as Button
+				if button.text == "Показать на схеме":
+					button.pressed.emit()
+					var diagram: Variant = catalog_view.get("_diagram")
+					var selected: Dictionary = catalog_view.call("_current_node")
+					if diagram == null or diagram.texture == null or str(selected.get("id", "")) != str(record.get("related_node_ids", [""])[0]): errors.append("DTC scheme route failed: " + code)
+					if str(catalog_view.get("selected_part_id")) != "": errors.append("DTC selected an arbitrary marker: " + code)
+		for unknown in ["P9999", "012345"]:
+			app.call("_show_dtc_lookup")
+			await process_frame
+			var field: LineEdit = content.find_children("*", "LineEdit", true, false)[0]
+			field.text = unknown
+			field.text_submitted.emit(unknown)
+			await process_frame
+			if "Код отсутствует" not in _ui_text(content) or "Возможные решения" in _ui_text(content): errors.append("unknown DTC invented: " + unknown)
+		app.free()
+		catalog_box.free()
+		viewport.queue_free()
+		await process_frame
+		print("VAG diagnostics mobile UI smoke executed: %dpx" % width)
+
+func _ui_text(parent: Node) -> String:
+	var texts := PackedStringArray()
+	for label in parent.find_children("*", "Label", true, false): texts.append(str(label.text))
+	return "\n".join(texts)
