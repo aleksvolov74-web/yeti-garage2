@@ -257,6 +257,10 @@ func _run_checks() -> void:
 		failures.append("existing part deep link did not reach the mobile detail card")
 	for button_node in mobile_view.find_children("*", "Button", true, false):
 		var button := button_node as Button
+		if button is OptionButton:
+			if (button as OptionButton).get_signal_connection_list("item_selected").is_empty():
+				failures.append("mobile catalog scheme selector '%s' has no action" % button.text)
+			continue
 		if button.get_signal_connection_list("pressed").is_empty():
 			failures.append("mobile catalog button '%s' has no action" % button.text)
 	mobile_view.queue_free()
