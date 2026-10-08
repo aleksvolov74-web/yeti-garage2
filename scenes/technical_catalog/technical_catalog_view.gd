@@ -30,6 +30,7 @@ var _breadcrumb: HFlowContainer
 var _title: Label
 var _diagram: TechnicalDiagramCanvas
 var _selected_part_card: PanelContainer
+var _visual_audit_cache: Dictionary = {}
 var _vehicle: Dictionary = {}
 var _section_columns := 0
 var _root_resize_queued := false
@@ -206,7 +207,12 @@ func _render_node(section: Dictionary, node: Dictionary) -> void:
 	_add_scheme_selector(section, node)
 	var image_kind := str(diagram_data.get("image_type", ""))
 	var kind_label := {"exploded_view":"Взрывная схема", "assembled_view":"Общий вид", "technical_illustration":"Техническая схема", "reference_card":"Справочная схема"}.get(image_kind, "Схема")
-	_content.add_child(_muted_label(kind_label))
+	var audit_status := str(_visual_audit_entry().get("architecture_status", "NEEDS_REVIEW"))
+	var audit_badge := "Справочно"
+	if audit_status == "FAIL_ARCHITECTURE": audit_badge = "Несоответствие конструкции"
+	elif audit_status == "NEEDS_REVIEW": audit_badge = "Требует проверки"
+	elif audit_status == "NOT_APPLICABLE_FWD": audit_badge = "Не применяется к FWD"
+	_content.add_child(_label(str(kind_label) + " · " + audit_badge, 13, Color("ffd07b") if audit_status != "REFERENCE_ONLY" else MUTED))
 	if str(diagram_data.get("image", "")) == "":
 		var summary := _muted_label(str(node.get("summary", section.get("summary", ""))))
 		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -415,11 +421,13 @@ func _render_selected_part_card() -> void:
 	copy.add_child(extra)
 
 func _visual_audit_entry() -> Dictionary:
-	var file := FileAccess.open("res://data/technical_visual_audit.json", FileAccess.READ)
-	if file == null: return {}
-	var value: Variant = JSON.parse_string(file.get_as_text())
-	if not value is Dictionary: return {}
-	return value.get("nodes", {}).get(str(_current_node().get("id", "")), {})
+	if _visual_audit_cache.is_empty():
+		var file := FileAccess.open("res://data/technical_visual_audit.json", FileAccess.READ)
+		if file == null: return {}
+		var value: Variant = JSON.parse_string(file.get_as_text())
+		if not value is Dictionary: return {}
+		_visual_audit_cache = value.get("nodes", {})
+	return _visual_audit_cache.get(str(_current_node().get("id", "")), {})
 
 func _add_visual_audit_note() -> void:
 	var audit := _visual_audit_entry()
