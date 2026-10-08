@@ -3,7 +3,6 @@ extends SceneTree
 const TechnicalCatalog = preload("res://services/technical_catalog_service.gd")
 const FaultCatalog = preload("res://services/fault_catalog_service.gd")
 const PartCatalog = preload("res://services/part_catalog_service.gd")
-const AppScript = preload("res://scenes/app/app.gd")
 const CatalogViewScript = preload("res://scenes/technical_catalog/technical_catalog_view.gd")
 
 func _initialize() -> void:
@@ -143,7 +142,8 @@ func _check_vag_diagnostics_ui(errors: Array[String], catalog_view: Control) -> 
 		scroll.add_child(content)
 		# Use the production diagnostics methods with a real mobile container.
 		# The app stays detached so its dashboard does not alter user storage.
-		var app: Control = AppScript.new()
+		var app_script: Script = load("res://scenes/app/app.gd")
+		var app: Control = app_script.new()
 		app.set("diagnostic_content", content)
 		app.set("mobile_technical_catalog", true)
 		app.set("vehicle_3d_view", catalog_view)
