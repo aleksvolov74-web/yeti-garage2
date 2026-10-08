@@ -496,19 +496,18 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 				has_clear_selection = true
 		if not has_clear_selection:
 			failures.append("technical diagram node %s part card selection action is missing" % node_id)
-		var node_name := str(current_node.get("name", ""))
-		var node_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == node_name:
-				node_breadcrumb = button_node as Button
+		var clear_selection: Button
+		for button_node in view.find_children("*", "Button", true, false):
+			if str((button_node as Button).text) == "Снять выделение":
+				clear_selection = button_node as Button
 				break
-		if node_breadcrumb == null:
-			failures.append("technical diagram node %s has no back path from the part card" % node_id)
+		if clear_selection == null:
+			failures.append("technical diagram node %s has no selection action" % node_id)
 		else:
-			node_breadcrumb.pressed.emit()
+			clear_selection.pressed.emit()
 			await process_frame
 			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
-				failures.append("technical diagram node %s could not navigate back from its part card" % node_id)
+				failures.append("technical diagram node %s could not close its selected-part panel" % node_id)
 		view.set("selected_part_id", "")
 		view.call("_render")
 		await process_frame
@@ -698,19 +697,18 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 				failures.append("AWD reference node %s shows an image placeholder" % node_id)
 		if not found_card:
 			failures.append("AWD reference node %s did not show the selected part card" % node_id)
-		var node_name := str(node.get("name", ""))
-		var node_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == node_name:
-				node_crumb = crumb_value as Button
+		var clear_selection: Button
+		for button_value in view.find_children("*", "Button", true, false):
+			if str((button_value as Button).text) == "Снять выделение":
+				clear_selection = button_value as Button
 				break
-		if node_crumb == null:
-			failures.append("AWD reference node %s has no back navigation" % node_id)
+		if clear_selection == null:
+			failures.append("AWD reference node %s has no selected-part close action" % node_id)
 		else:
-			node_crumb.pressed.emit()
+			clear_selection.pressed.emit()
 			await process_frame
 			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
-				failures.append("AWD reference node %s could not return from the part card" % node_id)
+				failures.append("AWD reference node %s could not close the selected-part panel" % node_id)
 		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
 		var section_crumb: Button
 		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
