@@ -66,6 +66,7 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|ERROR: (Invalid call|Failed to load|Parse)' "$validation_log"; then
             echo "The 3D catalog validation reported a script error."
             exit 1
+          fi
 
       - name: Validate technical catalog routes and fault data
         shell: bash
@@ -79,7 +80,6 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$fault_validation_log"; then
             echo "The fault catalog validation reported a script error."
             exit 1
-          fi
           fi
 
       - name: Run scene startup smoke check
