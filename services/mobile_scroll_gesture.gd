@@ -23,6 +23,7 @@ static func attach(container: ScrollContainer) -> void:
 
 func _input(event: InputEvent) -> void:
 	if not is_instance_valid(scroll) or not scroll.is_visible_in_tree():
+		_fingers.clear()
 		_reset()
 		return
 	if event is InputEventScreenTouch:

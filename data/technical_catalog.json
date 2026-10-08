@@ -2810,7 +2810,7 @@
                   {
                     "number": 2,
                     "part_id": "brake_caliper",
-                    "x": 0.82,
+                    "x": 0.775,
                     "y": 0.55
                   },
                   {
@@ -3125,8 +3125,8 @@
               {
                 "number": 9,
                 "part_id": "rear_hub_carrier",
-                "x": 0.92,
-                "y": 0.64
+                "x": 0.887,
+                "y": 0.601
               }
             ],
             "source": {
@@ -4739,7 +4739,7 @@
                 "number": 5,
                 "part_id": "battery_ground_cable",
                 "x": 0.27,
-                "y": 0.7
+                "y": 0.655
               },
               {
                 "number": 6,

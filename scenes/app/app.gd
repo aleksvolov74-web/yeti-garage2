@@ -232,7 +232,7 @@ func _make_scroll_page(title: String) -> VBoxContainer:
     return box
 
 func _is_mobile_runtime() -> bool:
-    return OS.has_feature("mobile") or OS.has_feature("android") or OS.has_feature("ios")
+    return OS.has_feature("mobile") or OS.has_feature("android") or OS.has_feature("ios") or ProjectSettings.get_setting("application/testing/mobile_ui", false)
 
 func _build_bottom_navigation(root: VBoxContainer) -> void:
     var shell := PanelContainer.new()

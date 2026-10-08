@@ -45,6 +45,12 @@ var _pending_scroll_position := -1
 const CATALOG_SCROLL_THRESHOLD := 9.0
 
 func _ready() -> void:
+	var ancestor := get_parent()
+	while ancestor != null:
+		if ancestor is ScrollContainer:
+			MobileScrollGesture.attach(ancestor as ScrollContainer)
+			break
+		ancestor = ancestor.get_parent()
 	add_theme_constant_override("separation", 10)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_build_shell()

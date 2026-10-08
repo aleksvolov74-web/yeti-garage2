@@ -45,6 +45,12 @@ jobs:
         run: |
           godot --headless --path . --import
 
+      - name: Prepare rendered mobile UI validation
+        shell: bash
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq xvfb libgl1-mesa-dri libfontconfig1
+
       - name: Resolve app version
         shell: bash
         run: |
@@ -91,6 +97,24 @@ jobs:
             echo "Godot scene startup reported a script error."
             exit 1
           fi
+
+      - name: Render and validate narrow mobile screens
+        shell: bash
+        run: |
+          ux_log=/tmp/yeti-garage-ux-validation.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_android_ux.gd 2>&1 | tee "$ux_log"
+          grep -Fq 'ANDROID_UX_DESKTOP_VALIDATION=PASS' "$ux_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$ux_log"; then
+            exit 1
+          fi
+
+      - name: Upload rendered mobile UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: YetiGarage-${{ env.APP_VERSION }}-UX-Evidence
+          path: build/ux/
+          if-no-files-found: warn
 
       - name: Build APK
         shell: bash
