@@ -29,6 +29,7 @@ var _content: VBoxContainer
 var _breadcrumb: HFlowContainer
 var _title: Label
 var _diagram: TechnicalDiagramCanvas
+var _selected_part_card: PanelContainer
 var _vehicle: Dictionary = {}
 var _section_columns := 0
 var _root_resize_queued := false
@@ -110,6 +111,7 @@ func _render() -> void:
 	for child in _content.get_children():
 		child.queue_free()
 	_diagram = null
+	_selected_part_card = null
 	if search_query.strip_edges() != "":
 		_title.text = "Результаты поиска"
 		_add_breadcrumb("Каталог", Callable(self, "_reset_catalog"))
@@ -210,12 +212,13 @@ func _render_node(section: Dictionary, node: Dictionary) -> void:
 		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(summary)
 	_add_diagram_view(diagram_data, _node_part_ids(node))
+	if selected_part_id != "":
+		_render_selected_part_card()
+	_add_visual_audit_note()
 	if _diagram != null and str(node.get("variant_note", "")) != "":
 		var variant := _muted_label(str(node.get("variant_note", "")))
 		variant.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(variant)
-	if selected_part_id != "":
-		_render_selected_part_card()
 	_add_part_list(_node_display_part_ids(node))
 	_add_unmarked_parts(section)
 	if current_path.size() > 1:
@@ -247,7 +250,6 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 		controls.add_child(_action_button("Показать целиком", func(): canvas.reset_view()))
 		controls.add_child(_action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", _toggle_markers))
 		controls.add_child(_action_button("На весь экран", func(): _show_fullscreen_diagram()))
-		_add_visual_audit_note()
 		return
 	var empty := PanelContainer.new()
 	empty.add_theme_stylebox_override("panel", _panel_style(Color("091b25"), 16, BORDER))
@@ -383,6 +385,7 @@ func _render_selected_part_card() -> void:
 	for marker in _current_node().get("diagram", {}).get("markers", []):
 		if str(marker.get("part_id", "")) == selected_part_id: number = int(marker.get("number", 0))
 	var card := PanelContainer.new()
+	_selected_part_card = card
 	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 14, CYAN))
 	_content.add_child(card)
 	var copy := VBoxContainer.new()
@@ -613,6 +616,7 @@ func _show_fullscreen_diagram() -> void:
 		canvas.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
 		canvas.custom_minimum_size.y = clampf(get_viewport_rect().size.y * 0.48, 330.0, 520.0)
 		_diagram = canvas
+		call_deferred("_ensure_selected_part_visible")
 		popup.queue_free()
 	)
 	add_child(popup)
@@ -751,6 +755,23 @@ func _restore_catalog_scroll() -> void:
 	if parent_node is ScrollContainer:
 		(parent_node as ScrollContainer).scroll_vertical = _pending_scroll_position
 	_pending_scroll_position = -1
+	_ensure_selected_part_visible()
+
+func _ensure_selected_part_visible() -> void:
+	await get_tree().process_frame
+	if not is_instance_valid(_selected_part_card) or not is_instance_valid(_diagram): return
+	for window in get_viewport().get_embedded_subwindows():
+		if window.visible: return
+	var ancestor := get_parent()
+	while ancestor != null and not (ancestor is ScrollContainer): ancestor = ancestor.get_parent()
+	if not ancestor is ScrollContainer: return
+	var scroll := ancestor as ScrollContainer
+	var visible_rect := scroll.get_global_rect()
+	var card_rect := _selected_part_card.get_global_rect()
+	if card_rect.position.y >= visible_rect.position.y and card_rect.position.y < visible_rect.end.y - 96.0: return
+	var target := scroll.scroll_vertical + int(card_rect.position.y - visible_rect.position.y - visible_rect.size.y * 0.55)
+	var image_limit := scroll.scroll_vertical + int(_diagram.get_global_rect().end.y - visible_rect.position.y - 96.0)
+	scroll.scroll_vertical = maxi(0, mini(target, image_limit))
 
 func focus_part(part_id: String) -> void:
 	var part := PartCatalog.get_part(part_id)
@@ -770,6 +791,7 @@ func focus_part(part_id: String) -> void:
 	if _search_edit != null:
 		_search_edit.text = ""
 	_render()
+	_ensure_selected_part_visible()
 
 func _reset_catalog() -> void:
 	current_section_id = ""

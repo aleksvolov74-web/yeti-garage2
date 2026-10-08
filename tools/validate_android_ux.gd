@@ -7,6 +7,9 @@ var evidence: Array = []
 
 func _initialize() -> void:
 	await process_frame
+	DirAccess.make_dir_recursive_absolute("res://build")
+	var ignore := FileAccess.open("res://build/.gdignore", FileAccess.WRITE)
+	ignore.close()
 	ProjectSettings.set_setting("application/testing/mobile_ui", true)
 	root.content_scale_size = Vector2i.ZERO
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
@@ -70,6 +73,12 @@ func _initialize() -> void:
 		await _check_page("engine_complete", pages.get_child(5) as ScrollContainer)
 		catalog.call("_select_part", "cylinder_head")
 		await _frames(6)
+		var selected_card: Control = catalog.get("_selected_part_card")
+		var technical_scroll := pages.get_child(5) as ScrollContainer
+		var selected_canvas: Control = catalog.get("_diagram")
+		if selected_card.get_global_rect().position.y >= technical_scroll.get_global_rect().end.y: errors.append("selected part card not revealed")
+		if selected_canvas.get_global_rect().intersection(technical_scroll.get_global_rect()).size.y < 90.0: errors.append("selection scrolled the diagram away")
+		await _capture("selected_cylinder_head_revealed")
 		await _check_page("selected_cylinder_head", pages.get_child(5) as ScrollContainer)
 		var selectors := catalog.find_children("*", "OptionButton", true, false)
 		if not selectors.is_empty():

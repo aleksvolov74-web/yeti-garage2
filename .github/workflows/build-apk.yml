@@ -130,6 +130,7 @@ jobs:
             "build/android/YetiGarage-${APP_VERSION}.apk"
 
           test -f "build/android/YetiGarage-${APP_VERSION}.apk"
+          python3 tools/validate_apk_contents.py "build/android/YetiGarage-${APP_VERSION}.apk"
           ls -lh "build/android/YetiGarage-${APP_VERSION}.apk"
 
       - name: Upload APK
