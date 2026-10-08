@@ -779,6 +779,13 @@ func _ensure_selected_part_visible() -> void:
 	if card_rect.position.y >= visible_rect.position.y and card_rect.position.y < visible_rect.end.y - 96.0: return
 	var target := scroll.scroll_vertical + int(card_rect.position.y - visible_rect.position.y - visible_rect.size.y * 0.55)
 	var image_limit := scroll.scroll_vertical + int(_diagram.get_global_rect().end.y - visible_rect.position.y - 96.0)
+	for marker in _diagram.markers:
+		if str(marker.get("part_id", "")) != selected_part_id: continue
+		var image_rect := _diagram._image_rect()
+		var point := _diagram.global_position + image_rect.position + Vector2(float(marker.x), float(marker.y)) * image_rect.size
+		var marker_limit := scroll.scroll_vertical + int(point.y - visible_rect.position.y - 22.0)
+		target = mini(target, marker_limit)
+		break
 	scroll.scroll_vertical = maxi(0, mini(target, image_limit))
 
 func focus_part(part_id: String) -> void:
