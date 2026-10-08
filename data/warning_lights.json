@@ -1,0 +1,881 @@
+{
+  "schema_version": 1,
+  "warnings": [
+    {
+      "id": "oil_pressure",
+      "title": "Давление моторного масла",
+      "severity": "STOP",
+      "image": "res://assets/warning_lights/oil_pressure.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Остановитесь и выключите двигатель.",
+      "meaning": "Если лампа мигает красным или горит при работающем двигателе, давление масла может быть недостаточным. Уровень масла не подтверждает нормальное давление.",
+      "what_to_do": "Не запускайте двигатель повторно. Если безопасно, проверьте уровень; при нормальном уровне или отсутствии возможности долить масло вызовите помощь.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": true,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "oil_pump_circuit"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 26,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "масло",
+        "давление масла",
+        "масленка"
+      ]
+    },
+    {
+      "id": "oil_level",
+      "title": "Уровень моторного масла",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/oil_level.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте уровень масла как можно скорее.",
+      "meaning": "Жёлтая лампа сообщает о низком уровне масла. Это отдельное предупреждение от красной лампы давления.",
+      "what_to_do": "Остановитесь на ровной площадке и проверьте щуп по руководству; доливайте только подходящее масло.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "oil_pan_node"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 27,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "уровень масла",
+        "масло"
+      ]
+    },
+    {
+      "id": "oil_sensor",
+      "title": "Датчик уровня масла",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/oil_sensor.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте систему при первой возможности.",
+      "meaning": "Мигающая жёлтая индикация может указывать на неисправность контроля уровня масла.",
+      "what_to_do": "Проверьте уровень вручную и обратитесь в сервис для проверки датчика и проводки.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "oil_pan_node"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 27,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "датчик масла",
+        "масло"
+      ]
+    },
+    {
+      "id": "epc",
+      "title": "EPC — управление двигателем",
+      "severity": "URGENT_CHECK",
+      "image": "res://assets/warning_lights/epc.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Снизьте нагрузку и организуйте проверку двигателя.",
+      "meaning": "Индикатор EPC относится к электронной системе управления бензиновым двигателем. Возможен ограниченный режим мощности.",
+      "what_to_do": "Если двигатель работает неровно или мощность резко упала, безопасно остановитесь и вызовите помощь. Считайте ошибки до замены деталей.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "control_units"
+      ],
+      "related_diagnostic_flow": "engine_misfire",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 27,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "epc",
+        "чек",
+        "двигатель"
+      ]
+    },
+    {
+      "id": "check_engine",
+      "title": "Check Engine — система контроля ОГ",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/check_engine.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Считайте ошибки и проверьте двигатель.",
+      "meaning": "Постоянно горящая лампа указывает на неисправность системы управления двигателем или контроля выбросов. Мигающая лампа требует снизить нагрузку и остановиться при сильной тряске.",
+      "what_to_do": "Запишите коды сканера. При мигании, сильных пропусках, перегреве или потере мощности прекратите движение.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "ignition"
+      ],
+      "related_diagnostic_flow": "engine_misfire",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 27,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "check engine",
+        "чек",
+        "mil",
+        "двигатель"
+      ]
+    },
+    {
+      "id": "coolant",
+      "title": "Температура / уровень охлаждающей жидкости",
+      "severity": "STOP",
+      "image": "res://assets/warning_lights/coolant.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Остановитесь и выключите двигатель.",
+      "meaning": "Красное предупреждение связано с высокой температурой или низким уровнем охлаждающей жидкости.",
+      "what_to_do": "Не открывайте крышку горячего расширительного бачка. После остывания проверьте уровень; при повторной индикации не продолжайте движение.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": true,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "coolant_circuit"
+      ],
+      "related_diagnostic_flow": "coolant_loss",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 28,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "антифриз",
+        "температура",
+        "перегрев",
+        "охлаждение"
+      ]
+    },
+    {
+      "id": "charging",
+      "title": "Зарядка аккумулятора",
+      "severity": "URGENT_CHECK",
+      "image": "res://assets/warning_lights/charging.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Остановитесь в безопасном месте и проверьте систему зарядки.",
+      "meaning": "Индикатор сообщает о неисправности зарядки аккумулятора. Электрические системы могут отключиться после разряда батареи.",
+      "what_to_do": "Не продолжайте поездку без оценки риска; проверьте ременный привод только при выключенном двигателе и обратитесь за помощью.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "power_start"
+      ],
+      "related_diagnostic_flow": "no_start",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 31,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "аккумулятор",
+        "генератор",
+        "зарядка"
+      ]
+    },
+    {
+      "id": "brake",
+      "title": "Тормозная система",
+      "severity": "STOP",
+      "image": "res://assets/warning_lights/brake.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Остановитесь и проверьте тормоза.",
+      "meaning": "Красное предупреждение тормозной системы может означать низкий уровень тормозной жидкости или неисправность.",
+      "what_to_do": "Не продолжайте движение, если лампа горит после отпускания стояночного тормоза или изменилось торможение.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": true,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "brake_hydraulics"
+      ],
+      "related_diagnostic_flow": "brake_issue",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 31,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "тормоз",
+        "тормоза",
+        "brake"
+      ]
+    },
+    {
+      "id": "abs",
+      "title": "ABS",
+      "severity": "URGENT_CHECK",
+      "image": "res://assets/warning_lights/abs.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте систему ABS.",
+      "meaning": "При неисправности ABS антиблокировочная функция может быть недоступна. Это не означает автоматически, что обычное торможение полностью отсутствует.",
+      "what_to_do": "Снизьте скорость и увеличьте дистанцию. Если одновременно горит красная лампа тормозов, остановитесь и не продолжайте путь.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "abs_esp_block"
+      ],
+      "related_diagnostic_flow": "brake_issue",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 30,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "abs",
+        "абс"
+      ]
+    },
+    {
+      "id": "esc",
+      "title": "ESC — курсовая устойчивость",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/esc.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте систему стабилизации.",
+      "meaning": "Постоянно горящая лампа может указывать на отключение или неисправность ESC. Мигание при движении может означать активное вмешательство системы.",
+      "what_to_do": "Проверьте, не отключена ли система кнопкой; при постоянной индикации выполните диагностику.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "abs_esp_block"
+      ],
+      "related_diagnostic_flow": "brake_issue",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 29,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "esc",
+        "esp",
+        "стабилизация"
+      ]
+    },
+    {
+      "id": "asr_off",
+      "title": "ASR отключена",
+      "severity": "INFORMATION",
+      "image": "res://assets/warning_lights/asr_off.svg",
+      "symbol_color": "#d9e0e5",
+      "summary": "Учитывайте, что противобуксовочная система отключена.",
+      "meaning": "Лампа ASR OFF сообщает об отключённой противобуксовочной функции.",
+      "what_to_do": "Включите ASR штатной кнопкой, если отключение не требуется для текущих условий.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "abs_esp_block"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 29,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "asr",
+        "пробуксовка"
+      ]
+    },
+    {
+      "id": "steering",
+      "title": "Усилитель рулевого управления",
+      "severity": "URGENT_CHECK",
+      "image": "res://assets/warning_lights/steering.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Остановитесь, если рулевое управление стало тяжёлым.",
+      "meaning": "Предупреждение может указывать на неисправность усилителя рулевого управления.",
+      "what_to_do": "Если усилие на руле изменилось или управление нестабильно, безопасно остановитесь и вызовите помощь.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "steering_rack"
+      ],
+      "related_diagnostic_flow": "steering_play",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 26,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "усилитель руля",
+        "рулевое"
+      ]
+    },
+    {
+      "id": "tire_pressure",
+      "title": "Давление в шинах",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/tire_pressure.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте давление и состояние шин.",
+      "meaning": "Система сообщает об изменении давления или необходимости калибровки после изменения давления/колеса.",
+      "what_to_do": "Снизьте скорость; проверьте шины на повреждение и измерьте давление при первой безопасной возможности.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "wheel_sensors"
+      ],
+      "related_diagnostic_flow": "road_hum",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 30,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "шины",
+        "давление шин",
+        "tpms"
+      ]
+    },
+    {
+      "id": "airbag",
+      "title": "Подушки безопасности / SRS",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/airbag.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте систему безопасности.",
+      "meaning": "Лампа сообщает о неисправности системы подушек безопасности; защита при столкновении может быть ограничена.",
+      "what_to_do": "Обратитесь в сервис для диагностики. Не проверяйте разъёмы системы SRS контрольной лампой.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "airbags"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 25,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "подушка",
+        "srs",
+        "airbag"
+      ]
+    },
+    {
+      "id": "seat_belt",
+      "title": "Ремень безопасности",
+      "severity": "INFORMATION",
+      "image": "res://assets/warning_lights/seat_belt.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Пристегните ремень безопасности.",
+      "meaning": "Сигнализатор напоминает о непристёгнутом ремне водителя или пассажира.",
+      "what_to_do": "Пристегните ремни до начала движения.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "belts"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 30,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "ремень",
+        "ремень безопасности"
+      ]
+    },
+    {
+      "id": "parking_brake",
+      "title": "Стояночный тормоз",
+      "severity": "INFORMATION",
+      "image": "res://assets/warning_lights/parking_brake.svg",
+      "symbol_color": "#ef5350",
+      "summary": "Полностью отпустите стояночный тормоз.",
+      "meaning": "Индикатор горит при включённом стояночном тормозе. Если он остаётся включённым после отпускания, проверьте тормозную систему.",
+      "what_to_do": "Если одновременно есть красное предупреждение тормозов, остановитесь.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "parking_brake"
+      ],
+      "related_diagnostic_flow": "brake_issue",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 31,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "ручник",
+        "стояночный тормоз"
+      ]
+    },
+    {
+      "id": "low_fuel",
+      "title": "Низкий уровень топлива",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/low_fuel.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Заправьтесь при первой возможности.",
+      "meaning": "Остаток топлива мал; запас хода ограничен.",
+      "what_to_do": "Заправьтесь подходящим топливом. Не допускайте полной выработки топлива.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "fuel_storage"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 31,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "топливо",
+        "бензин"
+      ]
+    },
+    {
+      "id": "bulb",
+      "title": "Неисправность наружной лампы",
+      "severity": "CHECK_SOON",
+      "image": "res://assets/warning_lights/bulb.svg",
+      "symbol_color": "#f2b84b",
+      "summary": "Проверьте наружное освещение.",
+      "meaning": "Предупреждение о неисправности лампы внешнего освещения зависит от комплектации.",
+      "what_to_do": "Проверьте фары, стоп-сигналы и указатели поворота; замену выполняйте по руководству.",
+      "possible_causes": [
+        "Предупреждение само по себе не подтверждает конкретную неисправность детали.",
+        "Сохраните текст сообщения и выполните проверку соответствующей системы."
+      ],
+      "first_checks": [
+        "Проверьте условия появления индикации и сообщения на дисплее.",
+        "Считайте полный код ошибки, если он доступен."
+      ],
+      "possible_solutions": [
+        "Устраните причину только после подтверждения проверками."
+      ],
+      "stop_driving": false,
+      "related_part_ids": [],
+      "related_node_ids": [
+        "front_lamps"
+      ],
+      "related_diagnostic_flow": "",
+      "source": {
+        "title": "Руководство по эксплуатации ŠKODA Yeti, раздел «Контрольные лампы»",
+        "manual_page": 24,
+        "index": "res://data/manual_index.json"
+      },
+      "verification_status": "MANUAL_TEXT_VERIFIED",
+      "applicability": {
+        "make": "Škoda",
+        "model": "Yeti 5L",
+        "year": [
+          2009,
+          2017
+        ],
+        "engine": "CBZB",
+        "drivetrain": "FWD",
+        "transmission_family": "0AM / DQ200"
+      },
+      "keywords": [
+        "лампа",
+        "лампочка",
+        "освещение"
+      ]
+    }
+  ]
+}

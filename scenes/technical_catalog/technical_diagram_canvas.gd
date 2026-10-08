@@ -32,6 +32,20 @@ func configure(image: Texture2D, points: Array, active_part_id: String = "", sho
 	markers_visible = show_points
 	_zoom = 1.0
 	_pan = Vector2.ZERO
+	var min_x := 1.0
+	var min_y := 1.0
+	var max_x := 0.0
+	var max_y := 0.0
+	for marker_value in markers:
+		var marker: Dictionary = marker_value
+		var point := Vector2(float(marker.get("x", 0.5)), float(marker.get("y", 0.5)))
+		min_x = minf(min_x, point.x)
+		min_y = minf(min_y, point.y)
+		max_x = maxf(max_x, point.x)
+		max_y = maxf(max_y, point.y)
+	if not markers.is_empty():
+		var edge_margin := minf(minf(min_x, min_y), minf(1.0 - max_x, 1.0 - max_y))
+		_zoom = 1.20 if edge_margin >= 0.10 else (1.10 if edge_margin >= 0.05 else 1.0)
 	queue_redraw()
 
 func set_selected_part(part_id: String) -> void:
@@ -45,6 +59,19 @@ func set_markers_visible(is_visible: bool) -> void:
 func reset_view() -> void:
 	_zoom = 1.0
 	_pan = Vector2.ZERO
+	_update_input_routing()
+	queue_redraw()
+
+func get_view_state() -> Dictionary:
+	return {"zoom":_zoom, "pan":_pan}
+
+func set_view_state(state: Dictionary) -> void:
+	_zoom = clampf(float(state.get("zoom", 1.0)), 1.0, 4.0)
+	var pan_value: Variant = state.get("pan", Vector2.ZERO)
+	if pan_value is Vector2:
+		_pan = pan_value
+	if size.x > 0.0 and size.y > 0.0:
+		_clamp_pan()
 	_update_input_routing()
 	queue_redraw()
 

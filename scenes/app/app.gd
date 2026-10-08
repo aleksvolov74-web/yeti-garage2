@@ -13,6 +13,7 @@ const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
+const FaultCatalog = preload("res://services/fault_catalog_service.gd")
 const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
@@ -52,6 +53,8 @@ var engine_caption: Label
 var next_service_value: Label
 var total_cost_value: Label
 var recent_box: VBoxContainer
+var fault_home_box: VBoxContainer
+var active_saved_fault_id := ""
 var reminders_summary_value: Label
 var data_mode_value: Label
 var notification_status_value: Label
@@ -1530,6 +1533,10 @@ func _build_overview() -> void:
     engine_caption = engine_metric["caption"] as Label
     engine_value.add_theme_font_size_override("font_size", 15)
 
+    fault_home_box = VBoxContainer.new()
+    fault_home_box.add_theme_constant_override("separation", 7)
+    overview_box.add_child(fault_home_box)
+
     var search_shell := Panel.new()
     search_shell.custom_minimum_size.y = 62
     search_shell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1669,10 +1676,9 @@ func _build_reminders_page() -> void:
     reminders_box.add_child(reminders_dynamic_box)
 
 func _build_diagnostics_page() -> void:
-    _page_heading(diagnostics_box, "Диагностика", "Идём от симптома к проверке — без угадывания деталей", "res://assets/ui/icons/diagnostic.svg")
-    _page_banner(diagnostics_box, "res://assets/ui/diagnostic_yeti.jpg", "Диагностика по симптомам", "Выбирай признак — приложение проведёт по проверкам шаг за шагом")
+    _page_heading(diagnostics_box, "Диагностика", "Лампа, код ошибки или симптом", "res://assets/ui/icons/diagnostic.svg")
     var intro := Label.new()
-    intro.text = "Опиши проблему через готовый сценарий. Приложение не назначает деталь наугад: каждый результат — это следующая версия, которую нужно подтвердить проверкой."
+    intro.text = "Выберите, с чего начать проверку. Результат не назначает неисправную деталь без подтверждения."
     intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     intro.modulate = Color("9ba6b2")
     diagnostics_box.add_child(intro)
@@ -1690,11 +1696,25 @@ func _show_diagnostic_scenarios() -> void:
     diagnostic_node_id = ""
     diagnostic_context_part_name = ""
     diagnostic_history.clear()
+    active_saved_fault_id = ""
 
     var title := Label.new()
-    title.text = "Что происходит с машиной?"
+    title.text = "С чего начнём?"
     title.add_theme_font_size_override("font_size", 21)
     diagnostic_content.add_child(title)
+
+    _diagnostic_entry_card("Лампа на панели", "На приборке что-то загорелось", func(): _show_warning_lights())
+    _diagnostic_entry_card("Код ошибки", "Есть Pxxxx / код сканера", func(): _show_dtc_lookup())
+
+    _diagnostic_entry_card("По симптомам", "Что происходит с машиной?", func(): _show_symptom_scenarios())
+
+func _show_symptom_scenarios() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var symptoms_title := Label.new()
+    symptoms_title.text = "Выберите симптом"
+    symptoms_title.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(symptoms_title)
 
     for scenario_value in DiagnosticService.scenarios():
         var scenario: Dictionary = scenario_value
@@ -1711,6 +1731,332 @@ func _show_diagnostic_scenarios() -> void:
         subtitle.modulate = Color("8793a1")
         subtitle.add_theme_font_size_override("font_size", 11)
         card.add_child(subtitle)
+
+func _diagnostic_entry_card(title_text: String, subtitle_text: String, action: Callable) -> void:
+    var card := _glass_card(diagnostic_content)
+    var button := Button.new()
+    button.text = title_text
+    button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    button.custom_minimum_size.y = 48
+    button.pressed.connect(action)
+    card.add_child(button)
+    var subtitle := Label.new()
+    subtitle.text = subtitle_text
+    subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    subtitle.modulate = Color("8793a1")
+    subtitle.add_theme_font_size_override("font_size", 11)
+    card.add_child(subtitle)
+
+func _diagnostic_back_button() -> void:
+    var back := Button.new()
+    back.text = "← Диагностика"
+    back.custom_minimum_size.y = 48
+    back.pressed.connect(_show_diagnostic_scenarios)
+    diagnostic_content.add_child(back)
+
+func _show_warning_lights() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Лампы на панели"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    for value in FaultCatalog.warnings():
+        var row: Dictionary = value
+        var card := _glass_card(diagnostic_content)
+        var line := HBoxContainer.new()
+        line.add_theme_constant_override("separation", 12)
+        card.add_child(line)
+        var image := TextureRect.new()
+        image.texture = load(str(row.get("image", ""))) as Texture2D
+        image.custom_minimum_size = Vector2(48, 48)
+        image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        line.add_child(image)
+        var copy := VBoxContainer.new()
+        copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        line.add_child(copy)
+        var title := Label.new()
+        title.text = str(row.get("title", "Предупреждение"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        copy.add_child(title)
+        var summary := Label.new()
+        summary.text = str(row.get("summary", ""))
+        summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        summary.add_theme_font_size_override("font_size", 12)
+        summary.modulate = Color("9ba6b2")
+        copy.add_child(summary)
+        var open := Button.new()
+        open.text = "Открыть"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_show_warning_detail.bind(str(row.get("id", ""))))
+        card.add_child(open)
+
+func _show_warning_detail(warning_id: String, saved_id: String = "") -> void:
+    active_saved_fault_id = saved_id
+    var row := FaultCatalog.warning(warning_id)
+    if row.is_empty(): return
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var panel := _glass_card(diagnostic_content)
+    panel.add_theme_constant_override("separation", 10)
+    var symbol := TextureRect.new()
+    symbol.texture = load(str(row.get("image", ""))) as Texture2D
+    symbol.custom_minimum_size = Vector2(104, 104)
+    symbol.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    symbol.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    panel.add_child(symbol)
+    var caption := Label.new()
+    caption.text = "Как выглядит на приборной панели"
+    caption.add_theme_font_size_override("font_size", 13)
+    caption.modulate = Color("9ba6b2")
+    panel.add_child(caption)
+    var title := Label.new()
+    title.text = str(row.get("title", ""))
+    title.add_theme_font_size_override("font_size", 22)
+    title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    panel.add_child(title)
+    var severity := Label.new()
+    var severity_text := {"STOP":"Остановитесь", "URGENT_CHECK":"Требуется срочная проверка", "CHECK_SOON":"Требуется проверка", "INFORMATION":"Информация"}.get(str(row.get("severity", "")), "Требуется проверка")
+    severity.text = severity_text
+    severity.add_theme_color_override("font_color", Color(str(row.get("symbol_color", "#f2b84b"))))
+    severity.add_theme_font_size_override("font_size", 17)
+    panel.add_child(severity)
+    if warning_id == "check_engine":
+        _fault_text_block(panel, "Если лампа мигает", "Срочность выше: снизьте нагрузку. При сильной тряске или потере мощности безопасно остановитесь и выключите двигатель.")
+    if bool(row.get("stop_driving", false)):
+        var stop := Label.new()
+        stop.text = str(row.get("summary", "Остановитесь и выключите двигатель."))
+        stop.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        stop.add_theme_font_size_override("font_size", 19)
+        stop.add_theme_color_override("font_color", Color("ff7777"))
+        panel.add_child(stop)
+    _fault_text_block(panel, "Что означает", str(row.get("meaning", "")))
+    _fault_text_block(panel, "Что делать сейчас", str(row.get("what_to_do", "")))
+    _fault_text_list(panel, "Возможные причины", row.get("possible_causes", []))
+    _fault_text_list(panel, "Что проверить", row.get("first_checks", []))
+    _fault_text_list(panel, "Возможные решения", row.get("possible_solutions", []))
+    var actions := VBoxContainer.new()
+    actions.add_theme_constant_override("separation", 8)
+    diagnostic_content.add_child(actions)
+    var flow := str(row.get("related_diagnostic_flow", ""))
+    if flow != "":
+        var check := Button.new()
+        check.text = "Начать диагностику"
+        check.custom_minimum_size.y = 50
+        check.pressed.connect(_start_diagnostic.bind(flow, str(row.get("title", ""))))
+        actions.add_child(check)
+    var nodes: Array = row.get("related_node_ids", [])
+    if not nodes.is_empty():
+        var diagram := Button.new()
+        diagram.text = "Показать на схеме"
+        diagram.custom_minimum_size.y = 50
+        diagram.pressed.connect(_open_fault_node.bind(str(nodes[0])))
+        actions.add_child(diagram)
+    var source: Dictionary = row.get("source", {})
+    _fault_text_block(diagnostic_content, "Источник", "%s · стр. %s руководства владельца" % [str(source.get("title", "")), str(source.get("manual_page", ""))])
+    _add_save_fault_action(diagnostic_content, warning_id, "", str(row.get("title", "Предупреждение")))
+    _add_saved_fault_status(diagnostic_content)
+
+func _show_dtc_lookup(saved_id: String = "") -> void:
+    active_saved_fault_id = saved_id
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Код ошибки"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    var field := LineEdit.new()
+    field.placeholder_text = "P0301, Uxxxx, Cxxxx или Bxxxx"
+    field.custom_minimum_size.y = 50
+    diagnostic_content.add_child(field)
+    var result_box := VBoxContainer.new()
+    result_box.add_theme_constant_override("separation", 9)
+    diagnostic_content.add_child(result_box)
+    var lookup := func(): _show_dtc_detail(FaultCatalog.normalize_code(field.text), result_box)
+    field.text_submitted.connect(func(_text: String): lookup.call())
+    var button := Button.new()
+    button.text = "Найти код"
+    button.custom_minimum_size.y = 48
+    button.pressed.connect(lookup)
+    diagnostic_content.add_child(button)
+    field.grab_focus()
+
+func _show_dtc_detail(code: String, target: VBoxContainer) -> void:
+    _clear_children(target)
+    if not FaultCatalog.valid_code(code):
+        _fault_text_block(target, "Формат кода", "Введите полный код: Pxxxx, Uxxxx, Cxxxx или Bxxxx.")
+        return
+    var row := FaultCatalog.dtc(code)
+    if row.is_empty():
+        _fault_text_block(target, "Код отсутствует", "Код пока отсутствует в локальной базе Yeti Garage. Сохраните полный код и текст сканера.")
+        return
+    var badge := Label.new()
+    badge.text = str(row.get("code", "")) + " · " + str(row.get("title_ru", ""))
+    badge.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    badge.add_theme_font_size_override("font_size", 19)
+    target.add_child(badge)
+    var warning := FaultCatalog.warning(str(row.get("dashboard_warning_id", "")))
+    if not warning.is_empty():
+        var image := TextureRect.new()
+        image.texture = load(str(warning.get("image", ""))) as Texture2D
+        image.custom_minimum_size = Vector2(72, 72)
+        image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        target.add_child(image)
+    _fault_text_block(target, "Срочность", "Проверьте код до дальнейшей эксплуатации. Если двигатель сильно трясёт или Check Engine мигает, остановитесь и не нагружайте двигатель.")
+    _fault_text_block(target, "Что означает", str(row.get("description", "")))
+    _fault_text_list(target, "Что водитель может заметить", row.get("driver_symptoms", []))
+    _fault_text_list(target, "Возможные причины", row.get("possible_causes", []))
+    _fault_text_list(target, "Что проверить сначала", row.get("first_checks", []))
+    _fault_text_list(target, "Возможные решения", row.get("possible_solutions", []))
+    var actions := VBoxContainer.new()
+    target.add_child(actions)
+    var flow := str(row.get("related_diagnostic_flow", ""))
+    if flow != "":
+        var check := Button.new()
+        check.text = "Начать диагностику"
+        check.custom_minimum_size.y = 48
+        check.pressed.connect(_start_diagnostic.bind(flow, code))
+        actions.add_child(check)
+    var nodes: Array = row.get("related_node_ids", [])
+    if not nodes.is_empty():
+        var diagram := Button.new()
+        diagram.text = "Показать на схеме"
+        diagram.custom_minimum_size.y = 48
+        diagram.pressed.connect(_open_fault_node.bind(str(nodes[0])))
+        actions.add_child(diagram)
+    _fault_text_block(target, "Тип кода", "GENERIC OBD-II · общее описание SAE J2012; точная трактовка зависит от блока управления.")
+    _add_save_fault_action(target, "", code, str(row.get("title_ru", "Код ошибки")))
+    _add_saved_fault_status(target)
+
+func _fault_text_block(parent: Control, heading_text: String, body_text: String) -> void:
+    var box := VBoxContainer.new()
+    box.add_theme_constant_override("separation", 3)
+    parent.add_child(box)
+    var heading := Label.new()
+    heading.text = heading_text
+    heading.add_theme_font_size_override("font_size", 16)
+    box.add_child(heading)
+    var body := Label.new()
+    body.text = body_text
+    body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    body.modulate = Color("aab8c1")
+    box.add_child(body)
+
+func _fault_text_list(parent: Control, heading_text: String, values: Array) -> void:
+    var body := "\n".join(values.map(func(value): return "• " + str(value)))
+    _fault_text_block(parent, heading_text, body)
+
+func _open_fault_node(node_id: String) -> void:
+    if mobile_technical_catalog and vehicle_3d_view != null and vehicle_3d_view.has_method("focus_node"):
+        _switch_to_page(vehicle_3d_box)
+        vehicle_3d_view.focus_node(node_id)
+    else:
+        _show_info_dialog("Технический справочник", "Связанная схема: %s" % node_id)
+
+func _save_fault(warning_id: String, dtc_code: String, title_text: String, note_text: String = "") -> void:
+    var rows: Array = Storage.data.get("saved_faults", [])
+    var id := "fault_%s" % str(Time.get_unix_time_from_system())
+    rows.push_front({"id":id, "date":Time.get_date_string_from_system(), "warning_id":warning_id, "dtc_code":dtc_code, "title":title_text, "note":note_text, "status":"NEW"})
+    Storage.data["saved_faults"] = rows
+    Storage.save()
+    active_saved_fault_id = id
+    _refresh_saved_fault_card()
+    _show_info_dialog("Сохранённая неисправность", "Запись сохранена вручную. Приложение не считывало данные автомобиля.")
+
+func _add_save_fault_action(parent: Control, warning_id: String, code: String, title_text: String) -> void:
+    var note := LineEdit.new()
+    note.placeholder_text = "Заметка (необязательно)"
+    note.custom_minimum_size.y = 48
+    parent.add_child(note)
+    var save := Button.new()
+    save.text = "Сохранить неисправность"
+    save.custom_minimum_size.y = 48
+    save.pressed.connect(func(): _save_fault(warning_id, code, title_text, note.text.strip_edges()))
+    parent.add_child(save)
+
+func _add_saved_fault_status(parent: Control) -> void:
+    if active_saved_fault_id == "": return
+    var selector := OptionButton.new()
+    selector.custom_minimum_size.y = 48
+    selector.add_item("Новая", 0)
+    selector.add_item("Проверяется", 1)
+    selector.add_item("Решена", 2)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for i in range(rows.size()):
+        var row: Dictionary = rows[i]
+        if str(row.get("id", "")) == active_saved_fault_id:
+            selector.select({"NEW":0, "CHECKING":1, "RESOLVED":2}.get(str(row.get("status", "NEW")), 0))
+            break
+    selector.item_selected.connect(func(index: int): _update_saved_fault_status(active_saved_fault_id, ["NEW", "CHECKING", "RESOLVED"][index]))
+    parent.add_child(selector)
+
+func _update_saved_fault_status(fault_id: String, status: String) -> void:
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for i in range(rows.size()):
+        var row: Dictionary = rows[i]
+        if str(row.get("id", "")) == fault_id:
+            row["status"] = status
+            rows[i] = row
+            break
+    Storage.data["saved_faults"] = rows
+    Storage.save()
+    _refresh_saved_fault_card()
+
+func _refresh_saved_fault_card() -> void:
+    if fault_home_box == null: return
+    _clear_children(fault_home_box)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for value in rows:
+        var row: Dictionary = value
+        if str(row.get("status", "NEW")) == "RESOLVED": continue
+        var card := PanelContainer.new()
+        card.add_theme_stylebox_override("panel", _style_box(Color("0b1e27"), 16, Color("6b4c36"), 1))
+        fault_home_box.add_child(card)
+        var line := HBoxContainer.new()
+        line.add_theme_constant_override("separation", 10)
+        card.add_child(line)
+        var warning := FaultCatalog.warning(str(row.get("warning_id", "")))
+        if not warning.is_empty():
+            var icon := TextureRect.new()
+            icon.texture = load(str(warning.get("image", ""))) as Texture2D
+            icon.custom_minimum_size = Vector2(38, 38)
+            icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+            icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+            line.add_child(icon)
+        var copy := VBoxContainer.new()
+        copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        line.add_child(copy)
+        var heading := Label.new()
+        heading.text = "Требует внимания"
+        heading.add_theme_font_size_override("font_size", 12)
+        heading.modulate = Color("f2b84b")
+        copy.add_child(heading)
+        var title := Label.new()
+        title.text = (str(row.get("dtc_code", "")) + " · " if str(row.get("dtc_code", "")) != "" else "") + str(row.get("title", "Сохранённая неисправность"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        copy.add_child(title)
+        var open := Button.new()
+        open.text = "Открыть"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_open_saved_fault.bind(row))
+        line.add_child(open)
+        break
+
+func _open_saved_fault(row: Dictionary) -> void:
+    active_saved_fault_id = str(row.get("id", ""))
+    _switch_to_page(diagnostics_box)
+    var warning_id := str(row.get("warning_id", ""))
+    var code := str(row.get("dtc_code", ""))
+    if warning_id != "":
+        _show_warning_detail(warning_id, active_saved_fault_id)
+    elif code != "":
+        _show_dtc_lookup(active_saved_fault_id)
+        await get_tree().process_frame
+        for child in diagnostic_content.get_children():
+            if child is VBoxContainer and child != diagnostic_content:
+                _show_dtc_detail(code, child as VBoxContainer)
 
 func _start_diagnostic(flow_id: String, context_part_name: String = "") -> void:
     var flow: Dictionary = DiagnosticService.flow(flow_id)
@@ -2080,6 +2426,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
     var diagnostic_matches: Array = DiagnosticService.search(q)
     var manual_matches := ManualSearchService.search(q, 3)
     var catalog_matches := TechnicalCatalogService.search(q, VehicleService.vehicle())
+    var fault_matches := FaultCatalog.search(q)
 
     var total_shown := 0
     var catalog_count := 0
@@ -2102,6 +2449,53 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
             results.add_child(catalog_button)
             catalog_count += 1
             total_shown += 1
+
+    if not fault_matches.is_empty():
+        for fault_value in fault_matches:
+            if total_shown >= 12: break
+            var fault_row: Dictionary = fault_value
+            if str(fault_row.get("kind", "")) == "warning":
+                if catalog_count == 0:
+                    _add_search_section_label(results, "Лампы")
+                    catalog_count = -100
+                var warning_button := Button.new()
+                warning_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+                warning_button.text = "Лампа · " + str(fault_row.get("name", ""))
+                warning_button.custom_minimum_size.y = 48
+                warning_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+                _style_global_search_result_button(warning_button)
+                var warning_action := _open_warning_from_search.bind(str(fault_row.get("id", "")), dialog)
+                warning_button.set_meta("search_action", warning_action)
+                warning_button.pressed.connect(warning_action)
+                results.add_child(warning_button)
+                total_shown += 1
+            elif str(fault_row.get("kind", "")) == "dtc":
+                _add_search_section_label(results, "Коды ошибок")
+                var dtc_button := Button.new()
+                dtc_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+                dtc_button.text = "Код · " + str(fault_row.get("name", ""))
+                dtc_button.custom_minimum_size.y = 48
+                dtc_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+                _style_global_search_result_button(dtc_button)
+                var dtc_action := _open_dtc_from_search.bind(str(fault_row.get("id", "")), dialog)
+                dtc_button.set_meta("search_action", dtc_action)
+                dtc_button.pressed.connect(dtc_action)
+                results.add_child(dtc_button)
+                total_shown += 1
+    elif FaultCatalog.valid_code(query):
+        _add_search_section_label(results, "Код ошибки")
+        var unknown_code := FaultCatalog.normalize_code(query)
+        var unknown_button := Button.new()
+        unknown_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+        unknown_button.text = "Код · " + unknown_code
+        unknown_button.custom_minimum_size.y = 48
+        unknown_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        _style_global_search_result_button(unknown_button)
+        var unknown_action := _open_dtc_from_search.bind(unknown_code, dialog)
+        unknown_button.set_meta("search_action", unknown_action)
+        unknown_button.pressed.connect(unknown_action)
+        results.add_child(unknown_button)
+        total_shown += 1
 
     if not part_matches.is_empty():
         _add_search_section_label(results, "Детали")
@@ -2286,6 +2680,24 @@ func _open_diagnostic_from_search(flow_id: String, dialog: Window) -> void:
     dialog.hide()
     _switch_to_page(diagnostics_box)
     _start_diagnostic(flow_id)
+    dialog.queue_free()
+
+func _open_warning_from_search(warning_id: String, dialog: Window) -> void:
+    dialog.hide()
+    _switch_to_page(diagnostics_box)
+    _show_warning_detail(warning_id)
+    dialog.queue_free()
+
+func _open_dtc_from_search(code: String, dialog: Window) -> void:
+    dialog.hide()
+    _switch_to_page(diagnostics_box)
+    _show_dtc_lookup()
+    await get_tree().process_frame
+    for child in diagnostic_content.get_children():
+        if child is LineEdit:
+            (child as LineEdit).text = code
+        if child is VBoxContainer and child != diagnostic_content:
+            _show_dtc_detail(code, child as VBoxContainer)
     dialog.queue_free()
 
 func _build_repair_page() -> void:
@@ -3207,6 +3619,7 @@ func _refresh_overview() -> void:
         reminders_summary_value.text = "Активных напоминаний нет."
 
     total_cost_value.text = "%s ₽" % _format_money(ServiceHistoryService.total_cost())
+    _refresh_saved_fault_card()
 
     _clear_children(recent_box)
     var latest := ServiceHistoryService.events()

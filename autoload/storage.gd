@@ -46,6 +46,7 @@ func default_data() -> Dictionary:
         "notification_runtime": {"last_sync_at": 0, "last_opened_item_id": "", "last_dismissed_item_id": ""},
         "install_info": {"first_run_at": int(Time.get_unix_time_from_system()), "last_transfer_import_at": 0},
         "active_repair_session": {},
+        "saved_faults": [],
         "maintenance_rules": [
             {"id":"engine_oil","title":"Масло двигателя","interval_km":10000,"interval_days":365,"warning_km":1000,"warning_days":30,"event_type":"engine_oil"},
             {"id":"oil_filter","title":"Масляный фильтр","interval_km":10000,"interval_days":365,"warning_km":1000,"warning_days":30,"event_type":"oil_filter"},
@@ -149,6 +150,8 @@ func _ensure_schema() -> void:
         data["install_info"] = {"first_run_at": int(Time.get_unix_time_from_system()), "last_transfer_import_at": 0}
     if not data.has("active_repair_session"):
         data["active_repair_session"] = {}
+    if not data.has("saved_faults"):
+        data["saved_faults"] = []
     data["schema_version"] = SCHEMA_VERSION
 
 

@@ -66,6 +66,20 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|ERROR: (Invalid call|Failed to load|Parse)' "$validation_log"; then
             echo "The 3D catalog validation reported a script error."
             exit 1
+
+      - name: Validate technical catalog routes and fault data
+        shell: bash
+        run: |
+          fault_validation_log=/tmp/yeti-garage-fault-validation.log
+          godot --headless --path . --script tools/validate_fault_catalog.gd 2>&1 | tee "$fault_validation_log"
+          if ! grep -Fq 'FAULT_AND_CATALOG_VALIDATION=PASS' "$fault_validation_log"; then
+            echo "The catalog/fault validation failed."
+            exit 1
+          fi
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$fault_validation_log"; then
+            echo "The fault catalog validation reported a script error."
+            exit 1
+          fi
           fi
 
       - name: Run scene startup smoke check

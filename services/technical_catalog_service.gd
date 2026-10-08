@@ -92,6 +92,25 @@ static func section(section_id: String, vehicle: Dictionary = {}) -> Dictionary:
 			return item
 	return {}
 
+static func find_node(node_id: String, vehicle: Dictionary = {}) -> Dictionary:
+	for section_row in sections(vehicle):
+		var found := _find_node_in_rows(section_row.get("nodes", []), node_id, vehicle)
+		if not found.is_empty():
+			return found
+	return {}
+
+static func _find_node_in_rows(rows: Array, node_id: String, vehicle: Dictionary) -> Dictionary:
+	for row_value in rows:
+		var row: Dictionary = row_value
+		if not is_compatible(row, vehicle):
+			continue
+		if str(row.get("id", "")) == node_id:
+			return row
+		var found := _find_node_in_rows(row.get("children", []), node_id, vehicle)
+		if not found.is_empty():
+			return found
+	return {}
+
 static func find_part(part_id: String, vehicle: Dictionary = {}) -> Dictionary:
 	for section_value in sections(vehicle):
 		var section_row: Dictionary = section_value
@@ -104,6 +123,31 @@ static func find_part(part_id: String, vehicle: Dictionary = {}) -> Dictionary:
 	var part := PartCatalogService.get_part(part_id)
 	if not part.is_empty() and is_compatible(part, vehicle):
 		return {"section":{"id":str(part.get("system", "")), "name":str(part.get("group", "Система"))}, "node":{"id":"unassigned", "name":str(part.get("group", "Узел")), "part_ids":[part_id]}, "path":[]}
+	return {}
+
+static func find_marker_location(part_id: String, vehicle: Dictionary = {}) -> Dictionary:
+	for section_row in sections(vehicle):
+		var location := _find_marker_in_nodes(section_row.get("nodes", []), part_id, [], vehicle)
+		if not location.is_empty():
+			location["section"] = section_row
+			return location
+	return {}
+
+static func _find_marker_in_nodes(rows: Array, part_id: String, path: Array, vehicle: Dictionary) -> Dictionary:
+	for row_value in rows:
+		var row: Dictionary = row_value
+		if not is_compatible(row, vehicle):
+			continue
+		var next_path: Array = path.duplicate()
+		next_path.append(row)
+		var diagram: Dictionary = row.get("diagram", {})
+		for marker_value in diagram.get("markers", []):
+			var marker: Dictionary = marker_value
+			if str(marker.get("part_id", "")) == part_id:
+				return {"node":row, "path":next_path, "marker":marker}
+		var nested := _find_marker_in_nodes(row.get("children", []), part_id, next_path, vehicle)
+		if not nested.is_empty():
+			return nested
 	return {}
 
 static func _find_part_in_nodes(node_rows: Array, part_id: String, path: Array, vehicle: Dictionary) -> Dictionary:
