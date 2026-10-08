@@ -87,8 +87,8 @@ func _initialize() -> void:
 func _walk(rows: Array, counts: Dictionary, marker_parts: Dictionary) -> void:
 	for row_value in rows:
 		var row: Dictionary = row_value
-		counts.nodes = int(counts.nodes) + 1
 		var diagram: Dictionary = row.get("diagram", {})
+		if not diagram.is_empty(): counts.nodes = int(counts.nodes) + 1
 		if str(diagram.get("image", "")) != "":
 			counts.images = int(counts.images) + 1
 			var image_type := str(diagram.get("image_type", ""))

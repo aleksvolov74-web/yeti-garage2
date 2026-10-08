@@ -129,9 +129,6 @@ static func _manual_pages() -> Array:
 	if not parsed is Array: return pages
 	for entry_value in parsed:
 		var entry: Dictionary = entry_value
-		var page_value: Variant = entry.get("manual_page", null)
-		if typeof(page_value) != TYPE_INT:
-			continue
-		var page := int(page_value)
+		var page := int(str(entry.get("manual_page", "0")))
 		if page > 0 and page not in pages: pages.append(page)
 	return pages
