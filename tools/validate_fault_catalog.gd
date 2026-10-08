@@ -99,4 +99,5 @@ func _walk(rows: Array, counts: Dictionary, marker_parts: Dictionary) -> void:
 			var marker: Dictionary = marker_value
 			counts.markers = int(counts.markers) + 1
 			marker_parts[str(marker.get("part_id", ""))] = true
-		_walk(row.get("children", []), counts, marker_parts)
+		var child_rows: Array = row.get("nodes", row.get("children", []))
+		_walk(child_rows, counts, marker_parts)
