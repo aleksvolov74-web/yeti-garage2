@@ -801,11 +801,11 @@ func _add_breadcrumb(text_value: String, action: Callable) -> void:
 	var item_width := maxf(84.0, minf(available_width * 0.48, 220.0))
 	button.custom_minimum_size.x = item_width
 	var max_chars := maxi(12, int((item_width - 28.0) / 7.0))
-	button.text = text_value
-	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
+	button.text = text_value if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.set_meta("full_breadcrumb_text", text_value)
 	button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	button.custom_minimum_size.y = 40
+	button.custom_minimum_size.y = 48
 	button.add_theme_font_size_override("font_size", 11)
 	button.add_theme_color_override("font_color", CYAN if _breadcrumb.get_child_count() == 0 else MUTED)
 	button.add_theme_stylebox_override("normal", _panel_style(Color("071820d8"), 11, BORDER))

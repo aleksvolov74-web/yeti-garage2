@@ -98,6 +98,7 @@ func _initialize() -> void:
 		for hit in hits:
 			if str(hit.get("kind", "")) == "dtc" and str(hit.get("id", "")) == str(lookup.get("code", "")): found = true
 		if not found: errors.append("VAG global search failed: " + query)
+	await _check_full_marker_sync(errors, view, vehicle)
 	await _check_vag_diagnostics_ui(errors, view)
 
 	print("Catalog validation: sections=%d nodes=%d images=%d markers=%d unique_marker_parts=%d" % [sections.size(), int(counts.nodes), int(counts.images), int(counts.markers), marker_parts.size()])
@@ -198,3 +199,46 @@ func _ui_text(parent: Node) -> String:
 	var texts := PackedStringArray()
 	for label in parent.find_children("*", "Label", true, false): texts.append(str(label.text))
 	return "\n".join(texts)
+
+func _check_full_marker_sync(errors: Array[String], view: Control, vehicle: Dictionary) -> void:
+	var audit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/technical_visual_audit.json"))
+	var tested := 0
+	for node_id in audit.nodes:
+		var entry: Dictionary = audit.nodes[node_id]
+		var profile := vehicle.duplicate(true)
+		if entry.architecture_status == "NOT_APPLICABLE_FWD": profile.drivetrain = "AWD"
+		view.call("set_vehicle_profile", profile)
+		view.call("focus_node", node_id)
+		await process_frame
+		if str(view.call("_current_node").get("id", "")) != node_id:
+			errors.append("full marker audit cannot open node: " + str(node_id))
+			continue
+		for marker in entry.markers:
+			var part_id := str(marker.part_id)
+			var canvas: Variant = view.get("_diagram")
+			canvas.marker_selected.emit(part_id)
+			await process_frame
+			canvas = view.get("_diagram")
+			if canvas == null or canvas.texture == null or canvas.selected_part_id != part_id or str(view.get("selected_part_id")) != part_id:
+				errors.append("marker selection/image mismatch: %s #%s" % [node_id, marker.number])
+			var wanted := "№%s · %s" % [TechnicalDiagramCanvas.marker_number_text(marker.number), marker.name_ru]
+			if wanted not in _ui_text(view): errors.append("selected card title mismatch: " + wanted)
+			var row: Button
+			for candidate in view.find_children("*", "Button", true, false):
+				if candidate.has_meta("part_id") and str(candidate.get_meta("part_id")) == part_id:
+					row = candidate
+					break
+			if row == null:
+				errors.append("missing part row: %s #%s" % [node_id, marker.number])
+			else:
+				canvas.set_selected_part("")
+				row.pressed.emit()
+				await process_frame
+				canvas = view.get("_diagram")
+				if canvas == null or canvas.selected_part_id != part_id or canvas.texture == null:
+					errors.append("part row marker mismatch: %s #%s" % [node_id, marker.number])
+			for point in canvas.markers:
+				if float(point.x) < 0 or float(point.x) > 1 or float(point.y) < 0 or float(point.y) > 1: errors.append("marker coordinate outside 0..1")
+			tested += 1
+	if tested != 376: errors.append("full marker synchronization coverage: %d" % tested)
+	print("All-context marker/card/row synchronization checked: %d markers / %d nodes" % [tested, audit.nodes.size()])
