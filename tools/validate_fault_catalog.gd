@@ -80,6 +80,7 @@ func _initialize() -> void:
 	if errors.is_empty():
 		print("FAULT_AND_CATALOG_VALIDATION=PASS")
 		quit(0)
+		return
 	for error in errors: push_error(error)
 	print("FAULT_AND_CATALOG_VALIDATION=FAIL")
 	quit(1)
