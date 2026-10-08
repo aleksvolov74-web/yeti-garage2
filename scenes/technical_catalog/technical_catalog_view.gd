@@ -926,6 +926,20 @@ func _label(value: String, font_size: int, color: Color) -> Label:
 	label.add_theme_color_override("font_color", color)
 	return label
 
+func _centered_icon(path: String, icon_size: float, tint: Color = Color("ffffff")) -> CenterContainer:
+	var center := CenterContainer.new()
+	center.custom_minimum_size = Vector2(icon_size, icon_size)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var icon := TextureRect.new()
+	icon.texture = load(path) as Texture2D
+	icon.custom_minimum_size = Vector2(icon_size, icon_size)
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.modulate = tint
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.add_child(icon)
+	return center
+
 func _muted_label(value: String) -> Label:
 	return _label(value, 12, MUTED)
 
