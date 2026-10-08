@@ -818,6 +818,7 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var selected_node: Dictionary = view.call("_current_node")
+		var starting_node_id := str(selected_node.get("id", ""))
 		if selected_node.is_empty() or str(selected_node.get("diagram", {}).get("image", "")) == "":
 			failures.append("%dpx system selection opened a node without an image" % viewport_width)
 		var selectors := content.find_children("*", "OptionButton", true, false)
@@ -825,7 +826,6 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			failures.append("%dpx image workspace has no flattened scheme selector" % viewport_width)
 		else:
 			var selector := selectors[0] as OptionButton
-			var starting_node_id := str(selected_node.get("id", ""))
 			selector.select(1)
 			selector.item_selected.emit(1)
 			await _wait_for_layout(2)
