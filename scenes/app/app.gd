@@ -1701,6 +1701,54 @@ func _show_diagnostic_scenarios() -> void:
 
     _diagnostic_entry_card("По симптомам", "Что происходит с машиной?", func(): _show_symptom_scenarios())
 
+    var saved_rows: Array = Storage.data.get("saved_faults", [])
+    if not saved_rows.is_empty():
+        _diagnostic_entry_card("Сохранённые неисправности · %d" % saved_rows.size(), "Записи, добавленные вручную", func(): _show_saved_faults())
+
+func _show_saved_faults() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Сохранённые неисправности"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    if rows.is_empty():
+        _fault_text_block(diagnostic_content, "Записей пока нет", "Сохраните лампу или код из карточки диагностики. Запись добавляется вручную.")
+    for value in rows:
+        var row: Dictionary = value
+        var card := _glass_card(diagnostic_content)
+        var warning := FaultCatalog.warning(str(row.get("warning_id", "")))
+        if warning.is_empty() and str(row.get("dtc_code", "")) != "":
+            var code := FaultCatalog.dtc(str(row.get("dtc_code", "")))
+            warning = FaultCatalog.warning(str(code.get("dashboard_warning_id", "")))
+        if not warning.is_empty():
+            var image := TextureRect.new()
+            image.texture = load(str(warning.get("image", ""))) as Texture2D
+            image.custom_minimum_size = Vector2(40, 40)
+            image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+            image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+            card.add_child(image)
+        var title := Label.new()
+        title.text = (str(row.get("dtc_code", "")) + " · " if str(row.get("dtc_code", "")) != "" else "") + str(row.get("title", "Сохранённая неисправность"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        card.add_child(title)
+        var status := Label.new()
+        status.text = str(row.get("date", "")) + " · " + str({"NEW":"Новая", "CHECKING":"Проверяется", "RESOLVED":"Решена"}.get(str(row.get("status", "NEW")), "Новая"))
+        status.modulate = Color("9ba6b2")
+        card.add_child(status)
+        if str(row.get("note", "")) != "":
+            var note := Label.new()
+            note.text = str(row.get("note", ""))
+            note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+            card.add_child(note)
+        var open := Button.new()
+        open.text = "Открыть запись"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_open_saved_fault.bind(row))
+        card.add_child(open)
+    _apply_touch_targets(diagnostic_content)
+
 func _show_symptom_scenarios() -> void:
     _clear_children(diagnostic_content)
     _diagnostic_back_button()

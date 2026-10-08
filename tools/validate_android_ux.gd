@@ -21,6 +21,7 @@ func _initialize() -> void:
 		event.id = "ux_history_%d" % index
 		event.title = "Длинное название обслуживания системы управления двигателем и электрооборудования"
 		event.notes = "Проверка переноса текста и доступа к нижним действиям записи."
+		event.part_id = "oil_filter"
 		sample.service_events.append(event)
 	for index in range(16):
 		sample.saved_faults.append({"id":"ux_fault_%d" % index,"date":"2026-10-08","warning_id":"abs","dtc_code":"","title":"ABS — сохранённая неисправность","note":"Записано вручную; проверка состояния системы","status":"NEW"})
@@ -45,7 +46,7 @@ func _initialize() -> void:
 			await _check_page("tab_%d" % index, pages.get_child(index) as ScrollContainer)
 		pages.current_tab = 4
 		app.call("_update_nav_styles")
-		for method in ["_show_warning_lights", "_show_dtc_lookup", "_show_diagnostic_scenarios"]:
+		for method in ["_show_warning_lights", "_show_dtc_lookup", "_show_diagnostic_scenarios", "_show_symptom_scenarios", "_show_saved_faults"]:
 			app.call(method)
 			await _frames(5)
 			await _check_page(method, pages.get_child(4) as ScrollContainer)
@@ -100,6 +101,34 @@ func _initialize() -> void:
 				if window.size.x > width: errors.append("manual dialog width exceeds %d" % width)
 				window.hide()
 		await _frames(3)
+		for method in ["_open_more_menu", "_open_vehicle_dialog", "_open_global_search"]:
+			app.call(method)
+			await _frames(6)
+			await _check_dialog(method)
+		app.call("_open_official_manual", 22)
+		await _frames(10)
+		await _check_dialog("official_manual_page_22")
+		app.call("_show_part_history", "oil_filter", "Масляный фильтр")
+		await _frames(6)
+		await _check_dialog("part_history_long")
+		app.call("_open_maintenance_rule_dialog", sample.maintenance_rules[0])
+		await _frames(6)
+		await _check_dialog("maintenance_settings")
+		pages.current_tab = 5
+		app.call("_update_nav_styles")
+		catalog.call("focus_node", "engine_complete")
+		await _frames(5)
+		var original_canvas: Variant = catalog.get("_diagram")
+		catalog.call("_show_fullscreen_diagram")
+		await _frames(6)
+		if original_canvas != catalog.get("_diagram"): errors.append("fullscreen duplicated diagram model")
+		original_canvas.marker_selected.emit("cylinder_head")
+		await _frames(5)
+		await _capture("fullscreen_selected_cylinder_head")
+		for window in root.get_embedded_subwindows():
+			if window.visible: window.hide()
+		await _frames(5)
+		if catalog.get("_diagram") != original_canvas or str(catalog.get("selected_part_id")) != "cylinder_head": errors.append("fullscreen state not restored")
 	var audit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/technical_visual_audit.json"))
 	var total := 0
 	for entry in audit.nodes.values():
@@ -135,9 +164,9 @@ func _check_page(id: String, scroll: ScrollContainer) -> void:
 	var maximum := maxi(0, int(bar.max_value - bar.page))
 	if maximum > 0:
 		var start := rect.get_center()
-		await _swipe(start, start + Vector2(0, -120))
+		await _swipe(start, start + Vector2(0, -120), scroll.get_viewport())
 		if scroll.scroll_vertical <= 0: errors.append("%dpx %s upward swipe did not scroll" % [width,id])
-		await _swipe(start, start + Vector2(0, 120))
+		await _swipe(start, start + Vector2(0, 120), scroll.get_viewport())
 		if scroll.scroll_vertical > 2: errors.append("%dpx %s downward swipe did not restore top" % [width,id])
 		scroll.scroll_vertical = maximum
 		await _frames(3)
@@ -145,17 +174,18 @@ func _check_page(id: String, scroll: ScrollContainer) -> void:
 		await _capture(id + "_bottom")
 	scroll.scroll_vertical = 0
 
-func _swipe(start: Vector2, finish: Vector2) -> void:
+func _swipe(start: Vector2, finish: Vector2, receiver: Viewport = null) -> void:
+	var viewport := root if receiver == null else receiver
 	var press := InputEventScreenTouch.new()
 	press.index = 0; press.pressed = true; press.position = start
-	root.push_input(press)
+	viewport.push_input(press)
 	await process_frame
 	var drag := InputEventScreenDrag.new()
 	drag.index = 0; drag.position = finish; drag.relative = finish-start
-	root.push_input(drag)
+	viewport.push_input(drag)
 	await process_frame
 	press.pressed = false; press.position = finish
-	root.push_input(press)
+	viewport.push_input(press)
 	await _frames(3)
 
 func _capture(id: String) -> void:
@@ -170,3 +200,14 @@ func _capture(id: String) -> void:
 
 func _frames(count: int) -> void:
 	for frame in range(count): await process_frame
+
+func _check_dialog(id: String) -> void:
+	for window in root.get_embedded_subwindows():
+		if not window.visible: continue
+		if window.position.x < 0 or window.position.x + window.size.x > width or window.size.y > 780: errors.append("dialog outside viewport: " + id)
+		await _capture(id)
+		for candidate in window.find_children("*", "ScrollContainer", true, false):
+			var scroll := candidate as ScrollContainer
+			if scroll.is_visible_in_tree(): await _check_page(id + "_scroll", scroll)
+		window.hide()
+	await _frames(4)
