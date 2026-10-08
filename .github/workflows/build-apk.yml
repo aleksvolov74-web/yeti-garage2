@@ -2,6 +2,14 @@ name: Build Android APK
 
 on:
   workflow_dispatch:
+    inputs:
+      validation_label:
+        description: Validation artifact label; partial batches are not final releases
+        type: choice
+        default: standard
+        options:
+          - standard
+          - CBZB-2node-PARTIAL
   push:
     branches:
       - main
@@ -20,6 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Prepare Godot
         shell: bash
@@ -53,6 +63,8 @@ jobs:
 
       - name: Resolve app version
         shell: bash
+        env:
+          REQUESTED_VALIDATION_LABEL: ${{ inputs.validation_label }}
         run: |
           APP_VERSION="$(sed -n 's/^config\/version="\([0-9][0-9.]*\)"$/\1/p' project.godot | head -n 1)"
           if [[ ! "$APP_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -60,9 +72,20 @@ jobs:
             exit 1
           fi
           echo "APP_VERSION=$APP_VERSION" >> "$GITHUB_ENV"
+          APK_VALIDATION_SUFFIX=""
+          if [ "$REQUESTED_VALIDATION_LABEL" = "CBZB-2node-PARTIAL" ]; then
+            APK_VALIDATION_SUFFIX="-CBZB-2node-PARTIAL"
+          fi
+          echo "APK_VALIDATION_SUFFIX=$APK_VALIDATION_SUFFIX" >> "$GITHUB_ENV"
           test "$(grep -Fc "version/name=\"$APP_VERSION\"" export_presets.cfg)" -eq 2
           test "$(grep -c '^version/code=' export_presets.cfg)" -eq 2
           test "$(grep '^version/code=' export_presets.cfg | sort -u | wc -l)" -eq 1
+
+      - name: Validate immutable audit and authorized partial replacements
+        shell: bash
+        run: |
+          git diff --check HEAD^ HEAD
+          python3 tools/validate_visual_audit.py
 
       - name: Validate 3D catalog and view startup
         shell: bash
@@ -113,7 +136,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: YetiGarage-${{ env.APP_VERSION }}-UX-Evidence
+          name: YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}-UX-Evidence
           path: build/ux/
           if-no-files-found: warn
 
@@ -127,15 +150,15 @@ jobs:
             --verbose \
             --path . \
             --export-debug "Android Quick APK" \
-            "build/android/YetiGarage-${APP_VERSION}.apk"
+            "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
 
-          test -f "build/android/YetiGarage-${APP_VERSION}.apk"
-          python3 tools/validate_apk_contents.py "build/android/YetiGarage-${APP_VERSION}.apk"
-          ls -lh "build/android/YetiGarage-${APP_VERSION}.apk"
+          test -f "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
+          python3 tools/validate_apk_contents.py "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
+          ls -lh "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: YetiGarage-${{ env.APP_VERSION }}-APK
-          path: build/android/YetiGarage-${{ env.APP_VERSION }}.apk
+          name: YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}-APK
+          path: build/android/YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}.apk
           if-no-files-found: error

@@ -142,8 +142,8 @@ func _run_checks() -> void:
 		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
 	if all_marker_total != 376:
 		failures.append("expected 376 technical markers, found %d" % all_marker_total)
-	if verified_architecture_total != 57 or reference_only_total != 33:
-		failures.append("expected 57 VERIFIED_ARCHITECTURE / 33 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
+	if verified_architecture_total != 55 or reference_only_total != 35:
+		failures.append("expected 55 VERIFIED_ARCHITECTURE / 35 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	if fwd_ui_image_node_count != 86:
@@ -302,7 +302,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"brake_hydraulics": {"section":"abs_esp", "count":6, "tap_part":"brake_lines", "level":"REFERENCE_ONLY"},
 		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"VERIFIED_ARCHITECTURE"},
 		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"VERIFIED_ARCHITECTURE"},
-		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"VERIFIED_ARCHITECTURE"},
+		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"REFERENCE_ONLY"},
 		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"VERIFIED_ARCHITECTURE"},
 		"fuel_storage": {"section":"fuel", "count":6, "tap_part":"evap_charcoal_canister", "level":"REFERENCE_ONLY"},
 		"radiator_pack": {"section":"cooling", "count":6, "tap_part":"low_temperature_radiator", "level":"VERIFIED_ARCHITECTURE"},
@@ -311,7 +311,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
 		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_complete": {"section":"engine", "count":7, "tap_part":"turbocharger", "level":"VERIFIED_ARCHITECTURE"},
-		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"REFERENCE_ONLY"},
 		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"VERIFIED_ARCHITECTURE"},
 		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"VERIFIED_ARCHITECTURE"},

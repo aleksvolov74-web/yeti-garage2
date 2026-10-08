@@ -58,40 +58,40 @@
               ],
               "diagram": {
                 "status": "available",
-                "image": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+                "image": "res://assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
                 "image_type": "exploded_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
                     "part_id": "engine_block",
-                    "x": 0.72,
-                    "y": 0.49
+                    "x": 0.48,
+                    "y": 0.55
                   },
                   {
                     "number": 2,
                     "part_id": "crankshaft",
-                    "x": 0.41,
-                    "y": 0.81
+                    "x": 0.51,
+                    "y": 0.84
                   },
                   {
                     "number": 3,
                     "part_id": "piston_group",
-                    "x": 0.28,
-                    "y": 0.23
+                    "x": 0.44,
+                    "y": 0.09
                   },
                   {
                     "number": 4,
                     "part_id": "connecting_rods",
-                    "x": 0.29,
-                    "y": 0.48
+                    "x": 0.44,
+                    "y": 0.25
                   }
                 ],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
                   "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/crankshaft/",
-                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
-                  "license": "Original generated project visual; workshop illustration not copied or bundled.",
+                  "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+                  "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
                   "applicability": {
                     "model": "Yeti 5L",
                     "model_year": [
@@ -101,10 +101,10 @@
                     "drivetrain": "FWD",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-                  "author": "Yeti Garage — original generated technical visual"
+                  "verification_note": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
+                  "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
                 },
-                "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+                "asset_note": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир."
               },
               "requires_engine_codes": [
                 "CBZB"
@@ -749,53 +749,53 @@
             "charge_air_pipe"
           ],
           "diagram": {
-            "status": "verified",
+            "status": "available",
             "image": "res://assets/technical_catalog/intake/boost_group.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "turbocharger",
-                "x": 0.6,
+                "x": 0.62,
                 "y": 0.43
               },
               {
                 "number": 2,
                 "part_id": "exhaust_manifold",
-                "x": 0.27,
-                "y": 0.43
+                "x": 0.31,
+                "y": 0.28
               },
               {
                 "number": 3,
                 "part_id": "charge_pressure_regulator_v465",
-                "x": 0.45,
-                "y": 0.13
+                "x": 0.8,
+                "y": 0.23
               },
               {
                 "number": 4,
                 "part_id": "turbo_oil_feed_line",
-                "x": 0.47,
-                "y": 0.74
+                "x": 0.49,
+                "y": 0.135
               },
               {
                 "number": 5,
                 "part_id": "turbo_coolant_lines",
-                "x": 0.77,
-                "y": 0.65
+                "x": 0.245,
+                "y": 0.63
               },
               {
                 "number": 6,
                 "part_id": "charge_air_pipe",
-                "x": 0.85,
-                "y": 0.25
+                "x": 0.82,
+                "y": 0.74
               }
             ],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_turbocharger_g-charger/charge_air_system_with_exhaust_gas_turbocharger/charge_air_system_summary_of_components/",
-              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
-              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
+              "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+              "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
               "applicability": {
                 "model": "Škoda Yeti 5L",
                 "model_year": [
@@ -805,9 +805,10 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted.",
-              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
-            }
+              "verification_note": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
+              "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
+            },
+            "asset_note": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте."
           },
           "requires_engine_codes": [
             "CBZB"

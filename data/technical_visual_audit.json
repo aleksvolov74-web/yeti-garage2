@@ -1,6 +1,6 @@
 {
   "source_commit": "52b973888306662b65606e7bc8d7cd14edae339d",
-  "method": "Each original WebP visually inspected beside its numbered overlay. PASS_VISUAL only describes recognizable depiction/position; it does not certify VIN fitment. Documentary uncertainties remain explicit.",
+  "method": "Each original WebP visually inspected beside its numbered overlay. PASS_VISUAL only describes recognizable depiction/position; it does not certify VIN fitment. Documentary uncertainties remain explicit. Active entries for engine_bottom_end and boost_group are superseded by the explicitly authorized two-node reference batch; the immutable original review is retained in docs/audits/full_marker_visual_review.json.",
   "nodes": {
     "engine_complete": {
       "image": "res://assets/technical_catalog/engine/engine_complete.webp",
@@ -104,16 +104,17 @@
       ]
     },
     "engine_bottom_end": {
-      "image": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
-      "original_verification_level": "VERIFIED_ARCHITECTURE",
+      "image": "res://assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
+      "image_sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+      "catalog_verification_level": "REFERENCE_ONLY",
       "visually_opened": true,
-      "architecture_status": "FAIL_ARCHITECTURE",
-      "finding_ru": "Видны три цилиндра и три поршня. Не соответствует четырёхцилиндровому CBZB.",
+      "architecture_status": "REFERENCE_ONLY",
+      "finding_ru": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
       "source": {
         "title": "Двигатель CBZB 1.2 TSI",
         "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/crankshaft/",
-        "publisher": "Škoda Auto workshop information (web-accessible copy)",
-        "license": "Original generated project visual; workshop illustration not copied or bundled.",
+        "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+        "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
         "applicability": {
           "model": "Yeti 5L",
           "model_year": [
@@ -123,49 +124,65 @@
           "drivetrain": "FWD",
           "engine_code": "CBZB"
         },
-        "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-        "author": "Yeti Garage — original generated technical visual"
+        "verification_note": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
+        "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
+      },
+      "replacement_batch": "YetiGarage_CBZB_2node_reference_batch_v1",
+      "supersedes": {
+        "commit": "172652ac9bb6c40d1314e2653fb5f89a85330081",
+        "review_file": "docs/audits/full_marker_visual_review.json",
+        "node_id": "engine_bottom_end",
+        "old_image_sha256": "65639b0cb619f6dfc00aae0df90a08874e7cbe79f3f722ac4ec40d7de1a935f3",
+        "previous_architecture_status": "FAIL_ARCHITECTURE"
       },
       "markers": [
         {
           "number": 1,
           "part_id": "engine_block",
-          "x": 0.72,
-          "y": 0.49,
+          "x": 0.48,
+          "y": 0.55,
           "name_ru": "Блок двигателя",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "Показан блок с тремя цилиндрами",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на корпусе блока; видны четыре цилиндра. Точные размеры и литейное исполнение CBZB не подтверждены.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Блок двигателя"
         },
         {
           "number": 2,
           "part_id": "crankshaft",
-          "x": 0.41,
-          "y": 0.81,
+          "x": 0.51,
+          "y": 0.84,
           "name_ru": "Коленчатый вал",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "Коленчатый вал перед блоком",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на центральной части одного коленчатого вала. Геометрия щёк и шеек справочная.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Коленчатый вал"
         },
         {
           "number": 3,
           "part_id": "piston_group",
-          "x": 0.28,
-          "y": 0.23,
+          "x": 0.44,
+          "y": 0.09,
           "name_ru": "Поршневая группа",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "Отдельный поршень",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на одном из четырёх поршней, обозначает поршневую группу. Ревизия поршней не подтверждена.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Поршневая группа"
         },
         {
           "number": 4,
           "part_id": "connecting_rods",
-          "x": 0.29,
-          "y": 0.48,
+          "x": 0.44,
+          "y": 0.25,
           "name_ru": "Шатуны",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "Отдельный шатун",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на втором из четырёх шатунов; точки не смешаны с соседним шатуном. Размеры справочные.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Шатуны"
         }
       ]
     },
@@ -740,15 +757,16 @@
     },
     "boost_group": {
       "image": "res://assets/technical_catalog/intake/boost_group.webp",
-      "original_verification_level": "VERIFIED_ARCHITECTURE",
+      "image_sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+      "catalog_verification_level": "REFERENCE_ONLY",
       "visually_opened": true,
-      "architecture_status": "FAIL_ARCHITECTURE",
-      "finding_ru": "Вакуумный мембранный привод не подтверждает электрический регулятор V465 CBZB. Ошибка привязки маслоподачи; координаты нельзя угадывать.",
+      "architecture_status": "REFERENCE_ONLY",
+      "finding_ru": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
       "source": {
         "title": "Впуск и топливный распределитель CBZB",
-        "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_turbocharger_g-charger/charge_air_system_with_exhaust_gas_turbocharger/charge_air_system_summary_of_components/",
-        "publisher": "Пакет визуальных материалов, предоставленный пользователем",
-        "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
+        "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
+        "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+        "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
         "applicability": {
           "model": "Škoda Yeti 5L",
           "model_year": [
@@ -758,69 +776,89 @@
           "drivetrain": "ANY",
           "engine_code": "CBZB"
         },
-        "verification_note": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted.",
-        "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
+        "verification_note": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
+        "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
+      },
+      "replacement_batch": "YetiGarage_CBZB_2node_reference_batch_v1",
+      "supersedes": {
+        "commit": "172652ac9bb6c40d1314e2653fb5f89a85330081",
+        "review_file": "docs/audits/full_marker_visual_review.json",
+        "node_id": "boost_group",
+        "old_image_sha256": "3d8df766c62d5dbe5ce17d564d20bd169adf3030b6d9392aedf476bbc0c908de",
+        "previous_architecture_status": "FAIL_ARCHITECTURE"
       },
       "markers": [
         {
           "number": 1,
           "part_id": "turbocharger",
-          "x": 0.6,
+          "x": 0.62,
           "y": 0.43,
           "name_ru": "Турбокомпрессор",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "На корпусе компрессора.",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на корпусе турбокомпрессора; общая категория видимого агрегата соответствует названию.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Турбокомпрессор"
         },
         {
           "number": 2,
           "part_id": "exhaust_manifold",
-          "x": 0.27,
-          "y": 0.43,
+          "x": 0.31,
+          "y": 0.28,
           "name_ru": "Выпускной коллектор",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "На ветви выпускного коллектора.",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на ветви выпускного коллектора; четыре входных фланца. Точная форма отливки не подтверждена.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Выпускной коллектор"
         },
         {
           "number": 3,
           "part_id": "charge_pressure_regulator_v465",
-          "x": 0.45,
-          "y": 0.13,
+          "x": 0.8,
+          "y": 0.23,
           "name_ru": "Регулятор давления наддува V465",
-          "visual_status": "FAIL_MARKER",
-          "finding_ru": "Изображён вакуумный мембранный привод, а указан электрический V465; маркер также в воздухе справа.",
-          "documentary_status": "NEEDS_REVIEW"
+          "visual_status": "PASS_VISUAL",
+          "finding_ru": "Маркер на изображённом электрическом приводе с разъёмом; вакуумной мембраны прежнего изображения нет. Точное исполнение V465 не подтверждено.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Электрический регулятор наддува V465"
         },
         {
           "number": 4,
           "part_id": "turbo_oil_feed_line",
-          "x": 0.47,
-          "y": 0.74,
+          "x": 0.49,
+          "y": 0.135,
           "name_ru": "Маслоподающая трубка турбокомпрессора",
-          "visual_status": "FAIL_MARKER",
-          "finding_ru": "Номер стоит на отдельном крепёжном болте, не на маслоподающей трубке.",
-          "documentary_status": "NEEDS_REVIEW"
+          "visual_status": "PASS_VISUAL",
+          "finding_ru": "Маркер на верхней металлической трубке, изображающей маслоподачу. Реальную трассу и соединения по этому рендеру не определять.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Трубка подачи масла турбины"
         },
         {
           "number": 5,
           "part_id": "turbo_coolant_lines",
-          "x": 0.77,
-          "y": 0.65,
+          "x": 0.245,
+          "y": 0.63,
           "name_ru": "Трубки охлаждения турбокомпрессора",
-          "visual_status": "NEEDS_REVIEW",
-          "finding_ru": "На шланге; отличить масляную и охлаждающую магистрали без достоверной схемы нельзя.",
-          "documentary_status": "NEEDS_REVIEW"
+          "visual_status": "PASS_VISUAL",
+          "finding_ru": "Маркер на левой трубке изображённого охлаждающего контура. Точные подключения масла/ОЖ не подтверждены; не использовать как инструкцию монтажа.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Трубки охлаждения турбины"
         },
         {
           "number": 6,
           "part_id": "charge_air_pipe",
-          "x": 0.85,
-          "y": 0.25,
+          "x": 0.82,
+          "y": 0.74,
           "name_ru": "Трубопровод наддувочного воздуха",
           "visual_status": "PASS_VISUAL",
-          "finding_ru": "На чёрном воздушном колене.",
-          "documentary_status": "NEEDS_REVIEW"
+          "finding_ru": "Маркер на большом патрубке наддувочного воздуха. Точное расположение и форма патрубка не подтверждены.",
+          "documentary_status": "REFERENCE_ONLY — документ подтверждает категорию/общую архитектуру; пиксельная геометрия AI-рендера, VIN и ревизия не подтверждены.",
+          "post_replacement_visual_review": "Original 1254x1254 WebP and numbered overlay opened; each of the supplied marker positions compared with the visible component.",
+          "batch_name_ru": "Патрубок наддувочного воздуха"
         }
       ]
     },
@@ -6863,5 +6901,22 @@
         }
       ]
     }
-  }
+  },
+  "change_history": [
+    {
+      "batch": "YetiGarage_CBZB_2node_reference_batch_v1",
+      "manifest": "docs/audits/batches/cbzb_2node_reference_batch_v1/manifest.json",
+      "manifest_sha256": "79c80b9cb3b341751ad79b900dbe008a9772358bd22fa556bc6b2ffa59ede8a2",
+      "base_commit": "172652ac9bb6c40d1314e2653fb5f89a85330081",
+      "modified_node_ids": [
+        "engine_bottom_end",
+        "boost_group"
+      ],
+      "images_replaced": 1,
+      "markers_repositioned": 10,
+      "status": "PARTIAL_CORRECTION__NOT_COMPLETE",
+      "physical_webp_added": 1,
+      "physical_webp_replaced": 1
+    }
+  ]
 }

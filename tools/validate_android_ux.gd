@@ -141,6 +141,7 @@ func _initialize() -> void:
 			if window.visible: window.hide()
 		await _frames(5)
 		if catalog.get("_diagram") != original_canvas or str(catalog.get("selected_part_id")) != "cylinder_head": errors.append("fullscreen state not restored")
+		await _check_cbzb_batch(catalog, pages.get_child(5) as ScrollContainer)
 	var audit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/technical_visual_audit.json"))
 	var total := 0
 	for entry in audit.nodes.values():
@@ -223,3 +224,95 @@ func _check_dialog(id: String) -> void:
 			if scroll.is_visible_in_tree(): await _check_page(id + "_scroll", scroll)
 		window.hide()
 	await _frames(4)
+
+func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
+	for node_id in ["engine_bottom_end", "boost_group"]:
+		catalog.call("focus_node", node_id)
+		await _frames(6)
+		var canvas: Control = catalog.get("_diagram")
+		if canvas == null or canvas.get("texture") == null:
+			errors.append("batch image missing: " + node_id)
+			continue
+		var texture: Texture2D = canvas.get("texture")
+		if texture.get_size() != Vector2(1254,1254): errors.append("batch image dimensions: " + node_id)
+		await _check_page("cbzb_" + node_id, scroll)
+		var points: Array = canvas.get("markers").duplicate(true)
+		for marker in points:
+			catalog.call("focus_node", node_id)
+			await _frames(5)
+			scroll.scroll_vertical = 0
+			await _frames(3)
+			canvas = catalog.get("_diagram")
+			var rect: Rect2 = canvas.call("_image_rect")
+			var location := canvas.global_position + rect.position + rect.size * Vector2(marker.x,marker.y)
+			var touch := InputEventScreenTouch.new()
+			touch.index = 0; touch.pressed = true; touch.position = location
+			root.push_input(touch)
+			await process_frame
+			touch.pressed = false; root.push_input(touch)
+			await _frames(5)
+			canvas = catalog.get("_diagram")
+			if str(catalog.get("selected_part_id")) != str(marker.part_id) or canvas.get("texture") == null:
+				errors.append("batch marker touch failed: %s/%s" % [node_id,marker.part_id])
+			await _capture("cbzb_%s_marker_%d" % [node_id,int(marker.number)])
+			var found := false
+			for button in catalog.find_children("*", "Button", true, false):
+				if str(button.get_meta("part_id", "")) == str(marker.part_id):
+					button.pressed.emit(); found = true; break
+			await _frames(4)
+			canvas = catalog.get("_diagram")
+			if not found or str(canvas.get("selected_part_id")) != str(marker.part_id): errors.append("batch part row failed: " + str(marker.part_id))
+			catalog.call("focus_part", str(marker.part_id))
+			await _frames(4)
+			canvas = catalog.get("_diagram")
+			if canvas == null or canvas.get("texture") == null or str(canvas.get("selected_part_id")) != str(marker.part_id): errors.append("batch focus/search route failed: " + str(marker.part_id))
+		catalog.call("focus_node", node_id)
+		await _frames(5)
+		scroll.scroll_vertical = 0
+		await _frames(3)
+		canvas = catalog.get("_diagram")
+		catalog.call("_toggle_markers")
+		if bool(canvas.get("markers_visible")): errors.append("batch numbers hide failed")
+		catalog.call("_toggle_markers")
+		if not bool(canvas.get("markers_visible")): errors.append("batch numbers restore failed")
+		canvas.call("reset_view")
+		var center := canvas.get_global_rect().get_center()
+		await _send_mobile_pinch(root, center, 35.0)
+		if float(canvas.get("_zoom")) <= 1.0: errors.append("batch pinch failed: " + node_id)
+		canvas.set("_zoom", 2.0)
+		var prior: Vector2 = canvas.get("_pan")
+		await _swipe(center,center+Vector2(-55,0),root)
+		if Vector2(canvas.get("_pan")).is_equal_approx(prior): errors.append("batch pan failed: " + node_id)
+		canvas.call("reset_view")
+		if float(canvas.get("_zoom")) != 1.0 or not Vector2(canvas.get("_pan")).is_zero_approx(): errors.append("batch fit failed: " + node_id)
+		catalog.call("_reset_catalog")
+		await _frames(3)
+
+func _send_mobile_pinch(viewport: Viewport, center: Vector2, radius: float) -> void:
+	var first := InputEventScreenTouch.new()
+	first.device = 0
+	first.index = 0
+	first.pressed = true
+	first.position = center + Vector2(-radius, 0)
+	viewport.push_input(first)
+	await process_frame
+	var second := InputEventScreenTouch.new()
+	second.device = 0
+	second.index = 1
+	second.pressed = true
+	second.position = center + Vector2(radius, 0)
+	viewport.push_input(second)
+	await process_frame
+	var pinch := InputEventScreenDrag.new()
+	pinch.device = 0
+	pinch.index = 1
+	pinch.position = center + Vector2(radius * 2.0, 0)
+	pinch.relative = Vector2(radius, 0)
+	viewport.push_input(pinch)
+	await process_frame
+	second.pressed = false
+	viewport.push_input(second)
+	await process_frame
+	first.pressed = false
+	viewport.push_input(first)
+	await _frames(2)

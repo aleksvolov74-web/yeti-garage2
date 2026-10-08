@@ -1,0 +1,158 @@
+{
+  "manifest_format": "yeti_garage_technical_replacement_batch_v1",
+  "batch_name": "YetiGarage_CBZB_2node_reference_batch_v1",
+  "status": "PARTIAL_CORRECTION__NOT_COMPLETE",
+  "vehicle": {
+    "model": "Skoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "gearbox": "0AM-DQ200"
+  },
+  "source_repo": "aleksvolov74-web/yeti-garage2",
+  "source_main_commit": "e3008862fa901886e56587056200347a90258fdc",
+  "integration_branch": "validation/full-marker-audit-android-ux",
+  "source_validation_commit": "172652a",
+  "current_version": "0.20.29",
+  "current_versionCode": 69,
+  "baseline_counts": {
+    "sections": 24,
+    "nodes_total": 90,
+    "nodes_with_images": 90,
+    "nodes_without_images": 0,
+    "markers_total": 376,
+    "verified_architecture": 57,
+    "reference_only": 33
+  },
+  "expected_counts_if_integrated": {
+    "images_added": 0,
+    "images_replaced": 2,
+    "markers_added": 0,
+    "markers_repositioned": 10,
+    "nodes_with_images_total": 90,
+    "nodes_without_images_total": 0,
+    "markers_total": 376,
+    "verified_architecture_total": 55,
+    "reference_only_total": 35
+  },
+  "new_part_ids": [],
+  "remaining_nodes_with_unfixed_architecture": [
+    "engine_block_group",
+    "engine_upper_end",
+    "cylinder_head_group"
+  ],
+  "not_applicable_to_other_nodes": true,
+  "nodes": [
+    {
+      "node_id": "engine_bottom_end",
+      "title_ru": "Блок цилиндров и кривошипный механизм",
+      "node_status": "REFERENCE_ONLY",
+      "image_type": "exploded_view",
+      "app_asset_path": "assets/technical_catalog/engine/engine_bottom_end.webp",
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_block",
+          "name_ru": "Блок двигателя",
+          "x": 0.48,
+          "y": 0.55
+        },
+        {
+          "number": 2,
+          "part_id": "crankshaft",
+          "name_ru": "Коленчатый вал",
+          "x": 0.51,
+          "y": 0.84
+        },
+        {
+          "number": 3,
+          "part_id": "piston_group",
+          "name_ru": "Поршневая группа",
+          "x": 0.44,
+          "y": 0.09
+        },
+        {
+          "number": 4,
+          "part_id": "connecting_rods",
+          "name_ru": "Шатуны",
+          "x": 0.44,
+          "y": 0.25
+        }
+      ],
+      "architecture_note_ru": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
+      "source_url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/crankshaft/",
+      "image_size_px": [
+        1254,
+        1254
+      ],
+      "image_sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+      "marker_count": 4,
+      "image_action": "REPLACE_EXISTING",
+      "new_part_ids": [],
+      "previous_status": "FAIL_ARCHITECTURE"
+    },
+    {
+      "node_id": "boost_group",
+      "title_ru": "Турбокомпрессор и управление наддувом",
+      "node_status": "REFERENCE_ONLY",
+      "image_type": "exploded_view",
+      "app_asset_path": "assets/technical_catalog/intake/boost_group.webp",
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "turbocharger",
+          "name_ru": "Турбокомпрессор",
+          "x": 0.62,
+          "y": 0.43
+        },
+        {
+          "number": 2,
+          "part_id": "exhaust_manifold",
+          "name_ru": "Выпускной коллектор",
+          "x": 0.31,
+          "y": 0.28
+        },
+        {
+          "number": 3,
+          "part_id": "charge_pressure_regulator_v465",
+          "name_ru": "Электрический регулятор наддува V465",
+          "x": 0.8,
+          "y": 0.23
+        },
+        {
+          "number": 4,
+          "part_id": "turbo_oil_feed_line",
+          "name_ru": "Трубка подачи масла турбины",
+          "x": 0.49,
+          "y": 0.135
+        },
+        {
+          "number": 5,
+          "part_id": "turbo_coolant_lines",
+          "name_ru": "Трубки охлаждения турбины",
+          "x": 0.245,
+          "y": 0.63
+        },
+        {
+          "number": 6,
+          "part_id": "charge_air_pipe",
+          "name_ru": "Патрубок наддувочного воздуха",
+          "x": 0.82,
+          "y": 0.74
+        }
+      ],
+      "architecture_note_ru": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
+      "source_url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
+      "image_size_px": [
+        1254,
+        1254
+      ],
+      "image_sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+      "marker_count": 6,
+      "image_action": "REPLACE_EXISTING",
+      "new_part_ids": [],
+      "previous_status": "FAIL_ARCHITECTURE"
+    }
+  ],
+  "hard_gate_ru": "Это частичная коррекция только 2 узлов из 5. Запрещено объявлять пять исходных FAIL_ARCHITECTURE исправленными; 3 ошибки остаются. Без нового аудита исходников не считать VIN-точной схемой. Прежде чем интегрировать, сверить SHA, координаты на оверлее и реальную архитектуру."
+}
