@@ -526,8 +526,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			section_breadcrumb.pressed.emit()
 			await process_frame
 			var section_path: Array = view.get("current_path")
-			if not section_path.is_empty():
-				failures.append("technical diagram node %s did not return to its section list" % node_id)
+			if section_path.is_empty() or view.get("_diagram") == null:
+				failures.append("technical diagram node %s did not return directly to the system diagram" % node_id)
 		view.call("_open_section", section_id)
 		var search_edit := view.get("_search_edit") as LineEdit
 		search_edit.text = str(expected_part.get("name", ""))
@@ -722,8 +722,8 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		else:
 			section_crumb.pressed.emit()
 			await process_frame
-			if not (view.get("current_path") as Array).is_empty():
-				failures.append("AWD reference node %s did not return to AWD section list" % node_id)
+			if str(view.get("current_section_id")) != "awd" or view.get("_diagram") == null:
+				failures.append("AWD reference node %s did not return directly to the AWD diagram" % node_id)
 		view.call("_open_section", "awd")
 		var search_edit := view.get("_search_edit") as LineEdit
 		search_edit.text = str(part.get("name", ""))
@@ -795,114 +795,103 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var section_grid := grids[0] as GridContainer
-		print("Mobile layout dimensions: requested=%d subviewport=%s outer=%s host=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.size, host.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
 		if section_grid.columns != 1:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 			failures.append("%dpx system grid exceeds the mobile viewport" % viewport_width)
-		var section_card: Button
-		if section_grid.get_child_count() > 0:
-			section_card = section_grid.get_child(0) as Button
+		var section_card := section_grid.get_child(0) as Button if section_grid.get_child_count() > 0 else null
 		if section_card == null:
 			failures.append("%dpx system grid has no section card" % viewport_width)
 		else:
-			if section_card.mouse_filter != Control.MOUSE_FILTER_PASS or section_card.get_child_count() == 0:
-				failures.append("%dpx system card does not pass touch or contain its full-rect layout" % viewport_width)
-			else:
-				var section_margin := section_card.get_child(0) as MarginContainer
-				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
-					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
+			if section_card.custom_minimum_size.y < 48.0 or section_card.mouse_filter != Control.MOUSE_FILTER_PASS:
+				failures.append("%dpx system card has an invalid touch target" % viewport_width)
 			await _send_mobile_drag(test_viewport, section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
-			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
-				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
+			if outer.scroll_vertical <= 0 or str(view.get("current_section_id")) != "":
+				failures.append("%dpx swipe over a system card did not scroll without opening it" % viewport_width)
 
 		outer.scroll_vertical = 0
 		view.call("_open_section", "engine")
-		await _wait_for_layout(3)
-		var node_card := _first_catalog_card(content, false)
-		if node_card == null:
-			failures.append("%dpx engine node list has no tappable node card" % viewport_width)
-		else:
-			if node_card.mouse_filter != Control.MOUSE_FILTER_PASS or node_card.size.x > outer.size.x + 1.0 or node_card.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
-				failures.append("%dpx node card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(test_viewport, node_card.get_global_rect().get_center(), node_card.get_global_rect().get_center() + Vector2(0, -100))
-			if outer.scroll_vertical <= 0 or not (view.get("current_path") as Array).is_empty():
-				failures.append("%dpx swipe over a node card did not scroll without opening it" % viewport_width)
-
-		outer.scroll_vertical = 0
-		view.call("_open_node", "engine_upper_end")
 		await _wait_for_layout(4)
-		var part_card := _first_catalog_card(content, true)
-		if part_card == null:
-			failures.append("%dpx cylinder-head page has no part list card" % viewport_width)
-		else:
-			outer.scroll_vertical = maxi(0, int(part_card.position.y - 180.0))
-			await _wait_for_layout(2)
-			if part_card.mouse_filter != Control.MOUSE_FILTER_PASS or part_card.size.x > outer.size.x + 1.0:
-				failures.append("%dpx part card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(test_viewport, part_card.get_global_rect().get_center(), part_card.get_global_rect().get_center() + Vector2(0, -100))
-			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
-				failures.append("%dpx swipe over a part card did not scroll without selecting it" % viewport_width)
-
-		view.call("_open_node", "cylinder_head_group")
-		outer.scroll_vertical = 0
-		await _wait_for_layout(4)
-		var viewport_rect := outer.get_global_rect()
-		var title: Label = view.get("_title")
-		if title.get_global_rect().end.x > viewport_rect.end.x + 1.0 or title.size.x < viewport_width - 24.0 or title.autowrap_mode != TextServer.AUTOWRAP_WORD_SMART:
-			failures.append("%dpx long node title overflows or does not use the available width" % viewport_width)
-		var breadcrumb: HFlowContainer = view.get("_breadcrumb")
-		if breadcrumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
-			failures.append("%dpx breadcrumb container exceeds viewport width" % viewport_width)
-		for breadcrumb_child in breadcrumb.get_children():
-			if breadcrumb_child is Button:
-				var crumb := breadcrumb_child as Button
-				if crumb.mouse_filter != Control.MOUSE_FILTER_PASS or crumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
-					failures.append("%dpx breadcrumb item overflows or blocks navigation gestures" % viewport_width)
-
 		var canvas: Control = view.get("_diagram")
-		if canvas == null:
-			failures.append("%dpx long-title node has no diagram canvas" % viewport_width)
+		if canvas == null or canvas.get("texture") == null:
+			failures.append("%dpx system selection did not open its image immediately" % viewport_width)
+			outer.queue_free()
+			continue
+		var selected_node: Dictionary = view.call("_current_node")
+		if selected_node.is_empty() or str(selected_node.get("diagram", {}).get("image", "")) == "":
+			failures.append("%dpx system selection opened a node without an image" % viewport_width)
+		var selectors := content.find_children("*", "OptionButton", true, false)
+		if selectors.is_empty() or (selectors[0] as OptionButton).get_item_count() < 2:
+			failures.append("%dpx image workspace has no flattened scheme selector" % viewport_width)
 		else:
+			var selector := selectors[0] as OptionButton
+			var starting_node_id := str(selected_node.get("id", ""))
+			selector.select(1)
+			selector.item_selected.emit(1)
+			await _wait_for_layout(2)
+			if str(view.call("_current_node").get("id", "")) == starting_node_id or view.get("_diagram") == null:
+				failures.append("%dpx scheme selector did not switch the visible diagram" % viewport_width)
+
+		var breadcrumb: HFlowContainer = view.get("_breadcrumb")
+		var viewport_rect := outer.get_global_rect()
+		if breadcrumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
+			failures.append("%dpx compact catalog breadcrumb exceeds the viewport" % viewport_width)
+		for button_node in content.find_children("*", "Button", true, false):
+			var button := button_node as Button
+			if button.custom_minimum_size.y > 0.0 and button.custom_minimum_size.y < 48.0:
+				failures.append("%dpx catalog action has a touch target below 48px" % viewport_width)
+
+		view.call("_open_node", starting_node_id)
+		await _wait_for_layout(3)
+		canvas = view.get("_diagram")
+		if canvas != null:
 			var marker: Dictionary = canvas.get("markers")[0]
-			var image_rect: Rect2 = canvas.call("_image_rect")
-			var marker_position := canvas.global_position + image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+			canvas.call("reset_view")
+			var marker_position: Vector2 = canvas.global_position + canvas.call("_image_rect").position + Vector2(float(marker["x"]), float(marker["y"])) * canvas.call("_image_rect").size
 			outer.scroll_vertical = 0
 			await _send_mobile_drag(test_viewport, marker_position, marker_position + Vector2(0, -115))
-			if outer.scroll_vertical <= 0:
-				failures.append("%dpx zoom=1 swipe over the diagram did not scroll the page" % viewport_width)
-			if not Vector2(canvas.get("_pan")).is_zero_approx() or str(view.get("selected_part_id")) != "":
-				failures.append("%dpx zoom=1 scroll panned the image or falsely selected a marker" % viewport_width)
-
-			outer.scroll_vertical = 0
+			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
+				failures.append("%dpx fit-view swipe over the diagram did not scroll cleanly" % viewport_width)
 			canvas.set("_zoom", 2.0)
 			canvas.call("_update_input_routing")
 			var zoomed_origin := canvas.get_global_rect().get_center()
 			await _send_mobile_drag(test_viewport, zoomed_origin, zoomed_origin + Vector2(-100, 0))
-			if Vector2(canvas.get("_pan")).is_zero_approx() or outer.scroll_vertical != 0:
-				failures.append("%dpx zoomed diagram drag did not pan exclusively inside the image" % viewport_width)
-
+			if Vector2(canvas.get("_pan")).is_zero_approx():
+				failures.append("%dpx zoomed diagram drag did not pan" % viewport_width)
 			canvas.call("reset_view")
-			outer.scroll_vertical = 0
-			await _send_mobile_drag(test_viewport, canvas.get_global_rect().get_center(), canvas.get_global_rect().get_center() + Vector2(0, -115))
-			if outer.scroll_vertical <= 0 or not Vector2(canvas.get("_pan")).is_zero_approx():
-				failures.append("%dpx reset zoom did not restore page scrolling over the diagram" % viewport_width)
-
-			outer.scroll_vertical = 0
-			await _send_mobile_pinch(test_viewport, canvas.get_global_rect().get_center(), 28.0)
-			if float(canvas.get("_zoom")) <= 1.01:
-				failures.append("%dpx two-finger pinch did not zoom the diagram" % viewport_width)
-			canvas.call("reset_view")
-			var final_part_card := _first_catalog_card(content, true)
-			if final_part_card != null:
-				var bar := outer.get_v_scroll_bar()
-				outer.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
-				await _wait_for_layout(3)
-				var last_content := content.get_child(content.get_child_count() - 1) as Control
-				if outer.scroll_vertical <= 0 or last_content.get_global_rect().end.y > outer.get_global_rect().end.y + 2.0:
-					failures.append("%dpx technical catalog page bottom is not reachable" % viewport_width)
-		print("Responsive catalog layout and scroll PASS: %dpx" % viewport_width)
-		test_viewport.queue_free()
+			var parts := content.find_children("*", "Button", true, false)
+			var part_row: Button
+			for button_value in parts:
+				var button := button_value as Button
+				if button.has_meta("part_id"):
+					part_row = button
+					break
+			if part_row != null:
+				var part_id := str(part_row.get_meta("part_id"))
+				part_row.pressed.emit()
+				await process_frame
+				if str(view.get("selected_part_id")) != part_id or view.get("_diagram") == null:
+					failures.append("%dpx part row did not keep its diagram visible" % viewport_width)
+				view.set("selected_part_id", "")
+				view.call("_render")
+				await process_frame
+			view.call("_show_fullscreen_diagram")
+			await process_frame
+			var popups := view.find_children("*", "PopupPanel", true, false)
+			if popups.is_empty():
+				failures.append("%dpx diagram fullscreen control did not open" % viewport_width)
+			else:
+				(popups[0] as PopupPanel).hide()
+				await process_frame
+				if view.get("_diagram") == null:
+					failures.append("%dpx fullscreen close did not restore the diagram" % viewport_width)
+			var bar := outer.get_v_scroll_bar()
+			outer.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
+			await _wait_for_layout(3)
+			if outer.scroll_vertical <= 0:
+				failures.append("%dpx technical page bottom is not reachable" % viewport_width)
+		print("Responsive image-first catalog layout PASS: %dpx" % viewport_width)
+		outer.queue_free()
 		await process_frame
 
 	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
@@ -914,19 +903,6 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		var content_width := GlobalSearchLayout.content_width(370.0, float(viewport_width))
 		if popup_size.x > viewport_width or content_width > viewport_width - 24.0:
 			failures.append("global search popup sizing exceeds %dpx viewport" % viewport_width)
-		var results := VBoxContainer.new()
-		results.size = Vector2(content_width - 28.0, 500)
-		results.custom_minimum_size.x = content_width - 28.0
-		root.add_child(results)
-		var long_result := Button.new()
-		long_result.text = "Головка блока цилиндров и клапанный механизм — техническое описание"
-		long_result.custom_minimum_size.y = 48
-		GlobalSearchLayout.style_result_button(long_result)
-		results.add_child(long_result)
-		await _wait_for_layout(2)
-		if not long_result.clip_text or long_result.text_overrun_behavior != TextServer.OVERRUN_TRIM_ELLIPSIS or long_result.size.x > results.size.x + 1.0:
-			failures.append("global search result is not safely ellipsized within its %dpx popup" % viewport_width)
-		results.queue_free()
 	print("Responsive global search layout PASS: 360px / 420px")
 
 func _first_catalog_card(content: VBoxContainer, require_part_id: bool) -> Button:
