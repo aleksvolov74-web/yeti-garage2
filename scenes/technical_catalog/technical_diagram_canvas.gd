@@ -83,6 +83,7 @@ func set_markers_visible(is_visible: bool) -> void:
 
 func reset_view() -> void:
 	_zoom = 1.0
+	_initial_zoom = 1.0
 	_pan = Vector2.ZERO
 	_update_input_routing()
 	queue_redraw()

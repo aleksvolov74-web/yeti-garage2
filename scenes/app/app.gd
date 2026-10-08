@@ -4594,7 +4594,7 @@ func _apply_touch_targets(node: Node) -> void:
         check.add_theme_color_override("font_color", Color("d7e6ea"))
     elif node is Label or node is TextureRect or node is ColorRect or node is HSeparator or node is VSeparator:
         var passive := node as Control
-        if node is Label:
+        if node is Label and not (node.get_parent() is HBoxContainer):
             (node as Label).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         if passive != null:
             passive.mouse_filter = Control.MOUSE_FILTER_IGNORE

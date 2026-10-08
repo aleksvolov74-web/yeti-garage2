@@ -107,6 +107,7 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$ux_log"; then
             exit 1
           fi
+          python3 tools/export_visual_audit.py
 
       - name: Upload rendered mobile UI evidence
         if: always()

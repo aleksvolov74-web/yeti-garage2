@@ -11,6 +11,20 @@ func _initialize() -> void:
 	root.content_scale_size = Vector2i.ZERO
 	root.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	root.gui_embed_subwindows = true
+	# Isolated CI storage: stress long histories and saved-fault lists without
+	# changing a developer's or phone user's production data.
+	var storage := root.get_node("Storage")
+	var sample: Dictionary = storage.call("demo_data")
+	sample.vehicle.transmission = "DSG 7"
+	for index in range(32):
+		var event: Dictionary = sample.service_events[1].duplicate(true)
+		event.id = "ux_history_%d" % index
+		event.title = "Длинное название обслуживания системы управления двигателем и электрооборудования"
+		event.notes = "Проверка переноса текста и доступа к нижним действиям записи."
+		sample.service_events.append(event)
+	for index in range(16):
+		sample.saved_faults.append({"id":"ux_fault_%d" % index,"date":"2026-10-08","warning_id":"abs","dtc_code":"","title":"ABS — сохранённая неисправность","note":"Записано вручную; проверка состояния системы","status":"NEW"})
+	storage.set("data", sample)
 	var scene: PackedScene = load("res://scenes/app/app.tscn")
 	app = scene.instantiate()
 	root.add_child(app)
@@ -20,6 +34,9 @@ func _initialize() -> void:
 		DisplayServer.window_set_size(Vector2i(width, 780))
 		root.size = Vector2i(width, 780)
 		await _frames(8)
+		var title: Label = app.get("header_title")
+		var accent: Label = app.get("header_accent")
+		if title.size.y > 55 or accent.size.y > 55: errors.append("header wraps vertically at %dpx" % width)
 		var pages: TabContainer = app.get("pages")
 		for index in range(pages.get_tab_count()):
 			pages.current_tab = index
@@ -61,6 +78,16 @@ func _initialize() -> void:
 			if popup.position.x < 0 or popup.position.x + popup.size.x > width: errors.append("scheme popup overflow at %d" % width)
 			await _capture("scheme_popup")
 			popup.hide()
+		pages.current_tab = 4
+		app.call("_show_dtc_lookup")
+		await _frames(3)
+		root.size = Vector2i(width, 480)
+		DisplayServer.window_set_size(Vector2i(width, 480))
+		await _frames(6)
+		await _check_page("reduced_height_keyboard_geometry", pages.get_child(4) as ScrollContainer)
+		root.size = Vector2i(width, 780)
+		DisplayServer.window_set_size(Vector2i(width, 780))
+		await _frames(6)
 		app.call("_open_manual_hub")
 		await _frames(6)
 		await _capture("manual_hub")
@@ -81,7 +108,7 @@ func _initialize() -> void:
 			total += 1
 	if total != 376: errors.append("marker numbering coverage changed")
 	DirAccess.make_dir_recursive_absolute("res://build/ux")
-	var result := {"viewports": ["360x780", "420x780"], "marker_numbers_checked":total, "captures":evidence, "errors":errors, "physical_android_test":"NOT_RUN_NO_ADB_DEVICE"}
+	var result := {"viewports": ["360x780", "420x780"], "marker_numbers_checked":total, "captures":evidence, "errors":errors, "physical_android_test":"NOT_RUN_NO_ADB_DEVICE", "real_keyboard_test":"NOT_RUN", "reduced_height_geometry":"CHECKED_480PX"}
 	var file := FileAccess.open("res://build/ux/result.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(result, "  "))
 	for error in errors: push_error(error)
