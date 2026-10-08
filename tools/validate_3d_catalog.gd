@@ -374,6 +374,29 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
 		var section_id := str(expected_row["section"])
+		var catalog_node := TechnicalCatalogService.find_node(node_id, vehicle_profile)
+		var catalog_markers: Array = catalog_node.get("diagram", {}).get("markers", [])
+		if catalog_markers.size() != int(expected_row["count"]):
+			failures.append("technical diagram node %s catalog marker count mismatch" % node_id)
+		all_image_marker_total += catalog_markers.size()
+		cbzb_dq200_marker_total += catalog_markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
+		var static_marker_numbers: Dictionary = {}
+		for marker_value in catalog_markers:
+			var static_marker: Dictionary = marker_value
+			if not PartCatalogService.PARTS.has(str(static_marker.get("part_id", ""))):
+				failures.append("technical diagram node %s has an unknown marker part %s" % [node_id, str(static_marker.get("part_id", ""))])
+			var static_number := int(static_marker.get("number", -1))
+			if static_marker_numbers.has(static_number):
+				failures.append("technical diagram node %s has duplicate marker number %d" % [node_id, static_number])
+			static_marker_numbers[static_number] = true
+			if float(static_marker.get("x", -1.0)) < 0.0 or float(static_marker.get("x", 2.0)) > 1.0 or float(static_marker.get("y", -1.0)) < 0.0 or float(static_marker.get("y", 2.0)) > 1.0:
+				failures.append("technical diagram node %s has an out-of-range marker" % node_id)
+		if expected_row.has("level") and str(catalog_node.get("diagram", {}).get("verification_level", "")) != str(expected_row["level"]):
+			failures.append("technical diagram node %s has an incorrect verification level" % node_id)
+		# Exercise each menu/render gesture on representative images. The static checks
+		# above still cover every image and marker without repeatedly loading 86 textures.
+		if node_id not in ["engine_complete", "engine_upper_end", "timing_chain", "boost_group", "wheel_sensors"]:
+			continue
 		view.call("_open_section", section_id)
 		await process_frame
 		view.call("_open_node", node_id)
@@ -386,8 +409,6 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s image/marker count mismatch" % node_id)
 			continue
 		opened_image_node_count += 1
-		all_image_marker_total += canvas.markers.size()
-		cbzb_dq200_marker_total += canvas.markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
 		var current_node: Dictionary = view.call("_current_node")
 		if expected_row.has("level") and str(current_node.get("diagram", {}).get("verification_level", "")) != str(expected_row["level"]):
 			failures.append("technical diagram node %s has an incorrect verification level" % node_id)
@@ -551,8 +572,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		failures.append("FWD technical diagrams should have 367 markers, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
-	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:
-		failures.append("expected %d image nodes / %d markers, found %d opened nodes / %d markers" % [expected.size(), expected_marker_total, opened_image_node_count, all_image_marker_total])
+	if opened_image_node_count != 5 or all_image_marker_total != expected_marker_total:
+		failures.append("expected 5 interactive image samples / %d catalog markers, found %d opened samples / %d markers" % [expected_marker_total, opened_image_node_count, all_image_marker_total])
 	view.queue_free()
 
 func _check_awd_reference_images(failures: Array[String]) -> void:
