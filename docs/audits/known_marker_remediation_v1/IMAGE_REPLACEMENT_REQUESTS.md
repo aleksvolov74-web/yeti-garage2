@@ -2,7 +2,7 @@
 
 Только существующие замечания. Изображения не изменялись. Сохранить part_id и номера. Все новые визуалы — REFERENCE_ONLY; точная применимость к VIN/PR не подтверждена.
 
-21 узел комплектации FWD и 2 отдельных справочных узла AWD. Для AWD фильтрация FWD должна оставаться включённой.
+22 узла комплектации FWD и 2 отдельных справочных узла AWD. Для AWD фильтрация FWD должна оставаться включённой.
 
 ## air_path — Воздушный тракт
 
@@ -548,3 +548,28 @@
 **Источники архитектуры:**
 - https://workshop-manuals.com/skoda/yeti/fullindex/
 - https://cdn.skoda-storyboard.com/2020/07/10_%C5%A0KODA-YETI_First-member-of-%C5%A0KODAs-popular-SUV-family.pdf
+
+## rear_brake_assembly — Задний тормозной механизм
+
+**Текущий файл:** `res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp`
+
+**Ошибка и необходимые детали:** Прежний active audit уже отмечает вентилируемый диск и отсутствие различимого привода ручника. Перемещение маркера скобы не подтверждает весь задний тормоз MY2011 FWD. Нужен правильный задний суппорт с видимым механическим приводом стояночного тормоза, диск/скоба по оговорённому PR-коду; без неподтверждённого назначения переднего тормоза задним.
+
+**verification status:** NEEDS_IMAGE_REPLACEMENT__REFERENCE_ONLY_NOT_VIN_EXACT
+
+| № | part_id | Видимая деталь |
+|---|---|---|
+| 1 | `brake_disc` | Тормозной диск |
+| 2 | `brake_caliper` | Тормозной суппорт |
+| 3 | `brake_carrier` | Скоба суппорта |
+| 4 | `brake_guide_pins` | Направляющие суппорта |
+| 5 | `brake_pads` | Тормозные колодки |
+| 6 | `brake_hose` | Тормозной шланг |
+| 7 | `abs_wheel_sensor_rl` | Датчик ABS заднего левого колеса |
+
+Дополнительно показать механический привод стояночного тормоза как часть суппорта; новый part_id не создавать.
+
+**Источники и ограничения:** Yeti 5L MY2011 FWD; rear brake PR revision unconfirmed. The additional workshop cable illustration is AWD context only and does not prove the FWD brake revision.
+
+- https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/
+- https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_assembly_carrier_final_drive_%28vehicles_with_four-wheel_drive%29/

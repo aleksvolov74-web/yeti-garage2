@@ -9,7 +9,7 @@
     "markers_still_invalid": 12,
     "markers_still_need_review": 22,
     "nodes_corrected": 23,
-    "nodes_requiring_new_images": 23,
+    "nodes_requiring_new_images": 24,
     "sections_TOTAL": 24,
     "nodes_TOTAL": 90,
     "nodes_with_images_TOTAL": 90,
@@ -17,8 +17,8 @@
     "markers_TOTAL": 376,
     "new_part_ids": 0,
     "verification_totals": {
-      "VERIFIED_ARCHITECTURE": 36,
-      "REFERENCE_ONLY": 54
+      "VERIFIED_ARCHITECTURE": 35,
+      "REFERENCE_ONLY": 55
     },
     "active_FAIL_ARCHITECTURE": 7,
     "modified_node_ids": [
@@ -122,9 +122,9 @@
       "wheel_bearing_housing",
       "wheel_speed_sensor"
     ],
-    "markers_displayed": 274,
-    "markers_suppressed": 102,
-    "whole_image_overlays_disabled": 17
+    "markers_displayed": 267,
+    "markers_suppressed": 109,
+    "whole_image_overlays_disabled": 18
   },
   "markers": [
     {
@@ -3044,6 +3044,72 @@
       ],
       "verification_status": "NEEDS_IMAGE_REPLACEMENT__REFERENCE_ONLY_NOT_VIN_EXACT",
       "applicability": "Yeti 5L MY2011 CBZB FWD DQ200; PR-dependent revisions must remain explicit"
+    },
+    {
+      "node_id": "rear_brake_assembly",
+      "name_ru": "Задний тормозной механизм",
+      "current_image_path": "res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+      "current_image_sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+      "part_ids": [
+        "brake_disc",
+        "brake_caliper",
+        "brake_carrier",
+        "brake_guide_pins",
+        "brake_pads",
+        "brake_hose",
+        "abs_wheel_sensor_rl"
+      ],
+      "required_markers": [
+        {
+          "number": 1,
+          "part_id": "brake_disc",
+          "name_ru": "Тормозной диск",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 2,
+          "part_id": "brake_caliper",
+          "name_ru": "Тормозной суппорт",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 3,
+          "part_id": "brake_carrier",
+          "name_ru": "Скоба суппорта",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 4,
+          "part_id": "brake_guide_pins",
+          "name_ru": "Направляющие суппорта",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 5,
+          "part_id": "brake_pads",
+          "name_ru": "Тормозные колодки",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 6,
+          "part_id": "brake_hose",
+          "name_ru": "Тормозной шланг",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        },
+        {
+          "number": 7,
+          "part_id": "abs_wheel_sensor_rl",
+          "name_ru": "Датчик ABS заднего левого колеса",
+          "visibility_requirement": "Деталь должна быть отдельно видна и однозначно идентифицируема; не скрыта соседней деталью."
+        }
+      ],
+      "error_ru": "Прежний active audit уже отмечает вентилируемый диск и отсутствие различимого привода ручника. Перемещение маркера скобы не подтверждает весь задний тормоз MY2011 FWD. Нужен правильный задний суппорт с видимым механическим приводом стояночного тормоза, диск/скоба по оговорённому PR-коду; без неподтверждённого назначения переднего тормоза задним.",
+      "architecture_sources": [
+        "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/",
+        "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_assembly_carrier_final_drive_%28vehicles_with_four-wheel_drive%29/"
+      ],
+      "verification_status": "NEEDS_IMAGE_REPLACEMENT__REFERENCE_ONLY_NOT_VIN_EXACT",
+      "applicability": "Yeti 5L MY2011 FWD; rear brake PR revision unconfirmed. The additional workshop cable illustration is AWD context only and does not prove the FWD brake revision."
     }
   ],
   "definitions": {

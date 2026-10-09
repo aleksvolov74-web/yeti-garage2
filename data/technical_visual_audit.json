@@ -4440,7 +4440,7 @@
       "image": "res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
       "original_verification_level": "VERIFIED_ARCHITECTURE",
       "visually_opened": true,
-      "architecture_status": "NEEDS_REVIEW",
+      "architecture_status": "NEEDS_IMAGE_REPLACEMENT",
       "finding_ru": "Изображён вентилируемый диск и суппорт без видимого привода ручника; точный задний узел FWD MY2011 не подтверждён.",
       "source": {
         "title": "Задние тормоза Yeti FWD; PR-вариант не определён",
@@ -4547,7 +4547,11 @@
           "finding_ru": "На датчике; сторона автомобиля не подтверждена.",
           "documentary_status": "NEEDS_REVIEW"
         }
-      ]
+      ],
+      "replacement_required": true,
+      "overlay_allowed": false,
+      "remediation_note_ru": "Прежний active audit уже отмечает вентилируемый диск и отсутствие различимого привода ручника. Перемещение маркера скобы не подтверждает весь задний тормоз MY2011 FWD. Нужен правильный задний суппорт с видимым механическим приводом стояночного тормоза, диск/скоба по оговорённому PR-коду; без неподтверждённого назначения переднего тормоза задним.",
+      "catalog_verification_level": "REFERENCE_ONLY"
     },
     "parking_brake": {
       "image": "res://assets/technical_catalog/rear_brakes/parking_brake.webp",

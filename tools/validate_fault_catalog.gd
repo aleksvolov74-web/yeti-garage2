@@ -18,7 +18,7 @@ func _initialize() -> void:
 	if int(counts.markers) != 376: errors.append("catalog markers changed: %d" % int(counts.markers))
 	if int(counts.exploded_view) != 50 or int(counts.assembled_view) != 24 or int(counts.technical_illustration) != 12 or int(counts.reference_card) != 4:
 		errors.append("catalog image type totals changed")
-	if int(counts.VERIFIED_ARCHITECTURE) != 36 or int(counts.REFERENCE_ONLY) != 54:
+	if int(counts.VERIFIED_ARCHITECTURE) != 35 or int(counts.REFERENCE_ONLY) != 55:
 		errors.append("catalog verification totals changed")
 	var vehicle := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission_family":"0AM / DQ200"}
 	for part_id_value in marker_parts.keys():

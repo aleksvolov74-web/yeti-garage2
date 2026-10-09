@@ -3850,7 +3850,7 @@
             "status": "available",
             "image": "res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3922,7 +3922,7 @@
               ],
               "author": "Yeti Garage — original generated technical visual"
             },
-            "asset_note": "Original generated technical visual; generic PR-dependent brake configuration."
+            "asset_note": "Original generated technical visual; generic PR-dependent brake configuration. Известное замечание: Прежний active audit уже отмечает вентилируемый диск и отсутствие различимого привода ручника. Перемещение маркера скобы не подтверждает весь задний тормоз MY2011 FWD. Нужен правильный задний суппорт с видимым механическим приводом стояночного тормоза, диск/скоба по оговорённому PR-коду; без неподтверждённого назначения переднего тормоза задним. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         },

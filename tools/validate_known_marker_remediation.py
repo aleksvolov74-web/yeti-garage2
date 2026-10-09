@@ -65,15 +65,15 @@ for path in ['docs/audits/full_marker_visual_review.json','services/part_catalog
 assert a['change_history'][:-1]==ba['change_history']
 assert len(c['sections'])==24 and len(cn)==90 and sum(len(n['diagram']['markers']) for n in cn.values())==376
 levels=collections.Counter(n['diagram']['verification_level'] for n in cn.values())
-assert dict(levels)==r['summary']['verification_totals']=={'VERIFIED_ARCHITECTURE':36,'REFERENCE_ONLY':54}
+assert dict(levels)==r['summary']['verification_totals']=={'VERIFIED_ARCHITECTURE':35,'REFERENCE_ONLY':55}
 assert len(changed)==r['summary']['markers_corrected']==35
-assert len(requests)==r['summary']['nodes_requiring_new_images']==23
+assert len(requests)==r['summary']['nodes_requiring_new_images']==24
 assert sum(not m['position_verified'] and m['initial_visual_status']=='FAIL_MARKER' for m in r['markers'])==12
 assert sum(not m['position_verified'] and m['initial_visual_status']=='NEEDS_REVIEW' for m in r['markers'])==22
 assert sum(n['architecture_status']=='FAIL_ARCHITECTURE' for n in a['nodes'].values())==7
 for line in (FOLDER/'SHA256SUMS').read_text().splitlines():
  digest,path=line.split(None,1);assert hashlib.sha256((FOLDER/path).read_bytes()).hexdigest()==digest,path
-print('KNOWN_FINDINGS_STATIC_VALIDATION=PASS scope=69 corrected=35 unresolved=34 replacements=23 images_unchanged=90 preserved_CBZB=5 levels=36/54')
+print('KNOWN_FINDINGS_STATIC_VALIDATION=PASS scope=69 corrected=35 unresolved=34 replacements=24 images_unchanged=90 preserved_CBZB=5 levels=35/55')
 print('CATALOG_TECHNICAL_READINESS=INCOMPLETE (12 FAIL_MARKER, 22 NEEDS_REVIEW, 7 rejected architectures; unsafe overlays disabled)')
 if args.require_ready:
  raise SystemExit('APK_EXPORT_BLOCKED: replacement images and confirmed marker mappings are still required')

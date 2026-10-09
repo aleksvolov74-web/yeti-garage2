@@ -142,8 +142,8 @@ func _run_checks() -> void:
 		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
 	if all_marker_total != 376:
 		failures.append("expected 376 technical markers, found %d" % all_marker_total)
-	if verified_architecture_total != 36 or reference_only_total != 54:
-		failures.append("expected 36 VERIFIED_ARCHITECTURE / 54 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
+	if verified_architecture_total != 35 or reference_only_total != 55:
+		failures.append("expected 35 VERIFIED_ARCHITECTURE / 55 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	if fwd_ui_image_node_count != 86:
@@ -354,7 +354,7 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"front_stabilizer": {"section":"front_suspension", "count":2, "tap_part":"anti_roll_bar", "level":"VERIFIED_ARCHITECTURE"},
 		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"REFERENCE_ONLY"},
 		"front_brake_hose": {"section":"front_brakes", "count":4, "tap_part":"brake_carrier", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"REFERENCE_ONLY"},
 		"parking_brake": {"section":"rear_brakes", "count":2, "tap_part":"parking_brake_cable", "level":"VERIFIED_ARCHITECTURE"},
 		"dashboard": {"section":"interior", "count":4, "tap_part":"dashboard", "level":"REFERENCE_ONLY"},
 		"console": {"section":"interior", "count":2, "tap_part":"center_console", "level":"REFERENCE_ONLY"},
