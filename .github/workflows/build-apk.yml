@@ -32,6 +32,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Prepare import and rendered mobile UI dependencies
+        shell: bash
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq python3 xvfb libgl1-mesa-dri libglx-mesa0 libfontconfig1 libxcursor1 libxinerama1 libxrandr2 libxi6 libxrender1
+
       - name: Prepare Godot
         shell: bash
         run: |
@@ -61,12 +67,6 @@ jobs:
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|handle_crash:|Program crashed|^ERROR:' build/validation-logs/import.log; then
             exit 1
           fi
-
-      - name: Prepare rendered mobile UI validation
-        shell: bash
-        run: |
-          apt-get update -qq
-          apt-get install -y -qq python3 xvfb libgl1-mesa-dri libglx-mesa0 libfontconfig1 libxcursor1 libxinerama1 libxrandr2 libxi6 libxrender1
 
       - name: Resolve app version
         shell: bash
