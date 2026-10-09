@@ -243,7 +243,7 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 		var canvas := DiagramCanvasScript.new() as TechnicalDiagramCanvas
 		canvas.custom_minimum_size = Vector2(0, clampf(get_viewport_rect().size.y * 0.48, 330.0, 520.0))
 		canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		canvas.configure(texture, diagram_data.get("markers", []), selected_part_id, marker_numbers_visible)
+		canvas.configure(texture, _safe_diagram_markers(diagram_data), selected_part_id, marker_numbers_visible)
 		canvas.marker_selected.connect(_select_part)
 		_content.add_child(canvas)
 		if not _pending_diagram_state.is_empty():
@@ -402,8 +402,8 @@ func _render_selected_part_card() -> void:
 	copy.add_child(_muted_label(description))
 	var audit := _visual_audit_entry()
 	for marker in audit.get("markers", []):
-		if str(marker.get("part_id", "")) == selected_part_id and str(marker.get("visual_status", "")) in ["FAIL_MARKER", "NEEDS_REVIEW"]:
-			copy.add_child(_label("Расположение не подтверждено: " + str(marker.get("finding_ru", "")), 13, Color("ffd07b")))
+		if str(marker.get("part_id", "")) == selected_part_id and (not bool(audit.get("overlay_allowed", true)) or not bool(marker.get("position_verified", str(marker.get("visual_status", "")) not in ["FAIL_MARKER", "NEEDS_REVIEW"]))):
+			copy.add_child(_label("Привязка на схеме отключена. Деталь доступна через список и поиск. " + str(marker.get("resolution_note_ru", marker.get("finding_ru", ""))), 13, Color("ffd07b")))
 	var primary := _action_button("Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	primary.add_theme_color_override("font_color", CYAN)
 	copy.add_child(primary)
@@ -420,6 +420,17 @@ func _render_selected_part_card() -> void:
 	extra.add_theme_color_override("font_color", MUTED)
 	copy.add_child(extra)
 
+func _safe_diagram_markers(diagram_data: Dictionary) -> Array:
+	var points: Array = diagram_data.get("markers", []).duplicate(true)
+	var audit := _visual_audit_entry()
+	var overlay_allowed := bool(audit.get("overlay_allowed", str(audit.get("architecture_status", "")) != "FAIL_ARCHITECTURE"))
+	for point in points:
+		point["position_verified"] = overlay_allowed
+		for review in audit.get("markers", []):
+			if str(review.get("part_id", "")) == str(point.get("part_id", "")) and int(review.get("number", 0)) == int(point.get("number", 0)):
+				point["position_verified"] = overlay_allowed and bool(review.get("position_verified", str(review.get("visual_status", "")) not in ["FAIL_MARKER", "NEEDS_REVIEW"]))
+	return points
+
 func _visual_audit_entry() -> Dictionary:
 	if _visual_audit_cache.is_empty():
 		var file := FileAccess.open("res://data/technical_visual_audit.json", FileAccess.READ)
@@ -435,10 +446,13 @@ func _add_visual_audit_note() -> void:
 	var status := str(audit.get("architecture_status", "NEEDS_REVIEW"))
 	var text_value := "Справочная визуализация · точное исполнение не подтверждено"
 	if status == "FAIL_ARCHITECTURE": text_value = "Несоответствие конструкции · FAIL_ARCHITECTURE"
+	elif status == "NEEDS_IMAGE_REPLACEMENT": text_value = "Требуется замена схемы · подтверждены не все детали"
 	elif status == "NEEDS_REVIEW": text_value = "Схема требует проверки · NEEDS_REVIEW"
 	elif status == "NOT_APPLICABLE_FWD": text_value = "Не применяется к переднему приводу"
 	_content.add_child(_label(text_value, 13, Color("ffd07b")))
-	_content.add_child(_muted_label(str(audit.get("finding_ru", ""))))
+	_content.add_child(_muted_label(str(audit.get("remediation_note_ru", audit.get("finding_ru", "")))))
+	if not bool(audit.get("overlay_allowed", true)):
+		_content.add_child(_muted_label("Привязки на этой схеме отключены до замены изображения. Выберите деталь в списке или поиске."))
 
 func _render_search_results() -> void:
 	var matches := TechnicalCatalog.search(search_query, _vehicle)

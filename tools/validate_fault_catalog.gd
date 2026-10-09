@@ -18,7 +18,7 @@ func _initialize() -> void:
 	if int(counts.markers) != 376: errors.append("catalog markers changed: %d" % int(counts.markers))
 	if int(counts.exploded_view) != 50 or int(counts.assembled_view) != 24 or int(counts.technical_illustration) != 12 or int(counts.reference_card) != 4:
 		errors.append("catalog image type totals changed")
-	if int(counts.VERIFIED_ARCHITECTURE) != 52 or int(counts.REFERENCE_ONLY) != 38:
+	if int(counts.VERIFIED_ARCHITECTURE) != 36 or int(counts.REFERENCE_ONLY) != 54:
 		errors.append("catalog verification totals changed")
 	var vehicle := {"year":2011, "factory_engine_code":"CBZB", "current_engine_code":"CBZB", "drivetrain":"FWD", "transmission_family":"0AM / DQ200"}
 	for part_id_value in marker_parts.keys():
@@ -216,8 +216,21 @@ func _check_full_marker_sync(errors: Array[String], view: Control, vehicle: Dict
 		for marker in entry.markers:
 			var part_id := str(marker.part_id)
 			var canvas: Variant = view.get("_diagram")
-			canvas.marker_selected.emit(part_id)
+			view.call("_select_part", "")
 			await process_frame
+			canvas = view.get("_diagram")
+			var point_record: Dictionary = canvas.markers[int(marker.number) - 1]
+			var rect: Rect2 = canvas.call("_image_rect")
+			var position := rect.position + Vector2(float(point_record.x), float(point_record.y)) * rect.size
+			canvas.call("_pick_marker", position)
+			await process_frame
+			if not TechnicalDiagramCanvas.marker_is_displayable(point_record):
+				if str(view.get("selected_part_id")) == part_id:
+					errors.append("disabled marker hit still opens a card: %s #%s" % [node_id, marker.number])
+				view.call("_select_part", part_id)
+				await process_frame
+			elif str(view.get("selected_part_id")) != part_id:
+				errors.append("visible marker pointer hit missed its card: %s #%s" % [node_id, marker.number])
 			canvas = view.get("_diagram")
 			if canvas == null or canvas.texture == null or canvas.selected_part_id != part_id or str(view.get("selected_part_id")) != part_id:
 				errors.append("marker selection/image mismatch: %s #%s" % [node_id, marker.number])

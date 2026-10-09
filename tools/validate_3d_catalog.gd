@@ -142,8 +142,8 @@ func _run_checks() -> void:
 		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
 	if all_marker_total != 376:
 		failures.append("expected 376 technical markers, found %d" % all_marker_total)
-	if verified_architecture_total != 52 or reference_only_total != 38:
-		failures.append("expected 52 VERIFIED_ARCHITECTURE / 38 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
+	if verified_architecture_total != 36 or reference_only_total != 54:
+		failures.append("expected 36 VERIFIED_ARCHITECTURE / 54 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	if fwd_ui_image_node_count != 86:
@@ -282,33 +282,33 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 	await process_frame
 	var expected := {
 		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left", "level":"VERIFIED_ARCHITECTURE"},
-		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing", "level":"VERIFIED_ARCHITECTURE"},
-		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle", "level":"VERIFIED_ARCHITECTURE"},
-		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper", "level":"VERIFIED_ARCHITECTURE"},
+		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing", "level":"REFERENCE_ONLY"},
+		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle", "level":"REFERENCE_ONLY"},
+		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper", "level":"REFERENCE_ONLY"},
 		"timing_chain": {"section":"timing", "count":3, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
 		"timing_gears": {"section":"timing", "count":2, "tap_part":"timing_sprockets", "level":"VERIFIED_ARCHITECTURE"},
 		"oil_pump_circuit": {"section":"lubrication", "count":3, "tap_part":"oil_pump_drive", "level":"VERIFIED_ARCHITECTURE"},
 		"gearbox_group": {"section":"transmission", "count":5, "tap_part":"gearbox_housing", "level":"REFERENCE_ONLY"},
-		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1", "level":"VERIFIED_ARCHITECTURE"},
+		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1", "level":"REFERENCE_ONLY"},
 		"dsg_mechatronics": {"section":"transmission", "count":3, "tap_part":"dsg_mechatronics_connector", "level":"REFERENCE_ONLY"},
 		"gear_selector": {"section":"transmission", "count":4, "tap_part":"selector_cable_support", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_suspension_overview": {"section":"rear_suspension", "count":9, "tap_part":"rear_subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_suspension_overview": {"section":"rear_suspension", "count":9, "tap_part":"rear_subframe", "level":"REFERENCE_ONLY"},
 		"rear_carrier": {"section":"rear_suspension", "count":6, "tap_part":"rear_lower_control_arm", "level":"REFERENCE_ONLY"},
-		"rear_springs_dampers": {"section":"rear_suspension", "count":6, "tap_part":"rear_shock_absorber", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_hub": {"section":"rear_suspension", "count":7, "tap_part":"rear_hub_carrier", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_springs_dampers": {"section":"rear_suspension", "count":6, "tap_part":"rear_shock_absorber", "level":"REFERENCE_ONLY"},
+		"rear_hub": {"section":"rear_suspension", "count":7, "tap_part":"rear_hub_carrier", "level":"REFERENCE_ONLY"},
 		"steering_rack": {"section":"steering", "count":6, "tap_part":"steering_input_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"steering_linkage": {"section":"steering", "count":4, "tap_part":"tie_rod_lock_nut", "level":"VERIFIED_ARCHITECTURE"},
 		"abs_esp_block": {"section":"abs_esp", "count":5, "tap_part":"abs_hydraulic_unit", "level":"REFERENCE_ONLY"},
 		"brake_hydraulics": {"section":"abs_esp", "count":6, "tap_part":"brake_lines", "level":"REFERENCE_ONLY"},
-		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"VERIFIED_ARCHITECTURE"},
-		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"VERIFIED_ARCHITECTURE"},
+		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"REFERENCE_ONLY"},
+		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"REFERENCE_ONLY"},
 		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"REFERENCE_ONLY"},
-		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"VERIFIED_ARCHITECTURE"},
+		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"REFERENCE_ONLY"},
 		"fuel_storage": {"section":"fuel", "count":6, "tap_part":"evap_charcoal_canister", "level":"REFERENCE_ONLY"},
 		"radiator_pack": {"section":"cooling", "count":6, "tap_part":"low_temperature_radiator", "level":"VERIFIED_ARCHITECTURE"},
 		"coolant_circuit": {"section":"cooling", "count":9, "tap_part":"coolant_recirculation_pump_v50", "level":"REFERENCE_ONLY"},
 		"exhaust_front": {"section":"exhaust", "count":5, "tap_part":"exhaust_flex_joint", "level":"VERIFIED_ARCHITECTURE"},
-		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
+		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"REFERENCE_ONLY"},
 		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_complete": {"section":"engine", "count":7, "tap_part":"turbocharger", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"REFERENCE_ONLY"},
@@ -323,12 +323,12 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"},
 		"heater_box": {"section":"climate", "count":5, "tap_part":"hvac_housing", "level":"VERIFIED_ARCHITECTURE"},
 		"blower": {"section":"climate", "count":5, "tap_part":"fresh_air_blower_control_unit_j126", "level":"VERIFIED_ARCHITECTURE"},
-		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"VERIFIED_ARCHITECTURE"},
+		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"REFERENCE_ONLY"},
 		"power_start": {"section":"electrical", "count":6, "tap_part":"battery_positive_cable", "level":"REFERENCE_ONLY"},
 		"fuses_relays": {"section":"electrical", "count":5, "tap_part":"relay_carrier", "level":"REFERENCE_ONLY"},
 		"control_units": {"section":"electrical", "count":5, "tap_part":"control_unit_connectors", "level":"REFERENCE_ONLY"},
 		"wiring": {"section":"electrical", "count":5, "tap_part":"ground_straps", "level":"REFERENCE_ONLY"},
-		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"VERIFIED_ARCHITECTURE"},
+		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"REFERENCE_ONLY"},
 		"front_lamps": {"section":"lighting", "count":6, "tap_part":"headlamp_bulbs", "level":"REFERENCE_ONLY"},
 		"rear_lamps": {"section":"lighting", "count":5, "tap_part":"tail_lamp_bulb_carrier", "level":"REFERENCE_ONLY"},
 		"interior_lamps": {"section":"lighting", "count":5, "tap_part":"rear_interior_light", "level":"REFERENCE_ONLY"},
@@ -345,14 +345,14 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"left_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"right_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"front_suspension_overview": {"section":"front_suspension", "count":9, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
-		"front_left_corner": {"section":"front_suspension", "count":9, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
+		"front_left_corner": {"section":"front_suspension", "count":9, "tap_part":"control_arm", "level":"REFERENCE_ONLY"},
 		"front_right_corner": {"section":"front_suspension", "count":6, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
-		"front_axle_carrier": {"section":"front_suspension", "count":3, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"front_axle_carrier": {"section":"front_suspension", "count":3, "tap_part":"subframe", "level":"REFERENCE_ONLY"},
 		"front_hub_bearing": {"section":"front_suspension", "count":2, "tap_part":"hub", "level":"VERIFIED_ARCHITECTURE"},
 		"front_brake_at_hub": {"section":"front_suspension", "count":4, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
 		"front_drive_at_hub": {"section":"front_suspension", "count":3, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"front_stabilizer": {"section":"front_suspension", "count":2, "tap_part":"anti_roll_bar", "level":"VERIFIED_ARCHITECTURE"},
-		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"VERIFIED_ARCHITECTURE"},
+		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"REFERENCE_ONLY"},
 		"front_brake_hose": {"section":"front_brakes", "count":4, "tap_part":"brake_carrier", "level":"VERIFIED_ARCHITECTURE"},
 		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
 		"parking_brake": {"section":"rear_brakes", "count":2, "tap_part":"parking_brake_cable", "level":"VERIFIED_ARCHITECTURE"},
@@ -485,8 +485,14 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var marker: Dictionary = canvas.markers[0]
 		var image_rect: Rect2 = canvas.call("_image_rect")
 		var point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		var displayable := TechnicalDiagramCanvas.marker_is_displayable(marker)
 		canvas.call("_pick_marker", point)
 		await process_frame
+		if not displayable:
+			if str(view.get("selected_part_id")) == str(marker.get("part_id", "")):
+				failures.append("unsafe marker remained clickable: " + node_id)
+			view.call("_select_part", str(marker.get("part_id", "")))
+			await process_frame
 		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
 			failures.append("technical diagram node %s marker tap did not select its part" % node_id)
 		var selected_canvas = view.get("_diagram")
@@ -695,8 +701,14 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		var marker: Dictionary = canvas.markers[0]
 		var image_rect: Rect2 = canvas.call("_image_rect")
 		var tap_point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		var displayable := TechnicalDiagramCanvas.marker_is_displayable(marker)
 		canvas.call("_pick_marker", tap_point)
 		await process_frame
+		if not displayable:
+			if str(view.get("selected_part_id")) == str(marker.get("part_id", "")):
+				failures.append("unsafe AWD marker remained clickable: " + node_id)
+			view.call("_select_part", str(marker.get("part_id", "")))
+			await process_frame
 		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
 			failures.append("AWD reference node %s marker tap selected the wrong part" % node_id)
 		var list_button: Button

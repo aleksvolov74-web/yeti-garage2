@@ -148,8 +148,9 @@ completion_specs = {s['node_id']: s for s in completion['nodes']}
 assert set(completion_specs) == {'engine_block_group','engine_upper_end','cylinder_head_group'}
 assert completion['new_part_ids'] == []
 completion_history = json.loads((completion_folder / 'integration_history.json').read_text())
-actual_catalog = json.loads(Path('data/technical_catalog.json').read_text())
-actual_audit = json.loads(Path('data/technical_visual_audit.json').read_text())
+COMPLETION_COMMIT = '3cd1b892be568aaac5aea1fe5b2f3bf448427da9'
+actual_catalog = json.loads(snapshot(COMPLETION_COMMIT, 'data/technical_catalog.json'))
+actual_audit = json.loads(snapshot(COMPLETION_COMMIT, 'data/technical_visual_audit.json'))
 baseline_catalog = json.loads(snapshot(COMPLETION_BASE, 'data/technical_catalog.json'))
 baseline_audit = json.loads(snapshot(COMPLETION_BASE, 'data/technical_visual_audit.json'))
 actual_nodes, baseline_nodes = nodes(actual_catalog), nodes(baseline_catalog)

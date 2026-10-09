@@ -39,14 +39,17 @@ func configure(image: Texture2D, points: Array, active_part_id: String = "", sho
 	var min_y := 1.0
 	var max_x := 0.0
 	var max_y := 0.0
+	var displayable_count := 0
 	for marker_value in markers:
 		var marker: Dictionary = marker_value
+		if not marker_is_displayable(marker): continue
+		displayable_count += 1
 		var point := Vector2(float(marker.get("x", 0.5)), float(marker.get("y", 0.5)))
 		min_x = minf(min_x, point.x)
 		min_y = minf(min_y, point.y)
 		max_x = maxf(max_x, point.x)
 		max_y = maxf(max_y, point.y)
-	if not markers.is_empty():
+	if displayable_count > 0:
 		var edge_margin := minf(minf(min_x, min_y), minf(1.0 - max_x, 1.0 - max_y))
 		_zoom = 1.20 if edge_margin >= 0.10 else (1.10 if edge_margin >= 0.05 else 1.0)
 	_initial_zoom = _zoom
@@ -55,6 +58,9 @@ func configure(image: Texture2D, points: Array, active_part_id: String = "", sho
 
 func is_pan_enabled() -> bool:
 	return _zoom > _initial_zoom + 0.01
+
+static func marker_is_displayable(marker: Dictionary) -> bool:
+	return bool(marker.get("position_verified", true))
 
 static func marker_number_text(value: Variant) -> String:
 	return str(int(value))
@@ -65,6 +71,7 @@ func _frame_initial_view() -> void:
 		var rect := _image_rect()
 		var safe := true
 		for marker in markers:
+			if not marker_is_displayable(marker): continue
 			var point := rect.position + Vector2(float(marker.get("x", 0.5)), float(marker.get("y", 0.5))) * rect.size
 			if point.x < 18.0 or point.y < 18.0 or point.x > size.x - 18.0 or point.y > size.y - 18.0: safe = false
 		if safe: break
@@ -127,6 +134,7 @@ func _draw() -> void:
 		return
 	for marker_value in markers:
 		var marker: Dictionary = marker_value
+		if not marker_is_displayable(marker): continue
 		var local := rect.position + Vector2(float(marker.get("x", 0.5)), float(marker.get("y", 0.5))) * rect.size
 		if not Rect2(Vector2.ZERO, size).grow(22).has_point(local):
 			continue
@@ -254,15 +262,19 @@ func _pick_marker(position: Vector2) -> void:
 	if not markers_visible:
 		return
 	var rect := _image_rect()
+	var nearest_distance := 23.0
+	var nearest_part := ""
 	for marker_value in markers:
 		var marker: Dictionary = marker_value
+		if not marker_is_displayable(marker): continue
 		var point := rect.position + Vector2(float(marker.get("x", 0.5)), float(marker.get("y", 0.5))) * rect.size
-		if point.distance_to(position) <= 23.0:
-			var part_id := str(marker.get("part_id", ""))
-			if part_id != "":
-				marker_selected.emit(part_id)
-			accept_event()
-			return
+		var distance := point.distance_to(position)
+		if distance <= nearest_distance:
+			nearest_distance = distance
+			nearest_part = str(marker.get("part_id", ""))
+	if nearest_part != "":
+		marker_selected.emit(nearest_part)
+		accept_event()
 
 func _clamp_pan() -> void:
 	var rect := _image_rect()

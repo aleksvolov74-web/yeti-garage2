@@ -3,6 +3,10 @@ name: Build Android APK
 on:
   workflow_dispatch:
     inputs:
+      validation_only:
+        description: Run checks without Android export (required while catalog findings remain)
+        type: boolean
+        default: true
       validation_label:
         description: Validation artifact label; partial batches are not final releases
         type: choice
@@ -97,6 +101,7 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git diff --check HEAD^ HEAD
           python3 tools/validate_visual_audit.py
+          python3 tools/validate_known_marker_remediation.py
 
       - name: Validate 3D catalog and view startup
         shell: bash
@@ -162,7 +167,13 @@ jobs:
           path: build/ux/
           if-no-files-found: warn
 
+      - name: Check catalog readiness for APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
+        shell: bash
+        run: python3 tools/validate_known_marker_remediation.py --require-ready
+
       - name: Build APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
         shell: bash
         run: |
           mkdir -p build/android
@@ -179,6 +190,7 @@ jobs:
           ls -lh "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
 
       - name: Upload APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
         uses: actions/upload-artifact@v4
         with:
           name: YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}-APK

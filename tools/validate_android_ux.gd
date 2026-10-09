@@ -142,6 +142,7 @@ func _initialize() -> void:
 		await _frames(5)
 		if catalog.get("_diagram") != original_canvas or str(catalog.get("selected_part_id")) != "cylinder_head": errors.append("fullscreen state not restored")
 		await _check_cbzb_batch(catalog, pages.get_child(5) as ScrollContainer)
+		await _check_known_remediation(catalog, pages.get_child(5) as ScrollContainer)
 	var audit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/technical_visual_audit.json"))
 	var total := 0
 	for entry in audit.nodes.values():
@@ -351,3 +352,27 @@ func _send_mobile_pinch(viewport: Viewport, center: Vector2, radius: float) -> v
 	first.pressed = false
 	viewport.push_input(first)
 	await _frames(2)
+
+func _check_known_remediation(catalog: Control, scroll: ScrollContainer) -> void:
+	var report: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://docs/audits/known_marker_remediation_v1/remediation.json"))
+	var audit: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://data/technical_visual_audit.json"))
+	for node_id in report.summary.modified_node_ids:
+		if node_id in ["angle_drive", "haldex"]: continue # FWD excludes these nodes; catalog regression tests verify filtering.
+		catalog.call("focus_node", node_id)
+		await _frames(5)
+		if str(catalog.call("_current_node").get("id", "")) != str(node_id):
+			errors.append("known-finding node did not open: " + str(node_id))
+			continue
+		var canvas: Variant = catalog.get("_diagram")
+		if canvas == null or canvas.texture == null:
+			errors.append("known-finding image failed to load: " + str(node_id))
+			continue
+		var entry: Dictionary = audit.nodes[node_id]
+		for point in canvas.markers:
+			if not bool(entry.get("overlay_allowed", true)) and TechnicalDiagramCanvas.marker_is_displayable(point):
+				errors.append("rejected assembly still draws a marker: " + str(node_id))
+		await _check_page("known_" + str(node_id), scroll)
+		var first_part := str(canvas.markers[0].part_id)
+		catalog.call("_select_part", first_part)
+		await _frames(5)
+		await _check_page("known_card_" + str(node_id), scroll)
