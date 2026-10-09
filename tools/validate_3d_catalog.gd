@@ -142,8 +142,8 @@ func _run_checks() -> void:
 		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
 	if all_marker_total != 376:
 		failures.append("expected 376 technical markers, found %d" % all_marker_total)
-	if verified_architecture_total != 55 or reference_only_total != 35:
-		failures.append("expected 55 VERIFIED_ARCHITECTURE / 35 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
+	if verified_architecture_total != 52 or reference_only_total != 38:
+		failures.append("expected 52 VERIFIED_ARCHITECTURE / 38 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	if fwd_ui_image_node_count != 86:
@@ -312,9 +312,9 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_complete": {"section":"engine", "count":7, "tap_part":"turbocharger", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"REFERENCE_ONLY"},
-		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"VERIFIED_ARCHITECTURE"},
-		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"VERIFIED_ARCHITECTURE"},
-		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"REFERENCE_ONLY"},
+		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"REFERENCE_ONLY"},
+		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"REFERENCE_ONLY"},
 		"engine_mounts": {"section":"engine", "count":1, "tap_part":"engine_mount", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_accessories": {"section":"engine", "count":3, "tap_part":"alternator", "level":"VERIFIED_ARCHITECTURE"},
 		"timing_drive_node": {"section":"timing", "count":6, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},

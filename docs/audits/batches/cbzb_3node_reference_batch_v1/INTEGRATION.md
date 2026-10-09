@@ -31,3 +31,5 @@ Memory at recovery: total 7622 MiB, available 2134 MiB, free 422 MiB; swap total
 No additional local imports or deletion of .godot were attempted during recovery. CI uses a fresh checkout, since .godot is untracked/ignored. The October 6 ZIP, runtime logs and temporary files are excluded from the checkpoint.
 
 First CI run 37947546259 on checkpoint 036736ba2a911a96aa217e8d17ff1e9f6cf3d4d5 completed resource import on Godot 4.7.2 x86_64 without a crash but failed the strict error scan: libfontconfig.so.1 was absent when Godot started. Dependencies had previously been installed after import. Recovery moves dependency preparation before any Godot launch; the error gate remains enabled. APK export was skipped in the failed run.
+
+Second CI run 37947877845 on 742500c488990e7d88fae90defd95b6a57a11843: Godot import PASS (4.7.2 x86_64); immutable history, completion counts and SHA256 PASS. The 3D validator stopped export because its expected totals and three per-node expected verification levels still described the old 55/35 state. Those expectations are updated to the explicitly required 52/38 and three REFERENCE_ONLY statuses; assertions are retained.
