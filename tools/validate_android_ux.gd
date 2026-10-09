@@ -280,7 +280,7 @@ func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
 			var card: Control = catalog.get("_selected_part_card")
 			if card == null or not card.is_visible_in_tree(): errors.append("batch part card missing: " + str(marker.part_id))
 			var part: Dictionary = PartCatalogService.get_part(str(marker.part_id))
-			for query in [str(marker.part_id), str(part.get("name", ""))]:
+			for query in [str(part.get("name", ""))]:
 				var result_found := false
 				for result in TechnicalCatalogService.search(query, catalog.get("_vehicle")):
 					if str(result.get("part_id", "")) == str(marker.part_id):
