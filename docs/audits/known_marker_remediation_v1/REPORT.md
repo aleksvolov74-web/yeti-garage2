@@ -95,6 +95,33 @@
 
 ## Валидация
 
-Статические проверки scope/JSON/SHA256/неизменности активов прошли. Godot runtime и UX должны быть проверены в Ubuntu x86_64 CI; локальный ARM64 импорт ранее аварийно завершался. Физическое устройство: NOT TESTED. Реальная Android-клавиатура и system bars: NOT TESTED.
+Статические проверки scope/JSON/SHA256/неизменности активов прошли. В CI 37954738712 на commit 7a0c1b8 прошли Godot 4.7.2 import, catalog, startup, fault/diagnostics, marker/list и desktop UX 360×780 / 420×780. APK не создавалась. При ручном просмотре evidence обнаружено вертикальное переполнение длинного имени охладителя; высота строк исправлена по размеру содержимого и добавлена отдельная проверка. Итоговый повторный CI и снимки указаны в финальном отчёте. Локальный ARM64 импорт ранее аварийно завершался. Физическое устройство: NOT TESTED. Реальная Android-клавиатура и system bars: NOT TESTED.
 
 Даже при успешных программных проверках техническая готовность каталога остаётся INCOMPLETE. APK экспорт блокируется отдельной проверкой --require-ready. Ни промежуточная APK, ни release не разрешены до замены изображений и подтверждения всех привязок.
+
+## Доступ к деталям и интерфейс
+
+274 позиции разрешены для показа, 102 подавлены (включая весь overlay 17 отклонённых сборок). Все 376 записей и карточки сохранены. У схем, требующих замены, показано полное название и предупреждение; прежнее обобщённое обещание применимости не выводится. Длинные строки списка растут по высоте после переноса текста.
+
+## Изменённые файлы
+
+- `.github/workflows/build-apk.yml`
+- `data/technical_catalog.json`
+- `data/technical_visual_audit.json`
+- `docs/audits/known_marker_remediation_v1/IMAGE_REPLACEMENT_REQUESTS.md`
+- `docs/audits/known_marker_remediation_v1/REPORT.md`
+- `docs/audits/known_marker_remediation_v1/SHA256SUMS`
+- `docs/audits/known_marker_remediation_v1/baseline_active_audit.json`
+- `docs/audits/known_marker_remediation_v1/evidence/targets_0.png`
+- `docs/audits/known_marker_remediation_v1/evidence/targets_1.png`
+- `docs/audits/known_marker_remediation_v1/evidence/targets_2.png`
+- `docs/audits/known_marker_remediation_v1/evidence/targets_3.png`
+- `docs/audits/known_marker_remediation_v1/remediation.json`
+- `scenes/technical_catalog/technical_catalog_view.gd`
+- `scenes/technical_catalog/technical_diagram_canvas.gd`
+- `tools/export_visual_audit.py`
+- `tools/validate_3d_catalog.gd`
+- `tools/validate_android_ux.gd`
+- `tools/validate_fault_catalog.gd`
+- `tools/validate_known_marker_remediation.py`
+- `tools/validate_visual_audit.py`

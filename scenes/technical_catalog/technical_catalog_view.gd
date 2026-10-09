@@ -205,11 +205,14 @@ func _render_section_nodes(section: Dictionary) -> void:
 func _render_node(section: Dictionary, node: Dictionary) -> void:
 	var diagram_data: Dictionary = node.get("diagram", {})
 	_add_scheme_selector(section, node)
+	if _visual_audit_entry().get("replacement_required", false):
+		_content.add_child(_label(str(node.get("name", "Схема")), 16, TEXT))
 	var image_kind := str(diagram_data.get("image_type", ""))
 	var kind_label := {"exploded_view":"Взрывная схема", "assembled_view":"Общий вид", "technical_illustration":"Техническая схема", "reference_card":"Справочная схема"}.get(image_kind, "Схема")
 	var audit_status := str(_visual_audit_entry().get("architecture_status", "NEEDS_REVIEW"))
 	var audit_badge := "Справочно"
 	if audit_status == "FAIL_ARCHITECTURE": audit_badge = "Несоответствие конструкции"
+	elif audit_status == "NEEDS_IMAGE_REPLACEMENT": audit_badge = "Требуется замена схемы"
 	elif audit_status == "NEEDS_REVIEW": audit_badge = "Требует проверки"
 	elif audit_status == "NOT_APPLICABLE_FWD": audit_badge = "Не применяется к FWD"
 	_content.add_child(_label(str(kind_label) + " · " + audit_badge, 13, Color("ffd07b") if audit_status != "REFERENCE_ONLY" else MUTED))
@@ -221,7 +224,7 @@ func _render_node(section: Dictionary, node: Dictionary) -> void:
 	if selected_part_id != "":
 		_render_selected_part_card()
 	_add_visual_audit_note()
-	if _diagram != null and str(node.get("variant_note", "")) != "":
+	if _diagram != null and not bool(_visual_audit_entry().get("replacement_required", false)) and str(node.get("variant_note", "")) != "":
 		var variant := _muted_label(str(node.get("variant_note", "")))
 		variant.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(variant)
@@ -902,6 +905,13 @@ func _card_margin(button: Button) -> MarginContainer:
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	button.add_child(margin)
+	# Button is not a Container: anchored children do not propagate their wrapped
+	# minimum height into it. Resize the clickable row when its content changes.
+	var minimum_height := button.custom_minimum_size.y
+	margin.minimum_size_changed.connect(func():
+		if is_instance_valid(button):
+			button.custom_minimum_size.y = maxf(minimum_height, margin.get_combined_minimum_size().y)
+	)
 	return margin
 
 func _node_card(title: String, subtitle: String, action: Callable) -> Button:

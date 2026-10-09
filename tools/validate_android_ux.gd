@@ -173,6 +173,13 @@ func _check_page(id: String, scroll: ScrollContainer) -> void:
 		var child_rect := control.get_global_rect()
 		if child_rect.end.x > rect.end.x + 1 or child_rect.position.x < rect.position.x - 1:
 			errors.append("%dpx %s horizontal overflow: %s %s" % [width, id, control.get_class(), str(child_rect)])
+	for candidate in scroll.find_children("*", "Button", true, false):
+		var button := candidate as Button
+		if not button.is_visible_in_tree() or not button.has_meta("part_id"): continue
+		for descendant in button.find_children("*", "Label", true, false):
+			var label := descendant as Label
+			if label.get_global_rect().end.y > button.get_global_rect().end.y - 7.0:
+				errors.append("%dpx %s part-row text exceeds button height: %s" % [width, id, button.get_meta("part_id")])
 	await _capture(id + "_top")
 	var bar := scroll.get_v_scroll_bar()
 	var maximum := maxi(0, int(bar.max_value - bar.page))
