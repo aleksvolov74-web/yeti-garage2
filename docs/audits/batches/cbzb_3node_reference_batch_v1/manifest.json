@@ -1,0 +1,208 @@
+{
+  "manifest_format": "yeti_garage_technical_replacement_batch_v1",
+  "batch_name": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1",
+  "status": "READY_FOR_VALIDATION_INTEGRATION__NOT_RELEASED",
+  "vehicle": {
+    "model": "Škoda Yeti 5L",
+    "model_year": 2011,
+    "engine_code": "CBZB",
+    "drivetrain": "FWD",
+    "gearbox": "DSG7 / 0AM-DQ200"
+  },
+  "source_repo": "aleksvolov74-web/yeti-garage2",
+  "source_main_commit": "e3008862fa901886e56587056200347a90258fdc",
+  "integration_branch": "validation/full-marker-audit-android-ux",
+  "source_validation_commit": "ff73f211e73db4d3f8f72838eebc97eb0a57810b",
+  "current_version": "0.20.29",
+  "current_versionCode": 69,
+  "baseline_counts": {
+    "sections": 24,
+    "nodes_total": 90,
+    "nodes_with_images": 90,
+    "nodes_without_images": 0,
+    "markers_total": 376,
+    "verified_architecture": 55,
+    "reference_only": 35,
+    "active_fail_architecture": 3
+  },
+  "expected_counts_if_integrated": {
+    "images_added": 0,
+    "images_replaced": 3,
+    "physical_webp_added": 3,
+    "physical_webp_replaced": 0,
+    "markers_added": 0,
+    "markers_repositioned": 10,
+    "nodes_with_images_total": 90,
+    "nodes_without_images_total": 0,
+    "markers_total": 376,
+    "verified_architecture_total": 52,
+    "reference_only_total": 38,
+    "active_fail_architecture": 0
+  },
+  "new_part_ids": [],
+  "modified_node_ids": [
+    "engine_block_group",
+    "engine_upper_end",
+    "cylinder_head_group"
+  ],
+  "unchanged_node_ids": [
+    "engine_bottom_end",
+    "boost_group",
+    "engine_complete"
+  ],
+  "hard_gate_ru": "Только три перечисленных node_id. Ветка main, существующие файлы WebP и прочие узлы неприкосновенны. REFERENCE_ONLY НЕ означает точную геометрию/применимость по VIN. Не объявлять весь каталог VIN-точным.",
+  "nodes": [
+    {
+      "node_id": "engine_block_group",
+      "title_ru": "Блок и кривошипно-шатунный механизм",
+      "node_status": "REFERENCE_ONLY",
+      "previous_architecture_status": "FAIL_ARCHITECTURE",
+      "image_action": "ASSIGN_NEW_UNIQUE_WEBP",
+      "image_type": "exploded_view",
+      "app_asset_path": "assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+      "previous_app_asset_path": "assets/technical_catalog/engine/engine_bottom_end.webp",
+      "image_size_px": [
+        1024,
+        1536
+      ],
+      "image_sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+      "marker_count": 4,
+      "part_ids": [
+        "engine_block",
+        "crankshaft",
+        "piston_group",
+        "connecting_rods"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "engine_block",
+          "name_ru": "Блок двигателя",
+          "x": 0.47,
+          "y": 0.58
+        },
+        {
+          "number": 2,
+          "part_id": "crankshaft",
+          "name_ru": "Коленчатый вал",
+          "x": 0.51,
+          "y": 0.805
+        },
+        {
+          "number": 3,
+          "part_id": "piston_group",
+          "name_ru": "Поршневая группа",
+          "x": 0.27,
+          "y": 0.082
+        },
+        {
+          "number": 4,
+          "part_id": "connecting_rods",
+          "name_ru": "Шатуны",
+          "x": 0.255,
+          "y": 0.27
+        }
+      ],
+      "new_part_ids": [],
+      "source_url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
+      "architecture_note_ru": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB.",
+      "verification_note_ru": "Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
+    },
+    {
+      "node_id": "engine_upper_end",
+      "title_ru": "Головка и клапанный механизм",
+      "node_status": "REFERENCE_ONLY",
+      "previous_architecture_status": "FAIL_ARCHITECTURE",
+      "image_action": "ASSIGN_NEW_UNIQUE_WEBP",
+      "image_type": "exploded_view",
+      "app_asset_path": "assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
+      "previous_app_asset_path": "assets/technical_catalog/engine/engine_upper_end.webp",
+      "image_size_px": [
+        1024,
+        1536
+      ],
+      "image_sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+      "marker_count": 3,
+      "part_ids": [
+        "cylinder_head",
+        "camshafts",
+        "valve_cover"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "cylinder_head",
+          "name_ru": "Головка блока цилиндров",
+          "x": 0.18,
+          "y": 0.73
+        },
+        {
+          "number": 2,
+          "part_id": "camshafts",
+          "name_ru": "Распределительные валы (в CBZB один распредвал)",
+          "x": 0.52,
+          "y": 0.39
+        },
+        {
+          "number": 3,
+          "part_id": "valve_cover",
+          "name_ru": "Крышка головки блока цилиндров",
+          "x": 0.51,
+          "y": 0.13
+        }
+      ],
+      "new_part_ids": [],
+      "source_url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
+      "architecture_note_ru": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены.",
+      "verification_note_ru": "Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
+    },
+    {
+      "node_id": "cylinder_head_group",
+      "title_ru": "Головка блока и клапанный механизм",
+      "node_status": "REFERENCE_ONLY",
+      "previous_architecture_status": "FAIL_ARCHITECTURE",
+      "image_action": "ASSIGN_NEW_UNIQUE_WEBP",
+      "image_type": "exploded_view",
+      "app_asset_path": "assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+      "previous_app_asset_path": "assets/technical_catalog/engine/engine_upper_end.webp",
+      "image_size_px": [
+        1024,
+        1536
+      ],
+      "image_sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+      "marker_count": 3,
+      "part_ids": [
+        "cylinder_head",
+        "camshafts",
+        "valve_cover"
+      ],
+      "markers": [
+        {
+          "number": 1,
+          "part_id": "cylinder_head",
+          "name_ru": "Головка блока цилиндров",
+          "x": 0.13,
+          "y": 0.78
+        },
+        {
+          "number": 2,
+          "part_id": "camshafts",
+          "name_ru": "Распределительные валы (в CBZB один распредвал)",
+          "x": 0.61,
+          "y": 0.34
+        },
+        {
+          "number": 3,
+          "part_id": "valve_cover",
+          "name_ru": "Крышка головки блока цилиндров",
+          "x": 0.5,
+          "y": 0.16
+        }
+      ],
+      "new_part_ids": [],
+      "source_url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
+      "architecture_note_ru": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская.",
+      "verification_note_ru": "Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
+    }
+  ]
+}

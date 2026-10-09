@@ -226,7 +226,7 @@ func _check_dialog(id: String) -> void:
 	await _frames(4)
 
 func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
-	for node_id in ["engine_bottom_end", "boost_group"]:
+	for node_id in ["engine_bottom_end", "boost_group", "engine_block_group", "engine_upper_end", "cylinder_head_group"]:
 		catalog.call("focus_node", node_id)
 		await _frames(6)
 		var canvas: Control = catalog.get("_diagram")
@@ -234,8 +234,23 @@ func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
 			errors.append("batch image missing: " + node_id)
 			continue
 		var texture: Texture2D = canvas.get("texture")
-		if texture.get_size() != Vector2(1254,1254): errors.append("batch image dimensions: " + node_id)
+		var expected_size := Vector2(1254,1254) if node_id in ["engine_bottom_end", "boost_group"] else Vector2(1024,1536)
+		if texture.get_size() != expected_size: errors.append("batch image dimensions: " + node_id)
 		await _check_page("cbzb_" + node_id, scroll)
+		var selector_found := false
+		var scheme_rows: Array = catalog.call("_all_diagram_nodes", TechnicalCatalogService.section(str(catalog.get("current_section_id")), catalog.get("_vehicle")))
+		for candidate in catalog.find_children("*", "OptionButton", true, false):
+			if not candidate.get_meta("scheme_selector", false): continue
+			selector_found = true
+			for index in range(scheme_rows.size()):
+				if str(scheme_rows[index].get("id", "")) == node_id:
+					candidate.item_selected.emit(index)
+					break
+			break
+		await _frames(4)
+		if not selector_found or str(catalog.call("_current_node").get("id", "")) != node_id:
+			errors.append("batch scheme dropdown route failed: " + node_id)
+		canvas = catalog.get("_diagram")
 		var points: Array = canvas.get("markers").duplicate(true)
 		for marker in points:
 			catalog.call("focus_node", node_id)
@@ -262,6 +277,18 @@ func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
 			await _frames(4)
 			canvas = catalog.get("_diagram")
 			if not found or str(canvas.get("selected_part_id")) != str(marker.part_id): errors.append("batch part row failed: " + str(marker.part_id))
+			var card: Control = catalog.get("_selected_part_card")
+			if card == null or not card.is_visible_in_tree(): errors.append("batch part card missing: " + str(marker.part_id))
+			var part: Dictionary = PartCatalogService.get_part(str(marker.part_id))
+			for query in [str(marker.part_id), str(part.get("name", ""))]:
+				var result_found := false
+				for result in TechnicalCatalogService.search(query, catalog.get("_vehicle")):
+					if str(result.get("part_id", "")) == str(marker.part_id):
+						catalog.call("open_catalog_result", result)
+						result_found = true
+						break
+				await _frames(3)
+				if not result_found or str(catalog.get("selected_part_id")) != str(marker.part_id): errors.append("batch search failed: " + query)
 			catalog.call("focus_part", str(marker.part_id))
 			await _frames(4)
 			canvas = catalog.get("_diagram")
@@ -285,6 +312,14 @@ func _check_cbzb_batch(catalog: Control, scroll: ScrollContainer) -> void:
 		if Vector2(canvas.get("_pan")).is_equal_approx(prior): errors.append("batch pan failed: " + node_id)
 		canvas.call("reset_view")
 		if float(canvas.get("_zoom")) != 1.0 or not Vector2(canvas.get("_pan")).is_zero_approx(): errors.append("batch fit failed: " + node_id)
+		catalog.call("_show_fullscreen_diagram")
+		await _frames(5)
+		await _capture("cbzb_" + node_id + "_fullscreen")
+		for window in root.get_embedded_subwindows():
+			if window.visible: window.hide()
+		await _frames(5)
+		if catalog.get("_diagram") != canvas or str(catalog.call("_current_node").get("id", "")) != node_id:
+			errors.append("batch fullscreen/back state failed: " + node_id)
 		catalog.call("_reset_catalog")
 		await _frames(3)
 

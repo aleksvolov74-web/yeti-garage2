@@ -1,6 +1,7 @@
 """Validate the actual APK's packaged catalog, symbol imports and Android version."""
 import hashlib
 import json
+import re
 import struct
 import sys
 import zipfile
@@ -15,6 +16,20 @@ with zipfile.ZipFile(apk) as archive:
         assert json.loads(bundled) == json.loads(Path('data', filename).read_text()), 'Packaged data mismatch: ' + filename
     imports = [name for name in paths if name.startswith('assets/assets/warning_lights/') and name.endswith('.svg.import')]
     assert len(imports) == 18
+    batch = json.loads(Path('docs/audits/batches/cbzb_3node_reference_batch_v1/manifest.json').read_text())
+    for spec in batch['nodes']:
+        source = spec['app_asset_path']
+        assert hashlib.sha256(Path(source).read_bytes()).hexdigest() == spec['image_sha256']
+        import_name = 'assets/' + source + '.import'
+        imported = archive.read(import_name).decode('utf-8')
+        # Godot exports imported textures rather than the source WebP bytes.
+        destinations = set(re.findall(r'"(res://[^"\n]+\.ctex)"', imported))
+        assert destinations, 'Missing texture remap: ' + source
+        for destination in destinations:
+            local = Path(destination.removeprefix('res://'))
+            bundled = archive.read('assets/' + str(local))
+            assert bundled == local.read_bytes(), 'Packaged texture mismatch: ' + source
+    print('APK_CBZB_3NODE_TEXTURES=PASS imported_resources=3')
     manifest = archive.read('AndroidManifest.xml')
     offset = 8
     strings = []

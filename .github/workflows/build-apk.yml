@@ -10,6 +10,7 @@ on:
         options:
           - standard
           - CBZB-2node-PARTIAL
+          - CBZB-5node-VALIDATION
   push:
     branches:
       - main
@@ -53,7 +54,13 @@ jobs:
       - name: Import project
         shell: bash
         run: |
-          godot --headless --path . --import
+          mkdir -p build/validation-logs
+          godot --version | tee build/validation-logs/godot-version.log
+          uname -m | tee build/validation-logs/architecture.log
+          godot --headless --path . --import 2>&1 | tee build/validation-logs/import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|handle_crash:|Program crashed|^ERROR:' build/validation-logs/import.log; then
+            exit 1
+          fi
 
       - name: Prepare rendered mobile UI validation
         shell: bash
@@ -76,12 +83,15 @@ jobs:
           if [ "$REQUESTED_VALIDATION_LABEL" = "CBZB-2node-PARTIAL" ]; then
             APK_VALIDATION_SUFFIX="-CBZB-2node-PARTIAL"
           fi
+          if [ "$REQUESTED_VALIDATION_LABEL" = "CBZB-5node-VALIDATION" ]; then
+            APK_VALIDATION_SUFFIX="-CBZB-5node-VALIDATION"
+          fi
           echo "APK_VALIDATION_SUFFIX=$APK_VALIDATION_SUFFIX" >> "$GITHUB_ENV"
           test "$(grep -Fc "version/name=\"$APP_VERSION\"" export_presets.cfg)" -eq 2
           test "$(grep -c '^version/code=' export_presets.cfg)" -eq 2
           test "$(grep '^version/code=' export_presets.cfg | sort -u | wc -l)" -eq 1
 
-      - name: Validate immutable audit and authorized partial replacements
+      - name: Validate immutable audit and authorized five-node corrections
         shell: bash
         run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
@@ -132,6 +142,17 @@ jobs:
             exit 1
           fi
           python3 tools/export_visual_audit.py
+
+      - name: Upload validation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CBZB-5node-Validation-Logs
+          path: |
+            build/validation-logs/
+            /tmp/yeti-garage-*-validation.log
+            /tmp/yeti-garage-runtime-smoke.log
+          if-no-files-found: warn
 
       - name: Upload rendered mobile UI evidence
         if: always()

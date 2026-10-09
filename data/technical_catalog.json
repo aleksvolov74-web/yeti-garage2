@@ -120,34 +120,34 @@
               ],
               "diagram": {
                 "status": "available",
-                "image": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+                "image": "res://assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
                 "image_type": "exploded_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
                     "part_id": "cylinder_head",
-                    "x": 0.52,
-                    "y": 0.75
+                    "x": 0.18,
+                    "y": 0.73
                   },
                   {
                     "number": 2,
                     "part_id": "camshafts",
                     "x": 0.52,
-                    "y": 0.43
+                    "y": 0.39
                   },
                   {
                     "number": 3,
                     "part_id": "valve_cover",
-                    "x": 0.53,
-                    "y": 0.16
+                    "x": 0.51,
+                    "y": 0.13
                   }
                 ],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
-                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
-                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
-                  "license": "Original generated project visual; workshop illustration not copied or bundled.",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
+                  "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+                  "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
                   "applicability": {
                     "model": "Yeti 5L",
                     "model_year": [
@@ -157,10 +157,10 @@
                     "drivetrain": "FWD",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-                  "author": "Yeti Garage — original generated technical visual"
+                  "verification_note": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+                  "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
                 },
-                "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+                "asset_note": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
               },
               "requires_engine_codes": [
                 "CBZB"
@@ -250,40 +250,40 @@
           ],
           "diagram": {
             "status": "available",
-            "image": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+            "image": "res://assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "engine_block",
-                "x": 0.72,
-                "y": 0.49
+                "x": 0.47,
+                "y": 0.58
               },
               {
                 "number": 2,
                 "part_id": "crankshaft",
-                "x": 0.41,
-                "y": 0.81
+                "x": 0.51,
+                "y": 0.805
               },
               {
                 "number": 3,
                 "part_id": "piston_group",
-                "x": 0.28,
-                "y": 0.23
+                "x": 0.27,
+                "y": 0.082
               },
               {
                 "number": 4,
                 "part_id": "connecting_rods",
-                "x": 0.29,
-                "y": 0.48
+                "x": 0.255,
+                "y": 0.27
               }
             ],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Original generated project visual; workshop illustration not copied or bundled.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
+              "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+              "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -293,10 +293,10 @@
                 "drivetrain": "FWD",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-              "author": "Yeti Garage — original generated technical visual"
+              "verification_note": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+              "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
             },
-            "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+            "asset_note": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -312,34 +312,34 @@
           ],
           "diagram": {
             "status": "available",
-            "image": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+            "image": "res://assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "cylinder_head",
-                "x": 0.52,
-                "y": 0.75
+                "x": 0.13,
+                "y": 0.78
               },
               {
                 "number": 2,
                 "part_id": "camshafts",
-                "x": 0.52,
-                "y": 0.43
+                "x": 0.61,
+                "y": 0.34
               },
               {
                 "number": 3,
                 "part_id": "valve_cover",
-                "x": 0.53,
+                "x": 0.5,
                 "y": 0.16
               }
             ],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Original generated project visual; workshop illustration not copied or bundled.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
+              "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+              "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -349,10 +349,10 @@
                 "drivetrain": "FWD",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-              "author": "Yeti Garage — original generated technical visual"
+              "verification_note": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+              "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
             },
-            "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+            "asset_note": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
           },
           "requires_engine_codes": [
             "CBZB"

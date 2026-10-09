@@ -1,4 +1,4 @@
-"""Validate immutable audit history and the explicitly authorized two-image replacement."""
+"""Validate preserved two-node batch, then the authorized three-node completion."""
 import collections
 import hashlib
 import json
@@ -37,11 +37,11 @@ assert history['integration_base_commit'] == BEFORE_BATCH and history['manifest_
 historical_bytes = Path('docs/audits/full_marker_visual_review.json').read_bytes()
 assert historical_bytes == snapshot(BEFORE_BATCH, 'docs/audits/full_marker_visual_review.json'), 'Historical review was rewritten'
 historical = json.loads(historical_bytes)
-active = json.loads(Path('data/technical_visual_audit.json').read_text())
+active = json.loads(snapshot('ff73f211e73db4d3f8f72838eebc97eb0a57810b', 'data/technical_visual_audit.json'))
 before_active = json.loads(snapshot(BEFORE_BATCH, 'data/technical_visual_audit.json'))
 original = json.loads(snapshot(BASE, 'data/technical_catalog.json'))
 before = json.loads(snapshot(BEFORE_BATCH, 'data/technical_catalog.json'))
-current = json.loads(Path('data/technical_catalog.json').read_text())
+current = json.loads(snapshot('ff73f211e73db4d3f8f72838eebc97eb0a57810b', 'data/technical_catalog.json'))
 a, previous, b = nodes(original), nodes(before), nodes(current)
 assert len(current['sections']) == 24 and len(a) == len(b) == len(active['nodes']) == 90
 assert a.keys() == b.keys() == active['nodes'].keys()
@@ -125,9 +125,9 @@ assert remaining == set(manifest['remaining_nodes_with_unfixed_architecture']) =
 for path in ['project.godot','export_presets.cfg','services/part_catalog_service.gd','data/warning_lights.json','data/dtc_catalog.json']:
     assert Path(path).read_bytes() == snapshot(BEFORE_BATCH, path), 'Unrelated/version data changed: ' + path
 print('VISUAL_AUDIT_COVERAGE=PASS nodes=90 markers=376 historical_coordinate_fixes_preserved=33 authorized_image_replacements=2 batch_marker_repositions=10')
-print('Catalog status totals:', dict(levels))
-print('Remaining FAIL_ARCHITECTURE:', sorted(remaining))
-print('Active marker findings:', dict(collections.Counter(m['visual_status'] for e in active['nodes'].values() for m in e['markers'])))
+print('Historical two-node baseline status totals:', dict(levels))
+print('Historical two-node baseline FAIL_ARCHITECTURE:', sorted(remaining))
+print('Preserved two-node baseline marker findings:', dict(collections.Counter(m['visual_status'] for e in active['nodes'].values() for m in e['markers'])))
 print('PARTIAL_CBZB_BATCH=PASS_REFERENCE_ONLY_NOT_COMPLETE')
 
 old_shared = 'assets/technical_catalog/engine/engine_bottom_end.webp'
@@ -136,3 +136,81 @@ assert b['engine_block_group'] == previous['engine_block_group']
 assert [nid for nid,row in b.items() if row['diagram']['image'] == b['boost_group']['diagram']['image']] == ['boost_group']
 assert history['physical_webp_added'] == history['physical_webp_replaced'] == 1
 print('SHARED_IMAGE_ISOLATION=PASS engine_block_group_unchanged=YES physical_webp_added=1 physical_webp_replaced=1')
+
+# The old batch above is checked against its immutable integration commit.
+# Now prove that the completion changes only the three newly authorized nodes.
+COMPLETION_BASE = 'ff73f211e73db4d3f8f72838eebc97eb0a57810b'
+completion_folder = Path('docs/audits/batches/cbzb_3node_reference_batch_v1')
+completion_bytes = (completion_folder / 'manifest.json').read_bytes()
+assert hashlib.sha256(completion_bytes).hexdigest() == '3dd0ac4a830b3a06883d09df1b23432f947b7c9d99122d1fef6bb9a41bae6be8'
+completion = json.loads(completion_bytes)
+completion_specs = {s['node_id']: s for s in completion['nodes']}
+assert set(completion_specs) == {'engine_block_group','engine_upper_end','cylinder_head_group'}
+assert completion['new_part_ids'] == []
+completion_history = json.loads((completion_folder / 'integration_history.json').read_text())
+actual_catalog = json.loads(Path('data/technical_catalog.json').read_text())
+actual_audit = json.loads(Path('data/technical_visual_audit.json').read_text())
+baseline_catalog = json.loads(snapshot(COMPLETION_BASE, 'data/technical_catalog.json'))
+baseline_audit = json.loads(snapshot(COMPLETION_BASE, 'data/technical_visual_audit.json'))
+actual_nodes, baseline_nodes = nodes(actual_catalog), nodes(baseline_catalog)
+expected_catalog = json.loads(json.dumps(baseline_catalog))
+expected_nodes = nodes(expected_catalog)
+expected_audit = json.loads(json.dumps(baseline_audit))
+moves = 0
+for nid, spec in completion_specs.items():
+    row, prior = actual_nodes[nid], baseline_nodes[nid]
+    diagram = row['diagram']
+    assert own(row) | {'diagram': prior['diagram']} == own(prior), nid
+    assert diagram['image'] == 'res://' + spec['app_asset_path']
+    assert diagram['verification_level'] == 'REFERENCE_ONLY'
+    assert diagram['source']['url'] == spec['source_url']
+    assert spec['verification_note_ru'] in diagram['asset_note']
+    assert spec['architecture_note_ru'] in diagram['asset_note']
+    assert diagram['source']['verification_note'] == diagram['asset_note']
+    assert diagram['source']['author'].startswith(completion['batch_name'])
+    allowed = {'image','verification_level','source','asset_note','markers'}
+    assert {k:v for k,v in diagram.items() if k not in allowed} == {k:v for k,v in prior['diagram'].items() if k not in allowed}
+    image_hash = hashlib.sha256(Path(spec['app_asset_path']).read_bytes()).hexdigest()
+    assert image_hash == spec['image_sha256']
+    review = actual_audit['nodes'][nid]
+    assert review['architecture_status'] == review['catalog_verification_level'] == 'REFERENCE_ONLY'
+    assert review['image'] == diagram['image'] and review['image_sha256'] == image_hash
+    assert review['source'] == diagram['source']
+    assert len(diagram['markers']) == spec['marker_count'] == len(review['markers'])
+    for p, old, wanted, note in zip(diagram['markers'],prior['diagram']['markers'],spec['markers'],review['markers']):
+        assert p == dict(old, x=wanted['x'], y=wanted['y'])
+        assert [p['x'],p['y']] == [note['x'],note['y']]
+        assert note['part_id'] == p['part_id'] and note['number'] == p['number']
+        assert note['visual_status'] == 'PASS_VISUAL' and note['finding_ru'] and note['post_replacement_visual_review']
+        assert [p['x'],p['y']] != [old['x'],old['y']]
+        moves += 1
+    transition = completion_history['nodes'][nid]
+    assert transition['before_catalog_node'] == prior
+    assert transition['before_active_review'] == baseline_audit['nodes'][nid]
+    assert transition['after_active_review'] == review
+    expected_nodes[nid]['diagram'] = diagram
+    expected_audit['nodes'][nid] = review
+expected_audit['change_history'].append(actual_audit['change_history'][-1])
+assert actual_catalog == expected_catalog, 'Unrelated catalog data changed'
+assert actual_audit == expected_audit, 'Unrelated active review/history changed'
+assert actual_audit['change_history'][-1]['modified_node_ids'] == completion['modified_node_ids']
+assert moves == 10
+for nid in actual_nodes.keys() - completion_specs.keys():
+    image = actual_nodes[nid]['diagram']['image'].removeprefix('res://')
+    assert Path(image).read_bytes() == snapshot(COMPLETION_BASE, image)
+for path in ['assets/technical_catalog/engine/engine_bottom_end.webp','assets/technical_catalog/engine/engine_upper_end.webp','assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp','assets/technical_catalog/intake/boost_group.webp','docs/audits/full_marker_visual_review.json','project.godot','export_presets.cfg','services/part_catalog_service.gd','data/warning_lights.json','data/dtc_catalog.json']:
+    assert Path(path).read_bytes() == snapshot(COMPLETION_BASE, path), path
+levels = collections.Counter(n['diagram']['verification_level'] for n in actual_nodes.values())
+assert levels == {'VERIFIED_ARCHITECTURE':52,'REFERENCE_ONLY':38}, levels
+assert len(actual_catalog['sections']) == 24 and len(actual_nodes) == 90
+assert sum(len(n['diagram']['markers']) for n in actual_nodes.values()) == 376
+assert all(Path(n['diagram']['image'].removeprefix('res://')).is_file() for n in actual_nodes.values())
+assert not any(r['architecture_status'] == 'FAIL_ARCHITECTURE' for r in actual_audit['nodes'].values())
+assert len({actual_nodes[nid]['diagram']['image'] for nid in completion_specs}) == 3
+print('CBZB_5NODE_VALIDATION_DATA=PASS sections=24 nodes=90 images=90 markers=376 levels=52/38 active_FAIL_ARCHITECTURE=0 images_added=0 images_replaced=3 physical_webp_added=3 physical_webp_replaced=0 markers_added=0 markers_repositioned=10 new_part_ids=0')
+
+for line in (completion_folder / 'SHA256SUMS').read_text().splitlines():
+    digest, filename = line.split(None, 1)
+    checked = Path(filename) if filename.startswith('assets/') else completion_folder / filename
+    assert hashlib.sha256(checked.read_bytes()).hexdigest() == digest, filename
+print('COMPLETION_SHA256SUMS=PASS entries=7')
