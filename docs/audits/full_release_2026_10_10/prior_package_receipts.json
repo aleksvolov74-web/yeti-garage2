@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/sdcard/Download/YetiGarage_24_INCOMPLETE_review.zip",
+    "sha256": "f1d32dc44e5a5bc52f7a1fe2ab05fa5bc0e1a3f89bfc9935f838027ce7963e17",
+    "crc": "PASS",
+    "webp_count": 23,
+    "duplicate_webp_sha256": 0,
+    "technical_acceptance": "BLOCKED_incomplete_not_independently_reaccepted"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_INCOMPLETE_resume_2026-10-10.zip",
+    "sha256": "28c9902ed0872fea2f56c3e505c1c372c4572af13c4ef2c2cc8814961f1cd1a7",
+    "crc": "PASS",
+    "webp_count": 23,
+    "duplicate_webp_sha256": 0,
+    "technical_acceptance": "BLOCKED_incomplete_not_independently_reaccepted"
+  }
+]

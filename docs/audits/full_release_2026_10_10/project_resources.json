@@ -27,9 +27,11 @@
     "res://tools/validate_3d_catalog.gd",
     "res://tools/validate_android_ux.gd",
     "res://tools/validate_fault_catalog.gd",
+    "res://tools/validate_home_ux.gd",
     "res://tools/validate_manual_pages.gd",
     "res://tools/validate_project_resources.gd",
-    "res://tools/validate_storage.gd"
+    "res://tools/validate_storage.gd",
+    "res://tools/validate_vehicle_filters.gd"
   ],
   "errors": []
 }

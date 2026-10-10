@@ -933,7 +933,7 @@
       "autoload/notifications.gd"
     ],
     "success_criterion": "home glyph test and screenshots at four sizes, full final CI",
-    "status": "FIXED_HOME_RUNTIME_PASS_PENDING_FINAL_CI"
+    "status": "FIXED_RUNTIME_AND_FINAL_CI_PASS"
   },
   {
     "id": "YG-P1-012",
@@ -948,6 +948,6 @@
       "scenes/vehicle_3d/vehicle_3d_view.gd"
     ],
     "success_criterion": "real global-search/list/focus and live AWD->FWD/desktop reference checks PASS; final CI regression PASS",
-    "status": "FIXED_RUNTIME_PASS_PENDING_FINAL_CI"
+    "status": "FIXED_RUNTIME_AND_FINAL_CI_PASS"
   }
 ]
