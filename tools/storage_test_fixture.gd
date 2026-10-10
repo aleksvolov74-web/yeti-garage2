@@ -6,4 +6,3 @@ func _backup_path() -> String:
     return directory + "/backup.json"
 func _manual_backup_path() -> String:
     return directory + "/manual.json"
-

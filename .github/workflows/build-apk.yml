@@ -158,6 +158,16 @@ jobs:
           fi
           python3 tools/export_visual_audit.py
 
+      - name: Validate every manual page and chapter route
+        shell: bash
+        run: |
+          manual_log=build/validation-logs/manual-pages.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_manual_pages.gd 2>&1 | tee "$manual_log"
+          grep -Fq 'MANUAL_PAGES_VALIDATION=PASS' "$manual_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$manual_log"; then
+            exit 1
+          fi
+
       - name: Upload validation logs
         if: always()
         uses: actions/upload-artifact@v4
