@@ -13,6 +13,8 @@ const RepairService = preload("res://services/repair_service.gd")
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
 const TechnicalCatalogService = preload("res://services/technical_catalog_service.gd")
 const ManualSearchService = preload("res://services/manual_search_service.gd")
+const FaultCatalog = preload("res://services/fault_catalog_service.gd")
+const ScrollGesture = preload("res://services/mobile_scroll_gesture.gd")
 const GlobalSearchLayout = preload("res://scenes/app/global_search_layout.gd")
 
 const OFFICIAL_MANUAL_TOTAL_PAGES := 246
@@ -52,6 +54,8 @@ var engine_caption: Label
 var next_service_value: Label
 var total_cost_value: Label
 var recent_box: VBoxContainer
+var fault_home_box: VBoxContainer
+var active_saved_fault_id := ""
 var reminders_summary_value: Label
 var data_mode_value: Label
 var notification_status_value: Label
@@ -103,8 +107,16 @@ var repair_finish_box: VBoxContainer
 
 func _ready() -> void:
     _build_ui()
+    resized.connect(_update_nav_styles)
     _connect_signals()
     _refresh_all()
+    Storage.persistence_failed.connect(_on_persistence_failed)
+    if not Storage.storage_writable:
+        _on_persistence_failed("Файл данных и автоматическая копия не читаются. Исходные файлы сохранены. Запись заблокирована; восстановите проверенную локальную резервную копию в настройках.")
+
+func _on_persistence_failed(message: String) -> void:
+    # Services may finish their UI update before opening the error dialog.
+    _show_info_dialog.call_deferred("Ошибка сохранения", message)
 
 func _build_ui() -> void:
     var app_theme := Theme.new()
@@ -197,26 +209,14 @@ func _build_ui() -> void:
     _update_nav_styles()
 
 func _make_scroll_page(title: String) -> VBoxContainer:
-    # The home dashboard is a fixed screen by design. It must not move under a finger.
-    # Other sections remain scrollable because their content can legitimately be longer
-    # than one screen.
-    if title == "Машина":
-        var fixed_box := VBoxContainer.new()
-        fixed_box.name = title
-        fixed_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-        fixed_box.size_flags_vertical = Control.SIZE_EXPAND_FILL
-        fixed_box.add_theme_constant_override("separation", 10)
-        fixed_box.mouse_filter = Control.MOUSE_FILTER_PASS
-        pages.add_child(fixed_box)
-        return fixed_box
-
     var scroll := ScrollContainer.new()
     scroll.name = title
     scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
     scroll.scroll_deadzone = 10
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     pages.add_child(scroll)
+    ScrollGesture.attach(scroll)
     # Long sections keep swipe scrolling, but never expose scrollbars.
     # Scrollable sections hide their bars; the technical catalog remains in this
     # same outer scroll area while its diagram canvas handles zoomed image gestures.
@@ -240,7 +240,7 @@ func _make_scroll_page(title: String) -> VBoxContainer:
     return box
 
 func _is_mobile_runtime() -> bool:
-    return OS.has_feature("mobile") or OS.has_feature("android") or OS.has_feature("ios")
+    return OS.has_feature("mobile") or OS.has_feature("android") or OS.has_feature("ios") or ProjectSettings.get_setting("application/testing/mobile_ui", false)
 
 func _build_bottom_navigation(root: VBoxContainer) -> void:
     var shell := PanelContainer.new()
@@ -295,6 +295,7 @@ func _add_nav_button(label_text: String, icon_path: String, target_box: VBoxCont
 
     var label := Label.new()
     label.text = label_text
+    label.set_meta("nav_label", label_text)
     label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
     label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     label.add_theme_font_size_override("font_size", 11)
@@ -375,6 +376,8 @@ func _update_nav_styles() -> void:
         if icon != null:
             icon.modulate = Color("16edf0") if active else Color("91a6b2")
         if label != null:
+            var full_label := str(label.get_meta("nav_label", label.text))
+            label.text = {"Диагностика":"Диагн.", "Справочник":"Каталог"}.get(full_label, full_label) if get_viewport_rect().size.x < 400.0 else full_label
             label.add_theme_color_override("font_color", Color("16edf0") if active else Color("91a6b2"))
         if line != null:
             line.visible = active
@@ -1227,7 +1230,7 @@ func _open_manual_figure(image_path: String, caption_text: String, manual_popup:
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.scroll_deadzone = 4
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     scroll.set_meta("preserve_scroll_modes", true)
     var source_w := maxf(1.0, float(texture.get_width()))
     var source_h := maxf(1.0, float(texture.get_height()))
@@ -1530,6 +1533,10 @@ func _build_overview() -> void:
     engine_caption = engine_metric["caption"] as Label
     engine_value.add_theme_font_size_override("font_size", 15)
 
+    fault_home_box = VBoxContainer.new()
+    fault_home_box.add_theme_constant_override("separation", 7)
+    overview_box.add_child(fault_home_box)
+
     var search_shell := Panel.new()
     search_shell.custom_minimum_size.y = 62
     search_shell.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -1579,7 +1586,7 @@ func _build_overview() -> void:
     overview_box.add_child(reminder_card["card"] as Node)
     reminders_summary_value = reminder_card["subtitle"] as Label
 
-    var cost_card := _feature_card("Расходы", "0 ₽", "res://assets/ui/expenses_money.jpg", "res://assets/ui/icons/expenses.svg", func(): _switch_to_page(history_box))
+    var cost_card := _feature_card("Расходы", "0 руб.", "res://assets/ui/expenses_money.jpg", "res://assets/ui/icons/expenses.svg", func(): _switch_to_page(history_box))
     overview_box.add_child(cost_card["card"] as Node)
     total_cost_value = cost_card["subtitle"] as Label
     total_cost_value.add_theme_font_size_override("font_size", 18)
@@ -1623,7 +1630,7 @@ func _build_reminders_page() -> void:
 
     var system_card := _glass_card(reminders_box)
     var system_title := Label.new()
-    system_title.text = "🔔 Системные уведомления Android"
+    system_title.text = "Системные уведомления Android"
     system_title.add_theme_font_size_override("font_size", 20)
     system_card.add_child(system_title)
     notification_status_value = Label.new()
@@ -1641,7 +1648,7 @@ func _build_reminders_page() -> void:
     notification_enabled_toggle.toggled.connect(func(value: bool): Notifications.set_notifications_enabled(value))
     notification_controls_box.add_child(notification_enabled_toggle)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     notification_controls_box.add_child(actions)
     var permission_btn := Button.new()
@@ -1669,10 +1676,9 @@ func _build_reminders_page() -> void:
     reminders_box.add_child(reminders_dynamic_box)
 
 func _build_diagnostics_page() -> void:
-    _page_heading(diagnostics_box, "Диагностика", "Идём от симптома к проверке — без угадывания деталей", "res://assets/ui/icons/diagnostic.svg")
-    _page_banner(diagnostics_box, "res://assets/ui/diagnostic_yeti.jpg", "Диагностика по симптомам", "Выбирай признак — приложение проведёт по проверкам шаг за шагом")
+    _page_heading(diagnostics_box, "Диагностика", "Лампа, код ошибки или симптом", "res://assets/ui/icons/diagnostic.svg")
     var intro := Label.new()
-    intro.text = "Опиши проблему через готовый сценарий. Приложение не назначает деталь наугад: каждый результат — это следующая версия, которую нужно подтвердить проверкой."
+    intro.text = "Выберите, с чего начать проверку. Результат не назначает неисправную деталь без подтверждения."
     intro.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     intro.modulate = Color("9ba6b2")
     diagnostics_box.add_child(intro)
@@ -1690,11 +1696,73 @@ func _show_diagnostic_scenarios() -> void:
     diagnostic_node_id = ""
     diagnostic_context_part_name = ""
     diagnostic_history.clear()
+    active_saved_fault_id = ""
 
     var title := Label.new()
-    title.text = "Что происходит с машиной?"
+    title.text = "С чего начнём?"
     title.add_theme_font_size_override("font_size", 21)
     diagnostic_content.add_child(title)
+
+    _diagnostic_entry_card("Лампа на панели", "На приборке что-то загорелось", func(): _show_warning_lights())
+    _diagnostic_entry_card("Код ошибки", "Есть Pxxxx / код сканера", func(): _show_dtc_lookup())
+
+    _diagnostic_entry_card("По симптомам", "Что происходит с машиной?", func(): _show_symptom_scenarios())
+
+    var saved_rows: Array = Storage.data.get("saved_faults", [])
+    if not saved_rows.is_empty():
+        _diagnostic_entry_card("Сохранённые неисправности · %d" % saved_rows.size(), "Записи, добавленные вручную", func(): _show_saved_faults())
+
+func _show_saved_faults() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Сохранённые неисправности"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    if rows.is_empty():
+        _fault_text_block(diagnostic_content, "Записей пока нет", "Сохраните лампу или код из карточки диагностики. Запись добавляется вручную.")
+    for value in rows:
+        var row: Dictionary = value
+        var card := _glass_card(diagnostic_content)
+        var warning := FaultCatalog.warning(str(row.get("warning_id", "")))
+        if warning.is_empty() and str(row.get("dtc_code", "")) != "":
+            var code := FaultCatalog.dtc(str(row.get("dtc_code", "")))
+            warning = FaultCatalog.warning(str(code.get("dashboard_warning_id", "")))
+        if not warning.is_empty():
+            var image := TextureRect.new()
+            image.texture = load(str(warning.get("image", ""))) as Texture2D
+            image.custom_minimum_size = Vector2(40, 40)
+            image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+            image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+            card.add_child(image)
+        var title := Label.new()
+        title.text = (str(row.get("dtc_code", "")) + " · " if str(row.get("dtc_code", "")) != "" else "") + str(row.get("title", "Сохранённая неисправность"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        card.add_child(title)
+        var status := Label.new()
+        status.text = str(row.get("date", "")) + " · " + str({"NEW":"Новая", "CHECKING":"Проверяется", "RESOLVED":"Решена"}.get(str(row.get("status", "NEW")), "Новая"))
+        status.modulate = Color("9ba6b2")
+        card.add_child(status)
+        if str(row.get("note", "")) != "":
+            var note := Label.new()
+            note.text = str(row.get("note", ""))
+            note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+            card.add_child(note)
+        var open := Button.new()
+        open.text = "Открыть запись"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_open_saved_fault.bind(row))
+        card.add_child(open)
+    _apply_touch_targets(diagnostic_content)
+
+func _show_symptom_scenarios() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var symptoms_title := Label.new()
+    symptoms_title.text = "Выберите симптом"
+    symptoms_title.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(symptoms_title)
 
     for scenario_value in DiagnosticService.scenarios():
         var scenario: Dictionary = scenario_value
@@ -1711,6 +1779,355 @@ func _show_diagnostic_scenarios() -> void:
         subtitle.modulate = Color("8793a1")
         subtitle.add_theme_font_size_override("font_size", 11)
         card.add_child(subtitle)
+
+func _diagnostic_entry_card(title_text: String, subtitle_text: String, action: Callable) -> void:
+    var card := _glass_card(diagnostic_content)
+    var button := Button.new()
+    button.text = title_text
+    button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    button.custom_minimum_size.y = 48
+    button.pressed.connect(action)
+    card.add_child(button)
+    var subtitle := Label.new()
+    subtitle.text = subtitle_text
+    subtitle.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    subtitle.modulate = Color("8793a1")
+    subtitle.add_theme_font_size_override("font_size", 11)
+    card.add_child(subtitle)
+
+func _diagnostic_back_button() -> void:
+    var back := Button.new()
+    back.text = "← Диагностика"
+    back.custom_minimum_size.y = 48
+    back.pressed.connect(_show_diagnostic_scenarios)
+    diagnostic_content.add_child(back)
+
+func _show_warning_lights() -> void:
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Лампы на панели"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    for value in FaultCatalog.warnings():
+        var row: Dictionary = value
+        var card := _glass_card(diagnostic_content)
+        var line := HBoxContainer.new()
+        line.add_theme_constant_override("separation", 12)
+        card.add_child(line)
+        var image := TextureRect.new()
+        image.texture = load(str(row.get("image", ""))) as Texture2D
+        image.custom_minimum_size = Vector2(48, 48)
+        image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        line.add_child(image)
+        var copy := VBoxContainer.new()
+        copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        line.add_child(copy)
+        var title := Label.new()
+        title.text = str(row.get("title", "Предупреждение"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        copy.add_child(title)
+        var summary := Label.new()
+        summary.text = str(row.get("summary", ""))
+        summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        summary.add_theme_font_size_override("font_size", 12)
+        summary.modulate = Color("9ba6b2")
+        copy.add_child(summary)
+        var open := Button.new()
+        open.text = "Открыть"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_show_warning_detail.bind(str(row.get("id", ""))))
+        card.add_child(open)
+
+func _show_warning_detail(warning_id: String, saved_id: String = "") -> void:
+    active_saved_fault_id = saved_id
+    var row := FaultCatalog.warning(warning_id)
+    if row.is_empty(): return
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var panel := _glass_card(diagnostic_content)
+    panel.add_theme_constant_override("separation", 10)
+    var symbol := TextureRect.new()
+    symbol.texture = load(str(row.get("image", ""))) as Texture2D
+    symbol.custom_minimum_size = Vector2(104, 104)
+    symbol.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+    symbol.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+    panel.add_child(symbol)
+    var caption := Label.new()
+    caption.text = "Как выглядит на приборной панели"
+    caption.add_theme_font_size_override("font_size", 13)
+    caption.modulate = Color("9ba6b2")
+    panel.add_child(caption)
+    var title := Label.new()
+    title.text = str(row.get("title", ""))
+    title.add_theme_font_size_override("font_size", 22)
+    title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    panel.add_child(title)
+    var severity := Label.new()
+    var severity_text := {"STOP":"Остановитесь", "URGENT_CHECK":"Требуется срочная проверка", "CHECK_SOON":"Требуется проверка", "INFORMATION":"Информация"}.get(str(row.get("severity", "")), "Требуется проверка")
+    severity.text = severity_text
+    severity.add_theme_color_override("font_color", Color(str(row.get("symbol_color", "#f2b84b"))))
+    severity.add_theme_font_size_override("font_size", 17)
+    panel.add_child(severity)
+    if warning_id == "check_engine":
+        _fault_text_block(panel, "Если лампа мигает", "Срочность выше: снизьте нагрузку. При сильной тряске или потере мощности безопасно остановитесь и выключите двигатель.")
+    if bool(row.get("stop_driving", false)):
+        var stop := Label.new()
+        stop.text = str(row.get("summary", "Остановитесь и выключите двигатель."))
+        stop.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        stop.add_theme_font_size_override("font_size", 19)
+        stop.add_theme_color_override("font_color", Color("ff7777"))
+        panel.add_child(stop)
+    _fault_text_block(panel, "Что означает", str(row.get("meaning", "")))
+    _fault_text_block(panel, "Что делать сейчас", str(row.get("what_to_do", "")))
+    _fault_text_list(panel, "Возможные причины", row.get("possible_causes", []))
+    _fault_text_list(panel, "Что проверить", row.get("first_checks", []))
+    _fault_text_list(panel, "Возможные решения", row.get("possible_solutions", []))
+    var actions := VBoxContainer.new()
+    actions.add_theme_constant_override("separation", 8)
+    diagnostic_content.add_child(actions)
+    var flow := str(row.get("related_diagnostic_flow", ""))
+    if flow != "":
+        var check := Button.new()
+        check.text = "Начать диагностику"
+        check.custom_minimum_size.y = 50
+        check.pressed.connect(_start_diagnostic.bind(flow, str(row.get("title", ""))))
+        actions.add_child(check)
+    var nodes: Array = row.get("related_node_ids", [])
+    if not nodes.is_empty():
+        var diagram := Button.new()
+        diagram.text = "Показать на схеме"
+        diagram.custom_minimum_size.y = 50
+        diagram.pressed.connect(_open_fault_node.bind(str(nodes[0])))
+        actions.add_child(diagram)
+    var source: Dictionary = row.get("source", {})
+    _fault_text_block(diagnostic_content, "Источник", "%s · стр. %s руководства владельца" % [str(source.get("title", "")), str(source.get("manual_page", ""))])
+    _add_save_fault_action(diagnostic_content, warning_id, "", str(row.get("title", "Предупреждение")))
+    _add_saved_fault_status(diagnostic_content)
+
+func _show_dtc_lookup(saved_id: String = "") -> void:
+    active_saved_fault_id = saved_id
+    _clear_children(diagnostic_content)
+    _diagnostic_back_button()
+    var heading := Label.new()
+    heading.text = "Код ошибки"
+    heading.add_theme_font_size_override("font_size", 21)
+    diagnostic_content.add_child(heading)
+    var field := LineEdit.new()
+    field.placeholder_text = "P189C, 006300, P130A или P0301"
+    field.custom_minimum_size.y = 50
+    diagnostic_content.add_child(field)
+    var result_box := VBoxContainer.new()
+    result_box.add_theme_constant_override("separation", 9)
+    diagnostic_content.add_child(result_box)
+    var lookup := func():
+        field.release_focus()
+        DisplayServer.virtual_keyboard_hide()
+        _show_dtc_detail(FaultCatalog.normalize_code(field.text), result_box)
+    field.text_submitted.connect(func(_text: String): lookup.call())
+    var button := Button.new()
+    button.text = "Найти код"
+    button.custom_minimum_size.y = 48
+    button.pressed.connect(lookup)
+    diagnostic_content.add_child(button)
+    field.grab_focus()
+
+func _show_dtc_detail(code: String, target: VBoxContainer) -> void:
+    _clear_children(target)
+    var row := FaultCatalog.dtc(code)
+    if row.is_empty():
+        if not FaultCatalog.valid_lookup_code(code):
+            _fault_text_block(target, "Формат кода", "Введите Pxxxx, Uxxxx, Cxxxx, Bxxxx или 5–6-значный код VAG из сканера.")
+        else:
+            _fault_text_block(target, "Код отсутствует", "Код пока отсутствует в локальной базе Yeti Garage. Сохраните полный код, название блока и текст сканера. Не придумываем трактовку неизвестной ошибки.")
+        return
+    var badge := Label.new()
+    badge.text = str(row.get("code", "")) + " · " + str(row.get("title_ru", ""))
+    badge.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    badge.add_theme_font_size_override("font_size", 19)
+    target.add_child(badge)
+    var warning := FaultCatalog.warning(str(row.get("dashboard_warning_id", "")))
+    if not warning.is_empty():
+        var image := TextureRect.new()
+        image.texture = load(str(warning.get("image", ""))) as Texture2D
+        image.custom_minimum_size = Vector2(72, 72)
+        image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+        image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+        target.add_child(image)
+    var severity_note := "Сохраните код и проверьте систему до продолжения обычной эксплуатации."
+    match str(row.get("severity", "CHECK_SOON")):
+        "STOP":
+            severity_note = "Если горит красная лампа давления масла или есть признаки потери давления, безопасно остановитесь и заглушите двигатель. Не продолжайте движение до проверки."
+        "URGENT_CHECK":
+            severity_note = "Нужна срочная диагностика. При сильной тряске двигателя, мигании Check Engine, исчезновении тяги или неконтролируемом переключении передач безопасно остановитесь."
+        "INFORMATION":
+            severity_note = "Сохраните код и проверьте обстоятельства его появления."
+    _fault_text_block(target, "Срочность", severity_note)
+    _fault_text_block(target, "Что означает", str(row.get("description", "")))
+    _fault_text_list(target, "Что водитель может заметить", row.get("driver_symptoms", []))
+    _fault_text_list(target, "Возможные причины", row.get("possible_causes", []))
+    _fault_text_list(target, "Что проверить сначала", row.get("first_checks", []))
+    _fault_text_list(target, "Возможные решения", row.get("possible_solutions", []))
+    var actions := VBoxContainer.new()
+    target.add_child(actions)
+    var flow := str(row.get("related_diagnostic_flow", ""))
+    if flow != "":
+        var check := Button.new()
+        check.text = "Начать диагностику"
+        check.custom_minimum_size.y = 48
+        check.pressed.connect(_start_diagnostic.bind(flow, code))
+        actions.add_child(check)
+    var nodes: Array = row.get("related_node_ids", [])
+    if not nodes.is_empty():
+        var diagram := Button.new()
+        diagram.text = "Показать на схеме"
+        diagram.custom_minimum_size.y = 48
+        diagram.pressed.connect(_open_fault_node.bind(str(nodes[0])))
+        actions.add_child(diagram)
+    var code_kind := "GENERIC OBD-II · общее описание SAE J2012."
+    if str(row.get("verification_status", "")) == "VAG_SPECIFIC":
+        code_kind = "VAG_SPECIFIC · Код VAG · проверенная трактовка семейства VAG, не гарантия появления на конкретном ЭБУ."
+    elif str(row.get("verification_status", "")) == "REFERENCE_ONLY":
+        code_kind = "Справочное описание · проверьте по номеру блока управления."
+    _fault_text_block(target, "Тип кода", code_kind)
+    var aliases: Array = row.get("vag_codes", [])
+    if not aliases.is_empty():
+        _fault_text_block(target, "Другие номера сканера", " / ".join(aliases))
+    _fault_text_block(target, "Для какого автомобиля", str(row.get("applicability", "Требуется сверка с автомобилем и блоком управления.")))
+    var code_source: Dictionary = row.get("source", {})
+    if not code_source.is_empty():
+        _fault_text_block(target, "Источник", str(code_source.get("title", "")) + "\n" + str(code_source.get("url", "")))
+    _add_save_fault_action(target, "", str(row.get("code", code)), str(row.get("title_ru", "Код ошибки")))
+    _add_saved_fault_status(target)
+
+func _fault_text_block(parent: Control, heading_text: String, body_text: String) -> void:
+    var box := VBoxContainer.new()
+    box.add_theme_constant_override("separation", 3)
+    parent.add_child(box)
+    var heading := Label.new()
+    heading.text = heading_text
+    heading.add_theme_font_size_override("font_size", 16)
+    box.add_child(heading)
+    var body := Label.new()
+    body.text = body_text
+    body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    body.modulate = Color("aab8c1")
+    box.add_child(body)
+
+func _fault_text_list(parent: Control, heading_text: String, values: Array) -> void:
+    var body := "\n".join(values.map(func(value): return "• " + str(value)))
+    _fault_text_block(parent, heading_text, body)
+
+func _open_fault_node(node_id: String) -> void:
+    if mobile_technical_catalog and vehicle_3d_view != null and vehicle_3d_view.has_method("focus_node"):
+        _switch_to_page(vehicle_3d_box)
+        vehicle_3d_view.focus_node(node_id)
+    else:
+        _show_info_dialog("Технический справочник", "Связанная схема: %s" % node_id)
+
+func _save_fault(warning_id: String, dtc_code: String, title_text: String, note_text: String = "") -> void:
+    var rows: Array = Storage.data.get("saved_faults", [])
+    var id := "fault_%s" % str(Time.get_unix_time_from_system())
+    rows.push_front({"id":id, "date":Time.get_date_string_from_system(), "warning_id":warning_id, "dtc_code":dtc_code, "title":title_text, "note":note_text, "status":"NEW"})
+    Storage.data["saved_faults"] = rows
+    Storage.save()
+    active_saved_fault_id = id
+    _refresh_saved_fault_card()
+    _show_info_dialog("Сохранённая неисправность", "Запись сохранена вручную. Приложение не считывало данные автомобиля.")
+
+func _add_save_fault_action(parent: Control, warning_id: String, code: String, title_text: String) -> void:
+    var note := LineEdit.new()
+    note.placeholder_text = "Заметка (необязательно)"
+    note.custom_minimum_size.y = 48
+    parent.add_child(note)
+    var save := Button.new()
+    save.text = "Сохранить неисправность"
+    save.custom_minimum_size.y = 48
+    save.pressed.connect(func(): _save_fault(warning_id, code, title_text, note.text.strip_edges()))
+    parent.add_child(save)
+
+func _add_saved_fault_status(parent: Control) -> void:
+    if active_saved_fault_id == "": return
+    var selector := OptionButton.new()
+    selector.custom_minimum_size.y = 48
+    selector.add_item("Новая", 0)
+    selector.add_item("Проверяется", 1)
+    selector.add_item("Решена", 2)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for i in range(rows.size()):
+        var row: Dictionary = rows[i]
+        if str(row.get("id", "")) == active_saved_fault_id:
+            selector.select({"NEW":0, "CHECKING":1, "RESOLVED":2}.get(str(row.get("status", "NEW")), 0))
+            break
+    selector.item_selected.connect(func(index: int): _update_saved_fault_status(active_saved_fault_id, ["NEW", "CHECKING", "RESOLVED"][index]))
+    parent.add_child(selector)
+
+func _update_saved_fault_status(fault_id: String, status: String) -> void:
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for i in range(rows.size()):
+        var row: Dictionary = rows[i]
+        if str(row.get("id", "")) == fault_id:
+            row["status"] = status
+            rows[i] = row
+            break
+    Storage.data["saved_faults"] = rows
+    Storage.save()
+    _refresh_saved_fault_card()
+
+func _refresh_saved_fault_card() -> void:
+    if fault_home_box == null: return
+    _clear_children(fault_home_box)
+    var rows: Array = Storage.data.get("saved_faults", [])
+    for value in rows:
+        var row: Dictionary = value
+        if str(row.get("status", "NEW")) == "RESOLVED": continue
+        var card := PanelContainer.new()
+        card.add_theme_stylebox_override("panel", _style_box(Color("0b1e27"), 16, Color("6b4c36"), 1))
+        fault_home_box.add_child(card)
+        var line := HBoxContainer.new()
+        line.add_theme_constant_override("separation", 10)
+        card.add_child(line)
+        var warning := FaultCatalog.warning(str(row.get("warning_id", "")))
+        if not warning.is_empty():
+            var icon := TextureRect.new()
+            icon.texture = load(str(warning.get("image", ""))) as Texture2D
+            icon.custom_minimum_size = Vector2(38, 38)
+            icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+            icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+            line.add_child(icon)
+        var copy := VBoxContainer.new()
+        copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        line.add_child(copy)
+        var heading := Label.new()
+        heading.text = "Требует внимания"
+        heading.add_theme_font_size_override("font_size", 12)
+        heading.modulate = Color("f2b84b")
+        copy.add_child(heading)
+        var title := Label.new()
+        title.text = (str(row.get("dtc_code", "")) + " · " if str(row.get("dtc_code", "")) != "" else "") + str(row.get("title", "Сохранённая неисправность"))
+        title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+        copy.add_child(title)
+        var open := Button.new()
+        open.text = "Открыть"
+        open.custom_minimum_size.y = 48
+        open.pressed.connect(_open_saved_fault.bind(row))
+        line.add_child(open)
+        break
+
+func _open_saved_fault(row: Dictionary) -> void:
+    active_saved_fault_id = str(row.get("id", ""))
+    _switch_to_page(diagnostics_box)
+    var warning_id := str(row.get("warning_id", ""))
+    var code := str(row.get("dtc_code", ""))
+    if warning_id != "":
+        _show_warning_detail(warning_id, active_saved_fault_id)
+    elif code != "":
+        _show_dtc_lookup(active_saved_fault_id)
+        await get_tree().process_frame
+        for child in diagnostic_content.get_children():
+            if child is VBoxContainer and child != diagnostic_content:
+                _show_dtc_detail(code, child as VBoxContainer)
 
 func _start_diagnostic(flow_id: String, context_part_name: String = "") -> void:
     var flow: Dictionary = DiagnosticService.flow(flow_id)
@@ -1764,7 +2181,7 @@ func _render_diagnostic_node() -> void:
     var hint_text: String = str(node.get("hint", ""))
     if hint_text != "":
         var hint := Label.new()
-        hint.text = "⚠️ " + hint_text
+        hint.text = "Внимание: " + hint_text
         hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         hint.modulate = Color("f3c86a")
         diagnostic_content.add_child(hint)
@@ -1830,7 +2247,7 @@ func _show_diagnostic_result(result_text: String) -> void:
     note.modulate = Color("8793a1")
     diagnostic_content.add_child(note)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     diagnostic_content.add_child(actions)
 
@@ -1866,6 +2283,7 @@ func _build_3d_page() -> void:
     else:
         var desktop_view_script: Script = load("res://scenes/vehicle_3d/vehicle_3d_view.gd")
         vehicle_3d_view = desktop_view_script.new()
+        vehicle_3d_view.set_vehicle_profile(VehicleService.vehicle())
     vehicle_3d_view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     vehicle_3d_view.set_history_provider(Callable(self, "_part_history_summary_for_3d"))
     vehicle_3d_view.replacement_requested.connect(_open_part_replacement)
@@ -1981,7 +2399,7 @@ func _open_global_search() -> void:
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.scroll_deadzone = 8
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     scroll.set_meta("preserve_scroll_modes", true)
     root.add_child(scroll)
     var results := VBoxContainer.new()
@@ -2076,10 +2494,11 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
         results.add_child(label)
         return
 
-    var part_matches := PartCatalogService.search(q)
+    var part_matches := PartCatalogService.search(q).filter(func(part: Dictionary): return TechnicalCatalogService.is_compatible(part, VehicleService.vehicle()))
     var diagnostic_matches: Array = DiagnosticService.search(q)
     var manual_matches := ManualSearchService.search(q, 3)
     var catalog_matches := TechnicalCatalogService.search(q, VehicleService.vehicle())
+    var fault_matches := FaultCatalog.search(q)
 
     var total_shown := 0
     var catalog_count := 0
@@ -2102,6 +2521,53 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
             results.add_child(catalog_button)
             catalog_count += 1
             total_shown += 1
+
+    if not fault_matches.is_empty():
+        for fault_value in fault_matches:
+            if total_shown >= 12: break
+            var fault_row: Dictionary = fault_value
+            if str(fault_row.get("kind", "")) == "warning":
+                if catalog_count == 0:
+                    _add_search_section_label(results, "Лампы")
+                    catalog_count = -100
+                var warning_button := Button.new()
+                warning_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+                warning_button.text = "Лампа · " + str(fault_row.get("name", ""))
+                warning_button.custom_minimum_size.y = 48
+                warning_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+                _style_global_search_result_button(warning_button)
+                var warning_action := _open_warning_from_search.bind(str(fault_row.get("id", "")), dialog)
+                warning_button.set_meta("search_action", warning_action)
+                warning_button.pressed.connect(warning_action)
+                results.add_child(warning_button)
+                total_shown += 1
+            elif str(fault_row.get("kind", "")) == "dtc":
+                _add_search_section_label(results, "Коды ошибок")
+                var dtc_button := Button.new()
+                dtc_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+                dtc_button.text = "Код · " + str(fault_row.get("name", ""))
+                dtc_button.custom_minimum_size.y = 48
+                dtc_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+                _style_global_search_result_button(dtc_button)
+                var dtc_action := _open_dtc_from_search.bind(str(fault_row.get("id", "")), dialog)
+                dtc_button.set_meta("search_action", dtc_action)
+                dtc_button.pressed.connect(dtc_action)
+                results.add_child(dtc_button)
+                total_shown += 1
+    elif FaultCatalog.valid_lookup_code(query):
+        _add_search_section_label(results, "Код ошибки")
+        var unknown_code := FaultCatalog.normalize_code(query)
+        var unknown_button := Button.new()
+        unknown_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+        unknown_button.text = "Код · " + unknown_code
+        unknown_button.custom_minimum_size.y = 48
+        unknown_button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+        _style_global_search_result_button(unknown_button)
+        var unknown_action := _open_dtc_from_search.bind(unknown_code, dialog)
+        unknown_button.set_meta("search_action", unknown_action)
+        unknown_button.pressed.connect(unknown_action)
+        results.add_child(unknown_button)
+        total_shown += 1
 
     if not part_matches.is_empty():
         _add_search_section_label(results, "Детали")
@@ -2288,6 +2754,24 @@ func _open_diagnostic_from_search(flow_id: String, dialog: Window) -> void:
     _start_diagnostic(flow_id)
     dialog.queue_free()
 
+func _open_warning_from_search(warning_id: String, dialog: Window) -> void:
+    dialog.hide()
+    _switch_to_page(diagnostics_box)
+    _show_warning_detail(warning_id)
+    dialog.queue_free()
+
+func _open_dtc_from_search(code: String, dialog: Window) -> void:
+    dialog.hide()
+    _switch_to_page(diagnostics_box)
+    _show_dtc_lookup()
+    await get_tree().process_frame
+    for child in diagnostic_content.get_children():
+        if child is LineEdit:
+            (child as LineEdit).text = code
+        if child is VBoxContainer and child != diagnostic_content:
+            _show_dtc_detail(code, child as VBoxContainer)
+    dialog.queue_free()
+
 func _build_repair_page() -> void:
     _page_heading(repair_box, "Пошаговый ремонт", "Инструкция, инструменты и контроль каждого шага", "res://assets/ui/icons/book.svg")
     var top := HBoxContainer.new()
@@ -2370,7 +2854,7 @@ func _build_repair_page() -> void:
     repair_finish_box.visible = false
     repair_box.add_child(repair_finish_box)
     var done_label := Label.new()
-    done_label.text = "✅ Инструкция пройдена. Отмечай замену только если работа действительно выполнена на автомобиле."
+    done_label.text = "Инструкция пройдена. Отмечай замену только если работа действительно выполнена на автомобиле."
     done_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     done_label.modulate = Color("71ddb6")
     repair_finish_box.add_child(done_label)
@@ -2406,9 +2890,9 @@ func _render_repair_step() -> void:
     repair_step_title.text = str(step.get("title", "Шаг"))
     repair_step_body.text = str(step.get("body", ""))
     var tool := str(step.get("tool", ""))
-    repair_tool_label.text = "🔧 Сейчас понадобится: %s" % tool if tool != "" else ""
+    repair_tool_label.text = "Сейчас понадобится: %s" % tool if tool != "" else ""
     var warning := str(step.get("warning", ""))
-    repair_warning_label.text = "⚠️ %s" % warning if warning != "" else ""
+    repair_warning_label.text = "Внимание: %s" % warning if warning != "" else ""
     repair_back_button.disabled = repair_step_index <= 0
     repair_next_button.disabled = false
     repair_next_button.text = "Завершить инструкцию" if repair_step_index == steps.size() - 1 else "Готово →"
@@ -2590,7 +3074,7 @@ func _build_event_dialog() -> void:
     event_mileage_unknown.toggled.connect(func(pressed): event_mileage.editable = not pressed)
     form.add_child(event_mileage_unknown)
 
-    form.add_child(_form_label("Запчасти / материалы, ₽"))
+    form.add_child(_form_label("Запчасти / материалы, руб."))
     event_cost = SpinBox.new()
     event_cost.max_value = 10000000
     event_cost.step = 1
@@ -2599,7 +3083,7 @@ func _build_event_dialog() -> void:
         _style_line_edit(cost_line)
     form.add_child(event_cost)
 
-    form.add_child(_form_label("Работа, ₽"))
+    form.add_child(_form_label("Работа, руб."))
     event_labor_cost = SpinBox.new()
     event_labor_cost.max_value = 10000000
     event_labor_cost.step = 1
@@ -2635,7 +3119,7 @@ func _build_event_dialog() -> void:
     event_notes.placeholder_text = "Что делали, какие детали поставили, что заметили..."
     form.add_child(event_notes)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var cancel := Button.new()
@@ -2843,7 +3327,7 @@ func _create_sheet_popup(title_text: String, preferred_size: Vector2i = Vector2i
     scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.scroll_deadzone = 10
-    scroll.follow_focus = false
+    scroll.follow_focus = true
     root.add_child(scroll)
 
     var content := VBoxContainer.new()
@@ -2867,7 +3351,7 @@ func _show_sheet_popup(sheet: Dictionary, preferred_size: Vector2i) -> void:
     popup.popup_centered(_mobile_dialog_size(preferred_size))
 
 func _add_sheet_actions(root: VBoxContainer, popup: PopupPanel, primary_text: String, on_primary: Callable) -> void:
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var cancel := Button.new()
@@ -3114,6 +3598,8 @@ func _consume_pending_notification_open() -> void:
         _on_maintenance_notification_opened(item_id)
 
 func _refresh_all() -> void:
+    if vehicle_3d_view != null:
+        vehicle_3d_view.set_vehicle_profile(VehicleService.vehicle())
     _refresh_overview()
     _refresh_history()
     _refresh_maintenance()
@@ -3127,12 +3613,12 @@ func _refresh_overview() -> void:
     vehicle_name_label.text = str(vehicle.get("nickname", "Моя Yeti"))
     vehicle_vin_label.text = "VIN: %s" % str(vehicle.get("vin", ""))
     if Storage.is_demo_mode():
-        data_mode_value.text = "🧪 ДЕМО-РЕЖИМ\nТестовые записи хранятся отдельно и не затрагивают твою Yeti."
+        data_mode_value.text = "ДЕМО-РЕЖИМ\nТестовые записи хранятся отдельно и не затрагивают твою Yeti."
         data_mode_value.modulate = Color("f3c86a")
         header_title.text = "Yeti"
         header_accent.text = "Garage • ДЕМО"
     else:
-        data_mode_value.text = "🚙 МОЯ МАШИНА\nРаботаем с реальной историей автомобиля."
+        data_mode_value.text = "МОЯ МАШИНА\nРаботаем с реальной историей автомобиля."
         data_mode_value.modulate = Color("b9d7c5")
         header_title.text = "Yeti"
         header_accent.text = "Garage"
@@ -3206,7 +3692,8 @@ func _refresh_overview() -> void:
     else:
         reminders_summary_value.text = "Активных напоминаний нет."
 
-    total_cost_value.text = "%s ₽" % _format_money(ServiceHistoryService.total_cost())
+    total_cost_value.text = "%s руб." % _format_money(ServiceHistoryService.total_cost())
+    _refresh_saved_fault_card()
 
     _clear_children(recent_box)
     var latest := ServiceHistoryService.events()
@@ -3252,7 +3739,7 @@ func _refresh_history() -> void:
         var cost := float(event.get("cost",0)) + float(event.get("labor_cost",0))
         if cost > 0:
             var c := Label.new()
-            c.text = "Стоимость: %s ₽" % _format_money(cost)
+            c.text = "Стоимость: %s руб." % _format_money(cost)
             card.add_child(c)
         if str(event.get("notes", "")).strip_edges() != "":
             var notes := Label.new()
@@ -3260,7 +3747,7 @@ func _refresh_history() -> void:
             notes.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
             notes.modulate = Color("b3bdc8")
             card.add_child(notes)
-        var actions := HBoxContainer.new()
+        var actions := VBoxContainer.new()
         card.add_child(actions)
         var details := Button.new()
         details.text = "Открыть"
@@ -3287,7 +3774,7 @@ func _refresh_maintenance() -> void:
         status.text = _maintenance_summary(item)
         status.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         card.add_child(status)
-        var actions := HBoxContainer.new()
+        var actions := VBoxContainer.new()
         actions.add_theme_constant_override("separation", 8)
         card.add_child(actions)
         var done := Button.new()
@@ -3313,7 +3800,7 @@ func _refresh_reminders() -> void:
     if active.is_empty():
         var ok_card := _glass_card(reminders_dynamic_box, Color("1b5f54"))
         var ok_title := Label.new()
-        ok_title.text = "✅ Срочных напоминаний нет"
+        ok_title.text = "Срочных напоминаний нет"
         ok_title.add_theme_font_size_override("font_size", 20)
         ok_card.add_child(ok_title)
         var ok_text := Label.new()
@@ -3339,7 +3826,7 @@ func _refresh_reminders() -> void:
             message.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
             message.modulate = Color("b9c3ce")
             card.add_child(message)
-            var actions := HBoxContainer.new()
+            var actions := VBoxContainer.new()
             actions.add_theme_constant_override("separation", 8)
             card.add_child(actions)
             var done := Button.new()
@@ -3376,9 +3863,9 @@ func _refresh_reminders() -> void:
 
 func _status_icon(status: String) -> String:
     match status:
-        "overdue": return "🔴"
-        "due": return "🟠"
-        "soon": return "🟡"
+        "overdue": return "•"
+        "due": return "•"
+        "soon": return "•"
         _: return "•"
 
 func _snooze_reminder(reminder_id: String) -> void:
@@ -3417,7 +3904,7 @@ func _maintenance_summary(item: Dictionary) -> String:
     var projected_date := str(item.get("projected_date_by_mileage", ""))
     if projected_date != "" and remaining_km != null and int(remaining_km) > 0:
         chunks.append("по темпу езды ≈ %s" % _display_date(projected_date))
-    var prefix: String = str({"normal":"✅ Норма", "soon":"🟡 Скоро", "due":"🟠 Пора", "overdue":"🔴 Просрочено"}.get(status, ""))
+    var prefix: String = str({"normal":"Норма", "soon":"Скоро", "due":"Пора", "overdue":"Просрочено"}.get(status, ""))
     return "%s\n%s" % [prefix, " • ".join(chunks)]
 
 func _open_vehicle_dialog() -> void:
@@ -3644,7 +4131,7 @@ func _open_mileage_history() -> void:
             meta.add_theme_color_override("font_color", Color("9ba6b2"))
             card.add_child(meta)
 
-            var actions := HBoxContainer.new()
+            var actions := VBoxContainer.new()
             actions.add_theme_constant_override("separation", 8)
             card.add_child(actions)
 
@@ -3837,7 +4324,7 @@ func _show_event_details(event: Dictionary) -> void:
     var total := float(event.get("cost", 0.0)) + float(event.get("labor_cost", 0.0))
     if total > 0.0:
         var cost_label := Label.new()
-        cost_label.text = "Стоимость: %s ₽" % _format_money(total)
+        cost_label.text = "Стоимость: %s руб." % _format_money(total)
         box.add_child(cost_label)
 
     if str(event.get("part_id", "")).strip_edges() != "":
@@ -3856,7 +4343,7 @@ func _show_event_details(event: Dictionary) -> void:
         notes.add_theme_color_override("font_color", Color("c9d9df"))
         box.add_child(notes)
 
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     root.add_child(actions)
     var close := Button.new()
@@ -3975,7 +4462,7 @@ func _open_confirm_popup(title_text: String, body_text: String, confirm_text: St
     body.add_theme_font_size_override("font_size", 14)
     body.add_theme_color_override("font_color", Color("c6d7de"))
     box.add_child(body)
-    var actions := HBoxContainer.new()
+    var actions := VBoxContainer.new()
     actions.add_theme_constant_override("separation", 8)
     box.add_child(actions)
     var cancel := Button.new()
@@ -4107,15 +4594,12 @@ func _apply_touch_targets(node: Node) -> void:
     if node is ScrollContainer:
         var scroll := node as ScrollContainer
         scroll.scroll_deadzone = 10
-        scroll.follow_focus = false
+        scroll.follow_focus = true
+        ScrollGesture.attach(scroll)
         scroll.mouse_filter = Control.MOUSE_FILTER_STOP
         if not bool(scroll.get_meta("preserve_scroll_modes", false)):
             scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-            scroll.vertical_scroll_mode = (
-                ScrollContainer.SCROLL_MODE_DISABLED
-                if str(scroll.name) == "Машина" and get_viewport_rect().size.y >= 900.0
-                else ScrollContainer.SCROLL_MODE_SHOW_NEVER
-            )
+            scroll.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
         var vbar := scroll.get_v_scroll_bar()
         if vbar != null:
             vbar.modulate = Color(1, 1, 1, 0)
@@ -4124,7 +4608,7 @@ func _apply_touch_targets(node: Node) -> void:
         if hbar != null:
             hbar.modulate = Color(1, 1, 1, 0)
             hbar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    if node is Button and not (node is CheckBox):
+    if node is Button and not (node is CheckBox) and not (node is OptionButton):
         var button := node as Button
         if bool(button.get_meta("compact_icon_button", false)):
             # Compact icon actions must stay square; the previous global 48px height
@@ -4134,6 +4618,8 @@ func _apply_touch_targets(node: Node) -> void:
         else:
             button.custom_minimum_size.y = max(button.custom_minimum_size.y, 48.0)
         button.mouse_filter = Control.MOUSE_FILTER_PASS
+        button.autowrap_mode = TextServer.AUTOWRAP_OFF if node.get_parent() is HBoxContainer else TextServer.AUTOWRAP_WORD_SMART
+        button.text_overrun_behavior = TextServer.OVERRUN_NO_TRIMMING
         if not button.has_theme_stylebox_override("normal"):
             button.add_theme_stylebox_override("normal", _style_box(Color("0a1d27e8"), 14, Color("194956"), 1))
             button.add_theme_stylebox_override("hover", _style_box(Color("0b2c36f2"), 14, Color("1edee6"), 1, Color("00e7e74b"), 5))
@@ -4163,6 +4649,11 @@ func _apply_touch_targets(node: Node) -> void:
         if control != null:
             control.custom_minimum_size.y = max(control.custom_minimum_size.y, 48.0)
             control.mouse_filter = Control.MOUSE_FILTER_PASS
+        if node is OptionButton:
+            var selector := node as OptionButton
+            selector.fit_to_longest_item = false
+            selector.clip_text = true
+            selector.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
     elif node is CheckBox:
         var check := node as CheckBox
         check.custom_minimum_size.y = max(check.custom_minimum_size.y, 44.0)
@@ -4170,6 +4661,8 @@ func _apply_touch_targets(node: Node) -> void:
         check.add_theme_color_override("font_color", Color("d7e6ea"))
     elif node is Label or node is TextureRect or node is ColorRect or node is HSeparator or node is VSeparator:
         var passive := node as Control
+        if node is Label and (not (node.get_parent() is HBoxContainer) or (node.size_flags_horizontal & Control.SIZE_EXPAND) != 0):
+            (node as Label).autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         if passive != null:
             passive.mouse_filter = Control.MOUSE_FILTER_IGNORE
     elif (node is Container or node is Panel) and not (node is ScrollContainer):

@@ -1,0 +1,2592 @@
+[
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "size": 199012,
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/4x4_reference/haldex.webp",
+    "size": 222798,
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/4x4_reference/propshaft.webp",
+    "size": 37022,
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "size": 98864,
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/body_front.webp",
+    "size": 124506,
+    "sha256": "774b3e18bc3096bcaa619ecc9d411a6148b36ac4c24e20c35c208e58f9079a63",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/body_protection.webp",
+    "size": 143314,
+    "sha256": "19dd0a70aeb8397f4330f134df96221424dc350e389e5fb7b353739ef1d7bd27",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/body_rear.webp",
+    "size": 96222,
+    "sha256": "587bb4632e2334f55987f1bf0ed89b84ee8f3fce94a7c52b3827f506507e2cdb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/doors.webp",
+    "size": 125066,
+    "sha256": "fc68b24b10e65ebe3130a4b61abe4e97dc7245345a72acde009c1db74c38639d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/front_wipers.webp",
+    "size": 148468,
+    "sha256": "5063f77bf1900702abc4987fd02f7364f5f2b1f5706e392ae399c2815f29322d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/glazing.webp",
+    "size": 87254,
+    "sha256": "6542402fdd28ced5934a8359519d5480ee44cb4d279e08a90acc9f32de02a460",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/mirrors.webp",
+    "size": 87684,
+    "sha256": "8993bfd746a03576c080dc771ff0105dd4e6b507960091c3abcea2a2812d4e0f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/rear_wiper.webp",
+    "size": 113292,
+    "sha256": "2336a8a791989eb4b866c5eab1de47541acf6721bf4d621362ec917014517ff8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/body/washers.webp",
+    "size": 60632,
+    "sha256": "9844e44062b61a2a662e6785da161971fc0daaa11c5507121131e9f03ee9ddce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/brakes/abs_esp_block.webp",
+    "size": 278490,
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "size": 251092,
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/brakes/wheel_sensors.webp",
+    "size": 320416,
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/climate/ac_circuit.webp",
+    "size": 158870,
+    "sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/climate/blower.webp",
+    "size": 117730,
+    "sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/climate/heater_box.webp",
+    "size": 170820,
+    "sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/cooling/coolant_circuit.webp",
+    "size": 436612,
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/cooling/coolant_reservoir.webp",
+    "size": 78016,
+    "sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/cooling/radiator_pack.webp",
+    "size": 387054,
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/dsg/clutch_group.webp",
+    "size": 361372,
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "size": 295450,
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/dsg/gear_selector.webp",
+    "size": 258902,
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/dsg/gearbox_group.webp",
+    "size": 405160,
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/electrical/control_units.webp",
+    "size": 401518,
+    "sha256": "9bfcdeabaee067e865313f8e369b981ba050cae34c9c8cab78301f923fa505d2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/electrical/fuses_relays.webp",
+    "size": 409436,
+    "sha256": "b62624d3bcd64f73cb0109fe89aa9fb2db8e97b9509531cd51aa2e974cb5b5a8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/electrical/power_start.webp",
+    "size": 360618,
+    "sha256": "27ab66e463638ef375fc51c7a5764fceb472134e5bb5d986e88565262759b08b",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/electrical/wiring.webp",
+    "size": 463580,
+    "sha256": "ddfeeecda2982b021ddb8244843024dca265933bf69eaf472e000eedc6373421",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+    "size": 363962,
+    "sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_accessories.webp",
+    "size": 150504,
+    "sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+    "size": 310324,
+    "sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_bottom_end.webp",
+    "size": 232678,
+    "sha256": "65639b0cb619f6dfc00aae0df90a08874e7cbe79f3f722ac4ec40d7de1a935f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
+    "size": 234456,
+    "sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_complete.webp",
+    "size": 293254,
+    "sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_mounts.webp",
+    "size": 227022,
+    "sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_upper_end.webp",
+    "size": 184704,
+    "sha256": "c1bb9bd7770706d6009ae576ca53f3a03cbd76e4b495dbd564ba141ca47ff1b2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
+    "size": 365148,
+    "sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/oil_filter.webp",
+    "size": 160894,
+    "sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/oil_pan.webp",
+    "size": 225166,
+    "sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "size": 307334,
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "size": 245062,
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/exhaust/exhaust_front.webp",
+    "size": 311372,
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "size": 171044,
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "size": 153552,
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 60096,
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 51992,
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "size": 90468,
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "size": 68994,
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "size": 188872,
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "size": 136282,
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "size": 164716,
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "size": 68894,
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "size": 148076,
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "size": 88486,
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "size": 27526,
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_strut.webp",
+    "size": 46228,
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "size": 74250,
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 108018,
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/fuel/fuel_delivery.webp",
+    "size": 178814,
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/fuel/fuel_sensors.webp",
+    "size": 83180,
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/fuel/fuel_storage.webp",
+    "size": 257456,
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/ignition/ignition.webp",
+    "size": 257892,
+    "sha256": "ff03e5d3878c542c7b204c3afcd3d69ffc892af01830e6338fb7462a5a5d1558",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/intake/air_path.webp",
+    "size": 333042,
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/intake/boost_group.webp",
+    "size": 224932,
+    "sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/interior/console.webp",
+    "size": 213776,
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/interior/dashboard.webp",
+    "size": 117508,
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/interior/interior_trim.webp",
+    "size": 173798,
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/interior/seats.webp",
+    "size": 199578,
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/lighting/front_lamps.webp",
+    "size": 368938,
+    "sha256": "e7a186f7b8d945175b5e16f84528ecc8262a10487792d129999ba4d67a802d4d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/lighting/interior_lamps.webp",
+    "size": 473704,
+    "sha256": "047cb2d07c0aa53fb5df76f626ef0a2816aaf92eb38da9a9eca713bd82a340c2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/lighting/rear_lamps.webp",
+    "size": 364930,
+    "sha256": "06fc94b08a7e617eac18a59ba231ab967a769d5f332743d6c3ab109e60441e77",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/maintenance/filters.webp",
+    "size": 165722,
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/maintenance/fluids.webp",
+    "size": 222136,
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/maintenance/service_brakes.webp",
+    "size": 136818,
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/maintenance/service_ignition.webp",
+    "size": 122060,
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "size": 51502,
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "size": 170872,
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "size": 285602,
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "size": 276716,
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "size": 200404,
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "size": 256738,
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/safety/airbags.webp",
+    "size": 220864,
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/safety/belts.webp",
+    "size": 217072,
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/safety/srs_sensors.webp",
+    "size": 208622,
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/steering/steering_column.webp",
+    "size": 58538,
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/steering/steering_linkage.webp",
+    "size": 103274,
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/steering/steering_rack.webp",
+    "size": 133052,
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/timing/timing_chain.webp",
+    "size": 373868,
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/timing/timing_drive_node.webp",
+    "size": 291830,
+    "sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/assets/technical_catalog/timing/timing_gears.webp",
+    "size": 408200,
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/01_air_path_v2.webp",
+    "size": 241012,
+    "sha256": "76c89986fda96b833c56678c1897a79a245d6fc3b3eb46960841bce054fc22d6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/02_fuel_delivery_v2.webp",
+    "size": 138316,
+    "sha256": "cf6fcc76c06e85f7bf1f33960850b118a80fcd15468d8b0a684976d62d863eca",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/03_exhaust_aftertreatment_final.webp",
+    "size": 209234,
+    "sha256": "a2cf400c3f016ca2a816094cbe8e68946271dfbfb2cbbc1b7c9e62a8d589a516",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/04_clutch_group_final.webp",
+    "size": 250126,
+    "sha256": "a18654c7842f06acd7dda4202861cdea90e4c61f6ca2b49844c36e4533b17f96",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/05_gearbox_group_final.webp",
+    "size": 467430,
+    "sha256": "5e02d2d58a17e90d81c192444c1f4a1886386618f0ac7b9eea6c936c3e1737f7",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/06_front_left_corner_final.webp",
+    "size": 178712,
+    "sha256": "c6fb937f62278ae9470a3b0919e35c2d5b24e38818caf0f464dffad235889b59",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/07_front_axle_carrier_final.webp",
+    "size": 144648,
+    "sha256": "83bc1ba9be8fdf673d931a55fb5d48592d5d282a4d6e096a803239ba3feafd38",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/08_front_strut_final.webp",
+    "size": 82398,
+    "sha256": "b12cc1b2ba0bd9b1672c66273296c77d8ea8ca4310307bcfde72b953c0ec4bc6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/09_front_knuckle_hub_final.webp",
+    "size": 223376,
+    "sha256": "4a51e9fa6eb2b53ec1e877ed513f846e5a4f179e0197c4a2da81dd94db4dcb98",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/10_rear_suspension_overview_final.webp",
+    "size": 183142,
+    "sha256": "1f3942b5478a75f0c4302cf0116e469bacae03f2d7fc4a3d24ec28a6c2fc7c5f",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/11_rear_carrier_final.webp",
+    "size": 168000,
+    "sha256": "0acdbf51835f7b918c8e066e3be62bc68662e47914740d66f79d8cde0c05b6eb",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/12_rear_springs_dampers_final.webp",
+    "size": 148934,
+    "sha256": "45757d61c687efb5b58f44da6b9ecf4c802d01b262017d8dd1471d3cfa8cb503",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/13_rear_hub_final.webp",
+    "size": 255720,
+    "sha256": "d8ae0208f7d917740ca0e770f0c0ad0cd8fb07c7d6e0509a77369430c3eb2f50",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/15_front_brake_assembly_final.webp",
+    "size": 268742,
+    "sha256": "e70c13aa66bef1c33b489f3a60520b304532b74409a5b048989c49343f4633a0",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/16_wheel_sensors_final.webp",
+    "size": 324176,
+    "sha256": "6c887ea70d3a36ac1029f02540b3bfec1e3a651f2590cc8ee4b31f75275462e4",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/17_angle_drive_final.webp",
+    "size": 225186,
+    "sha256": "d75b8f35fa86d62c31c3246b12b9aa33215f07876606d05f4f64889cb7dd62e7",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/18_haldex_final.webp",
+    "size": 400678,
+    "sha256": "39c8fc19894a6492eefab0331745017c93d27dbba6fa6eb96354e3b7749d56f6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/19_ac_circuit_final.webp",
+    "size": 198274,
+    "sha256": "ea0382557e20820352f2669c70222f7c2d37b8901abf2a7cb502ce02808eafcc",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/20_control_units_final.webp",
+    "size": 257008,
+    "sha256": "1062eaa682aeac1414681b86b07e46ad0fbb05398fa53db9678e739005d008d0",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/21_ignition_final.webp",
+    "size": 208024,
+    "sha256": "8b83d09758c3762b369317a1a52fa846b31eb20eb00764ca344caea1272e4739",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/22_front_lamps_final.webp",
+    "size": 440972,
+    "sha256": "a70c4b60aed4d6bef676f53dc9913142e6546c6126d67d98efa058a3f8e1c2c1",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/23_seats_final.webp",
+    "size": 296858,
+    "sha256": "f3f4a341f447ca3110418ad3e0c6c40f001f53c7116c9c08b146faf30b5fdd24",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_resume_work/images/24_rear_brake_assembly_final.webp",
+    "size": 321726,
+    "sha256": "7216d73f9535d056749d361b1233796a038e4aab0d4520800b201fe8e28fb073",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/01_air_path_v2.webp",
+    "size": 241012,
+    "sha256": "76c89986fda96b833c56678c1897a79a245d6fc3b3eb46960841bce054fc22d6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/02_fuel_delivery_v2.webp",
+    "size": 138316,
+    "sha256": "cf6fcc76c06e85f7bf1f33960850b118a80fcd15468d8b0a684976d62d863eca",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/03_exhaust_aftertreatment_final.webp",
+    "size": 209234,
+    "sha256": "a2cf400c3f016ca2a816094cbe8e68946271dfbfb2cbbc1b7c9e62a8d589a516",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/04_clutch_group_final.webp",
+    "size": 250126,
+    "sha256": "a18654c7842f06acd7dda4202861cdea90e4c61f6ca2b49844c36e4533b17f96",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/05_gearbox_group_final.webp",
+    "size": 467430,
+    "sha256": "5e02d2d58a17e90d81c192444c1f4a1886386618f0ac7b9eea6c936c3e1737f7",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/06_front_left_corner_final.webp",
+    "size": 178712,
+    "sha256": "c6fb937f62278ae9470a3b0919e35c2d5b24e38818caf0f464dffad235889b59",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/07_front_axle_carrier_final.webp",
+    "size": 144648,
+    "sha256": "83bc1ba9be8fdf673d931a55fb5d48592d5d282a4d6e096a803239ba3feafd38",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/08_front_strut_final.webp",
+    "size": 82398,
+    "sha256": "b12cc1b2ba0bd9b1672c66273296c77d8ea8ca4310307bcfde72b953c0ec4bc6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/09_front_knuckle_hub_final.webp",
+    "size": 223376,
+    "sha256": "4a51e9fa6eb2b53ec1e877ed513f846e5a4f179e0197c4a2da81dd94db4dcb98",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/10_rear_suspension_overview_final.webp",
+    "size": 183142,
+    "sha256": "1f3942b5478a75f0c4302cf0116e469bacae03f2d7fc4a3d24ec28a6c2fc7c5f",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/11_rear_carrier_final.webp",
+    "size": 168000,
+    "sha256": "0acdbf51835f7b918c8e066e3be62bc68662e47914740d66f79d8cde0c05b6eb",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/12_rear_springs_dampers_final.webp",
+    "size": 148934,
+    "sha256": "45757d61c687efb5b58f44da6b9ecf4c802d01b262017d8dd1471d3cfa8cb503",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/13_rear_hub_final.webp",
+    "size": 255720,
+    "sha256": "d8ae0208f7d917740ca0e770f0c0ad0cd8fb07c7d6e0509a77369430c3eb2f50",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/14_steering_column_final.webp",
+    "size": 134410,
+    "sha256": "b07665ce64e92b2f434c7f80f1753e40d5b167e281b85caa388c122569461fbe",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/15_front_brake_assembly_final.webp",
+    "size": 268742,
+    "sha256": "e70c13aa66bef1c33b489f3a60520b304532b74409a5b048989c49343f4633a0",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/16_wheel_sensors_final.webp",
+    "size": 324176,
+    "sha256": "6c887ea70d3a36ac1029f02540b3bfec1e3a651f2590cc8ee4b31f75275462e4",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/17_angle_drive_final.webp",
+    "size": 225186,
+    "sha256": "d75b8f35fa86d62c31c3246b12b9aa33215f07876606d05f4f64889cb7dd62e7",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/18_haldex_final.webp",
+    "size": 400678,
+    "sha256": "39c8fc19894a6492eefab0331745017c93d27dbba6fa6eb96354e3b7749d56f6",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/19_ac_circuit_final.webp",
+    "size": 198274,
+    "sha256": "ea0382557e20820352f2669c70222f7c2d37b8901abf2a7cb502ce02808eafcc",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/20_control_units_final.webp",
+    "size": 257008,
+    "sha256": "1062eaa682aeac1414681b86b07e46ad0fbb05398fa53db9678e739005d008d0",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/21_ignition_final.webp",
+    "size": 208024,
+    "sha256": "8b83d09758c3762b369317a1a52fa846b31eb20eb00764ca344caea1272e4739",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/22_front_lamps_final.webp",
+    "size": 440972,
+    "sha256": "a70c4b60aed4d6bef676f53dc9913142e6546c6126d67d98efa058a3f8e1c2c1",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/23_seats_final.webp",
+    "size": 296858,
+    "sha256": "f3f4a341f447ca3110418ad3e0c6c40f001f53c7116c9c08b146faf30b5fdd24",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_v2_integration_work/images/24_rear_brake_assembly_final.webp",
+    "size": 321726,
+    "sha256": "7216d73f9535d056749d361b1233796a038e4aab0d4520800b201fe8e28fb073",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/front_brake_hose.webp",
+    "size": 363978,
+    "sha256": "cebc13b442fbaf6a1e1213eb739eeb1a5b04a9f8aa1215f619cbf9354a0948ce",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/parking_brake.webp",
+    "size": 214838,
+    "sha256": "eee99cec83f12d6bf0a767d10f95de2231317c3e367f64df502d76b529f9b584",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/rear_brake_assembly.webp",
+    "size": 247748,
+    "sha256": "94ee34b4fb6ae5ccb6d50b37d7e14e88a2028c8448db3286cb1524f8155e119a",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 187290,
+    "sha256": "4f974e4ba294fb968426bea454eca5c8266649df478351c624dd7494d4cb2715",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 139138,
+    "sha256": "bd3222074fefea84bedd42765ba27bf722dc9f9b0acae91f69033e088bdcde3c",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_suspension/front_corner.webp",
+    "size": 157456,
+    "sha256": "730293de5115f28b191cdad6b5e9b542fc7c5cc637a56b88ceb9e986f7ab7af4",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 292230,
+    "sha256": "ea95cf3ead2c51199868f8a1ece843fd466b9662299a8ac614708110618c8617",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1/YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/steering/steering_column.webp",
+    "size": 152442,
+    "sha256": "20fd05a13d4efac6b2bf04c2738391997cce94d1acd176ced995c3c770513b93",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-batch-preview/assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "size": 68994,
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-batch-preview/assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "size": 68894,
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-batch-preview/assets/technical_catalog/front_suspension/front_strut.webp",
+    "size": 46228,
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-batch-preview/assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "size": 74250,
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-cbzb-reference-batch-v1/assets/technical_catalog/engine/engine_bottom_end.webp",
+    "size": 234456,
+    "sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-cbzb-reference-batch-v1/assets/technical_catalog/intake/boost_group.webp",
+    "size": 224932,
+    "sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/brakes/abs_esp_block.webp",
+    "size": 278490,
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "size": 251092,
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/brakes/wheel_sensors.webp",
+    "size": 320416,
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/climate/ac_circuit.webp",
+    "size": 158870,
+    "sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/climate/blower.webp",
+    "size": 117730,
+    "sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/climate/heater_box.webp",
+    "size": 170820,
+    "sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/cooling/coolant_circuit.webp",
+    "size": 436612,
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/cooling/coolant_reservoir.webp",
+    "size": 78016,
+    "sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/cooling/radiator_pack.webp",
+    "size": 387054,
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/dsg/clutch_group.webp",
+    "size": 361372,
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "size": 295450,
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/dsg/gear_selector.webp",
+    "size": 258902,
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/dsg/gearbox_group.webp",
+    "size": 405160,
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/engine_accessories.webp",
+    "size": 150504,
+    "sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/engine_bottom_end.webp",
+    "size": 232678,
+    "sha256": "65639b0cb619f6dfc00aae0df90a08874e7cbe79f3f722ac4ec40d7de1a935f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/engine_complete.webp",
+    "size": 293254,
+    "sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/engine_mounts.webp",
+    "size": 227022,
+    "sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/engine_upper_end.webp",
+    "size": 184704,
+    "sha256": "c1bb9bd7770706d6009ae576ca53f3a03cbd76e4b495dbd564ba141ca47ff1b2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/oil_filter.webp",
+    "size": 160894,
+    "sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/oil_pan.webp",
+    "size": 225166,
+    "sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "size": 307334,
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "size": 245062,
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/exhaust/exhaust_front.webp",
+    "size": 311372,
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "size": 171044,
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "size": 68994,
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "size": 68894,
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/front_suspension/front_strut.webp",
+    "size": 46228,
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "size": 74250,
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/fuel/fuel_delivery.webp",
+    "size": 178814,
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/fuel/fuel_storage.webp",
+    "size": 257456,
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/intake/air_path.webp",
+    "size": 333042,
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/intake/boost_group.webp",
+    "size": 296250,
+    "sha256": "3d8df766c62d5dbe5ce17d564d20bd169adf3030b6d9392aedf476bbc0c908de",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "size": 285602,
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "size": 276716,
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "size": 200404,
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "size": 256738,
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/steering/steering_linkage.webp",
+    "size": 103274,
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/steering/steering_rack.webp",
+    "size": 133052,
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/timing/timing_chain.webp",
+    "size": 373868,
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/timing/timing_drive_node.webp",
+    "size": 291830,
+    "sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti-garage-main/assets/technical_catalog/timing/timing_gears.webp",
+    "size": 408200,
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/cooling/coolant_circuit.webp",
+    "size": 436612,
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/cooling/radiator_pack.webp",
+    "size": 387054,
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "size": 245062,
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/exhaust/exhaust_front.webp",
+    "size": 311372,
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "size": 171044,
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/fuel/fuel_delivery.webp",
+    "size": 178814,
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/fuel/fuel_storage.webp",
+    "size": 257456,
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/intake/air_path.webp",
+    "size": 333042,
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_air_fuel_cooling_exhaust/assets/technical_catalog/intake/boost_group.webp",
+    "size": 296250,
+    "sha256": "3d8df766c62d5dbe5ce17d564d20bd169adf3030b6d9392aedf476bbc0c908de",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_3node_eyzf3rqf/assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+    "size": 363962,
+    "sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_3node_eyzf3rqf/assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+    "size": 310324,
+    "sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_3node_eyzf3rqf/assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
+    "size": 365148,
+    "sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/dsg/clutch_group.webp",
+    "size": 361372,
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "size": 295450,
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/dsg/gear_selector.webp",
+    "size": 258902,
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/dsg/gearbox_group.webp",
+    "size": 405160,
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "size": 307334,
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/timing/timing_chain.webp",
+    "size": 373868,
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_cbzb_dq200_batch/assets/technical_catalog/timing/timing_gears.webp",
+    "size": 408200,
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "size": 199012,
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/4x4_reference/haldex.webp",
+    "size": 222798,
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/4x4_reference/propshaft.webp",
+    "size": 37022,
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "size": 98864,
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "size": 153552,
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 60096,
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 51992,
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "size": 90468,
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "size": 188872,
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "size": 136282,
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "size": 164716,
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "size": 148076,
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "size": 88486,
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "size": 27526,
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 108018,
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/fuel/fuel_sensors.webp",
+    "size": 83180,
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/interior/console.webp",
+    "size": 213776,
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/interior/dashboard.webp",
+    "size": 117508,
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/interior/interior_trim.webp",
+    "size": 173798,
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/interior/seats.webp",
+    "size": 199578,
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/maintenance/filters.webp",
+    "size": 165722,
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/maintenance/fluids.webp",
+    "size": 222136,
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/maintenance/service_brakes.webp",
+    "size": 136818,
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/maintenance/service_ignition.webp",
+    "size": 122060,
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "size": 51502,
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "size": 170872,
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/safety/airbags.webp",
+    "size": 220864,
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/safety/belts.webp",
+    "size": 217072,
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/safety/srs_sensors.webp",
+    "size": 208622,
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_batch_extract/assets/technical_catalog/steering/steering_column.webp",
+    "size": 58538,
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "size": 199012,
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/4x4_reference/haldex.webp",
+    "size": 222798,
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/4x4_reference/propshaft.webp",
+    "size": 37022,
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "size": 98864,
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/body_front.webp",
+    "size": 124506,
+    "sha256": "774b3e18bc3096bcaa619ecc9d411a6148b36ac4c24e20c35c208e58f9079a63",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/body_protection.webp",
+    "size": 143314,
+    "sha256": "19dd0a70aeb8397f4330f134df96221424dc350e389e5fb7b353739ef1d7bd27",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/body_rear.webp",
+    "size": 96222,
+    "sha256": "587bb4632e2334f55987f1bf0ed89b84ee8f3fce94a7c52b3827f506507e2cdb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/doors.webp",
+    "size": 125066,
+    "sha256": "fc68b24b10e65ebe3130a4b61abe4e97dc7245345a72acde009c1db74c38639d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/front_wipers.webp",
+    "size": 148468,
+    "sha256": "5063f77bf1900702abc4987fd02f7364f5f2b1f5706e392ae399c2815f29322d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/glazing.webp",
+    "size": 87254,
+    "sha256": "6542402fdd28ced5934a8359519d5480ee44cb4d279e08a90acc9f32de02a460",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/mirrors.webp",
+    "size": 87684,
+    "sha256": "8993bfd746a03576c080dc771ff0105dd4e6b507960091c3abcea2a2812d4e0f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/rear_wiper.webp",
+    "size": 113292,
+    "sha256": "2336a8a791989eb4b866c5eab1de47541acf6721bf4d621362ec917014517ff8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/body/washers.webp",
+    "size": 60632,
+    "sha256": "9844e44062b61a2a662e6785da161971fc0daaa11c5507121131e9f03ee9ddce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/brakes/abs_esp_block.webp",
+    "size": 278490,
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "size": 251092,
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/brakes/wheel_sensors.webp",
+    "size": 320416,
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/climate/ac_circuit.webp",
+    "size": 158870,
+    "sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/climate/blower.webp",
+    "size": 117730,
+    "sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/climate/heater_box.webp",
+    "size": 170820,
+    "sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/cooling/coolant_circuit.webp",
+    "size": 436612,
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/cooling/coolant_reservoir.webp",
+    "size": 78016,
+    "sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/cooling/radiator_pack.webp",
+    "size": 387054,
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/dsg/clutch_group.webp",
+    "size": 361372,
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "size": 295450,
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/dsg/gear_selector.webp",
+    "size": 258902,
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/dsg/gearbox_group.webp",
+    "size": 405160,
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/electrical/control_units.webp",
+    "size": 401518,
+    "sha256": "9bfcdeabaee067e865313f8e369b981ba050cae34c9c8cab78301f923fa505d2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/electrical/fuses_relays.webp",
+    "size": 409436,
+    "sha256": "b62624d3bcd64f73cb0109fe89aa9fb2db8e97b9509531cd51aa2e974cb5b5a8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/electrical/power_start.webp",
+    "size": 360618,
+    "sha256": "27ab66e463638ef375fc51c7a5764fceb472134e5bb5d986e88565262759b08b",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/electrical/wiring.webp",
+    "size": 463580,
+    "sha256": "ddfeeecda2982b021ddb8244843024dca265933bf69eaf472e000eedc6373421",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/engine_accessories.webp",
+    "size": 150504,
+    "sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/engine_bottom_end.webp",
+    "size": 232678,
+    "sha256": "65639b0cb619f6dfc00aae0df90a08874e7cbe79f3f722ac4ec40d7de1a935f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/engine_complete.webp",
+    "size": 293254,
+    "sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/engine_mounts.webp",
+    "size": 227022,
+    "sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/engine_upper_end.webp",
+    "size": 184704,
+    "sha256": "c1bb9bd7770706d6009ae576ca53f3a03cbd76e4b495dbd564ba141ca47ff1b2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/oil_filter.webp",
+    "size": 160894,
+    "sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/oil_pan.webp",
+    "size": 225166,
+    "sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "size": 307334,
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "size": 245062,
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/exhaust/exhaust_front.webp",
+    "size": 311372,
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "size": 171044,
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "size": 153552,
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 60096,
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 51992,
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "size": 90468,
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "size": 68994,
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "size": 188872,
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "size": 136282,
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "size": 164716,
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "size": 68894,
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "size": 148076,
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "size": 88486,
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "size": 27526,
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_strut.webp",
+    "size": 46228,
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "size": 74250,
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 108018,
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/fuel/fuel_delivery.webp",
+    "size": 178814,
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/fuel/fuel_sensors.webp",
+    "size": 83180,
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/fuel/fuel_storage.webp",
+    "size": 257456,
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/ignition/ignition.webp",
+    "size": 257892,
+    "sha256": "ff03e5d3878c542c7b204c3afcd3d69ffc892af01830e6338fb7462a5a5d1558",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/intake/air_path.webp",
+    "size": 333042,
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/intake/boost_group.webp",
+    "size": 296250,
+    "sha256": "3d8df766c62d5dbe5ce17d564d20bd169adf3030b6d9392aedf476bbc0c908de",
+    "matches_current_image_sha": false,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/interior/console.webp",
+    "size": 213776,
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/interior/dashboard.webp",
+    "size": 117508,
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/interior/interior_trim.webp",
+    "size": 173798,
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/interior/seats.webp",
+    "size": 199578,
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/lighting/front_lamps.webp",
+    "size": 368938,
+    "sha256": "e7a186f7b8d945175b5e16f84528ecc8262a10487792d129999ba4d67a802d4d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/lighting/interior_lamps.webp",
+    "size": 473704,
+    "sha256": "047cb2d07c0aa53fb5df76f626ef0a2816aaf92eb38da9a9eca713bd82a340c2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/lighting/rear_lamps.webp",
+    "size": 364930,
+    "sha256": "06fc94b08a7e617eac18a59ba231ab967a769d5f332743d6c3ab109e60441e77",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/maintenance/filters.webp",
+    "size": 165722,
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/maintenance/fluids.webp",
+    "size": 222136,
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/maintenance/service_brakes.webp",
+    "size": 136818,
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/maintenance/service_ignition.webp",
+    "size": 122060,
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "size": 51502,
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "size": 170872,
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "size": 285602,
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "size": 276716,
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "size": 200404,
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "size": 256738,
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/safety/airbags.webp",
+    "size": 220864,
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/safety/belts.webp",
+    "size": 217072,
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/safety/srs_sensors.webp",
+    "size": 208622,
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/steering/steering_column.webp",
+    "size": 58538,
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/steering/steering_linkage.webp",
+    "size": 103274,
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/steering/steering_rack.webp",
+    "size": 133052,
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/timing/timing_chain.webp",
+    "size": 373868,
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/timing/timing_drive_node.webp",
+    "size": 291830,
+    "sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_bundle_extract/assets/technical_catalog/timing/timing_gears.webp",
+    "size": 408200,
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "size": 199012,
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/4x4_reference/haldex.webp",
+    "size": 222798,
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/4x4_reference/propshaft.webp",
+    "size": 37022,
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "size": 98864,
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "size": 153552,
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 60096,
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 51992,
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "size": 90468,
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "size": 188872,
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "size": 136282,
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "size": 164716,
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "size": 148076,
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "size": 88486,
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "size": 27526,
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 108018,
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/fuel/fuel_sensors.webp",
+    "size": 83180,
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/interior/console.webp",
+    "size": 213776,
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/interior/dashboard.webp",
+    "size": 117508,
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/interior/interior_trim.webp",
+    "size": 173798,
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/interior/seats.webp",
+    "size": 199578,
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/maintenance/filters.webp",
+    "size": 165722,
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/maintenance/fluids.webp",
+    "size": 222136,
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/maintenance/service_brakes.webp",
+    "size": 136818,
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/maintenance/service_ignition.webp",
+    "size": 122060,
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "size": 51502,
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "size": 170872,
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/safety/airbags.webp",
+    "size": 220864,
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/safety/belts.webp",
+    "size": 217072,
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/safety/srs_sensors.webp",
+    "size": 208622,
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_garage_final_30_verify/assets/technical_catalog/steering/steering_column.webp",
+    "size": 58538,
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/brakes/abs_esp_block.webp",
+    "size": 278490,
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "size": 251092,
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/brakes/wheel_sensors.webp",
+    "size": 320416,
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "size": 285602,
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "size": 276716,
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "size": 200404,
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "size": 256738,
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/steering/steering_linkage.webp",
+    "size": 103274,
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  },
+  {
+    "path": "/tmp/yeti_rear_steering_abs/assets/technical_catalog/steering/steering_rack.webp",
+    "size": 133052,
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "matches_current_image_sha": true,
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE"
+  }
+]

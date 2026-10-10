@@ -1,0 +1,221 @@
+{
+  "manual_sha256": "df391c6beb0277b376838ab5e2510ec57a9bb6dfb74ad845f4f0abfccb16118a",
+  "warnings": [
+    {
+      "id": "oil_pressure",
+      "image": "res://assets/warning_lights/oil_pressure.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "oil_level",
+      "image": "res://assets/warning_lights/oil_level.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "oil_sensor",
+      "image": "res://assets/warning_lights/oil_sensor.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "epc",
+      "image": "res://assets/warning_lights/epc.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "check_engine",
+      "image": "res://assets/warning_lights/check_engine.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "coolant",
+      "image": "res://assets/warning_lights/coolant.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "charging",
+      "image": "res://assets/warning_lights/charging.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "brake",
+      "image": "res://assets/warning_lights/brake.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "abs",
+      "image": "res://assets/warning_lights/abs.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "esc",
+      "image": "res://assets/warning_lights/esc.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "asr_off",
+      "image": "res://assets/warning_lights/asr_off.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "steering",
+      "image": "res://assets/warning_lights/steering.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "tire_pressure",
+      "image": "res://assets/warning_lights/tire_pressure.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "airbag",
+      "image": "res://assets/warning_lights/airbag.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "seat_belt",
+      "image": "res://assets/warning_lights/seat_belt.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "parking_brake",
+      "image": "res://assets/warning_lights/parking_brake.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "low_fuel",
+      "image": "res://assets/warning_lights/low_fuel.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 23,
+        "pdf_page": 25,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    },
+    {
+      "id": "bulb",
+      "image": "res://assets/warning_lights/bulb.svg",
+      "symbol_reference": {
+        "document": "ŠKODA Yeti Owner Manual 11.2011, 5L0 012 003 FD",
+        "printed_page": 22,
+        "pdf_page": 24,
+        "source_url": "https://s3cf792cad773e861.jimcontent.com/download/version/1612601977/module/12697126822/name/Skoda%20Yeti-Owners-Manual.pdf",
+        "status": "VISUALLY_MATCHED_MANUAL_SYMBOL",
+        "scope": "functional indicator shape; no instrument-cluster screenshot or font bundled"
+      }
+    }
+  ]
+}

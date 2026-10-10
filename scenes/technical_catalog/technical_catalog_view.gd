@@ -29,6 +29,8 @@ var _content: VBoxContainer
 var _breadcrumb: HFlowContainer
 var _title: Label
 var _diagram: TechnicalDiagramCanvas
+var _selected_part_card: PanelContainer
+var _visual_audit_cache: Dictionary = {}
 var _vehicle: Dictionary = {}
 var _section_columns := 0
 var _root_resize_queued := false
@@ -40,9 +42,17 @@ var _catalog_touch_canvas: TechnicalDiagramCanvas
 var _catalog_touch_button: BaseButton
 var _catalog_touch_claimed := false
 var _catalog_touch_count := 0
+var _pending_diagram_state: Dictionary = {}
+var _pending_scroll_position := -1
 const CATALOG_SCROLL_THRESHOLD := 9.0
 
 func _ready() -> void:
+	var ancestor := get_parent()
+	while ancestor != null:
+		if ancestor is ScrollContainer:
+			MobileScrollGesture.attach(ancestor as ScrollContainer)
+			break
+		ancestor = ancestor.get_parent()
 	add_theme_constant_override("separation", 10)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_build_shell()
@@ -53,83 +63,17 @@ func set_history_provider(provider: Callable) -> void:
 	history_provider = provider
 
 func set_vehicle_profile(vehicle: Dictionary) -> void:
+	if vehicle == _vehicle:
+		return
 	_vehicle = vehicle.duplicate(true)
+	current_section_id = ""
+	current_path.clear()
+	selected_part_id = ""
+	search_query = ""
+	if _search_edit != null:
+		_search_edit.text = ""
 	if _content != null:
 		_render()
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventScreenTouch:
-		var touch := event as InputEventScreenTouch
-		if touch.pressed:
-			if not get_global_rect().has_point(touch.position):
-				return
-			_catalog_touch_count += 1
-			if _catalog_touch_count > 1:
-				_cancel_catalog_scroll_tracking()
-			else:
-				_begin_catalog_scroll_tracking(touch.position, touch.index)
-			return
-		_catalog_touch_count = maxi(0, _catalog_touch_count - 1)
-		if touch.index == _catalog_touch_index:
-			if _catalog_touch_claimed:
-				get_viewport().set_input_as_handled()
-			_cancel_catalog_scroll_tracking()
-		return
-	if not (event is InputEventScreenDrag):
-		return
-	var drag := event as InputEventScreenDrag
-	if drag.index != _catalog_touch_index or _catalog_touch_scroll == null:
-		return
-	if _catalog_touch_canvas != null and float(_catalog_touch_canvas.get("_zoom")) > 1.01:
-		_cancel_catalog_scroll_tracking()
-		return
-	var displacement := drag.position - _catalog_touch_start
-	if not _catalog_touch_claimed and displacement.length() >= CATALOG_SCROLL_THRESHOLD and absf(displacement.y) > absf(displacement.x):
-		_catalog_touch_claimed = true
-		if _catalog_touch_canvas != null:
-			_catalog_touch_canvas.cancel_touch_sequence()
-		if _catalog_touch_button != null:
-			_catalog_touch_button.set_pressed_no_signal(false)
-	if _catalog_touch_claimed:
-		_catalog_touch_scroll.scroll_vertical = clampf(_catalog_scroll_start - displacement.y, 0.0, _catalog_touch_scroll.get_v_scroll_bar().max_value)
-		get_viewport().set_input_as_handled()
-
-func _input_event_target_control(position: Vector2) -> Control:
-	for candidate in find_children("*", "Control", true, false):
-		var control := candidate as Control
-		if control is BaseButton and control.get_global_rect().has_point(position):
-			return control
-		if control is TechnicalDiagramCanvas and control.get_global_rect().has_point(position):
-			return control
-	return null
-
-func _begin_catalog_scroll_tracking(position: Vector2, touch_index: int) -> void:
-	if not get_global_rect().has_point(position):
-		return
-	var ancestor: Node = get_parent()
-	while ancestor != null and not (ancestor is ScrollContainer):
-		ancestor = ancestor.get_parent()
-	if ancestor == null:
-		return
-	_catalog_touch_scroll = ancestor as ScrollContainer
-	_catalog_scroll_start = _catalog_touch_scroll.scroll_vertical
-	_catalog_touch_start = position
-	_catalog_touch_index = touch_index
-	_catalog_touch_claimed = false
-	_catalog_touch_button = null
-	_catalog_touch_canvas = null
-	var target := _input_event_target_control(position)
-	if target is BaseButton:
-		_catalog_touch_button = target as BaseButton
-	elif target is TechnicalDiagramCanvas:
-		_catalog_touch_canvas = target as TechnicalDiagramCanvas
-
-func _cancel_catalog_scroll_tracking() -> void:
-	_catalog_touch_index = -1
-	_catalog_touch_scroll = null
-	_catalog_touch_canvas = null
-	_catalog_touch_button = null
-	_catalog_touch_claimed = false
 
 func _build_shell() -> void:
 	var heading := HBoxContainer.new()
@@ -176,6 +120,7 @@ func _render() -> void:
 	for child in _content.get_children():
 		child.queue_free()
 	_diagram = null
+	_selected_part_card = null
 	if search_query.strip_edges() != "":
 		_title.text = "Результаты поиска"
 		_add_breadcrumb("Каталог", Callable(self, "_reset_catalog"))
@@ -196,17 +141,15 @@ func _render() -> void:
 	if section.is_empty():
 		_reset_catalog()
 		return
-	_title.text = str(section.get("name", "Узел")) if current_path.is_empty() else str(_current_node().get("name", "Узел"))
-	_add_breadcrumb("Каталог", Callable(self, "_reset_catalog"))
+	_title.text = str(section.get("name", "Система"))
+	_add_breadcrumb("‹ Каталог", Callable(self, "_reset_catalog"))
 	_add_breadcrumb(str(section.get("name", "Система")), Callable(self, "_open_section_root"))
-	for depth in range(current_path.size()):
-		var node := _node_at_path(depth)
-		var destination := depth
-		_add_breadcrumb(str(node.get("name", "Узел")), func(): _truncate_path(destination))
 	if current_path.is_empty():
-		_render_section_nodes(section)
-	else:
-		_render_node(section, _current_node())
+		var default_node := _default_diagram_node(section)
+		if not default_node.is_empty():
+			_open_node(str(default_node.get("id", "")))
+			return
+	_render_node(section, _current_node())
 	_queue_minimum_refresh()
 
 func _render_sections() -> void:
@@ -224,14 +167,25 @@ func _render_sections() -> void:
 	for section_value in TechnicalCatalog.sections(_vehicle):
 		var section: Dictionary = section_value
 		var button := _card_button()
-		button.custom_minimum_size.y = 88
+		button.custom_minimum_size.y = 64
 		grid.add_child(button)
 		var margin := _card_margin(button)
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 10)
+		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		margin.add_child(row)
+		var icon_path := "res://assets/ui/icons/cube.svg"
+		var section_id := str(section.get("id", ""))
+		if section_id.contains("engine") or section_id.contains("timing") or section_id.contains("fuel"):
+			icon_path = "res://assets/ui/icons/engine.svg"
+		elif section_id.contains("service") or section_id.contains("brake") or section_id.contains("abs"):
+			icon_path = "res://assets/ui/icons/diagnostic.svg"
+		row.add_child(_centered_icon(icon_path, 28, MUTED))
 		var copy := VBoxContainer.new()
 		copy.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		copy.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		copy.add_theme_constant_override("separation", 4)
-		margin.add_child(copy)
+		row.add_child(copy)
 		var name_label := _label(str(section.get("name", "Система")), 14, TEXT)
 		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -258,21 +212,32 @@ func _render_section_nodes(section: Dictionary) -> void:
 
 func _render_node(section: Dictionary, node: Dictionary) -> void:
 	var diagram_data: Dictionary = node.get("diagram", {})
+	_add_scheme_selector(section, node)
+	if _visual_audit_entry().get("replacement_required", false):
+		_content.add_child(_label(str(node.get("name", "Схема")), 16, TEXT))
+	var image_kind := str(diagram_data.get("image_type", ""))
+	var kind_label := {"exploded_view":"Взрывная схема", "assembled_view":"Общий вид", "technical_illustration":"Техническая схема", "reference_card":"Справочная схема"}.get(image_kind, "Схема")
+	var audit_status := str(_visual_audit_entry().get("architecture_status", "NEEDS_REVIEW"))
+	var audit_badge := "Справочно"
+	if audit_status == "FAIL_ARCHITECTURE": audit_badge = "Несоответствие конструкции"
+	elif audit_status == "NEEDS_IMAGE_REPLACEMENT": audit_badge = "Требуется замена схемы"
+	elif audit_status == "NEEDS_REVIEW": audit_badge = "Требует проверки"
+	elif audit_status == "NOT_APPLICABLE_FWD": audit_badge = "Не применяется к FWD"
+	_content.add_child(_label(str(kind_label) + " · " + audit_badge, 13, Color("ffd07b") if audit_status != "REFERENCE_ONLY" else MUTED))
 	if str(diagram_data.get("image", "")) == "":
 		var summary := _muted_label(str(node.get("summary", section.get("summary", ""))))
 		summary.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(summary)
 	_add_diagram_view(diagram_data, _node_part_ids(node))
-	if _diagram != null and str(node.get("variant_note", "")) != "":
+	if selected_part_id != "":
+		_render_selected_part_card()
+	_add_visual_audit_note()
+	if _diagram != null and not bool(_visual_audit_entry().get("replacement_required", false)) and str(node.get("variant_note", "")) != "":
 		var variant := _muted_label(str(node.get("variant_note", "")))
 		variant.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_content.add_child(variant)
-	for child_value in TechnicalCatalog.nodes(node, _vehicle):
-		var child: Dictionary = child_value
-		_content.add_child(_node_card(str(child.get("name", "Подсистема")), "Открыть вложенный узел", _open_node.bind(str(child.get("id", "")))))
-	if selected_part_id != "":
-		_render_selected_part_card()
-	_add_part_list(_node_part_ids(node))
+	_add_part_list(_node_display_part_ids(node))
+	_add_unmarked_parts(section)
 	if current_path.size() > 1:
 		_add_back_to_parent()
 
@@ -287,17 +252,21 @@ func _add_diagram_view(diagram_data: Dictionary, part_ids: Array) -> void:
 		texture = load(image_path) as Texture2D
 	if texture != null:
 		var canvas := DiagramCanvasScript.new() as TechnicalDiagramCanvas
-		canvas.custom_minimum_size = Vector2(0, 320)
+		canvas.custom_minimum_size = Vector2(0, clampf(get_viewport_rect().size.y * 0.48, 330.0, 520.0))
 		canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		canvas.configure(texture, diagram_data.get("markers", []), selected_part_id, marker_numbers_visible)
+		canvas.configure(texture, _safe_diagram_markers(diagram_data), selected_part_id, marker_numbers_visible)
 		canvas.marker_selected.connect(_select_part)
 		_content.add_child(canvas)
+		if not _pending_diagram_state.is_empty():
+			canvas.set_view_state(_pending_diagram_state)
+			_pending_diagram_state.clear()
 		_diagram = canvas
-		var controls := HBoxContainer.new()
+		var controls := HFlowContainer.new()
 		controls.add_theme_constant_override("separation", 8)
 		_content.add_child(controls)
-		controls.add_child(_action_button("Сбросить масштаб", func(): canvas.reset_view()))
+		controls.add_child(_action_button("Показать целиком", func(): canvas.reset_view()))
 		controls.add_child(_action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", _toggle_markers))
+		controls.add_child(_action_button("На весь экран", func(): _show_fullscreen_diagram()))
 		return
 	var empty := PanelContainer.new()
 	empty.add_theme_stylebox_override("panel", _panel_style(Color("091b25"), 16, BORDER))
@@ -349,14 +318,14 @@ func _add_part_list(part_ids: Array) -> void:
 	for part_id_value in part_ids:
 		var part_id := str(part_id_value)
 		var part := PartCatalog.get_part(part_id)
-		if part.is_empty():
+		if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 			continue
 		_content.add_child(_part_card(index, str(part.get("name", part_id)), part_id))
 		index += 1
 
 func _render_part_detail() -> void:
 	var part := PartCatalog.get_part(selected_part_id)
-	if part.is_empty():
+	if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 		selected_part_id = ""
 		_render()
 		return
@@ -408,16 +377,18 @@ func _render_part_detail() -> void:
 	note.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	note.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	text.add_child(note)
+	var primary := _action_button("Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	primary.add_theme_color_override("font_color", CYAN)
+	_content.add_child(primary)
 	var actions := GridContainer.new()
-	actions.columns = 2
-	actions.add_theme_constant_override("h_separation", 8)
-	actions.add_theme_constant_override("v_separation", 8)
+	actions.columns = 3
+	actions.add_theme_constant_override("h_separation", 6)
+	actions.add_theme_constant_override("v_separation", 6)
 	_content.add_child(actions)
 	_add_action(actions, "Диагностика", func(): diagnostic_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	_add_action(actions, "Руководство", func(): manual_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "История детали", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "История", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_content.add_child(_action_button("Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id)))))
 	if history_provider.is_valid():
 		var history := _muted_label(str(history_provider.call(selected_part_id)))
 		history.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -426,32 +397,73 @@ func _render_part_detail() -> void:
 
 func _render_selected_part_card() -> void:
 	var part := PartCatalog.get_part(selected_part_id)
-	if part.is_empty():
-		return
+	if part.is_empty(): return
+	var number := 0
+	for marker in _current_node().get("diagram", {}).get("markers", []):
+		if str(marker.get("part_id", "")) == selected_part_id: number = int(marker.get("number", 0))
 	var card := PanelContainer.new()
-	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 16, CYAN))
+	_selected_part_card = card
+	card.add_theme_stylebox_override("panel", _panel_style(Color("091f29"), 14, CYAN))
 	_content.add_child(card)
 	var copy := VBoxContainer.new()
-	copy.add_theme_constant_override("separation", 7)
+	copy.add_theme_constant_override("separation", 8)
 	card.add_child(copy)
-	copy.add_child(_label(str(part.get("name", selected_part_id)), 18, TEXT))
-	var description := str(part.get("description", ""))
-	if description == "":
-		description = "Деталь выделена на схеме. Точное исполнение зависит от комплектации автомобиля."
-	var body := _muted_label(description)
-	body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
-	copy.add_child(body)
+	copy.add_child(_label("№%d · %s" % [number, str(part.get("name", selected_part_id))], 18, TEXT))
+	var description := str(part.get("description", "Деталь выбрана. Исполнение сверяется по комплектации."))
+	copy.add_child(_muted_label(description))
+	var audit := _visual_audit_entry()
+	for marker in audit.get("markers", []):
+		if str(marker.get("part_id", "")) == selected_part_id and (not bool(audit.get("overlay_allowed", true)) or not bool(marker.get("position_verified", str(marker.get("visual_status", "")) not in ["FAIL_MARKER", "NEEDS_REVIEW"]))):
+			copy.add_child(_label("Привязка на схеме отключена. Деталь доступна через список и поиск. " + str(marker.get("resolution_note_ru", marker.get("finding_ru", ""))), 13, Color("ffd07b")))
+	var primary := _action_button("Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	primary.add_theme_color_override("font_color", CYAN)
+	copy.add_child(primary)
 	var actions := GridContainer.new()
 	actions.columns = 2
-	actions.add_theme_constant_override("h_separation", 8)
-	actions.add_theme_constant_override("v_separation", 8)
-	_content.add_child(actions)
+	actions.add_theme_constant_override("h_separation", 6)
+	actions.add_theme_constant_override("v_separation", 6)
+	copy.add_child(actions)
 	_add_action(actions, "Диагностика", func(): diagnostic_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "Проверка / ремонт", func(): repair_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
 	_add_action(actions, "Руководство", func(): manual_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "История детали", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_add_action(actions, "Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
-	_content.add_child(_action_button("Снять выделение", func(): selected_part_id = ""; _render()))
+	_add_action(actions, "История", func(): history_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	_add_action(actions, "Снять выделение", func(): selected_part_id = ""; _render())
+	var extra := _action_button("Записать замену", func(): replacement_requested.emit(selected_part_id, str(part.get("name", selected_part_id))))
+	extra.add_theme_color_override("font_color", MUTED)
+	copy.add_child(extra)
+
+func _safe_diagram_markers(diagram_data: Dictionary) -> Array:
+	var points: Array = diagram_data.get("markers", []).duplicate(true)
+	var audit := _visual_audit_entry()
+	var overlay_allowed := bool(audit.get("overlay_allowed", str(audit.get("architecture_status", "")) != "FAIL_ARCHITECTURE"))
+	for point in points:
+		point["position_verified"] = overlay_allowed
+		for review in audit.get("markers", []):
+			if str(review.get("part_id", "")) == str(point.get("part_id", "")) and int(review.get("number", 0)) == int(point.get("number", 0)):
+				point["position_verified"] = overlay_allowed and bool(review.get("position_verified", str(review.get("visual_status", "")) not in ["FAIL_MARKER", "NEEDS_REVIEW"]))
+	return points
+
+func _visual_audit_entry() -> Dictionary:
+	if _visual_audit_cache.is_empty():
+		var file := FileAccess.open("res://data/technical_visual_audit.json", FileAccess.READ)
+		if file == null: return {}
+		var value: Variant = JSON.parse_string(file.get_as_text())
+		if not value is Dictionary: return {}
+		_visual_audit_cache = value.get("nodes", {})
+	return _visual_audit_cache.get(str(_current_node().get("id", "")), {})
+
+func _add_visual_audit_note() -> void:
+	var audit := _visual_audit_entry()
+	if audit.is_empty(): return
+	var status := str(audit.get("architecture_status", "NEEDS_REVIEW"))
+	var text_value := "Справочная визуализация · точное исполнение не подтверждено"
+	if status == "FAIL_ARCHITECTURE": text_value = "Несоответствие конструкции · FAIL_ARCHITECTURE"
+	elif status == "NEEDS_IMAGE_REPLACEMENT": text_value = "Требуется замена схемы · подтверждены не все детали"
+	elif status == "NEEDS_REVIEW": text_value = "Схема требует проверки · NEEDS_REVIEW"
+	elif status == "NOT_APPLICABLE_FWD": text_value = "Не применяется к переднему приводу"
+	_content.add_child(_label(text_value, 13, Color("ffd07b")))
+	_content.add_child(_muted_label(str(audit.get("remediation_note_ru", audit.get("finding_ru", "")))))
+	if not bool(audit.get("overlay_allowed", true)):
+		_content.add_child(_muted_label("Привязки на этой схеме отключены до замены изображения. Выберите деталь в списке или поиске."))
 
 func _render_search_results() -> void:
 	var matches := TechnicalCatalog.search(search_query, _vehicle)
@@ -502,7 +514,71 @@ func _open_section(section_id: String) -> void:
 	current_path.clear()
 	selected_part_id = ""
 	search_query = ""
+	var section := TechnicalCatalog.section(section_id, _vehicle)
+	var default_node := _default_diagram_node(section)
+	if not default_node.is_empty():
+		_open_node(str(default_node.get("id", "")))
+		return
 	_render()
+
+func _all_diagram_nodes(parent: Dictionary) -> Array:
+	var found: Array = []
+	for child_value in TechnicalCatalog.nodes(parent, _vehicle):
+		var child: Dictionary = child_value
+		var diagram: Dictionary = child.get("diagram", {})
+		if str(diagram.get("image", "")) != "":
+			found.append(child)
+		found.append_array(_all_diagram_nodes(child))
+	return found
+
+func _default_diagram_node(section: Dictionary) -> Dictionary:
+	var diagrams := _all_diagram_nodes(section)
+	for preferred in ["overview", "complete", "assembly"]:
+		for row_value in diagrams:
+			var row: Dictionary = row_value
+			var key := str(row.get("id", "")).to_lower() + " " + str(row.get("name", "")).to_lower()
+			if key.contains(preferred):
+				return row
+	return diagrams[0] if not diagrams.is_empty() else {}
+
+func _add_scheme_selector(section: Dictionary, selected: Dictionary) -> void:
+	var rows := _all_diagram_nodes(section)
+	if rows.size() <= 1:
+		return
+	var bar := HBoxContainer.new()
+	bar.add_theme_constant_override("separation", 8)
+	_content.add_child(bar)
+	bar.add_child(_label("Схемы", 14, TEXT))
+	var selector := OptionButton.new()
+	selector.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	selector.custom_minimum_size.y = 48
+	selector.fit_to_longest_item = false
+	selector.clip_text = true
+	selector.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	selector.set_meta("scheme_selector", true)
+	for i in range(rows.size()):
+		var row: Dictionary = rows[i]
+		selector.add_item("%d / %d · %s" % [i + 1, rows.size(), str(row.get("name", "Узел"))], i)
+		if str(row.get("id", "")) == str(selected.get("id", "")):
+			selector.select(i)
+	selector.item_selected.connect(func(index: int): _open_node(str(rows[index].get("id", ""))))
+	bar.add_child(selector)
+	selector.get_popup().about_to_popup.connect(func(): _bound_scheme_popup(selector, rows))
+
+func _bound_scheme_popup(selector: OptionButton, rows: Array) -> void:
+	var popup := selector.get_popup()
+	var width_limit := maxf(180.0, get_viewport_rect().size.x - 24.0)
+	var font := selector.get_theme_font("font")
+	var font_size := selector.get_theme_font_size("font_size")
+	for i in range(rows.size()):
+		var full := "%d / %d · %s" % [i + 1, rows.size(), str(rows[i].get("name", "Узел"))]
+		var shown := full
+		while shown.length() > 5 and font.get_string_size(shown + "…", HORIZONTAL_ALIGNMENT_LEFT, -1, font_size).x > width_limit - 56.0:
+			shown = shown.left(shown.length() - 1)
+		popup.set_item_text(i, shown + "…" if shown != full else full)
+		popup.set_item_tooltip(i, full)
+	popup.max_size = Vector2i(int(width_limit), int(get_viewport_rect().size.y * 0.65))
+	popup.size = Vector2i(int(width_limit), mini(popup.size.y, popup.max_size.y))
 
 func _open_section_root() -> void:
 	current_path.clear()
@@ -519,6 +595,65 @@ func _open_node(node_id: String) -> void:
 			current_path.append(str(row.get("id", "")))
 	selected_part_id = ""
 	_render()
+
+func focus_node(node_id: String) -> void:
+	var section: Dictionary = {}
+	for section_value in TechnicalCatalog.sections(_vehicle):
+		var candidate: Dictionary = section_value
+		if not _find_node_path(TechnicalCatalog.nodes(candidate, _vehicle), node_id, []).is_empty():
+			section = candidate
+			break
+	if section.is_empty(): return
+	current_section_id = str(section.get("id", ""))
+	_open_node(node_id)
+
+func _show_fullscreen_diagram() -> void:
+	if _diagram == null: return
+	var popup := PopupPanel.new()
+	popup.transparent_bg = true
+	var panel := PanelContainer.new()
+	panel.custom_minimum_size = Vector2(minf(get_viewport_rect().size.x - 12.0, 700.0), get_viewport_rect().size.y - 30.0)
+	panel.add_theme_stylebox_override("panel", _panel_style(Color("061018"), 12, BORDER))
+	popup.add_child(panel)
+	var layout := VBoxContainer.new()
+	layout.add_theme_constant_override("separation", 8)
+	panel.add_child(layout)
+	var canvas := _diagram
+	var original_index := _content.get_children().find(canvas)
+	_content.remove_child(canvas)
+	canvas.custom_minimum_size.y = 0
+	canvas.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	canvas.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	layout.add_child(canvas)
+	var controls := HFlowContainer.new()
+	controls.add_child(_action_button("Показать целиком", func(): canvas.reset_view()))
+	controls.add_child(_action_button("Скрыть номера" if marker_numbers_visible else "Показать номера", func():
+		marker_numbers_visible = not marker_numbers_visible
+		canvas.set_markers_visible(marker_numbers_visible)
+		if _diagram != null: _diagram.set_markers_visible(marker_numbers_visible)
+	))
+	controls.add_child(_action_button("Закрыть", func(): popup.hide()))
+	layout.add_child(controls)
+	popup.popup_hide.connect(func():
+		var restore_index := original_index
+		if is_instance_valid(_diagram) and _diagram != canvas and _diagram.get_parent() == _content:
+			restore_index = _content.get_children().find(_diagram)
+			_content.remove_child(_diagram)
+			_diagram.queue_free()
+		if canvas.get_parent() == layout:
+			layout.remove_child(canvas)
+		_content.add_child(canvas)
+		_content.move_child(canvas, clampi(restore_index, 0, _content.get_child_count() - 1))
+		canvas.set_selected_part(selected_part_id)
+		canvas.set_markers_visible(marker_numbers_visible)
+		canvas.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+		canvas.custom_minimum_size.y = clampf(get_viewport_rect().size.y * 0.48, 330.0, 520.0)
+		_diagram = canvas
+		call_deferred("_ensure_selected_part_visible")
+		popup.queue_free()
+	)
+	add_child(popup)
+	popup.popup_centered(Vector2i(int(panel.custom_minimum_size.x), int(panel.custom_minimum_size.y)))
 
 func _find_node_path(nodes: Array, node_id: String, parent_path: Array) -> Array:
 	for value in nodes:
@@ -563,6 +698,20 @@ func _node_part_ids(node: Dictionary) -> Array:
 				result.append(nested_id)
 	return result
 
+func _node_display_part_ids(node: Dictionary) -> Array:
+	var result: Array = []
+	var diagram: Dictionary = node.get("diagram", {})
+	for marker_value in diagram.get("markers", []):
+		var marker: Dictionary = marker_value
+		var part_id := str(marker.get("part_id", ""))
+		if part_id != "" and PartCatalog.get_part(part_id).size() > 0 and part_id not in result:
+			result.append(part_id)
+	for part_id_value in node.get("part_ids", []):
+		var part_id := str(part_id_value)
+		if PartCatalog.get_part(part_id).size() > 0 and part_id not in result:
+			result.append(part_id)
+	return result
+
 func _add_unassigned_parts(section: Dictionary) -> void:
 	var assigned: Array = []
 	for node_value in TechnicalCatalog.nodes(section, _vehicle):
@@ -571,12 +720,44 @@ func _add_unassigned_parts(section: Dictionary) -> void:
 	for part_value in PartCatalog.parts_for_system(str(section.get("part_system", ""))):
 		var part: Dictionary = part_value
 		var id := str(part.get("id", ""))
-		if id not in assigned:
+		if id not in assigned and TechnicalCatalog.is_compatible(part, _vehicle):
 			fallback.append(id)
 	if fallback.is_empty():
 		return
 	_content.add_child(_muted_label("Другие компоненты раздела"))
 	_add_part_list(fallback)
+
+func _add_unmarked_parts(section: Dictionary) -> void:
+	var assigned: Array = []
+	var marked: Array = []
+	_collect_part_ids(TechnicalCatalog.nodes(section, _vehicle), assigned, marked)
+	var other: Array = []
+	for value in assigned:
+		var id := str(value)
+		if id not in marked and id not in other:
+			other.append(id)
+	if other.is_empty(): return
+	var heading := _muted_label("Другие компоненты · без отдельной схемы")
+	heading.add_theme_font_size_override("font_size", 11)
+	_content.add_child(heading)
+	var index := 1
+	for part_id in other:
+		var part := PartCatalog.get_part(str(part_id))
+		if not part.is_empty():
+			_content.add_child(_part_card(index, str(part.get("name", part_id)), str(part_id)))
+			index += 1
+
+func _collect_part_ids(rows: Array, assigned: Array, marked: Array) -> void:
+	for value in rows:
+		var node: Dictionary = value
+		for part_id in node.get("part_ids", []):
+			if str(part_id) not in assigned: assigned.append(str(part_id))
+		var diagram: Dictionary = node.get("diagram", {})
+		for marker_value in diagram.get("markers", []):
+			var marker: Dictionary = marker_value
+			var part_id := str(marker.get("part_id", ""))
+			if part_id != "" and part_id not in marked: marked.append(part_id)
+		_collect_part_ids(TechnicalCatalog.nodes(node, _vehicle), assigned, marked)
 
 func _add_back_to_parent() -> void:
 	_content.add_child(_action_button("Назад к узлам", func():
@@ -585,16 +766,60 @@ func _add_back_to_parent() -> void:
 	))
 
 func _select_part(part_id: String) -> void:
-	if PartCatalog.get_part(part_id).is_empty():
+	if PartCatalog.get_part(part_id).is_empty() or not TechnicalCatalog.is_compatible(PartCatalog.get_part(part_id), _vehicle):
 		return
+	if _diagram != null:
+		_diagram.set_selected_part(part_id)
+		_pending_diagram_state = _diagram.get_view_state()
+		var parent_node: Node = self
+		while parent_node != null and not (parent_node is ScrollContainer):
+			parent_node = parent_node.get_parent()
+		if parent_node is ScrollContainer:
+			_pending_scroll_position = (parent_node as ScrollContainer).scroll_vertical
 	selected_part_id = part_id
 	_render()
+	if _pending_scroll_position >= 0:
+		call_deferred("_restore_catalog_scroll")
+
+func _restore_catalog_scroll() -> void:
+	var parent_node: Node = self
+	while parent_node != null and not (parent_node is ScrollContainer):
+		parent_node = parent_node.get_parent()
+	if parent_node is ScrollContainer:
+		(parent_node as ScrollContainer).scroll_vertical = _pending_scroll_position
+	_pending_scroll_position = -1
+	_ensure_selected_part_visible()
+
+func _ensure_selected_part_visible() -> void:
+	await get_tree().process_frame
+	if not is_instance_valid(_selected_part_card) or not is_instance_valid(_diagram): return
+	for window in get_viewport().get_embedded_subwindows():
+		if window.visible: return
+	var ancestor := get_parent()
+	while ancestor != null and not (ancestor is ScrollContainer): ancestor = ancestor.get_parent()
+	if not ancestor is ScrollContainer: return
+	var scroll := ancestor as ScrollContainer
+	var visible_rect := scroll.get_global_rect()
+	var card_rect := _selected_part_card.get_global_rect()
+	if card_rect.position.y >= visible_rect.position.y and card_rect.position.y < visible_rect.end.y - 96.0: return
+	var target := scroll.scroll_vertical + int(card_rect.position.y - visible_rect.position.y - visible_rect.size.y * 0.55)
+	var image_limit := scroll.scroll_vertical + int(_diagram.get_global_rect().end.y - visible_rect.position.y - 96.0)
+	for marker in _diagram.markers:
+		if str(marker.get("part_id", "")) != selected_part_id: continue
+		var image_rect := _diagram._image_rect()
+		var point := _diagram.global_position + image_rect.position + Vector2(float(marker.x), float(marker.y)) * image_rect.size
+		var marker_limit := scroll.scroll_vertical + int(point.y - visible_rect.position.y - 22.0)
+		target = mini(target, marker_limit)
+		break
+	scroll.scroll_vertical = maxi(0, mini(target, image_limit))
 
 func focus_part(part_id: String) -> void:
 	var part := PartCatalog.get_part(part_id)
-	if part.is_empty():
+	if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 		return
-	var location := TechnicalCatalog.find_part(part_id, _vehicle)
+	var location := TechnicalCatalog.find_marker_location(part_id, _vehicle)
+	if location.is_empty():
+		location = TechnicalCatalog.find_part(part_id, _vehicle)
 	var section: Dictionary = location.get("section", {})
 	current_section_id = str(section.get("id", part.get("system", "")))
 	current_path.clear()
@@ -606,6 +831,7 @@ func focus_part(part_id: String) -> void:
 	if _search_edit != null:
 		_search_edit.text = ""
 	_render()
+	_ensure_selected_part_visible()
 
 func _reset_catalog() -> void:
 	current_section_id = ""
@@ -638,9 +864,10 @@ func _add_breadcrumb(text_value: String, action: Callable) -> void:
 	button.custom_minimum_size.x = item_width
 	var max_chars := maxi(12, int((item_width - 28.0) / 7.0))
 	button.text = text_value if text_value.length() <= max_chars else text_value.substr(0, max_chars - 1) + "…"
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.set_meta("full_breadcrumb_text", text_value)
 	button.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN
-	button.custom_minimum_size.y = 40
+	button.custom_minimum_size.y = 48
 	button.add_theme_font_size_override("font_size", 11)
 	button.add_theme_color_override("font_color", CYAN if _breadcrumb.get_child_count() == 0 else MUTED)
 	button.add_theme_stylebox_override("normal", _panel_style(Color("071820d8"), 11, BORDER))
@@ -658,6 +885,7 @@ func _action_button(text_value: String, action: Callable) -> Button:
 	var button := _card_button()
 	button.custom_minimum_size.y = 48
 	button.text = text_value
+	button.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	button.pressed.connect(action)
 	return button
 
@@ -685,6 +913,13 @@ func _card_margin(button: Button) -> MarginContainer:
 	margin.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	button.add_child(margin)
+	# Button is not a Container: anchored children do not propagate their wrapped
+	# minimum height into it. Resize the clickable row when its content changes.
+	var minimum_height := button.custom_minimum_size.y
+	margin.minimum_size_changed.connect(func():
+		if is_instance_valid(button):
+			button.custom_minimum_size.y = maxf(minimum_height, margin.get_combined_minimum_size().y)
+	)
 	return margin
 
 func _node_card(title: String, subtitle: String, action: Callable) -> Button:
@@ -734,9 +969,25 @@ func _label(value: String, font_size: int, color: Color) -> Label:
 	var label := Label.new()
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	label.text = value
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	label.add_theme_font_size_override("font_size", font_size)
 	label.add_theme_color_override("font_color", color)
 	return label
+
+func _centered_icon(path: String, icon_size: float, tint: Color = Color("ffffff")) -> CenterContainer:
+	var center := CenterContainer.new()
+	center.custom_minimum_size = Vector2(icon_size, icon_size)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var icon := TextureRect.new()
+	icon.texture = load(path) as Texture2D
+	icon.custom_minimum_size = Vector2(icon_size, icon_size)
+	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.modulate = tint
+	icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.add_child(icon)
+	return center
 
 func _muted_label(value: String) -> Label:
 	return _label(value, 12, MUTED)
@@ -764,7 +1015,7 @@ func _section_summary(section: Dictionary) -> String:
 	for node_value in TechnicalCatalog.nodes(section, _vehicle):
 		for part_id in _node_part_ids(node_value):
 			unique_parts[str(part_id)] = true
-	return "%d узлов · %d компонентов" % [TechnicalCatalog.nodes(section, _vehicle).size(), unique_parts.size()]
+	return "%d схем · %d деталей" % [_all_diagram_nodes(section).size(), unique_parts.size()]
 
 func _on_content_resized() -> void:
 	if current_section_id != "" or search_query != "" or selected_part_id != "":

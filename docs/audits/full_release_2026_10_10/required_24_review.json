@@ -1,0 +1,1482 @@
+[
+  {
+    "node_id": "air_path",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "air_filter",
+      "air_filter_housing",
+      "throttle_body",
+      "intake_manifold",
+      "charge_air_cooler",
+      "intake_manifold_pressure_sensor",
+      "charge_pressure_sensor"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "air_filter",
+        "x": 0.151,
+        "y": 0.437,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "air_filter_housing",
+        "x": 0.16,
+        "y": 0.65,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "throttle_body",
+        "x": 0.535,
+        "y": 0.45,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "intake_manifold",
+        "x": 0.712,
+        "y": 0.603,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "charge_air_cooler",
+        "x": 0.78,
+        "y": 0.407,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "intake_manifold_pressure_sensor",
+        "x": 0.831,
+        "y": 0.598,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "charge_pressure_sensor",
+        "x": 0.383,
+        "y": 0.391,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/01_air_path_v2.webp",
+    "sha256": "76c89986fda96b833c56678c1897a79a245d6fc3b3eb46960841bce054fc22d6",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/air_filter/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_i/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "fuel_delivery",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "high_pressure_fuel_pump",
+      "fuel_rail",
+      "fuel_pressure_sensor_g247",
+      "fuel_pressure_control_valve_n276",
+      "injectors"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "high_pressure_fuel_pump",
+        "x": 0.164,
+        "y": 0.411,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "fuel_rail",
+        "x": 0.7,
+        "y": 0.401,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "fuel_pressure_sensor_g247",
+        "x": 0.939,
+        "y": 0.267,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "fuel_pressure_control_valve_n276",
+        "x": 0.229,
+        "y": 0.164,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "injectors",
+        "x": 0.655,
+        "y": 0.652,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/02_fuel_delivery_v2.webp",
+    "sha256": "cf6fcc76c06e85f7bf1f33960850b118a80fcd15468d8b0a684976d62d863eca",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/intake_manifold_and_fuel_distributor/intake_manifold_summary_of_components/part_ii/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/fitting_location_of_the_injection_system/fitting_location_of_the_injection_system/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "exhaust_aftertreatment",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "catalytic_converter",
+      "oxygen_sensor",
+      "catalyst_heat_shield",
+      "exhaust_flex_joint",
+      "front_exhaust_pipe",
+      "exhaust_clamp"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "catalytic_converter",
+        "x": 0.3,
+        "y": 0.51,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "oxygen_sensor",
+        "x": 0.13,
+        "y": 0.365,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "catalyst_heat_shield",
+        "x": 0.349,
+        "y": 0.238,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "exhaust_flex_joint",
+        "x": 0.65,
+        "y": 0.618,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "front_exhaust_pipe",
+        "x": 0.773,
+        "y": 0.66,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "exhaust_clamp",
+        "x": 0.929,
+        "y": 0.753,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/03_exhaust_aftertreatment_final.webp",
+    "sha256": "a2cf400c3f016ca2a816094cbe8e68946271dfbfb2cbbc1b7c9e62a8d589a516",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "clutch_group",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "REFERENCE_ONLY",
+    "independently_opened": true,
+    "findings": "Viewed replacement and SSP390 printed p15 cross-section. Gross dry double-clutch layout is consistent. Exact revision, geometry and every coordinate not independently accepted.",
+    "part_ids": [
+      "flywheel",
+      "dsg_dual_clutch",
+      "clutch_k1",
+      "clutch_k2",
+      "clutch_engagement_levers",
+      "clutch"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "flywheel",
+        "x": 0.751,
+        "y": 0.434,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "dsg_dual_clutch",
+        "x": 0.618,
+        "y": 0.293,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "clutch_k1",
+        "x": 0.555,
+        "y": 0.746,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "clutch_k2",
+        "x": 0.496,
+        "y": 0.224,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "clutch_engagement_levers",
+        "x": 0.376,
+        "y": 0.315,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/04_clutch_group_final.webp",
+    "sha256": "a18654c7842f06acd7dda4202861cdea90e4c61f6ca2b49844c36e4533b17f96",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/clutch_control/removing_and_installing_the_double_clutch/double_clutch_summary_of_components_(as_of_06.11)/",
+      "https://vehiclelifetimesolutions.schaeffler.com/medias/BR-0012-en.PDF?context=bWFzdGVyfGRvY3VtZW50c3w1MTA3MjMzfGFwcGxpY2F0aW9uL3BkZnxkb2N1bWVudHMvaGZjL2g2NS85MzA1ODYxOTE0NjU0LnBkZnwwOTc0ZTg2ZmE3ZjdiNDkwMTMwMWViYWJjNjhhNzY3NGQ5MDBmYTA2YzBmYTE4NGJiYWJlYjg5ZDMwOWRmOTcz",
+      "https://content.datarunners.net/content/SSP/SSP390C.pdf"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "gearbox_group",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": true,
+    "findings": "Viewed replacement and SSP390 shaft diagrams. Visible concentric inputs do not alone establish complete gear-train topology and three output shafts. No final acceptance.",
+    "part_ids": [
+      "gearbox_housing",
+      "dsg_input_shafts",
+      "dsg_output_shafts",
+      "differential",
+      "dsg_mechatronics",
+      "gearbox"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "gearbox_housing",
+        "x": 0.157,
+        "y": 0.652,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "dsg_input_shafts",
+        "x": 0.181,
+        "y": 0.381,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "dsg_output_shafts",
+        "x": 0.479,
+        "y": 0.268,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "differential",
+        "x": 0.641,
+        "y": 0.666,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "dsg_mechatronics",
+        "x": 0.887,
+        "y": 0.536,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/05_gearbox_group_final.webp",
+    "sha256": "5e02d2d58a17e90d81c192444c1f4a1886386618f0ac7b9eea6c936c3e1737f7",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_0am-dsg/technical_data/technical_data_for_the_gearbox/transmission_system_overview/",
+      "https://content.datarunners.net/content/SSP/SSP390C.pdf"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_left_corner",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "control_arm",
+      "ball_joint",
+      "strut",
+      "spring",
+      "strut_mount",
+      "stabilizer_link",
+      "hub",
+      "wheel_bearing",
+      "wheel"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "control_arm",
+        "x": 0.229,
+        "y": 0.735,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "ball_joint",
+        "x": 0.421,
+        "y": 0.867,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "strut",
+        "x": 0.347,
+        "y": 0.53,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "spring",
+        "x": 0.357,
+        "y": 0.279,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "strut_mount",
+        "x": 0.346,
+        "y": 0.091,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "stabilizer_link",
+        "x": 0.236,
+        "y": 0.434,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "hub",
+        "x": 0.675,
+        "y": 0.686,
+        "position_verified": true
+      },
+      {
+        "number": 8,
+        "part_id": "wheel_bearing",
+        "x": 0.574,
+        "y": 0.632,
+        "position_verified": true
+      },
+      {
+        "number": 9,
+        "part_id": "wheel",
+        "x": 0.871,
+        "y": 0.567,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/06_front_left_corner_final.webp",
+    "sha256": "c6fb937f62278ae9470a3b0919e35c2d5b24e38818caf0f464dffad235889b59",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_axle_carrier",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "subframe",
+      "anti_roll_bar",
+      "suspension_bushings"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "subframe",
+        "x": 0.481,
+        "y": 0.491,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "anti_roll_bar",
+        "x": 0.496,
+        "y": 0.125,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "suspension_bushings",
+        "x": 0.386,
+        "y": 0.876,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/07_front_axle_carrier_final.webp",
+    "sha256": "83bc1ba9be8fdf673d931a55fb5d48592d5d282a4d6e096a803239ba3feafd38",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/front_axle_with_assembly_carrier_made_of_steel_sheet/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_strut",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "strut_mount",
+      "strut_bearing",
+      "spring",
+      "bump_stop",
+      "strut_dust_boot",
+      "strut"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "strut_mount",
+        "x": 0.555,
+        "y": 0.055,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "strut_bearing",
+        "x": 0.427,
+        "y": 0.144,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "spring",
+        "x": 0.501,
+        "y": 0.282,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "bump_stop",
+        "x": 0.493,
+        "y": 0.407,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "strut_dust_boot",
+        "x": 0.491,
+        "y": 0.523,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "strut",
+        "x": 0.493,
+        "y": 0.867,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/08_front_strut_final.webp",
+    "sha256": "b12cc1b2ba0bd9b1672c66273296c77d8ea8ca4310307bcfde72b953c0ec4bc6",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/repairing_front_axle/front_axle_overview/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_knuckle_hub",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "cv_joint_outer",
+      "steering_knuckle",
+      "wheel_bearing",
+      "hub",
+      "dust_shield",
+      "ball_joint"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "cv_joint_outer",
+        "x": 0.227,
+        "y": 0.455,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "steering_knuckle",
+        "x": 0.453,
+        "y": 0.297,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "wheel_bearing",
+        "x": 0.76,
+        "y": 0.529,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "hub",
+        "x": 0.875,
+        "y": 0.533,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "dust_shield",
+        "x": 0.626,
+        "y": 0.647,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "ball_joint",
+        "x": 0.451,
+        "y": 0.767,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/09_front_knuckle_hub_final.webp",
+    "sha256": "4a51e9fa6eb2b53ec1e877ed513f846e5a4f179e0197c4a2da81dd94db4dcb98",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/",
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/front_suspension_drive_shafts/summary_of_components_of_the_wheel_bearing/sticky-snack.php"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "rear_suspension_overview",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": true,
+    "findings": "Viewed replacement and FWD source S42-0347. No rear half-shafts depicted. Exact carrier/arm geometry and all nine targets remain unconfirmed.",
+    "part_ids": [
+      "rear_subframe",
+      "rear_upper_control_arm",
+      "rear_lower_control_arm",
+      "rear_trailing_arm",
+      "rear_track_rod",
+      "spring",
+      "rear_shock_absorber",
+      "rear_anti_roll_bar",
+      "rear_hub_carrier"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "rear_subframe",
+        "x": 0.687,
+        "y": 0.197,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "rear_upper_control_arm",
+        "x": 0.409,
+        "y": 0.432,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "rear_lower_control_arm",
+        "x": 0.671,
+        "y": 0.691,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.15,
+        "y": 0.43,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "rear_track_rod",
+        "x": 0.632,
+        "y": 0.867,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "spring",
+        "x": 0.62,
+        "y": 0.464,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "rear_shock_absorber",
+        "x": 0.913,
+        "y": 0.483,
+        "position_verified": true
+      },
+      {
+        "number": 8,
+        "part_id": "rear_anti_roll_bar",
+        "x": 0.544,
+        "y": 0.054,
+        "position_verified": true
+      },
+      {
+        "number": 9,
+        "part_id": "rear_hub_carrier",
+        "x": 0.318,
+        "y": 0.67,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/10_rear_suspension_overview_final.webp",
+    "sha256": "1f3942b5478a75f0c4302cf0116e469bacae03f2d7fc4a3d24ec28a6c2fc7c5f",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_(vehicles_with_front-wheel_drive)/overview_of_rear_axle/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "rear_carrier",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "rear_subframe",
+      "rear_upper_control_arm",
+      "rear_lower_control_arm",
+      "rear_trailing_arm",
+      "rear_track_rod",
+      "rear_suspension_bushings"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "rear_subframe",
+        "x": 0.532,
+        "y": 0.23,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "rear_upper_control_arm",
+        "x": 0.492,
+        "y": 0.508,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "rear_lower_control_arm",
+        "x": 0.718,
+        "y": 0.757,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.29,
+        "y": 0.53,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "rear_track_rod",
+        "x": 0.414,
+        "y": 0.77,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "rear_suspension_bushings",
+        "x": 0.103,
+        "y": 0.382,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/11_rear_carrier_final.webp",
+    "sha256": "0acdbf51835f7b918c8e066e3be62bc68662e47914740d66f79d8cde0c05b6eb",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_(vehicles_with_front-wheel_drive)/overview_of_rear_axle/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "rear_springs_dampers",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "rear_spring_upper_seat",
+      "spring",
+      "rear_spring_lower_seat",
+      "rear_shock_absorber",
+      "rear_shock_upper_mount",
+      "rear_shock_bump_stop"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "rear_spring_upper_seat",
+        "x": 0.397,
+        "y": 0.176,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "spring",
+        "x": 0.401,
+        "y": 0.398,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "rear_spring_lower_seat",
+        "x": 0.398,
+        "y": 0.641,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "rear_shock_absorber",
+        "x": 0.807,
+        "y": 0.622,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "rear_shock_upper_mount",
+        "x": 0.811,
+        "y": 0.082,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "rear_shock_bump_stop",
+        "x": 0.894,
+        "y": 0.243,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/12_rear_springs_dampers_final.webp",
+    "sha256": "45757d61c687efb5b58f44da6b9ecf4c802d01b262017d8dd1471d3cfa8cb503",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_(vehicles_with_front-wheel_drive)/overview_of_rear_axle/",
+      "https://cdn.skoda-storyboard.com/2016/12/TD_YETI_en.pdf",
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_wheel-bearing_housing_trailing_arm_(vehicles_with_front-wheel_drive)/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "rear_hub",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": true,
+    "findings": "Viewed cutaway replacement. Rear non-driven stub, bearings and sensor depicted, but encoder appearance and carrier geometry require identified source comparison.",
+    "part_ids": [
+      "rear_hub_carrier",
+      "hub",
+      "wheel_bearing",
+      "rear_abs_encoder_ring",
+      "rear_wheel_speed_sensor",
+      "dust_shield",
+      "brake_disc"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "rear_hub_carrier",
+        "x": 0.182,
+        "y": 0.251,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "hub",
+        "x": 0.659,
+        "y": 0.355,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "wheel_bearing",
+        "x": 0.56,
+        "y": 0.408,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "rear_abs_encoder_ring",
+        "x": 0.492,
+        "y": 0.493,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "rear_wheel_speed_sensor",
+        "x": 0.361,
+        "y": 0.466,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "dust_shield",
+        "x": 0.422,
+        "y": 0.255,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "brake_disc",
+        "x": 0.839,
+        "y": 0.339,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/13_rear_hub_final.webp",
+    "sha256": "d8ae0208f7d917740ca0e770f0c0ad0cd8fb07c7d6e0509a77369430c3eb2f50",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_(vehicles_with_front-wheel_drive)/overview_of_rear_axle/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "steering_column",
+    "historical_status": "NEEDS_CORRECTION",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": true,
+    "findings": "Old overlay point3 is on closed rack housing; no identified visible internal G85. No incoming image/coordinates.",
+    "part_ids": [
+      "steering_wheel",
+      "steering_column",
+      "steering_angle_sensor"
+    ],
+    "historical_markers": [],
+    "package_image": null,
+    "sha256": null,
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_aluminium_assembly_carrier/",
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/steering/electro-mechanical_steering_gear_lhd_vehicles_with_left-hand_drive/summary_of_components_for_electro-mechanical_steering_gear_lhd_assembly_carrier_made_of_steel_sheet/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_brake_assembly",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "brake_caliper",
+      "brake_pads",
+      "brake_carrier",
+      "brake_guide_pins",
+      "brake_disc",
+      "brake_hose",
+      "hub"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "brake_caliper",
+        "x": 0.899,
+        "y": 0.55,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "brake_pads",
+        "x": 0.622,
+        "y": 0.564,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "brake_carrier",
+        "x": 0.252,
+        "y": 0.716,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "brake_guide_pins",
+        "x": 0.714,
+        "y": 0.754,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "brake_disc",
+        "x": 0.44,
+        "y": 0.719,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "brake_hose",
+        "x": 0.92,
+        "y": 0.211,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "hub",
+        "x": 0.281,
+        "y": 0.577,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/15_front_brake_assembly_final.webp",
+    "sha256": "e70c13aa66bef1c33b489f3a60520b304532b74409a5b048989c49343f4633a0",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_the_front_brake/",
+      "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/repairing_the_front_brake_caliper/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "wheel_sensors",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "wheel_speed_sensor",
+      "wheel_speed_sensor_connector",
+      "hub",
+      "abs_encoder_ring",
+      "wheel_bearing_housing"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "wheel_speed_sensor",
+        "x": 0.412,
+        "y": 0.341,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "wheel_speed_sensor_connector",
+        "x": 0.69,
+        "y": 0.111,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "hub",
+        "x": 0.82,
+        "y": 0.358,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "abs_encoder_ring",
+        "x": 0.595,
+        "y": 0.65,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "wheel_bearing_housing",
+        "x": 0.161,
+        "y": 0.52,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/16_wheel_sensors_final.webp",
+    "sha256": "6c887ea70d3a36ac1029f02540b3bfec1e3a651f2590cc8ee4b31f75275462e4",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/brake_systems/abs_adr_tcs_edl_esp/electrical/electronic_components_and_fitting_locations_abs_mark_60_ec_(abs/edl/tcs/esp)/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "angle_drive",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "gearbox",
+      "drive_shaft"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "gearbox",
+        "x": 0.208,
+        "y": 0.335,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "drive_shaft",
+        "x": 0.705,
+        "y": 0.66,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/17_angle_drive_final.webp",
+    "sha256": "d75b8f35fa86d62c31c3246b12b9aa33215f07876606d05f4f64889cb7dd62e7",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_02e-dsg/gearbox_mechanicsoperation_constructiondiff./removing_and_installing_angle_gearbox/"
+    ],
+    "applicability": "AWD only; REFERENCE_ONLY; hidden for FWD"
+  },
+  {
+    "node_id": "haldex",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "haldex_coupling"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "haldex_coupling",
+        "x": 0.518,
+        "y": 0.464,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/18_haldex_final.webp",
+    "sha256": "39c8fc19894a6492eefab0331745017c93d27dbba6fa6eb96354e3b7749d56f6",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_transmission/gearbox_02q/final_drive_differential_differential_lock/disassembling_and_assembling_haldex_coupling/"
+    ],
+    "applicability": "AWD only; REFERENCE_ONLY; hidden for FWD"
+  },
+  {
+    "node_id": "ac_circuit",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "ac_compressor",
+      "condenser",
+      "receiver_drier",
+      "ac_expansion_valve",
+      "ac_pressure_sensor_g65",
+      "evaporator"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "ac_compressor",
+        "x": 0.221,
+        "y": 0.754,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "condenser",
+        "x": 0.241,
+        "y": 0.249,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "receiver_drier",
+        "x": 0.429,
+        "y": 0.271,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "ac_expansion_valve",
+        "x": 0.631,
+        "y": 0.277,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "ac_pressure_sensor_g65",
+        "x": 0.505,
+        "y": 0.074,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "evaporator",
+        "x": 0.835,
+        "y": 0.346,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/19_ac_circuit_final.webp",
+    "sha256": "ea0382557e20820352f2669c70222f7c2d37b8901abf2a7cb502ce02808eafcc",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/climatronic_air_conditioner_with_automatic_regulation)/summary_of_components/",
+      "https://workshop-manuals.com/skoda/yeti/heating_ventilation_air_conditioning_system/heating_air_conditioning/air_conditioner/repairing_the_air_conditioning_system_engine_compartment/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "control_units",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "engine_ecu",
+      "body_control_module",
+      "crankshaft_position_sensor",
+      "camshaft_position_sensor",
+      "control_unit_connectors"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "engine_ecu",
+        "x": 0.226,
+        "y": 0.121,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "body_control_module",
+        "x": 0.794,
+        "y": 0.092,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.605,
+        "y": 0.823,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.327,
+        "y": 0.345,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "control_unit_connectors",
+        "x": 0.485,
+        "y": 0.23,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/20_control_units_final.webp",
+    "sha256": "1062eaa682aeac1414681b86b07e46ad0fbb05398fa53db9678e739005d008d0",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/fullindex/",
+      "https://workshop-manuals.com/skoda/octavia-mk2/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/valve_gear_summary_of_components/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/removing_and_installing_engine_speed_senderg28/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/fitting_location_of_the_injection_system/fitting_location_of_the_injection_system/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/engine_control_unit/removing_and_installing_engine_control_unitj623/navigation-snack.php",
+      "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/wiring/control_units/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "ignition",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "ignition_coil",
+      "ignition_cables",
+      "spark_plugs",
+      "camshaft_position_sensor",
+      "crankshaft_position_sensor"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "ignition_coil",
+        "x": 0.208,
+        "y": 0.273,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "ignition_cables",
+        "x": 0.56,
+        "y": 0.073,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "spark_plugs",
+        "x": 0.735,
+        "y": 0.329,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.334,
+        "y": 0.402,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.61,
+        "y": 0.838,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/21_ignition_final.webp",
+    "sha256": "8b83d09758c3762b369317a1a52fa846b31eb20eb00764ca344caea1272e4739",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/ignition_system_summary_of_components/",
+      "https://workshop-manuals.com/skoda/octavia-mk2/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/valve_gear_summary_of_components/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/ignition_system_glow_plug_system/ignition_system/removing_and_installing_engine_speed_senderg28/",
+      "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/mixture_preparation_system_electronic_inj.gas/fitting_location_of_the_injection_system/fitting_location_of_the_injection_system/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "front_lamps",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "headlamp_left",
+      "headlamp_right",
+      "fog_lamp_left",
+      "fog_lamp_right",
+      "headlamp_bulbs",
+      "headlamp_level_actuator"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "headlamp_left",
+        "x": 0.763,
+        "y": 0.263,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "headlamp_right",
+        "x": 0.244,
+        "y": 0.263,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "fog_lamp_left",
+        "x": 0.713,
+        "y": 0.607,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "fog_lamp_right",
+        "x": 0.289,
+        "y": 0.607,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "headlamp_bulbs",
+        "x": 0.501,
+        "y": 0.729,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "headlamp_level_actuator",
+        "x": 0.858,
+        "y": 0.825,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/22_front_lamps_final.webp",
+    "sha256": "a70c4b60aed4d6bef676f53dc9913142e6546c6126d67d98efa058a3f8e1c2c1",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/fullindex/",
+      "https://www.allcarcentral.com/Skoda_pdf/Skoda_Yeti_Catalogue_2010.pdf",
+      "https://workshop-manuals.com/skoda/yeti/vehicle_electrics/electrical_system/lights_lamps_switches_outside/headlights_halogen_headlights/",
+      "https://dms.kfz-verlag.de/pub/more_downloads/en-ebook-skoda-yeti-5l-0040.pdf"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "seats",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "BLOCKED_SOURCE_UNVERIFIED",
+    "independently_opened": false,
+    "findings": "Not independently visually reviewed this run; historical ACCEPTED is retained only as provenance.",
+    "part_ids": [
+      "driver_seat",
+      "passenger_seat",
+      "rear_seat"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "driver_seat",
+        "x": 0.312,
+        "y": 0.535,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "passenger_seat",
+        "x": 0.683,
+        "y": 0.535,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "rear_seat",
+        "x": 0.497,
+        "y": 0.217,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/23_seats_final.webp",
+    "sha256": "f3f4a341f447ca3110418ad3e0c6c40f001f53c7116c9c08b146faf30b5fdd24",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/fullindex/",
+      "https://cdn.skoda-storyboard.com/2020/07/10_ŠKODA-YETI_First-member-of-ŠKODAs-popular-SUV-family.pdf",
+      "https://www.allcarcentral.com/Skoda_pdf/Skoda_Yeti_Catalogue_2010.pdf",
+      "https://workshop-manuals.com/skoda/yeti/body/body_work/seat_frames/rear_seats/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  },
+  {
+    "node_id": "rear_brake_assembly",
+    "historical_status": "ACCEPTED",
+    "current_independent_status": "REFERENCE_ONLY",
+    "independently_opened": true,
+    "findings": "Viewed replacement: solid-looking disc and visible mechanical parking-brake lever/cable; all seven targets still need independent coordinate/source verification and PR applicability.",
+    "part_ids": [
+      "brake_disc",
+      "brake_caliper",
+      "brake_carrier",
+      "brake_guide_pins",
+      "brake_pads",
+      "brake_hose",
+      "abs_wheel_sensor_rl"
+    ],
+    "historical_markers": [
+      {
+        "number": 1,
+        "part_id": "brake_disc",
+        "x": 0.356,
+        "y": 0.289,
+        "position_verified": true
+      },
+      {
+        "number": 2,
+        "part_id": "brake_caliper",
+        "x": 0.701,
+        "y": 0.313,
+        "position_verified": true
+      },
+      {
+        "number": 3,
+        "part_id": "brake_carrier",
+        "x": 0.57,
+        "y": 0.823,
+        "position_verified": true
+      },
+      {
+        "number": 4,
+        "part_id": "brake_guide_pins",
+        "x": 0.724,
+        "y": 0.882,
+        "position_verified": true
+      },
+      {
+        "number": 5,
+        "part_id": "brake_pads",
+        "x": 0.823,
+        "y": 0.751,
+        "position_verified": true
+      },
+      {
+        "number": 6,
+        "part_id": "brake_hose",
+        "x": 0.69,
+        "y": 0.088,
+        "position_verified": true
+      },
+      {
+        "number": 7,
+        "part_id": "abs_wheel_sensor_rl",
+        "x": 0.198,
+        "y": 0.192,
+        "position_verified": true
+      }
+    ],
+    "package_image": "images/24_rear_brake_assembly_final.webp",
+    "sha256": "7216d73f9535d056749d361b1233796a038e4aab0d4520800b201fe8e28fb073",
+    "integration_allowed": false,
+    "sources": [
+      "https://workshop-manuals.com/skoda/yeti/brake_systems/brake_brake_mechanics/repairing_rear_brake/",
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/summary_of_components_assembly_carrier_final_drive_(vehicles_with_four-wheel_drive)/",
+      "https://workshop-manuals.com/skoda/yeti/brake_systems/brakes_hydraulics_regulator_servo/repairing_the_rear_brake_caliper/",
+      "https://workshop-manuals.com/skoda/yeti/axles_steering/rear_suspension_drive_shaft/repairing_rear_wheel_suspension_(vehicles_with_front-wheel_drive)/overview_of_rear_axle/"
+    ],
+    "applicability": "CBZB FWD DQ200 MY2011; PR/revision unconfirmed"
+  }
+]

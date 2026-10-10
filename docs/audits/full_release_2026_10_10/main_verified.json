@@ -1,0 +1,20 @@
+{
+  "head": "e3008862fa901886e56587056200347a90258fdc",
+  "project_version": [
+    "config/version=\"0.20.29\""
+  ],
+  "export_versions": [
+    "version/code=69",
+    "version/name=\"0.20.29\"",
+    "version/code=69",
+    "version/name=\"0.20.29\""
+  ],
+  "counts": {
+    "nodes": 90,
+    "images": 90,
+    "markers": 376,
+    "VERIFIED_ARCHITECTURE": 57,
+    "REFERENCE_ONLY": 33
+  },
+  "local_main_unchanged": "72e954c25b6329331edb8bd9f5f41e0cd43f0132"
+}

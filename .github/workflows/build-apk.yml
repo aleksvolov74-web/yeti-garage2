@@ -2,6 +2,19 @@ name: Build Android APK
 
 on:
   workflow_dispatch:
+    inputs:
+      validation_only:
+        description: Run checks without Android export (required while catalog findings remain)
+        type: boolean
+        default: true
+      validation_label:
+        description: Validation artifact label; partial batches are not final releases
+        type: choice
+        default: standard
+        options:
+          - standard
+          - CBZB-2node-PARTIAL
+          - CBZB-5node-VALIDATION
   push:
     branches:
       - main
@@ -20,6 +33,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare import and rendered mobile UI dependencies
+        shell: bash
+        run: |
+          apt-get update -qq
+          apt-get install -y -qq python3 xvfb libgl1-mesa-dri libglx-mesa0 libfontconfig1 libxcursor1 libxinerama1 libxrandr2 libxi6 libxrender1
 
       - name: Prepare Godot
         shell: bash
@@ -43,10 +64,18 @@ jobs:
       - name: Import project
         shell: bash
         run: |
-          godot --headless --path . --import
+          mkdir -p build/validation-logs
+          godot --version | tee build/validation-logs/godot-version.log
+          uname -m | tee build/validation-logs/architecture.log
+          godot --headless --path . --import 2>&1 | tee build/validation-logs/import.log
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|handle_crash:|Program crashed|^ERROR:' build/validation-logs/import.log; then
+            exit 1
+          fi
 
       - name: Resolve app version
         shell: bash
+        env:
+          REQUESTED_VALIDATION_LABEL: ${{ inputs.validation_label }}
         run: |
           APP_VERSION="$(sed -n 's/^config\/version="\([0-9][0-9.]*\)"$/\1/p' project.godot | head -n 1)"
           if [[ ! "$APP_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
@@ -54,9 +83,55 @@ jobs:
             exit 1
           fi
           echo "APP_VERSION=$APP_VERSION" >> "$GITHUB_ENV"
+          APK_VALIDATION_SUFFIX=""
+          if [ "$REQUESTED_VALIDATION_LABEL" = "CBZB-2node-PARTIAL" ]; then
+            APK_VALIDATION_SUFFIX="-CBZB-2node-PARTIAL"
+          fi
+          if [ "$REQUESTED_VALIDATION_LABEL" = "CBZB-5node-VALIDATION" ]; then
+            APK_VALIDATION_SUFFIX="-CBZB-5node-VALIDATION"
+          fi
+          echo "APK_VALIDATION_SUFFIX=$APK_VALIDATION_SUFFIX" >> "$GITHUB_ENV"
           test "$(grep -Fc "version/name=\"$APP_VERSION\"" export_presets.cfg)" -eq 2
           test "$(grep -c '^version/code=' export_presets.cfg)" -eq 2
           test "$(grep '^version/code=' export_presets.cfg | sort -u | wc -l)" -eq 1
+
+      - name: Validate immutable audit and authorized five-node corrections
+        shell: bash
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git diff --check HEAD^ HEAD
+          python3 tools/validate_visual_audit.py
+          python3 tools/validate_known_marker_remediation.py
+
+      - name: Validate every project script and scene resource
+        shell: bash
+        run: |
+          resources_log=build/validation-logs/project-resources.log
+          godot --headless --path . --script tools/validate_project_resources.gd 2>&1 | tee "$resources_log"
+          grep -Fq 'PROJECT_RESOURCES_VALIDATION=PASS' "$resources_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$resources_log"; then
+            exit 1
+          fi
+
+      - name: Validate data persistence and recovery
+        shell: bash
+        run: |
+          storage_log=build/validation-logs/storage.log
+          godot --headless --path . --script tools/validate_storage.gd 2>&1 | tee "$storage_log"
+          grep -Fq 'STORAGE_VALIDATION=PASS' "$storage_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$storage_log"; then
+            exit 1
+          fi
+
+      - name: Validate FWD filtering across search and catalogs
+        shell: bash
+        run: |
+          filters_log=build/validation-logs/vehicle-filters.log
+          godot --headless --path . --script tools/validate_vehicle_filters.gd 2>&1 | tee "$filters_log"
+          grep -Fq 'VEHICLE_FILTER_VALIDATION=PASS' "$filters_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$filters_log"; then
+            exit 1
+          fi
 
       - name: Validate 3D catalog and view startup
         shell: bash
@@ -65,6 +140,20 @@ jobs:
           godot --headless --path . --script tools/validate_3d_catalog.gd 2>&1 | tee "$validation_log"
           if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|ERROR: (Invalid call|Failed to load|Parse)' "$validation_log"; then
             echo "The 3D catalog validation reported a script error."
+            exit 1
+          fi
+
+      - name: Validate technical catalog routes and fault data
+        shell: bash
+        run: |
+          fault_validation_log=/tmp/yeti-garage-fault-validation.log
+          godot --headless --path . --script tools/validate_fault_catalog.gd 2>&1 | tee "$fault_validation_log"
+          if ! grep -Fq 'FAULT_AND_CATALOG_VALIDATION=PASS' "$fault_validation_log"; then
+            echo "The catalog/fault validation failed."
+            exit 1
+          fi
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$fault_validation_log"; then
+            echo "The fault catalog validation reported a script error."
             exit 1
           fi
 
@@ -78,7 +167,63 @@ jobs:
             exit 1
           fi
 
+      - name: Render and validate narrow mobile screens
+        shell: bash
+        run: |
+          ux_log=/tmp/yeti-garage-ux-validation.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_android_ux.gd 2>&1 | tee "$ux_log"
+          grep -Fq 'ANDROID_UX_DESKTOP_VALIDATION=PASS' "$ux_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script' "$ux_log"; then
+            exit 1
+          fi
+          python3 tools/export_visual_audit.py
+
+      - name: Verify home text glyphs at four phone sizes
+        shell: bash
+        run: |
+          home_log=build/validation-logs/home-ux.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_home_ux.gd 2>&1 | tee "$home_log"
+          grep -Fq 'HOME_UX_VALIDATION=PASS' "$home_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$home_log"; then
+            exit 1
+          fi
+
+      - name: Validate every manual page and chapter route
+        shell: bash
+        run: |
+          manual_log=build/validation-logs/manual-pages.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_manual_pages.gd 2>&1 | tee "$manual_log"
+          grep -Fq 'MANUAL_PAGES_VALIDATION=PASS' "$manual_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$manual_log"; then
+            exit 1
+          fi
+
+      - name: Upload validation logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CBZB-5node-Validation-Logs
+          path: |
+            build/validation-logs/
+            /tmp/yeti-garage-*-validation.log
+            /tmp/yeti-garage-runtime-smoke.log
+          if-no-files-found: warn
+
+      - name: Upload rendered mobile UI evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}-UX-Evidence
+          path: build/ux/
+          if-no-files-found: warn
+
+      - name: Check catalog readiness for APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
+        shell: bash
+        run: python3 tools/validate_known_marker_remediation.py --require-ready
+
       - name: Build APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
         shell: bash
         run: |
           mkdir -p build/android
@@ -88,14 +233,16 @@ jobs:
             --verbose \
             --path . \
             --export-debug "Android Quick APK" \
-            "build/android/YetiGarage-${APP_VERSION}.apk"
+            "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
 
-          test -f "build/android/YetiGarage-${APP_VERSION}.apk"
-          ls -lh "build/android/YetiGarage-${APP_VERSION}.apk"
+          test -f "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
+          python3 tools/validate_apk_contents.py "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
+          ls -lh "build/android/YetiGarage-${APP_VERSION}${APK_VALIDATION_SUFFIX}.apk"
 
       - name: Upload APK
+        if: ${{ github.event_name == 'push' || inputs.validation_only != true }}
         uses: actions/upload-artifact@v4
         with:
-          name: YetiGarage-${{ env.APP_VERSION }}-APK
-          path: build/android/YetiGarage-${{ env.APP_VERSION }}.apk
+          name: YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}-APK
+          path: build/android/YetiGarage-${{ env.APP_VERSION }}${{ env.APK_VALIDATION_SUFFIX }}.apk
           if-no-files-found: error

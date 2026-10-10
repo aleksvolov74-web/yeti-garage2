@@ -1,0 +1,650 @@
+[
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.14-scroll-extent-APK.zip",
+    "size": 38999144,
+    "entries": 1,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.14-scroll-extent.zip",
+    "size": 4194960,
+    "entries": 249,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.15-APK.zip",
+    "size": 38999046,
+    "entries": 1,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.16-APK.zip",
+    "size": 38999018,
+    "entries": 1,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.17-local-width-manual-fix.zip",
+    "size": 4191962,
+    "entries": 250,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.18-local-no-home-scroll.zip",
+    "size": 4192365,
+    "entries": 251,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.21-local-bell-fix.zip",
+    "size": 4194723,
+    "entries": 253,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.22-local-manual-pagination.zip",
+    "size": 4203344,
+    "entries": 258,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.19.23-local-manual-window-fix.zip",
+    "size": 4204970,
+    "entries": 259,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d.zip",
+    "size": 4205562,
+    "entries": 258,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_ASSETS_pending_Android_v2.zip",
+    "size": 5809667,
+    "entries": 32,
+    "technical_image_entries": [
+      "images/01_air_path_v2.webp",
+      "images/02_fuel_delivery_v2.webp",
+      "images/03_exhaust_aftertreatment_final.webp",
+      "images/04_clutch_group_final.webp",
+      "images/05_gearbox_group_final.webp",
+      "images/06_front_left_corner_final.webp",
+      "images/07_front_axle_carrier_final.webp",
+      "images/08_front_strut_final.webp",
+      "images/09_front_knuckle_hub_final.webp",
+      "images/10_rear_suspension_overview_final.webp",
+      "images/11_rear_carrier_final.webp",
+      "images/12_rear_springs_dampers_final.webp",
+      "images/13_rear_hub_final.webp",
+      "images/14_steering_column_final.webp",
+      "images/15_front_brake_assembly_final.webp",
+      "images/16_wheel_sensors_final.webp",
+      "images/17_angle_drive_final.webp",
+      "images/18_haldex_final.webp",
+      "images/19_ac_circuit_final.webp",
+      "images/20_control_units_final.webp",
+      "images/21_ignition_final.webp",
+      "images/22_front_lamps_final.webp",
+      "images/23_seats_final.webp",
+      "images/24_rear_brake_assembly_final.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_INCOMPLETE_resume_2026-10-10.zip",
+    "size": 5684808,
+    "entries": 37,
+    "technical_image_entries": [
+      "images/01_air_path_v2.webp",
+      "images/02_fuel_delivery_v2.webp",
+      "images/03_exhaust_aftertreatment_final.webp",
+      "images/04_clutch_group_final.webp",
+      "images/05_gearbox_group_final.webp",
+      "images/06_front_left_corner_final.webp",
+      "images/07_front_axle_carrier_final.webp",
+      "images/08_front_strut_final.webp",
+      "images/09_front_knuckle_hub_final.webp",
+      "images/10_rear_suspension_overview_final.webp",
+      "images/11_rear_carrier_final.webp",
+      "images/12_rear_springs_dampers_final.webp",
+      "images/13_rear_hub_final.webp",
+      "images/15_front_brake_assembly_final.webp",
+      "images/16_wheel_sensors_final.webp",
+      "images/17_angle_drive_final.webp",
+      "images/18_haldex_final.webp",
+      "images/19_ac_circuit_final.webp",
+      "images/20_control_units_final.webp",
+      "images/21_ignition_final.webp",
+      "images/22_front_lamps_final.webp",
+      "images/23_seats_final.webp",
+      "images/24_rear_brake_assembly_final.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_24_INCOMPLETE_review.zip",
+    "size": 5674266,
+    "entries": 30,
+    "technical_image_entries": [
+      "images/01_air_path_v2.webp",
+      "images/02_fuel_delivery_v2.webp",
+      "images/03_exhaust_aftertreatment_final.webp",
+      "images/04_clutch_group_final.webp",
+      "images/05_gearbox_group_final.webp",
+      "images/06_front_left_corner_final.webp",
+      "images/07_front_axle_carrier_final.webp",
+      "images/08_front_strut_final.webp",
+      "images/09_front_knuckle_hub_final.webp",
+      "images/10_rear_suspension_overview_final.webp",
+      "images/11_rear_carrier_final.webp",
+      "images/12_rear_springs_dampers_final.webp",
+      "images/13_rear_hub_final.webp",
+      "images/15_front_brake_assembly_final.webp",
+      "images/16_wheel_sensors_final.webp",
+      "images/17_angle_drive_final.webp",
+      "images/18_haldex_final.webp",
+      "images/19_ac_circuit_final.webp",
+      "images/20_control_units_final.webp",
+      "images/21_ignition_final.webp",
+      "images/22_front_lamps_final.webp",
+      "images/23_seats_final.webp",
+      "images/24_rear_brake_assembly_final.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_2node_reference_batch_v1.zip",
+    "size": 468344,
+    "entries": 7,
+    "technical_image_entries": [
+      "assets/technical_catalog/engine/engine_bottom_end.webp",
+      "assets/technical_catalog/intake/boost_group.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1-1.zip",
+    "size": 1052205,
+    "entries": 8,
+    "technical_image_entries": [
+      "assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+      "assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+      "assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1.zip",
+    "size": 1051863,
+    "entries": 8,
+    "technical_image_entries": [
+      "assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+      "assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+      "assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_Air_Fuel_Cooling_Exhaust_2D_batch_v1-1.zip",
+    "size": 2621966,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/intake/air_path.webp",
+      "assets/technical_catalog/intake/boost_group.webp",
+      "assets/technical_catalog/fuel/fuel_delivery.webp",
+      "assets/technical_catalog/fuel/fuel_storage.webp",
+      "assets/technical_catalog/cooling/radiator_pack.webp",
+      "assets/technical_catalog/cooling/coolant_circuit.webp",
+      "assets/technical_catalog/exhaust/exhaust_front.webp",
+      "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "assets/technical_catalog/exhaust/exhaust_rear.webp"
+    ],
+    "manifests_and_sources": [
+      "cbzb_air_fuel_cooling_exhaust_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_Air_Fuel_Cooling_Exhaust_2D_batch_v1-2.zip",
+    "size": 2621966,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/intake/air_path.webp",
+      "assets/technical_catalog/intake/boost_group.webp",
+      "assets/technical_catalog/fuel/fuel_delivery.webp",
+      "assets/technical_catalog/fuel/fuel_storage.webp",
+      "assets/technical_catalog/cooling/radiator_pack.webp",
+      "assets/technical_catalog/cooling/coolant_circuit.webp",
+      "assets/technical_catalog/exhaust/exhaust_front.webp",
+      "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "assets/technical_catalog/exhaust/exhaust_rear.webp"
+    ],
+    "manifests_and_sources": [
+      "cbzb_air_fuel_cooling_exhaust_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_Air_Fuel_Cooling_Exhaust_2D_batch_v1.zip",
+    "size": 2621966,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/intake/air_path.webp",
+      "assets/technical_catalog/intake/boost_group.webp",
+      "assets/technical_catalog/fuel/fuel_delivery.webp",
+      "assets/technical_catalog/fuel/fuel_storage.webp",
+      "assets/technical_catalog/cooling/radiator_pack.webp",
+      "assets/technical_catalog/cooling/coolant_circuit.webp",
+      "assets/technical_catalog/exhaust/exhaust_front.webp",
+      "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "assets/technical_catalog/exhaust/exhaust_rear.webp"
+    ],
+    "manifests_and_sources": [
+      "cbzb_air_fuel_cooling_exhaust_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_DQ200_2D_batch_v1-1.zip",
+    "size": 2413816,
+    "entries": 9,
+    "technical_image_entries": [
+      "assets/technical_catalog/timing/timing_chain.webp",
+      "assets/technical_catalog/timing/timing_gears.webp",
+      "assets/technical_catalog/engine/oil_pump_circuit.webp",
+      "assets/technical_catalog/dsg/gearbox_group.webp",
+      "assets/technical_catalog/dsg/clutch_group.webp",
+      "assets/technical_catalog/dsg/dsg_mechatronics.webp",
+      "assets/technical_catalog/dsg/gear_selector.webp"
+    ],
+    "manifests_and_sources": [
+      "cbzb_dq200_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_CBZB_DQ200_2D_batch_v1.zip",
+    "size": 2413816,
+    "entries": 9,
+    "technical_image_entries": [
+      "assets/technical_catalog/timing/timing_chain.webp",
+      "assets/technical_catalog/timing/timing_gears.webp",
+      "assets/technical_catalog/engine/oil_pump_circuit.webp",
+      "assets/technical_catalog/dsg/gearbox_group.webp",
+      "assets/technical_catalog/dsg/clutch_group.webp",
+      "assets/technical_catalog/dsg/dsg_mechatronics.webp",
+      "assets/technical_catalog/dsg/gear_selector.webp"
+    ],
+    "manifests_and_sources": [
+      "cbzb_dq200_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_Climate_2D_batch_v1.zip",
+    "size": 449442,
+    "entries": 5,
+    "technical_image_entries": [
+      "assets/technical_catalog/climate/heater_box.webp",
+      "assets/technical_catalog/climate/blower.webp",
+      "assets/technical_catalog/climate/ac_circuit.webp"
+    ],
+    "manifests_and_sources": [
+      "climate_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_Electrics_Lighting_2D_batch_v1.zip",
+    "size": 3105492,
+    "entries": 10,
+    "technical_image_entries": [
+      "assets/technical_catalog/electrical/power_start.webp",
+      "assets/technical_catalog/electrical/fuses_relays.webp",
+      "assets/technical_catalog/electrical/control_units.webp",
+      "assets/technical_catalog/electrical/wiring.webp",
+      "assets/technical_catalog/ignition/ignition.webp",
+      "assets/technical_catalog/lighting/front_lamps.webp",
+      "assets/technical_catalog/lighting/rear_lamps.webp",
+      "assets/technical_catalog/lighting/interior_lamps.webp"
+    ],
+    "manifests_and_sources": [
+      "electrics_lighting_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_FrontDrive_Suspension_Brakes_2D_batch_v1.zip",
+    "size": 1635339,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/brakes/front_brake_hose.webp",
+      "assets/technical_catalog/brakes/parking_brake.webp",
+      "assets/technical_catalog/brakes/rear_brake_assembly.webp",
+      "assets/technical_catalog/front_drive/left_drive.webp",
+      "assets/technical_catalog/front_drive/right_drive.webp",
+      "assets/technical_catalog/front_suspension/front_corner.webp",
+      "assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+      "assets/technical_catalog/steering/steering_column.webp"
+    ],
+    "manifests_and_sources": [
+      "SOURCES.md",
+      "assets/technical_catalog/chassis_brakes_batch_manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_Godot_runtime_fix_v1_2026-10-10.zip",
+    "size": 138282,
+    "entries": 108,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_Rear_Steering_ABS_2D_batch_v1-1.zip",
+    "size": 2110782,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+      "assets/technical_catalog/rear_suspension/rear_carrier.webp",
+      "assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+      "assets/technical_catalog/rear_suspension/rear_hub.webp",
+      "assets/technical_catalog/steering/steering_rack.webp",
+      "assets/technical_catalog/steering/steering_linkage.webp",
+      "assets/technical_catalog/brakes/abs_esp_block.webp",
+      "assets/technical_catalog/brakes/brake_hydraulics.webp",
+      "assets/technical_catalog/brakes/wheel_sensors.webp"
+    ],
+    "manifests_and_sources": [
+      "rear_steering_abs_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_Rear_Steering_ABS_2D_batch_v1.zip",
+    "size": 2110782,
+    "entries": 11,
+    "technical_image_entries": [
+      "assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+      "assets/technical_catalog/rear_suspension/rear_carrier.webp",
+      "assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+      "assets/technical_catalog/rear_suspension/rear_hub.webp",
+      "assets/technical_catalog/steering/steering_rack.webp",
+      "assets/technical_catalog/steering/steering_linkage.webp",
+      "assets/technical_catalog/brakes/abs_esp_block.webp",
+      "assets/technical_catalog/brakes/brake_hydraulics.webp",
+      "assets/technical_catalog/brakes/wheel_sensors.webp"
+    ],
+    "manifests_and_sources": [
+      "rear_steering_abs_batch_manifest.json",
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_VAG_Diagnostics_10_v1.zip",
+    "size": 18030,
+    "entries": 6,
+    "technical_image_entries": [],
+    "manifests_and_sources": [
+      "SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_chassis_brakes_batch_v1.zip",
+    "size": 1761982,
+    "entries": 12,
+    "technical_image_entries": [
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/front_brake_hose.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/parking_brake.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/brakes/rear_brake_assembly.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_drive/left_drive.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_drive/right_drive.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_suspension/front_corner.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/steering/steering_column.webp"
+    ],
+    "manifests_and_sources": [
+      "YetiGarage_chassis_brakes_batch_v1/SOURCES.md",
+      "YetiGarage_chassis_brakes_batch_v1/assets/technical_catalog/chassis_brakes_batch_manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_front_suspension_2D_batch_v1.zip",
+    "size": 260112,
+    "entries": 5,
+    "technical_image_entries": [
+      "assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+      "assets/technical_catalog/front_suspension/front_strut.webp",
+      "assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+      "assets/technical_catalog/front_suspension/front_brake_assembly.webp"
+    ],
+    "manifests_and_sources": [
+      "front_suspension_batch_manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_preintegration_24_v2_2026-10-10.zip",
+    "size": 22560479,
+    "entries": 456,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage_runtime_fix_preexisting_2026-10-10.zip",
+    "size": 22221805,
+    "entries": 10,
+    "technical_image_entries": [],
+    "manifests_and_sources": [],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/yeti_body_glass_wipers_batch_v2.zip",
+    "size": 984476,
+    "entries": 13,
+    "technical_image_entries": [
+      "assets/technical_catalog/body/body_front.webp",
+      "assets/technical_catalog/body/body_protection.webp",
+      "assets/technical_catalog/body/body_rear.webp",
+      "assets/technical_catalog/body/doors.webp",
+      "assets/technical_catalog/body/mirrors.webp",
+      "assets/technical_catalog/glass/glazing.webp",
+      "assets/technical_catalog/wipers/front_wipers.webp",
+      "assets/technical_catalog/wipers/rear_wiper.webp",
+      "assets/technical_catalog/wipers/washers.webp"
+    ],
+    "manifests_and_sources": [
+      "assets/technical_catalog/body_glass_wipers_batch_manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/yeti_garage_body_glass_wipers_batch.zip",
+    "size": 998380,
+    "entries": 14,
+    "technical_image_entries": [
+      "assets/technical_catalog/body/body_front.webp",
+      "assets/technical_catalog/body/doors.webp",
+      "assets/technical_catalog/body/body_rear.webp",
+      "assets/technical_catalog/body/body_protection.webp",
+      "assets/technical_catalog/body/mirrors.webp",
+      "assets/technical_catalog/body/glazing.webp",
+      "assets/technical_catalog/body/front_wipers.webp",
+      "assets/technical_catalog/body/rear_wiper.webp",
+      "assets/technical_catalog/body/washers.webp"
+    ],
+    "manifests_and_sources": [
+      "assets/technical_catalog/body_glass_wipers_batch_manifest.json",
+      "assets/technical_catalog/body_glass_wipers_SOURCES.md"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  },
+  {
+    "path": "/sdcard/Download/YetiGarage-0.20.0-local-3d/YetiGarage-0.20.0-local-3d/yeti_garage_technical_catalog_audit_bundle_2026-10-06.zip",
+    "size": 22197225,
+    "entries": 116,
+    "technical_image_entries": [
+      "assets/technical_catalog/4x4_reference/angle_drive.webp",
+      "assets/technical_catalog/4x4_reference/haldex.webp",
+      "assets/technical_catalog/4x4_reference/propshaft.webp",
+      "assets/technical_catalog/4x4_reference/rear_differential.webp",
+      "assets/technical_catalog/body/body_front.webp",
+      "assets/technical_catalog/body/body_protection.webp",
+      "assets/technical_catalog/body/body_rear.webp",
+      "assets/technical_catalog/body/doors.webp",
+      "assets/technical_catalog/body/front_wipers.webp",
+      "assets/technical_catalog/body/glazing.webp",
+      "assets/technical_catalog/body/mirrors.webp",
+      "assets/technical_catalog/body/rear_wiper.webp",
+      "assets/technical_catalog/body/washers.webp",
+      "assets/technical_catalog/brakes/abs_esp_block.webp",
+      "assets/technical_catalog/brakes/brake_hydraulics.webp",
+      "assets/technical_catalog/brakes/wheel_sensors.webp",
+      "assets/technical_catalog/climate/ac_circuit.webp",
+      "assets/technical_catalog/climate/blower.webp",
+      "assets/technical_catalog/climate/heater_box.webp",
+      "assets/technical_catalog/cooling/coolant_circuit.webp",
+      "assets/technical_catalog/cooling/coolant_reservoir.webp",
+      "assets/technical_catalog/cooling/radiator_pack.webp",
+      "assets/technical_catalog/dsg/clutch_group.webp",
+      "assets/technical_catalog/dsg/dsg_mechatronics.webp",
+      "assets/technical_catalog/dsg/gear_selector.webp",
+      "assets/technical_catalog/dsg/gearbox_group.webp",
+      "assets/technical_catalog/electrical/control_units.webp",
+      "assets/technical_catalog/electrical/fuses_relays.webp",
+      "assets/technical_catalog/electrical/power_start.webp",
+      "assets/technical_catalog/electrical/wiring.webp",
+      "assets/technical_catalog/engine/engine_accessories.webp",
+      "assets/technical_catalog/engine/engine_bottom_end.webp",
+      "assets/technical_catalog/engine/engine_complete.webp",
+      "assets/technical_catalog/engine/engine_mounts.webp",
+      "assets/technical_catalog/engine/engine_upper_end.webp",
+      "assets/technical_catalog/engine/oil_filter.webp",
+      "assets/technical_catalog/engine/oil_pan.webp",
+      "assets/technical_catalog/engine/oil_pump_circuit.webp",
+      "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "assets/technical_catalog/exhaust/exhaust_front.webp",
+      "assets/technical_catalog/exhaust/exhaust_rear.webp",
+      "assets/technical_catalog/front_brakes/front_brake_hose.webp",
+      "assets/technical_catalog/front_drive/left_drive.webp",
+      "assets/technical_catalog/front_drive/right_drive.webp",
+      "assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+      "assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+      "assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+      "assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+      "assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+      "assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+      "assets/technical_catalog/front_suspension/front_left_corner.webp",
+      "assets/technical_catalog/front_suspension/front_right_corner.webp",
+      "assets/technical_catalog/front_suspension/front_stabilizer.webp",
+      "assets/technical_catalog/front_suspension/front_strut.webp",
+      "assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+      "assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+      "assets/technical_catalog/fuel/fuel_delivery.webp",
+      "assets/technical_catalog/fuel/fuel_sensors.webp",
+      "assets/technical_catalog/fuel/fuel_storage.webp",
+      "assets/technical_catalog/ignition/ignition.webp",
+      "assets/technical_catalog/intake/air_path.webp",
+      "assets/technical_catalog/intake/boost_group.webp",
+      "assets/technical_catalog/interior/console.webp",
+      "assets/technical_catalog/interior/dashboard.webp",
+      "assets/technical_catalog/interior/interior_trim.webp",
+      "assets/technical_catalog/interior/seats.webp",
+      "assets/technical_catalog/lighting/front_lamps.webp",
+      "assets/technical_catalog/lighting/interior_lamps.webp",
+      "assets/technical_catalog/lighting/rear_lamps.webp",
+      "assets/technical_catalog/maintenance/filters.webp",
+      "assets/technical_catalog/maintenance/fluids.webp",
+      "assets/technical_catalog/maintenance/service_brakes.webp",
+      "assets/technical_catalog/maintenance/service_ignition.webp",
+      "assets/technical_catalog/rear_brakes/parking_brake.webp",
+      "assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+      "assets/technical_catalog/rear_suspension/rear_carrier.webp",
+      "assets/technical_catalog/rear_suspension/rear_hub.webp",
+      "assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+      "assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+      "assets/technical_catalog/safety/airbags.webp",
+      "assets/technical_catalog/safety/belts.webp",
+      "assets/technical_catalog/safety/srs_sensors.webp",
+      "assets/technical_catalog/steering/steering_column.webp",
+      "assets/technical_catalog/steering/steering_linkage.webp",
+      "assets/technical_catalog/steering/steering_rack.webp",
+      "assets/technical_catalog/timing/timing_chain.webp",
+      "assets/technical_catalog/timing/timing_drive_node.webp",
+      "assets/technical_catalog/timing/timing_gears.webp"
+    ],
+    "manifests_and_sources": [
+      "assets/technical_catalog/SOURCES.md",
+      "assets/technical_catalog/body_glass_wipers_SOURCES.md",
+      "assets/technical_catalog/body_glass_wipers_batch_manifest.json",
+      "assets/technical_catalog/cbzb_air_fuel_cooling_exhaust_manifest.json",
+      "assets/technical_catalog/cbzb_dq200_batch_manifest.json",
+      "assets/technical_catalog/cbzb_engine_core_manifest.json",
+      "assets/technical_catalog/climate/SOURCES.md",
+      "assets/technical_catalog/climate/climate_batch_manifest.json",
+      "assets/technical_catalog/electrics_lighting_batch_manifest.json",
+      "assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json",
+      "assets/technical_catalog/rear_steering_abs_manifest.json",
+      "assets/technical_catalog/technical_catalog_manifest.json"
+    ],
+    "crc_validation": "NOT_RUN_inventory_only"
+  }
+]

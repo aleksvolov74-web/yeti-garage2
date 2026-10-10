@@ -58,40 +58,40 @@
               ],
               "diagram": {
                 "status": "available",
-                "image": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+                "image": "res://assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
                 "image_type": "exploded_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
                     "part_id": "engine_block",
-                    "x": 0.72,
-                    "y": 0.49
+                    "x": 0.48,
+                    "y": 0.55
                   },
                   {
                     "number": 2,
                     "part_id": "crankshaft",
-                    "x": 0.41,
-                    "y": 0.81
+                    "x": 0.51,
+                    "y": 0.84
                   },
                   {
                     "number": 3,
                     "part_id": "piston_group",
-                    "x": 0.28,
-                    "y": 0.23
+                    "x": 0.44,
+                    "y": 0.09
                   },
                   {
                     "number": 4,
                     "part_id": "connecting_rods",
-                    "x": 0.29,
-                    "y": 0.48
+                    "x": 0.44,
+                    "y": 0.25
                   }
                 ],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
                   "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/crankshaft/",
-                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
-                  "license": "Original generated project visual; workshop illustration not copied or bundled.",
+                  "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+                  "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
                   "applicability": {
                     "model": "Yeti 5L",
                     "model_year": [
@@ -101,10 +101,10 @@
                     "drivetrain": "FWD",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-                  "author": "Yeti Garage — original generated technical visual"
+                  "verification_note": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
+                  "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
                 },
-                "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+                "asset_note": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир."
               },
               "requires_engine_codes": [
                 "CBZB"
@@ -120,34 +120,34 @@
               ],
               "diagram": {
                 "status": "available",
-                "image": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+                "image": "res://assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
                 "image_type": "exploded_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
                     "part_id": "cylinder_head",
-                    "x": 0.52,
-                    "y": 0.75
+                    "x": 0.18,
+                    "y": 0.73
                   },
                   {
                     "number": 2,
                     "part_id": "camshafts",
                     "x": 0.52,
-                    "y": 0.43
+                    "y": 0.39
                   },
                   {
                     "number": 3,
                     "part_id": "valve_cover",
-                    "x": 0.53,
-                    "y": 0.16
+                    "x": 0.51,
+                    "y": 0.13
                   }
                 ],
                 "source": {
                   "title": "Двигатель CBZB 1.2 TSI",
-                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
-                  "publisher": "Škoda Auto workshop information (web-accessible copy)",
-                  "license": "Original generated project visual; workshop illustration not copied or bundled.",
+                  "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/cylinder_head_part_2/",
+                  "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+                  "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
                   "applicability": {
                     "model": "Yeti 5L",
                     "model_year": [
@@ -157,10 +157,10 @@
                     "drivetrain": "FWD",
                     "engine_code": "CBZB"
                   },
-                  "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-                  "author": "Yeti Garage — original generated technical visual"
+                  "verification_note": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+                  "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
                 },
-                "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+                "asset_note": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
               },
               "requires_engine_codes": [
                 "CBZB"
@@ -182,8 +182,8 @@
               {
                 "number": 2,
                 "part_id": "cylinder_head",
-                "x": 0.55,
-                "y": 0.4
+                "x": 0.54,
+                "y": 0.2
               },
               {
                 "number": 3,
@@ -250,40 +250,40 @@
           ],
           "diagram": {
             "status": "available",
-            "image": "res://assets/technical_catalog/engine/engine_bottom_end.webp",
+            "image": "res://assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "engine_block",
-                "x": 0.72,
-                "y": 0.49
+                "x": 0.47,
+                "y": 0.58
               },
               {
                 "number": 2,
                 "part_id": "crankshaft",
-                "x": 0.41,
-                "y": 0.81
+                "x": 0.51,
+                "y": 0.805
               },
               {
                 "number": 3,
                 "part_id": "piston_group",
-                "x": 0.28,
-                "y": 0.23
+                "x": 0.27,
+                "y": 0.082
               },
               {
                 "number": 4,
                 "part_id": "connecting_rods",
-                "x": 0.29,
-                "y": 0.48
+                "x": 0.255,
+                "y": 0.27
               }
             ],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Original generated project visual; workshop illustration not copied or bundled.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/enginecrankshaft_group_pistons/pistons_and_conrods/",
+              "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+              "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -293,10 +293,10 @@
                 "drivetrain": "FWD",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-              "author": "Yeti Garage — original generated technical visual"
+              "verification_note": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+              "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
             },
-            "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+            "asset_note": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -312,34 +312,34 @@
           ],
           "diagram": {
             "status": "available",
-            "image": "res://assets/technical_catalog/engine/engine_upper_end.webp",
+            "image": "res://assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "cylinder_head",
-                "x": 0.52,
-                "y": 0.75
+                "x": 0.13,
+                "y": 0.78
               },
               {
                 "number": 2,
                 "part_id": "camshafts",
-                "x": 0.52,
-                "y": 0.43
+                "x": 0.61,
+                "y": 0.34
               },
               {
                 "number": 3,
                 "part_id": "valve_cover",
-                "x": 0.53,
+                "x": 0.5,
                 "y": 0.16
               }
             ],
             "source": {
               "title": "Двигатель CBZB 1.2 TSI",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
-              "publisher": "Škoda Auto workshop information (web-accessible copy)",
-              "license": "Original generated project visual; workshop illustration not copied or bundled.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63%3B_77_kw_tsi_engine/engine_cylinder_head_valve_gear/valve_gear/",
+              "publisher": "User-supplied reference batch; architecture sources listed in SOURCES.md",
+              "license": "Original AI reference visual; no factory drawing copied. See supplied SOURCES.md for provenance and limitations.",
               "applicability": {
                 "model": "Yeti 5L",
                 "model_year": [
@@ -349,10 +349,10 @@
                 "drivetrain": "FWD",
                 "engine_code": "CBZB"
               },
-              "verification_note": "Workshop source supports the node architecture; this original visual is not a reproduction of the source figure and does not assert exact VIN/PR geometry.",
-              "author": "Yeti Garage — original generated technical visual"
+              "verification_note": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия.",
+              "author": "YetiGarage_CBZB_3node_REFERENCE_ONLY_batch_v1 — original AI reference visual created in ChatGPT, supplied by user"
             },
-            "asset_note": "Original generated technical visual; not a copy of the linked workshop illustration. Architecture reference only; exact VIN/PR geometry is not claimed."
+            "asset_note": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская. Исходный визуал создан ИИ в ChatGPT; только REFERENCE_ONLY, не инструкция по ремонту, не VIN-exact и не OEM-геометрия."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -424,7 +424,7 @@
                 "number": 2,
                 "part_id": "accessory_belt_drive",
                 "x": 0.42,
-                "y": 0.72
+                "y": 0.82
               },
               {
                 "number": 3,
@@ -484,8 +484,8 @@
               {
                 "number": 1,
                 "part_id": "timing_drive",
-                "x": 0.46,
-                "y": 0.47
+                "x": 0.38,
+                "y": 0.5
               },
               {
                 "number": 2,
@@ -496,8 +496,8 @@
               {
                 "number": 3,
                 "part_id": "timing_chain_tensioner",
-                "x": 0.62,
-                "y": 0.52
+                "x": 0.63,
+                "y": 0.4
               },
               {
                 "number": 4,
@@ -612,8 +612,8 @@
               {
                 "number": 1,
                 "part_id": "timing_sprockets",
-                "x": 0.51,
-                "y": 0.2
+                "x": 0.55,
+                "y": 0.13
               },
               {
                 "number": 2,
@@ -668,7 +668,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/intake/air_path.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -697,8 +697,8 @@
               {
                 "number": 5,
                 "part_id": "charge_air_cooler",
-                "x": 0.67,
-                "y": 0.31
+                "x": 0.73,
+                "y": 0.42
               },
               {
                 "number": 6,
@@ -729,7 +729,8 @@
               },
               "verification_note": "CBZB architecture: water-cooled charge-air cooler integrated into intake manifold; no external air-to-air intercooler asserted.",
               "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Два разных датчика G71/G42 и G31/G299 нельзя различить по неидентифицированным корпусам. Нужны явно различимые места установки CBZB. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -749,53 +750,53 @@
             "charge_air_pipe"
           ],
           "diagram": {
-            "status": "verified",
+            "status": "available",
             "image": "res://assets/technical_catalog/intake/boost_group.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "turbocharger",
-                "x": 0.6,
+                "x": 0.62,
                 "y": 0.43
               },
               {
                 "number": 2,
                 "part_id": "exhaust_manifold",
-                "x": 0.27,
-                "y": 0.43
+                "x": 0.31,
+                "y": 0.28
               },
               {
                 "number": 3,
                 "part_id": "charge_pressure_regulator_v465",
-                "x": 0.45,
-                "y": 0.13
+                "x": 0.8,
+                "y": 0.23
               },
               {
                 "number": 4,
                 "part_id": "turbo_oil_feed_line",
-                "x": 0.47,
-                "y": 0.74
+                "x": 0.49,
+                "y": 0.135
               },
               {
                 "number": 5,
                 "part_id": "turbo_coolant_lines",
-                "x": 0.77,
-                "y": 0.65
+                "x": 0.245,
+                "y": 0.63
               },
               {
                 "number": 6,
                 "part_id": "charge_air_pipe",
-                "x": 0.85,
-                "y": 0.25
+                "x": 0.82,
+                "y": 0.74
               }
             ],
             "source": {
               "title": "Впуск и топливный распределитель CBZB",
-              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_turbocharger_g-charger/charge_air_system_with_exhaust_gas_turbocharger/charge_air_system_summary_of_components/",
-              "publisher": "Пакет визуальных материалов, предоставленный пользователем",
-              "license": "Права и условия распространения не указаны в приложенном пакете; происхождение записано в assets/technical_catalog/SOURCES_cbzb_air_fuel_cooling_exhaust.md.",
+              "url": "https://workshop-manuals.com/skoda/yeti/power_unit/12/63;_77_kw_tsi_engine/exhaust_system/removing_and_installing_parts_of_the_exhaust_system/catalytic_converter_and_component_parts_summary_of_components/",
+              "publisher": "Пакет справочных визуалов, предоставленный пользователем; архитектурный источник — копия workshop documentation",
+              "license": "Original AI reference visual supplied in YetiGarage_CBZB_2node_reference_batch_v1; no factory drawing copied. Redistribution license not specified in the package.",
               "applicability": {
                 "model": "Škoda Yeti 5L",
                 "model_year": [
@@ -805,9 +806,10 @@
                 "drivetrain": "ANY",
                 "engine_code": "CBZB"
               },
-              "verification_note": "CBZB turbocharger/exhaust-manifold unit with charge pressure regulator V465; exact casting/revision not asserted.",
-              "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
-            }
+              "verification_note": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
+              "author": "YetiGarage_CBZB_2node_reference_batch_v1 — user-supplied original AI reference visual"
+            },
+            "asset_note": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -854,14 +856,14 @@
               {
                 "number": 3,
                 "part_id": "fuel_level_sender",
-                "x": 0.395,
-                "y": 0.33
+                "x": 0.398,
+                "y": 0.345
               },
               {
                 "number": 4,
                 "part_id": "fuel_filter",
-                "x": 0.65,
-                "y": 0.25
+                "x": 0.64,
+                "y": 0.36
               },
               {
                 "number": 5,
@@ -872,8 +874,8 @@
               {
                 "number": 6,
                 "part_id": "fuel_tank_straps",
-                "x": 0.56,
-                "y": 0.79
+                "x": 0.59,
+                "y": 0.84
               }
             ],
             "source": {
@@ -914,7 +916,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/fuel/fuel_delivery.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -943,7 +945,7 @@
               {
                 "number": 5,
                 "part_id": "injectors",
-                "x": 0.63,
+                "x": 0.68,
                 "y": 0.65
               }
             ],
@@ -963,7 +965,8 @@
               },
               "verification_note": "CBZB direct-injection architecture: high-pressure pump, rail, G247 and four injectors.",
               "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: N276 относится к ТНВД CBZB, не к торцу рампы. На текущем синтетическом изображении назначение электрического узла насоса и отдельного датчика G247 не доказано. Показать ТНВД с N276 и рампу с G247 раздельно. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -987,8 +990,8 @@
               {
                 "number": 1,
                 "part_id": "fuel_pressure_sensor",
-                "x": 0.49,
-                "y": 0.17
+                "x": 0.45,
+                "y": 0.2
               },
               {
                 "number": 2,
@@ -1054,8 +1057,8 @@
               {
                 "number": 1,
                 "part_id": "radiator",
-                "x": 0.47,
-                "y": 0.45
+                "x": 0.52,
+                "y": 0.27
               },
               {
                 "number": 2,
@@ -1084,8 +1087,8 @@
               {
                 "number": 6,
                 "part_id": "coolant_hoses",
-                "x": 0.84,
-                "y": 0.25
+                "x": 0.77,
+                "y": 0.15
               }
             ],
             "source": {
@@ -1153,8 +1156,8 @@
               {
                 "number": 4,
                 "part_id": "thermostat",
-                "x": 0.36,
-                "y": 0.38
+                "x": 0.42,
+                "y": 0.31
               },
               {
                 "number": 5,
@@ -1284,8 +1287,8 @@
               {
                 "number": 2,
                 "part_id": "oil_pump_drive",
-                "x": 0.63,
-                "y": 0.3
+                "x": 0.58,
+                "y": 0.38
               },
               {
                 "number": 3,
@@ -1493,7 +1496,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -1504,8 +1507,8 @@
               {
                 "number": 2,
                 "part_id": "oxygen_sensor",
-                "x": 0.35,
-                "y": 0.15
+                "x": 0.28,
+                "y": 0.16
               },
               {
                 "number": 3,
@@ -1522,14 +1525,14 @@
               {
                 "number": 5,
                 "part_id": "front_exhaust_pipe",
-                "x": 0.81,
-                "y": 0.61
+                "x": 0.86,
+                "y": 0.7
               },
               {
                 "number": 6,
                 "part_id": "exhaust_clamp",
-                "x": 0.54,
-                "y": 0.53
+                "x": 0.467,
+                "y": 0.542
               }
             ],
             "source": {
@@ -1548,7 +1551,8 @@
               },
               "verification_note": "1.2 TSI Yeti/Octavia-II catalytic-converter and front-pipe architecture; exact casting/heat-shield geometry not asserted.",
               "author": "Пакет YetiGarage_cbzb_air_fuel_cooling_exhaust_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Четырёхпортовый коллектор прямо связан с катализатором без необходимого турбокомпрессора CBZB. Нужна правильная последовательность выпускного тракта. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_engine_codes": [
             "CBZB"
@@ -1587,20 +1591,20 @@
               {
                 "number": 3,
                 "part_id": "exhaust_clamp",
-                "x": 0.47,
-                "y": 0.47
+                "x": 0.52,
+                "y": 0.55
               },
               {
                 "number": 4,
                 "part_id": "exhaust_mounts",
-                "x": 0.65,
-                "y": 0.35
+                "x": 0.472,
+                "y": 0.31
               },
               {
                 "number": 5,
                 "part_id": "exhaust_heat_shield",
-                "x": 0.66,
-                "y": 0.3
+                "x": 0.75,
+                "y": 0.48
               }
             ],
             "source": {
@@ -1663,13 +1667,13 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/dsg/clutch_group.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "flywheel",
-                "x": 0.16,
-                "y": 0.33
+                "x": 0.1,
+                "y": 0.31
               },
               {
                 "number": 2,
@@ -1692,8 +1696,8 @@
               {
                 "number": 5,
                 "part_id": "clutch_engagement_levers",
-                "x": 0.67,
-                "y": 0.5
+                "x": 0.654,
+                "y": 0.626
               }
             ],
             "source": {
@@ -1723,7 +1727,8 @@
                 }
               ],
               "author": "Пакет YetiGarage_CBZB_DQ200_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Два последовательных обычных диска не дают подтверждённой конструкции сухого двойного сцепления 0AM. K1/K2 не идентифицированы. Показать правильную коаксиальную сборку и механизмы включения. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_transmission_families": [
             "0AM"
@@ -1855,8 +1860,8 @@
               {
                 "number": 2,
                 "part_id": "gear_selector_cables",
-                "x": 0.6,
-                "y": 0.27
+                "x": 0.81,
+                "y": 0.145
               },
               {
                 "number": 3,
@@ -2016,8 +2021,8 @@
               {
                 "number": 4,
                 "part_id": "outer_cv_boot",
-                "x": 0.68,
-                "y": 0.35
+                "x": 0.74,
+                "y": 0.43
               },
               {
                 "number": 5,
@@ -2174,7 +2179,7 @@
                 "status": "available",
                 "image": "res://assets/technical_catalog/front_suspension/front_left_corner.webp",
                 "image_type": "exploded_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
@@ -2215,8 +2220,8 @@
                   {
                     "number": 7,
                     "part_id": "hub",
-                    "x": 0.69,
-                    "y": 0.72
+                    "x": 0.635,
+                    "y": 0.676
                   },
                   {
                     "number": 8,
@@ -2258,7 +2263,7 @@
                   ],
                   "author": "Yeti Garage — original generated technical visual"
                 },
-                "asset_note": "Original generated technical visual; not a copy of linked workshop information."
+                "asset_note": "Original generated technical visual; not a copy of linked workshop information. Известное замечание: Подшипник скрыт. Нижнее двухболтовое крепление стойки не соответствует зажимному соединению стойки с кулаком Yeti. Нужна правильная сборка и видимый ступичный подшипник. Требуется замена изображения; точная применимость не подтверждена."
               },
               "variant_note": "Yeti 5L front suspension architecture; exact left-side carrier and component revision require VIN/PR EPC confirmation.",
               "variant_options": [
@@ -2379,7 +2384,7 @@
                 "status": "available",
                 "image": "res://assets/technical_catalog/front_suspension/front_axle_carrier.webp",
                 "image_type": "assembled_view",
-                "verification_level": "VERIFIED_ARCHITECTURE",
+                "verification_level": "REFERENCE_ONLY",
                 "markers": [
                   {
                     "number": 1,
@@ -2427,7 +2432,7 @@
                   ],
                   "author": "Yeti Garage — original generated technical visual"
                 },
-                "asset_note": "Original generated technical visual; generic carrier material, not VIN/PR-exact."
+                "asset_note": "Original generated technical visual; generic carrier material, not VIN/PR-exact. Известное замечание: Подвесочный сайлентблок не отделён от втулки стабилизатора; перенос на похожее резиновое кольцо недоказуем. Требуется замена изображения; точная применимость не подтверждена."
               },
               "variant_note": "Сервисная документация Yeti описывает оба варианта переднего carrier. PR/VIN EPC выборка отсутствует, поэтому установленный вариант неизвестен.",
               "variant_options": [
@@ -2589,14 +2594,14 @@
               {
                 "number": 4,
                 "part_id": "suspension_bushings",
-                "x": 0.56,
-                "y": 0.64
+                "x": 0.61,
+                "y": 0.7
               },
               {
                 "number": 5,
                 "part_id": "ball_joint",
-                "x": 0.81,
-                "y": 0.8
+                "x": 0.88,
+                "y": 0.88
               }
             ],
             "source": {
@@ -2655,42 +2660,42 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/front_suspension/front_strut.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "strut_mount",
-                "x": 0.48,
-                "y": 0.15
+                "x": 0.29,
+                "y": 0.12
               },
               {
                 "number": 2,
                 "part_id": "strut_bearing",
-                "x": 0.5,
-                "y": 0.25
+                "x": 0.294,
+                "y": 0.214
               },
               {
                 "number": 3,
                 "part_id": "spring",
-                "x": 0.4,
-                "y": 0.6
+                "x": 0.29,
+                "y": 0.825
               },
               {
                 "number": 4,
                 "part_id": "bump_stop",
-                "x": 0.64,
-                "y": 0.39
+                "x": 0.295,
+                "y": 0.625
               },
               {
                 "number": 5,
                 "part_id": "strut_dust_boot",
-                "x": 0.64,
-                "y": 0.52
+                "x": 0.294,
+                "y": 0.465
               },
               {
                 "number": 6,
                 "part_id": "strut",
-                "x": 0.68,
+                "x": 0.73,
                 "y": 0.73
               }
             ],
@@ -2717,7 +2722,8 @@
               ],
               "author": "Пользовательский пакет; имя автора в manifest не указано.",
               "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
-            }
+            },
+            "asset_note": " Известное замечание: Нижняя двухболтовая вилка стойки не соответствует соединению Yeti с зажимом в кулаке. Видимые категории деталей можно обозначить, но сборку нужно заменить. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
@@ -2810,8 +2816,8 @@
                   {
                     "number": 2,
                     "part_id": "brake_caliper",
-                    "x": 0.9,
-                    "y": 0.65
+                    "x": 0.775,
+                    "y": 0.55
                   },
                   {
                     "number": 3,
@@ -2876,7 +2882,7 @@
                   {
                     "number": 2,
                     "part_id": "cv_joint_outer",
-                    "x": 0.72,
+                    "x": 0.63,
                     "y": 0.5
                   },
                   {
@@ -2918,38 +2924,38 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "cv_joint_outer",
-                "x": 0.18,
-                "y": 0.42
+                "x": 0.84,
+                "y": 0.43
               },
               {
                 "number": 2,
                 "part_id": "steering_knuckle",
-                "x": 0.52,
-                "y": 0.49,
+                "x": 0.6,
+                "y": 0.65,
                 "manifest_part_id": "front_steering_knuckle"
               },
               {
                 "number": 3,
                 "part_id": "wheel_bearing",
-                "x": 0.63,
-                "y": 0.47
+                "x": 0.425,
+                "y": 0.45
               },
               {
                 "number": 4,
                 "part_id": "hub",
-                "x": 0.76,
-                "y": 0.47
+                "x": 0.266,
+                "y": 0.48
               },
               {
                 "number": 5,
                 "part_id": "dust_shield",
-                "x": 0.8,
-                "y": 0.61
+                "x": 0.181,
+                "y": 0.243
               },
               {
                 "number": 6,
@@ -2985,7 +2991,8 @@
               ],
               "author": "Пользовательский пакет; имя автора в manifest не указано.",
               "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
-            }
+            },
+            "asset_note": " Известное замечание: Показан отдельный запрессовываемый подшипник вместо подтверждённого болтового ступично-подшипникового узла Yeti. Нужна правильная сборка с зажимом стойки. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
@@ -3072,7 +3079,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3113,8 +3120,8 @@
               {
                 "number": 7,
                 "part_id": "rear_shock_absorber",
-                "x": 0.88,
-                "y": 0.3
+                "x": 0.865,
+                "y": 0.34
               },
               {
                 "number": 8,
@@ -3125,8 +3132,8 @@
               {
                 "number": 9,
                 "part_id": "rear_hub_carrier",
-                "x": 0.84,
-                "y": 0.6
+                "x": 0.887,
+                "y": 0.601
               }
             ],
             "source": {
@@ -3151,7 +3158,8 @@
                 }
               ],
               "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Не заданы направление движения и стороны автомобиля; назначения верхнего, нижнего, продольного рычагов и тяги нельзя доказать. Нужна ориентированная схема многорычажной подвески FWD. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
@@ -3202,14 +3210,14 @@
               {
                 "number": 5,
                 "part_id": "rear_track_rod",
-                "x": 0.75,
-                "y": 0.32
+                "x": 0.79,
+                "y": 0.36
               },
               {
                 "number": 6,
                 "part_id": "rear_suspension_bushings",
-                "x": 0.5,
-                "y": 0.6
+                "x": 0.617,
+                "y": 0.667
               }
             ],
             "source": {
@@ -3260,7 +3268,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3283,20 +3291,20 @@
               {
                 "number": 4,
                 "part_id": "rear_shock_absorber",
-                "x": 0.67,
+                "x": 0.63,
                 "y": 0.48
               },
               {
                 "number": 5,
                 "part_id": "rear_shock_upper_mount",
-                "x": 0.67,
-                "y": 0.16
+                "x": 0.625,
+                "y": 0.075
               },
               {
                 "number": 6,
                 "part_id": "rear_shock_bump_stop",
-                "x": 0.67,
-                "y": 0.26
+                "x": 0.628,
+                "y": 0.18
               }
             ],
             "source": {
@@ -3321,7 +3329,8 @@
                 }
               ],
               "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Изображена соединяющая колёса балка. Yeti FWD имеет независимую многорычажную подвеску. Показать отдельно пружину на нижнем рычаге и амортизатор с опорой/отбойником. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
@@ -3344,7 +3353,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/rear_suspension/rear_hub.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3373,8 +3382,8 @@
               {
                 "number": 5,
                 "part_id": "rear_wheel_speed_sensor",
-                "x": 0.52,
-                "y": 0.21
+                "x": 0.515,
+                "y": 0.29
               },
               {
                 "number": 6,
@@ -3411,7 +3420,8 @@
                 }
               ],
               "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Подшипник скрыт внутри ступицы; зубчатое кольцо не подтверждает магнитный ABS-энкодер. Нужен разрез неприводного ступичного узла FWD с различимой стороной энкодера. Требуется замена изображения; точная применимость не подтверждена."
           },
           "requires_drivetrain": "FWD",
           "variant": "FWD_POST_CW22_2010",
@@ -3438,7 +3448,7 @@
             "status": "available",
             "image": "res://assets/technical_catalog/steering/steering_column.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3476,7 +3486,7 @@
               "verification_note": "Yeti 5L LHD steering-column service page supports the architecture. Image is explanatory; exact wheel controls and column revision are equipment-dependent.",
               "author": "Yeti Garage — original generated technical visual"
             },
-            "asset_note": "Original generated technical visual; equipment/PR-specific detail not VIN-exact."
+            "asset_note": "Original generated technical visual; equipment/PR-specific detail not VIN-exact. Известное замечание: Узел подрулевой электроники/контактного кольца не позволяет отдельно идентифицировать G85. Показать документально подтверждённое исполнение MY2011, не смешивать датчик с контактным кольцом. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой."
         },
@@ -3519,7 +3529,7 @@
                 "number": 4,
                 "part_id": "steering_tie_rod",
                 "x": 0.82,
-                "y": 0.56
+                "y": 0.63
               },
               {
                 "number": 5,
@@ -3594,13 +3604,13 @@
                 "number": 1,
                 "part_id": "steering_tie_rod",
                 "x": 0.37,
-                "y": 0.55
+                "y": 0.46
               },
               {
                 "number": 2,
                 "part_id": "tie_rod_end",
-                "x": 0.13,
-                "y": 0.59
+                "x": 0.12,
+                "y": 0.51
               },
               {
                 "number": 3,
@@ -3611,8 +3621,8 @@
               {
                 "number": 4,
                 "part_id": "tie_rod_lock_nut",
-                "x": 0.25,
-                "y": 0.53
+                "x": 0.2,
+                "y": 0.51
               }
             ],
             "source": {
@@ -3666,7 +3676,7 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/front_suspension/front_brake_assembly.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3690,8 +3700,8 @@
               {
                 "number": 4,
                 "part_id": "brake_guide_pins",
-                "x": 0.5,
-                "y": 0.76,
+                "x": 0.331,
+                "y": 0.808,
                 "manifest_part_id": "brake_caliper_guides"
               },
               {
@@ -3740,7 +3750,8 @@
               ],
               "author": "Пользовательский пакет; имя автора в manifest не указано.",
               "asset_manifest": "res://assets/technical_catalog/front_suspension/front_suspension_batch_manifest.json"
-            }
+            },
+            "asset_note": " Известное замечание: Тормозной шланг отсутствует, ступица скрыта диском/колпачком. Нужна схема с отдельно видимыми шлангом и ступицей и оговоркой PR тормозов. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точное исполнение зависит от PR-кода автомобиля; размер тормозного диска и номер суппорта не подтверждены."
         },
@@ -3839,7 +3850,7 @@
             "status": "available",
             "image": "res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -3856,8 +3867,8 @@
               {
                 "number": 3,
                 "part_id": "brake_carrier",
-                "x": 0.78,
-                "y": 0.62
+                "x": 0.714,
+                "y": 0.51
               },
               {
                 "number": 4,
@@ -3911,7 +3922,7 @@
               ],
               "author": "Yeti Garage — original generated technical visual"
             },
-            "asset_note": "Original generated technical visual; generic PR-dependent brake configuration."
+            "asset_note": "Original generated technical visual; generic PR-dependent brake configuration. Известное замечание: Прежний active audit уже отмечает вентилируемый диск и отсутствие различимого привода ручника. Перемещение маркера скобы не подтверждает весь задний тормоз MY2011 FWD. Нужен правильный задний суппорт с видимым механическим приводом стояночного тормоза, диск/скоба по оговорённому PR-коду; без неподтверждённого назначения переднего тормоза задним. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Конструкция тормозного узла показана общая; диаметр диска и номер суппорта зависят от PR-кода."
         },
@@ -4153,13 +4164,13 @@
             "status": "verified",
             "image": "res://assets/technical_catalog/brakes/wheel_sensors.webp",
             "image_type": "exploded_view",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
                 "part_id": "wheel_speed_sensor",
-                "x": 0.59,
-                "y": 0.23
+                "x": 0.494,
+                "y": 0.227
               },
               {
                 "number": 2,
@@ -4182,8 +4193,8 @@
               {
                 "number": 5,
                 "part_id": "wheel_bearing_housing",
-                "x": 0.31,
-                "y": 0.48
+                "x": 0.232,
+                "y": 0.3
               }
             ],
             "source": {
@@ -4208,7 +4219,8 @@
                 }
               ],
               "author": "Пакет YetiGarage_rear_steering_abs_2D_batch_v1"
-            }
+            },
+            "asset_note": " Известное замечание: Зубчатое кольцо не подтверждает правильный встроенный ABS-энкодер ступичного узла Yeti. Показать датчик и соответствующий встроенный энкодер; корпус кулака wheel-bearing housing уже идентифицирован по документации, новый part_id не нужен. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точная модификация детали зависит от PR-кода; архитектура узла остаётся применимой.",
           "summary": "Wheel speed sensor plus hub/bearing encoder-ring architecture; exact front/rear part shape may differ."
@@ -4486,8 +4498,8 @@
               {
                 "number": 4,
                 "part_id": "hvac_housing",
-                "x": 0.44,
-                "y": 0.53
+                "x": 0.18,
+                "y": 0.72
               },
               {
                 "number": 5,
@@ -4616,7 +4628,7 @@
             "status": "available",
             "image": "res://assets/technical_catalog/climate/ac_circuit.webp",
             "image_type": "technical_illustration",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -4682,7 +4694,8 @@
                 }
               ],
               "author": "Yeti Garage — original generated technical visual"
-            }
+            },
+            "asset_note": " Известное замечание: Вместо испарителя изображён второй наружный конденсор; G65 нельзя доказанно идентифицировать. Нужны конденсор, испаритель в HVAC и G65 на стороне высокого давления. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Точное исполнение климатической установки зависит от комплектации автомобиля."
         }
@@ -4738,8 +4751,8 @@
               {
                 "number": 5,
                 "part_id": "battery_ground_cable",
-                "x": 0.25,
-                "y": 0.62
+                "x": 0.27,
+                "y": 0.655
               },
               {
                 "number": 6,
@@ -4819,14 +4832,14 @@
               {
                 "number": 4,
                 "part_id": "automotive_relays",
-                "x": 0.29,
-                "y": 0.79
+                "x": 0.33,
+                "y": 0.73
               },
               {
                 "number": 5,
                 "part_id": "blade_fuses",
                 "x": 0.18,
-                "y": 0.85
+                "y": 0.9
               }
             ],
             "source": {
@@ -4971,8 +4984,8 @@
               {
                 "number": 5,
                 "part_id": "bulkhead_wiring_grommet",
-                "x": 0.85,
-                "y": 0.37
+                "x": 0.76,
+                "y": 0.375
               }
             ],
             "source": {
@@ -5015,7 +5028,7 @@
             "status": "available",
             "image": "res://assets/technical_catalog/ignition/ignition.webp",
             "image_type": "technical_illustration",
-            "verification_level": "VERIFIED_ARCHITECTURE",
+            "verification_level": "REFERENCE_ONLY",
             "markers": [
               {
                 "number": 1,
@@ -5032,8 +5045,8 @@
               {
                 "number": 3,
                 "part_id": "spark_plugs",
-                "x": 0.82,
-                "y": 0.16
+                "x": 0.86,
+                "y": 0.21
               },
               {
                 "number": 4,
@@ -5064,7 +5077,8 @@
               },
               "verification_note": "CBZB verified architecture: one ignition transformer N152 with four ignition leads to four spark plugs; not four individual pencil coils.",
               "author": "Yeti Garage — original generated technical visual"
-            }
+            },
+            "asset_note": " Известное замечание: Неидентифицированные датчики не дают соответствия G28/G40. Показать их отдельно с правильными местами установки CBZB, сохранить один N152 и четыре свечи/провода. Требуется замена изображения; точная применимость не подтверждена."
           },
           "variant_note": "Для CBZB: один модуль / трансформатор зажигания N152, четыре высоковольтных провода и четыре свечи; не четыре индивидуальные катушки.",
           "requires_engine_codes": [
@@ -5124,8 +5138,8 @@
               {
                 "number": 5,
                 "part_id": "headlamp_bulbs",
-                "x": 0.29,
-                "y": 0.14
+                "x": 0.197,
+                "y": 0.143
               },
               {
                 "number": 6,
@@ -5208,8 +5222,8 @@
               {
                 "number": 5,
                 "part_id": "license_plate_lamp",
-                "x": 0.5,
-                "y": 0.7
+                "x": 0.37,
+                "y": 0.75
               }
             ],
             "source": {
@@ -5280,8 +5294,8 @@
               {
                 "number": 4,
                 "part_id": "interior_light_bulbs",
-                "x": 0.5,
-                "y": 0.29
+                "x": 0.083,
+                "y": 0.493
               },
               {
                 "number": 5,
@@ -5728,8 +5742,8 @@
               {
                 "number": 2,
                 "part_id": "wiper_linkage",
-                "x": 0.4,
-                "y": 0.56
+                "x": 0.34,
+                "y": 0.61
               },
               {
                 "number": 3,
@@ -5973,8 +5987,8 @@
               {
                 "number": 1,
                 "part_id": "center_console",
-                "x": 0.72,
-                "y": 0.7
+                "x": 0.615,
+                "y": 0.54
               },
               {
                 "number": 2,

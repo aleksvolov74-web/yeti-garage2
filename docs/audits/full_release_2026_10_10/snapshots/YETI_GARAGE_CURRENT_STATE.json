@@ -1,0 +1,59 @@
+{
+  "project": "Yeti Garage",
+  "repository": "aleksvolov74-web/yeti-garage2",
+  "branch": "main",
+  "vehicle": {
+    "model": "Skoda Yeti 5L",
+    "model_year": 2011,
+    "engine": "1.2 TSI CBZB",
+    "drivetrain": "FWD",
+    "transmission": "DSG7 / 0AM-DQ200"
+  },
+  "checkpoint": {
+    "version": "0.20.26",
+    "versionCode": 66,
+    "final_commit": "72e954c25b6329331edb8bd9f5f41e0cd43f0132",
+    "nodes_total": 90,
+    "nodes_with_images": 51,
+    "nodes_without_images": 39,
+    "markers_total": 250,
+    "verified_architecture_total": 58,
+    "reference_only_total": 32
+  },
+  "last_completed_batch": {
+    "name": "Electrics + Lighting",
+    "images_added": 8,
+    "markers_added": 42,
+    "status": "completed"
+  },
+  "current_batch": {
+    "name": "Body + Glass/Wipers/Washer",
+    "status": "RESTART_REQUIRED",
+    "reason": "Previous v1 visuals/ZIP are invalid for the agreed workflow; regenerate node-by-node and show every image before packaging.",
+    "node_ids": [
+      "body_front",
+      "doors",
+      "body_rear",
+      "body_protection",
+      "mirrors",
+      "glazing",
+      "front_wipers",
+      "rear_wiper",
+      "washers"
+    ],
+    "expected_nodes_after_completion": {
+      "nodes_with_images": 60,
+      "nodes_without_images": 30
+    },
+    "next_step": "Start with body_front. Verify architecture and part_ids, generate one standalone technical image, show it to the user, review, then continue to doors."
+  },
+  "hard_rules": [
+    "Never use Magnific.",
+    "Always show every generated image immediately.",
+    "One node_id = one standalone technical image.",
+    "No multi-node collages unless explicitly requested.",
+    "Do not package until all images are reviewed.",
+    "Do not make the user manually add files to the project."
+  ],
+  "updated": "2026-10-02"
+}

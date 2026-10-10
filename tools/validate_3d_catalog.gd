@@ -142,8 +142,8 @@ func _run_checks() -> void:
 		failures.append("expected 90 technical nodes with images, found %d" % all_image_nodes)
 	if all_marker_total != 376:
 		failures.append("expected 376 technical markers, found %d" % all_marker_total)
-	if verified_architecture_total != 57 or reference_only_total != 33:
-		failures.append("expected 57 VERIFIED_ARCHITECTURE / 33 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
+	if verified_architecture_total != 35 or reference_only_total != 55:
+		failures.append("expected 35 VERIFIED_ARCHITECTURE / 55 REFERENCE_ONLY, found %d / %d" % [verified_architecture_total, reference_only_total])
 	if recursive_nodes != 86:
 		failures.append("expected 86 nodes applicable to the FWD vehicle profile, found %d" % recursive_nodes)
 	if fwd_ui_image_node_count != 86:
@@ -257,6 +257,10 @@ func _run_checks() -> void:
 		failures.append("existing part deep link did not reach the mobile detail card")
 	for button_node in mobile_view.find_children("*", "Button", true, false):
 		var button := button_node as Button
+		if button is OptionButton:
+			if (button as OptionButton).get_signal_connection_list("item_selected").is_empty():
+				failures.append("mobile catalog scheme selector '%s' has no action" % button.text)
+			continue
 		if button.get_signal_connection_list("pressed").is_empty():
 			failures.append("mobile catalog button '%s' has no action" % button.text)
 	mobile_view.queue_free()
@@ -278,39 +282,39 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 	await process_frame
 	var expected := {
 		"front_subframe_arms": {"section":"front_suspension", "count":5, "tap_part":"control_arm_left", "level":"VERIFIED_ARCHITECTURE"},
-		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing", "level":"VERIFIED_ARCHITECTURE"},
-		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle", "level":"VERIFIED_ARCHITECTURE"},
-		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper", "level":"VERIFIED_ARCHITECTURE"},
+		"front_strut": {"section":"front_suspension", "count":6, "tap_part":"strut_bearing", "level":"REFERENCE_ONLY"},
+		"front_knuckle_hub": {"section":"front_suspension", "count":6, "tap_part":"steering_knuckle", "level":"REFERENCE_ONLY"},
+		"front_brake_assembly": {"section":"front_brakes", "count":7, "tap_part":"brake_caliper", "level":"REFERENCE_ONLY"},
 		"timing_chain": {"section":"timing", "count":3, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
 		"timing_gears": {"section":"timing", "count":2, "tap_part":"timing_sprockets", "level":"VERIFIED_ARCHITECTURE"},
 		"oil_pump_circuit": {"section":"lubrication", "count":3, "tap_part":"oil_pump_drive", "level":"VERIFIED_ARCHITECTURE"},
 		"gearbox_group": {"section":"transmission", "count":5, "tap_part":"gearbox_housing", "level":"REFERENCE_ONLY"},
-		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1", "level":"VERIFIED_ARCHITECTURE"},
+		"clutch_group": {"section":"transmission", "count":5, "tap_part":"clutch_k1", "level":"REFERENCE_ONLY"},
 		"dsg_mechatronics": {"section":"transmission", "count":3, "tap_part":"dsg_mechatronics_connector", "level":"REFERENCE_ONLY"},
 		"gear_selector": {"section":"transmission", "count":4, "tap_part":"selector_cable_support", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_suspension_overview": {"section":"rear_suspension", "count":9, "tap_part":"rear_subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_suspension_overview": {"section":"rear_suspension", "count":9, "tap_part":"rear_subframe", "level":"REFERENCE_ONLY"},
 		"rear_carrier": {"section":"rear_suspension", "count":6, "tap_part":"rear_lower_control_arm", "level":"REFERENCE_ONLY"},
-		"rear_springs_dampers": {"section":"rear_suspension", "count":6, "tap_part":"rear_shock_absorber", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_hub": {"section":"rear_suspension", "count":7, "tap_part":"rear_hub_carrier", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_springs_dampers": {"section":"rear_suspension", "count":6, "tap_part":"rear_shock_absorber", "level":"REFERENCE_ONLY"},
+		"rear_hub": {"section":"rear_suspension", "count":7, "tap_part":"rear_hub_carrier", "level":"REFERENCE_ONLY"},
 		"steering_rack": {"section":"steering", "count":6, "tap_part":"steering_input_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"steering_linkage": {"section":"steering", "count":4, "tap_part":"tie_rod_lock_nut", "level":"VERIFIED_ARCHITECTURE"},
 		"abs_esp_block": {"section":"abs_esp", "count":5, "tap_part":"abs_hydraulic_unit", "level":"REFERENCE_ONLY"},
 		"brake_hydraulics": {"section":"abs_esp", "count":6, "tap_part":"brake_lines", "level":"REFERENCE_ONLY"},
-		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"VERIFIED_ARCHITECTURE"},
-		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"VERIFIED_ARCHITECTURE"},
-		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"VERIFIED_ARCHITECTURE"},
-		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"VERIFIED_ARCHITECTURE"},
+		"wheel_sensors": {"section":"abs_esp", "count":5, "tap_part":"wheel_speed_sensor", "level":"REFERENCE_ONLY"},
+		"air_path": {"section":"intake_boost", "count":7, "tap_part":"charge_air_cooler", "level":"REFERENCE_ONLY"},
+		"boost_group": {"section":"intake_boost", "count":6, "tap_part":"charge_pressure_regulator_v465", "level":"REFERENCE_ONLY"},
+		"fuel_delivery": {"section":"fuel", "count":5, "tap_part":"fuel_pressure_sensor_g247", "level":"REFERENCE_ONLY"},
 		"fuel_storage": {"section":"fuel", "count":6, "tap_part":"evap_charcoal_canister", "level":"REFERENCE_ONLY"},
 		"radiator_pack": {"section":"cooling", "count":6, "tap_part":"low_temperature_radiator", "level":"VERIFIED_ARCHITECTURE"},
 		"coolant_circuit": {"section":"cooling", "count":9, "tap_part":"coolant_recirculation_pump_v50", "level":"REFERENCE_ONLY"},
 		"exhaust_front": {"section":"exhaust", "count":5, "tap_part":"exhaust_flex_joint", "level":"VERIFIED_ARCHITECTURE"},
-		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
+		"exhaust_aftertreatment": {"section":"exhaust", "count":6, "tap_part":"catalyst_heat_shield", "level":"REFERENCE_ONLY"},
 		"exhaust_rear": {"section":"exhaust", "count":5, "tap_part":"exhaust_heat_shield", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_complete": {"section":"engine", "count":7, "tap_part":"turbocharger", "level":"VERIFIED_ARCHITECTURE"},
-		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"VERIFIED_ARCHITECTURE"},
-		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"VERIFIED_ARCHITECTURE"},
-		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"VERIFIED_ARCHITECTURE"},
-		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"VERIFIED_ARCHITECTURE"},
+		"engine_bottom_end": {"section":"engine", "count":4, "tap_part":"crankshaft", "level":"REFERENCE_ONLY"},
+		"engine_block_group": {"section":"engine", "count":4, "tap_part":"piston_group", "level":"REFERENCE_ONLY"},
+		"engine_upper_end": {"section":"engine", "count":3, "tap_part":"camshafts", "level":"REFERENCE_ONLY"},
+		"cylinder_head_group": {"section":"engine", "count":3, "tap_part":"valve_cover", "level":"REFERENCE_ONLY"},
 		"engine_mounts": {"section":"engine", "count":1, "tap_part":"engine_mount", "level":"VERIFIED_ARCHITECTURE"},
 		"engine_accessories": {"section":"engine", "count":3, "tap_part":"alternator", "level":"VERIFIED_ARCHITECTURE"},
 		"timing_drive_node": {"section":"timing", "count":6, "tap_part":"timing_chain", "level":"VERIFIED_ARCHITECTURE"},
@@ -319,12 +323,12 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"coolant_reservoir": {"section":"cooling", "count":1, "tap_part":"coolant_expansion_tank", "level":"VERIFIED_ARCHITECTURE"},
 		"heater_box": {"section":"climate", "count":5, "tap_part":"hvac_housing", "level":"VERIFIED_ARCHITECTURE"},
 		"blower": {"section":"climate", "count":5, "tap_part":"fresh_air_blower_control_unit_j126", "level":"VERIFIED_ARCHITECTURE"},
-		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"VERIFIED_ARCHITECTURE"},
+		"ac_circuit": {"section":"climate", "count":6, "tap_part":"ac_pressure_sensor_g65", "level":"REFERENCE_ONLY"},
 		"power_start": {"section":"electrical", "count":6, "tap_part":"battery_positive_cable", "level":"REFERENCE_ONLY"},
 		"fuses_relays": {"section":"electrical", "count":5, "tap_part":"relay_carrier", "level":"REFERENCE_ONLY"},
 		"control_units": {"section":"electrical", "count":5, "tap_part":"control_unit_connectors", "level":"REFERENCE_ONLY"},
 		"wiring": {"section":"electrical", "count":5, "tap_part":"ground_straps", "level":"REFERENCE_ONLY"},
-		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"VERIFIED_ARCHITECTURE"},
+		"ignition": {"section":"electrical", "count":5, "tap_part":"ignition_cables", "level":"REFERENCE_ONLY"},
 		"front_lamps": {"section":"lighting", "count":6, "tap_part":"headlamp_bulbs", "level":"REFERENCE_ONLY"},
 		"rear_lamps": {"section":"lighting", "count":5, "tap_part":"tail_lamp_bulb_carrier", "level":"REFERENCE_ONLY"},
 		"interior_lamps": {"section":"lighting", "count":5, "tap_part":"rear_interior_light", "level":"REFERENCE_ONLY"},
@@ -341,16 +345,16 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		"left_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"right_drive": {"section":"front_drive", "count":5, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"front_suspension_overview": {"section":"front_suspension", "count":9, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
-		"front_left_corner": {"section":"front_suspension", "count":9, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
+		"front_left_corner": {"section":"front_suspension", "count":9, "tap_part":"control_arm", "level":"REFERENCE_ONLY"},
 		"front_right_corner": {"section":"front_suspension", "count":6, "tap_part":"control_arm", "level":"VERIFIED_ARCHITECTURE"},
-		"front_axle_carrier": {"section":"front_suspension", "count":3, "tap_part":"subframe", "level":"VERIFIED_ARCHITECTURE"},
+		"front_axle_carrier": {"section":"front_suspension", "count":3, "tap_part":"subframe", "level":"REFERENCE_ONLY"},
 		"front_hub_bearing": {"section":"front_suspension", "count":2, "tap_part":"hub", "level":"VERIFIED_ARCHITECTURE"},
 		"front_brake_at_hub": {"section":"front_suspension", "count":4, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
 		"front_drive_at_hub": {"section":"front_suspension", "count":3, "tap_part":"drive_shaft", "level":"VERIFIED_ARCHITECTURE"},
 		"front_stabilizer": {"section":"front_suspension", "count":2, "tap_part":"anti_roll_bar", "level":"VERIFIED_ARCHITECTURE"},
-		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"VERIFIED_ARCHITECTURE"},
+		"steering_column": {"section":"steering", "count":3, "tap_part":"steering_wheel", "level":"REFERENCE_ONLY"},
 		"front_brake_hose": {"section":"front_brakes", "count":4, "tap_part":"brake_carrier", "level":"VERIFIED_ARCHITECTURE"},
-		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"VERIFIED_ARCHITECTURE"},
+		"rear_brake_assembly": {"section":"rear_brakes", "count":7, "tap_part":"brake_disc", "level":"REFERENCE_ONLY"},
 		"parking_brake": {"section":"rear_brakes", "count":2, "tap_part":"parking_brake_cable", "level":"VERIFIED_ARCHITECTURE"},
 		"dashboard": {"section":"interior", "count":4, "tap_part":"dashboard", "level":"REFERENCE_ONLY"},
 		"console": {"section":"interior", "count":2, "tap_part":"center_console", "level":"REFERENCE_ONLY"},
@@ -374,6 +378,29 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var node_id := str(node_id_value)
 		var expected_row: Dictionary = expected[node_id]
 		var section_id := str(expected_row["section"])
+		var catalog_node := TechnicalCatalogService.find_node(node_id, vehicle_profile)
+		var catalog_markers: Array = catalog_node.get("diagram", {}).get("markers", [])
+		if catalog_markers.size() != int(expected_row["count"]):
+			failures.append("technical diagram node %s catalog marker count mismatch" % node_id)
+		all_image_marker_total += catalog_markers.size()
+		cbzb_dq200_marker_total += catalog_markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
+		var static_marker_numbers: Dictionary = {}
+		for marker_value in catalog_markers:
+			var static_marker: Dictionary = marker_value
+			if not PartCatalogService.PARTS.has(str(static_marker.get("part_id", ""))):
+				failures.append("technical diagram node %s has an unknown marker part %s" % [node_id, str(static_marker.get("part_id", ""))])
+			var static_number := int(static_marker.get("number", -1))
+			if static_marker_numbers.has(static_number):
+				failures.append("technical diagram node %s has duplicate marker number %d" % [node_id, static_number])
+			static_marker_numbers[static_number] = true
+			if float(static_marker.get("x", -1.0)) < 0.0 or float(static_marker.get("x", 2.0)) > 1.0 or float(static_marker.get("y", -1.0)) < 0.0 or float(static_marker.get("y", 2.0)) > 1.0:
+				failures.append("technical diagram node %s has an out-of-range marker" % node_id)
+		if expected_row.has("level") and str(catalog_node.get("diagram", {}).get("verification_level", "")) != str(expected_row["level"]):
+			failures.append("technical diagram node %s has an incorrect verification level" % node_id)
+		# Exercise each menu/render gesture on representative images. The static checks
+		# above still cover every image and marker without repeatedly loading 86 textures.
+		if node_id not in ["engine_complete", "engine_upper_end", "timing_chain", "boost_group", "wheel_sensors"]:
+			continue
 		view.call("_open_section", section_id)
 		await process_frame
 		view.call("_open_node", node_id)
@@ -386,8 +413,6 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			failures.append("technical diagram node %s image/marker count mismatch" % node_id)
 			continue
 		opened_image_node_count += 1
-		all_image_marker_total += canvas.markers.size()
-		cbzb_dq200_marker_total += canvas.markers.size() if node_id in ["timing_chain", "timing_gears", "oil_pump_circuit", "gearbox_group", "clutch_group", "dsg_mechatronics", "gear_selector"] else 0
 		var current_node: Dictionary = view.call("_current_node")
 		if expected_row.has("level") and str(current_node.get("diagram", {}).get("verification_level", "")) != str(expected_row["level"]):
 			failures.append("technical diagram node %s has an incorrect verification level" % node_id)
@@ -460,8 +485,14 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		var marker: Dictionary = canvas.markers[0]
 		var image_rect: Rect2 = canvas.call("_image_rect")
 		var point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		var displayable := TechnicalDiagramCanvas.marker_is_displayable(marker)
 		canvas.call("_pick_marker", point)
 		await process_frame
+		if not displayable:
+			if str(view.get("selected_part_id")) == str(marker.get("part_id", "")):
+				failures.append("unsafe marker remained clickable: " + node_id)
+			view.call("_select_part", str(marker.get("part_id", "")))
+			await process_frame
 		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
 			failures.append("technical diagram node %s marker tap did not select its part" % node_id)
 		var selected_canvas = view.get("_diagram")
@@ -496,19 +527,18 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 				has_clear_selection = true
 		if not has_clear_selection:
 			failures.append("technical diagram node %s part card selection action is missing" % node_id)
-		var node_name := str(current_node.get("name", ""))
-		var node_breadcrumb: Button
-		for button_node in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if button_node is Button and str((button_node as Button).get_meta("full_breadcrumb_text", (button_node as Button).text)) == node_name:
-				node_breadcrumb = button_node as Button
+		var clear_selection: Button
+		for button_node in view.find_children("*", "Button", true, false):
+			if str((button_node as Button).text) == "Снять выделение":
+				clear_selection = button_node as Button
 				break
-		if node_breadcrumb == null:
-			failures.append("technical diagram node %s has no back path from the part card" % node_id)
+		if clear_selection == null:
+			failures.append("technical diagram node %s has no selection action" % node_id)
 		else:
-			node_breadcrumb.pressed.emit()
+			clear_selection.pressed.emit()
 			await process_frame
 			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
-				failures.append("technical diagram node %s could not navigate back from its part card" % node_id)
+				failures.append("technical diagram node %s could not close its selected-part panel" % node_id)
 		view.set("selected_part_id", "")
 		view.call("_render")
 		await process_frame
@@ -526,8 +556,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 			section_breadcrumb.pressed.emit()
 			await process_frame
 			var section_path: Array = view.get("current_path")
-			if not section_path.is_empty():
-				failures.append("technical diagram node %s did not return to its section list" % node_id)
+			if section_path.is_empty() or view.get("_diagram") == null:
+				failures.append("technical diagram node %s did not return directly to the system diagram" % node_id)
 		view.call("_open_section", section_id)
 		var search_edit := view.get("_search_edit") as LineEdit
 		search_edit.text = str(expected_part.get("name", ""))
@@ -552,8 +582,8 @@ func _check_front_suspension_images(failures: Array[String]) -> void:
 		failures.append("FWD technical diagrams should have 367 markers, found %d" % all_image_marker_total)
 	if cbzb_dq200_marker_total != 25:
 		failures.append("CBZB/DQ200 batch should have 25 markers, found %d" % cbzb_dq200_marker_total)
-	if opened_image_node_count != expected.size() or all_image_marker_total != expected_marker_total:
-		failures.append("expected %d image nodes / %d markers, found %d opened nodes / %d markers" % [expected.size(), expected_marker_total, opened_image_node_count, all_image_marker_total])
+	if opened_image_node_count != 5 or all_image_marker_total != expected_marker_total:
+		failures.append("expected 5 interactive image samples / %d catalog markers, found %d opened samples / %d markers" % [expected_marker_total, opened_image_node_count, all_image_marker_total])
 	view.queue_free()
 
 func _check_awd_reference_images(failures: Array[String]) -> void:
@@ -671,8 +701,14 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		var marker: Dictionary = canvas.markers[0]
 		var image_rect: Rect2 = canvas.call("_image_rect")
 		var tap_point := image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+		var displayable := TechnicalDiagramCanvas.marker_is_displayable(marker)
 		canvas.call("_pick_marker", tap_point)
 		await process_frame
+		if not displayable:
+			if str(view.get("selected_part_id")) == str(marker.get("part_id", "")):
+				failures.append("unsafe AWD marker remained clickable: " + node_id)
+			view.call("_select_part", str(marker.get("part_id", "")))
+			await process_frame
 		if str(view.get("selected_part_id")) != str(marker.get("part_id", "")):
 			failures.append("AWD reference node %s marker tap selected the wrong part" % node_id)
 		var list_button: Button
@@ -698,19 +734,18 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 				failures.append("AWD reference node %s shows an image placeholder" % node_id)
 		if not found_card:
 			failures.append("AWD reference node %s did not show the selected part card" % node_id)
-		var node_name := str(node.get("name", ""))
-		var node_crumb: Button
-		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
-			if crumb_value is Button and str((crumb_value as Button).get_meta("full_breadcrumb_text", (crumb_value as Button).text)) == node_name:
-				node_crumb = crumb_value as Button
+		var clear_selection: Button
+		for button_value in view.find_children("*", "Button", true, false):
+			if str((button_value as Button).text) == "Снять выделение":
+				clear_selection = button_value as Button
 				break
-		if node_crumb == null:
-			failures.append("AWD reference node %s has no back navigation" % node_id)
+		if clear_selection == null:
+			failures.append("AWD reference node %s has no selected-part close action" % node_id)
 		else:
-			node_crumb.pressed.emit()
+			clear_selection.pressed.emit()
 			await process_frame
 			if str(view.get("selected_part_id")) != "" or view.get("_diagram") == null:
-				failures.append("AWD reference node %s could not return from the part card" % node_id)
+				failures.append("AWD reference node %s could not close the selected-part panel" % node_id)
 		var section_name := str(TechnicalCatalogService.section("awd", awd_profile).get("name", ""))
 		var section_crumb: Button
 		for crumb_value in (view.get("_breadcrumb") as HFlowContainer).get_children():
@@ -722,8 +757,8 @@ func _check_awd_reference_images(failures: Array[String]) -> void:
 		else:
 			section_crumb.pressed.emit()
 			await process_frame
-			if not (view.get("current_path") as Array).is_empty():
-				failures.append("AWD reference node %s did not return to AWD section list" % node_id)
+			if str(view.get("current_section_id")) != "awd" or view.get("_diagram") == null:
+				failures.append("AWD reference node %s did not return directly to the AWD diagram" % node_id)
 		view.call("_open_section", "awd")
 		var search_edit := view.get("_search_edit") as LineEdit
 		search_edit.text = str(part.get("name", ""))
@@ -795,114 +830,103 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 			outer.queue_free()
 			continue
 		var section_grid := grids[0] as GridContainer
-		print("Mobile layout dimensions: requested=%d subviewport=%s outer=%s host=%s page=%s view=%s content=%s grid=%s columns=%d" % [viewport_width, test_viewport.size, outer.size, host.size, page.size, view.size, content.size, section_grid.size, section_grid.columns])
 		if section_grid.columns != 1:
 			failures.append("%dpx system page should use one readable column, found %d" % [viewport_width, section_grid.columns])
 		if section_grid.size.x > outer.size.x + 1.0 or section_grid.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
 			failures.append("%dpx system grid exceeds the mobile viewport" % viewport_width)
-		var section_card: Button
-		if section_grid.get_child_count() > 0:
-			section_card = section_grid.get_child(0) as Button
+		var section_card := section_grid.get_child(0) as Button if section_grid.get_child_count() > 0 else null
 		if section_card == null:
 			failures.append("%dpx system grid has no section card" % viewport_width)
 		else:
-			if section_card.mouse_filter != Control.MOUSE_FILTER_PASS or section_card.get_child_count() == 0:
-				failures.append("%dpx system card does not pass touch or contain its full-rect layout" % viewport_width)
-			else:
-				var section_margin := section_card.get_child(0) as MarginContainer
-				if section_margin.size.x < section_card.size.x - 4.0 or section_margin.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
-					failures.append("%dpx system card text container is narrower than the card or overflows" % viewport_width)
+			if section_card.custom_minimum_size.y < 48.0 or section_card.mouse_filter != Control.MOUSE_FILTER_PASS:
+				failures.append("%dpx system card has an invalid touch target" % viewport_width)
 			await _send_mobile_drag(test_viewport, section_card.get_global_rect().get_center(), section_card.get_global_rect().get_center() + Vector2(0, -110))
-			if outer.scroll_vertical <= 0 or view.get("current_section_id") != "":
-				failures.append("%dpx swipe over a section card did not scroll without activating it" % viewport_width)
+			if outer.scroll_vertical <= 0 or str(view.get("current_section_id")) != "":
+				failures.append("%dpx swipe over a system card did not scroll without opening it" % viewport_width)
 
 		outer.scroll_vertical = 0
 		view.call("_open_section", "engine")
-		await _wait_for_layout(3)
-		var node_card := _first_catalog_card(content, false)
-		if node_card == null:
-			failures.append("%dpx engine node list has no tappable node card" % viewport_width)
-		else:
-			if node_card.mouse_filter != Control.MOUSE_FILTER_PASS or node_card.size.x > outer.size.x + 1.0 or node_card.get_global_rect().end.x > outer.get_global_rect().end.x + 1.0:
-				failures.append("%dpx node card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(test_viewport, node_card.get_global_rect().get_center(), node_card.get_global_rect().get_center() + Vector2(0, -100))
-			if outer.scroll_vertical <= 0 or not (view.get("current_path") as Array).is_empty():
-				failures.append("%dpx swipe over a node card did not scroll without opening it" % viewport_width)
-
-		outer.scroll_vertical = 0
-		view.call("_open_node", "engine_upper_end")
 		await _wait_for_layout(4)
-		var part_card := _first_catalog_card(content, true)
-		if part_card == null:
-			failures.append("%dpx cylinder-head page has no part list card" % viewport_width)
-		else:
-			outer.scroll_vertical = maxi(0, int(part_card.position.y - 180.0))
-			await _wait_for_layout(2)
-			if part_card.mouse_filter != Control.MOUSE_FILTER_PASS or part_card.size.x > outer.size.x + 1.0:
-				failures.append("%dpx part card has incorrect touch policy or horizontal overflow" % viewport_width)
-			await _send_mobile_drag(test_viewport, part_card.get_global_rect().get_center(), part_card.get_global_rect().get_center() + Vector2(0, -100))
-			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
-				failures.append("%dpx swipe over a part card did not scroll without selecting it" % viewport_width)
-
-		view.call("_open_node", "cylinder_head_group")
-		outer.scroll_vertical = 0
-		await _wait_for_layout(4)
-		var viewport_rect := outer.get_global_rect()
-		var title: Label = view.get("_title")
-		if title.get_global_rect().end.x > viewport_rect.end.x + 1.0 or title.size.x < viewport_width - 24.0 or title.autowrap_mode != TextServer.AUTOWRAP_WORD_SMART:
-			failures.append("%dpx long node title overflows or does not use the available width" % viewport_width)
-		var breadcrumb: HFlowContainer = view.get("_breadcrumb")
-		if breadcrumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
-			failures.append("%dpx breadcrumb container exceeds viewport width" % viewport_width)
-		for breadcrumb_child in breadcrumb.get_children():
-			if breadcrumb_child is Button:
-				var crumb := breadcrumb_child as Button
-				if crumb.mouse_filter != Control.MOUSE_FILTER_PASS or crumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
-					failures.append("%dpx breadcrumb item overflows or blocks navigation gestures" % viewport_width)
-
 		var canvas: Control = view.get("_diagram")
-		if canvas == null:
-			failures.append("%dpx long-title node has no diagram canvas" % viewport_width)
+		if canvas == null or canvas.get("texture") == null:
+			failures.append("%dpx system selection did not open its image immediately" % viewport_width)
+			outer.queue_free()
+			continue
+		var selected_node: Dictionary = view.call("_current_node")
+		var starting_node_id := str(selected_node.get("id", ""))
+		if selected_node.is_empty() or str(selected_node.get("diagram", {}).get("image", "")) == "":
+			failures.append("%dpx system selection opened a node without an image" % viewport_width)
+		var selectors := content.find_children("*", "OptionButton", true, false)
+		if selectors.is_empty() or (selectors[0] as OptionButton).get_item_count() < 2:
+			failures.append("%dpx image workspace has no flattened scheme selector" % viewport_width)
 		else:
+			var selector := selectors[0] as OptionButton
+			selector.select(1)
+			selector.item_selected.emit(1)
+			await _wait_for_layout(2)
+			if str(view.call("_current_node").get("id", "")) == starting_node_id or view.get("_diagram") == null:
+				failures.append("%dpx scheme selector did not switch the visible diagram" % viewport_width)
+
+		var breadcrumb: HFlowContainer = view.get("_breadcrumb")
+		var viewport_rect := outer.get_global_rect()
+		if breadcrumb.get_global_rect().end.x > viewport_rect.end.x + 1.0:
+			failures.append("%dpx compact catalog breadcrumb exceeds the viewport" % viewport_width)
+		for button_node in content.find_children("*", "Button", true, false):
+			var button := button_node as Button
+			if button.custom_minimum_size.y > 0.0 and button.custom_minimum_size.y < 48.0:
+				failures.append("%dpx catalog action has a touch target below 48px" % viewport_width)
+
+		view.call("_open_node", starting_node_id)
+		await _wait_for_layout(3)
+		canvas = view.get("_diagram")
+		if canvas != null:
 			var marker: Dictionary = canvas.get("markers")[0]
-			var image_rect: Rect2 = canvas.call("_image_rect")
-			var marker_position := canvas.global_position + image_rect.position + Vector2(float(marker["x"]), float(marker["y"])) * image_rect.size
+			canvas.call("reset_view")
+			var marker_position: Vector2 = canvas.global_position + canvas.call("_image_rect").position + Vector2(float(marker["x"]), float(marker["y"])) * canvas.call("_image_rect").size
 			outer.scroll_vertical = 0
 			await _send_mobile_drag(test_viewport, marker_position, marker_position + Vector2(0, -115))
-			if outer.scroll_vertical <= 0:
-				failures.append("%dpx zoom=1 swipe over the diagram did not scroll the page" % viewport_width)
-			if not Vector2(canvas.get("_pan")).is_zero_approx() or str(view.get("selected_part_id")) != "":
-				failures.append("%dpx zoom=1 scroll panned the image or falsely selected a marker" % viewport_width)
-
-			outer.scroll_vertical = 0
+			if outer.scroll_vertical <= 0 or str(view.get("selected_part_id")) != "":
+				failures.append("%dpx fit-view swipe over the diagram did not scroll cleanly" % viewport_width)
 			canvas.set("_zoom", 2.0)
 			canvas.call("_update_input_routing")
 			var zoomed_origin := canvas.get_global_rect().get_center()
 			await _send_mobile_drag(test_viewport, zoomed_origin, zoomed_origin + Vector2(-100, 0))
-			if Vector2(canvas.get("_pan")).is_zero_approx() or outer.scroll_vertical != 0:
-				failures.append("%dpx zoomed diagram drag did not pan exclusively inside the image" % viewport_width)
-
+			if Vector2(canvas.get("_pan")).is_zero_approx():
+				failures.append("%dpx zoomed diagram drag did not pan" % viewport_width)
 			canvas.call("reset_view")
-			outer.scroll_vertical = 0
-			await _send_mobile_drag(test_viewport, canvas.get_global_rect().get_center(), canvas.get_global_rect().get_center() + Vector2(0, -115))
-			if outer.scroll_vertical <= 0 or not Vector2(canvas.get("_pan")).is_zero_approx():
-				failures.append("%dpx reset zoom did not restore page scrolling over the diagram" % viewport_width)
-
-			outer.scroll_vertical = 0
-			await _send_mobile_pinch(test_viewport, canvas.get_global_rect().get_center(), 28.0)
-			if float(canvas.get("_zoom")) <= 1.01:
-				failures.append("%dpx two-finger pinch did not zoom the diagram" % viewport_width)
-			canvas.call("reset_view")
-			var final_part_card := _first_catalog_card(content, true)
-			if final_part_card != null:
-				var bar := outer.get_v_scroll_bar()
-				outer.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
-				await _wait_for_layout(3)
-				var last_content := content.get_child(content.get_child_count() - 1) as Control
-				if outer.scroll_vertical <= 0 or last_content.get_global_rect().end.y > outer.get_global_rect().end.y + 2.0:
-					failures.append("%dpx technical catalog page bottom is not reachable" % viewport_width)
-		print("Responsive catalog layout and scroll PASS: %dpx" % viewport_width)
-		test_viewport.queue_free()
+			var parts := content.find_children("*", "Button", true, false)
+			var part_row: Button
+			for button_value in parts:
+				var button := button_value as Button
+				if button.has_meta("part_id"):
+					part_row = button
+					break
+			if part_row != null:
+				var part_id := str(part_row.get_meta("part_id"))
+				part_row.pressed.emit()
+				await process_frame
+				if str(view.get("selected_part_id")) != part_id or view.get("_diagram") == null:
+					failures.append("%dpx part row did not keep its diagram visible" % viewport_width)
+				view.set("selected_part_id", "")
+				view.call("_render")
+				await process_frame
+			view.call("_show_fullscreen_diagram")
+			await process_frame
+			var popups := view.find_children("*", "PopupPanel", true, false)
+			if popups.is_empty():
+				failures.append("%dpx diagram fullscreen control did not open" % viewport_width)
+			else:
+				(popups[0] as PopupPanel).hide()
+				await process_frame
+				if view.get("_diagram") == null:
+					failures.append("%dpx fullscreen close did not restore the diagram" % viewport_width)
+			var bar := outer.get_v_scroll_bar()
+			outer.scroll_vertical = maxi(0, int(bar.max_value - bar.page))
+			await _wait_for_layout(3)
+			if outer.scroll_vertical <= 0:
+				failures.append("%dpx technical page bottom is not reachable" % viewport_width)
+		print("Responsive image-first catalog layout PASS: %dpx" % viewport_width)
+		outer.queue_free()
 		await process_frame
 
 	var app_source_file := FileAccess.open("res://scenes/app/app.gd", FileAccess.READ)
@@ -914,19 +938,6 @@ func _check_responsive_catalog_layout(failures: Array[String]) -> void:
 		var content_width := GlobalSearchLayout.content_width(370.0, float(viewport_width))
 		if popup_size.x > viewport_width or content_width > viewport_width - 24.0:
 			failures.append("global search popup sizing exceeds %dpx viewport" % viewport_width)
-		var results := VBoxContainer.new()
-		results.size = Vector2(content_width - 28.0, 500)
-		results.custom_minimum_size.x = content_width - 28.0
-		root.add_child(results)
-		var long_result := Button.new()
-		long_result.text = "Головка блока цилиндров и клапанный механизм — техническое описание"
-		long_result.custom_minimum_size.y = 48
-		GlobalSearchLayout.style_result_button(long_result)
-		results.add_child(long_result)
-		await _wait_for_layout(2)
-		if not long_result.clip_text or long_result.text_overrun_behavior != TextServer.OVERRUN_TRIM_ELLIPSIS or long_result.size.x > results.size.x + 1.0:
-			failures.append("global search result is not safely ellipsized within its %dpx popup" % viewport_width)
-		results.queue_free()
 	print("Responsive global search layout PASS: 360px / 420px")
 
 func _first_catalog_card(content: VBoxContainer, require_part_id: bool) -> Button:

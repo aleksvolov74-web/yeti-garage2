@@ -1,0 +1,3900 @@
+[
+  {
+    "node_id": "engine_complete",
+    "image": "res://assets/technical_catalog/engine/engine_complete.webp",
+    "part_ids": [
+      "engine_block",
+      "cylinder_head",
+      "engine_mount",
+      "turbocharger",
+      "alternator",
+      "accessory_belt_drive",
+      "starter"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "engine_block",
+        "x": 0.54,
+        "y": 0.63
+      },
+      {
+        "number": 2,
+        "part_id": "cylinder_head",
+        "x": 0.54,
+        "y": 0.2
+      },
+      {
+        "number": 3,
+        "part_id": "engine_mount",
+        "x": 0.15,
+        "y": 0.43
+      },
+      {
+        "number": 4,
+        "part_id": "turbocharger",
+        "x": 0.84,
+        "y": 0.28
+      },
+      {
+        "number": 5,
+        "part_id": "alternator",
+        "x": 0.4,
+        "y": 0.53
+      },
+      {
+        "number": 6,
+        "part_id": "accessory_belt_drive",
+        "x": 0.27,
+        "y": 0.66
+      },
+      {
+        "number": 7,
+        "part_id": "starter",
+        "x": 0.72,
+        "y": 0.72
+      }
+    ],
+    "sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Общий вид двигателя; точная геометрия CBZB не подтверждена из-за синтетической иллюстрации и обзорного источника.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "engine_bottom_end",
+    "image": "res://assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
+    "part_ids": [
+      "engine_block",
+      "crankshaft",
+      "piston_group",
+      "connecting_rods"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "engine_block",
+        "x": 0.48,
+        "y": 0.55
+      },
+      {
+        "number": 2,
+        "part_id": "crankshaft",
+        "x": 0.51,
+        "y": 0.84
+      },
+      {
+        "number": 3,
+        "part_id": "piston_group",
+        "x": 0.44,
+        "y": 0.09
+      },
+      {
+        "number": 4,
+        "part_id": "connecting_rods",
+        "x": 0.44,
+        "y": 0.25
+      }
+    ],
+    "sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Четыре цилиндра; 4 поршня; 4 шатуна; один коленчатый вал. Точная геометрия и ревизия CBZB не подтверждены. ИИ-рендер только как ориентир.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "engine_upper_end",
+    "image": "res://assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
+    "part_ids": [
+      "cylinder_head",
+      "camshafts",
+      "valve_cover"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "cylinder_head",
+        "x": 0.18,
+        "y": 0.73
+      },
+      {
+        "number": 2,
+        "part_id": "camshafts",
+        "x": 0.52,
+        "y": 0.39
+      },
+      {
+        "number": 3,
+        "part_id": "valve_cover",
+        "x": 0.51,
+        "y": 0.13
+      }
+    ],
+    "sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочный вид: четыре цилиндра, восемь клапанов, роликовые коромысла, один распредвал, крышка с опорами распредвала. Точные размеры/отливка/размещение деталей не проверены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "engine_block_group",
+    "image": "res://assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+    "part_ids": [
+      "engine_block",
+      "crankshaft",
+      "piston_group",
+      "connecting_rods"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "engine_block",
+        "x": 0.47,
+        "y": 0.58
+      },
+      {
+        "number": 2,
+        "part_id": "crankshaft",
+        "x": 0.51,
+        "y": 0.805
+      },
+      {
+        "number": 3,
+        "part_id": "piston_group",
+        "x": 0.27,
+        "y": 0.082
+      },
+      {
+        "number": 4,
+        "part_id": "connecting_rods",
+        "x": 0.255,
+        "y": 0.27
+      }
+    ],
+    "sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная взрывная композиция: четыре цилиндра, четыре поршня, четыре шатуна, один коленвал. Не использовать как схему безопасной разборки: заводская документация предупреждает об ограничениях на снятие/ослабление крышек коренных подшипников CBZB.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "cylinder_head_group",
+    "image": "res://assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+    "part_ids": [
+      "cylinder_head",
+      "camshafts",
+      "valve_cover"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "cylinder_head",
+        "x": 0.13,
+        "y": 0.78
+      },
+      {
+        "number": 2,
+        "part_id": "camshafts",
+        "x": 0.61,
+        "y": 0.34
+      },
+      {
+        "number": 3,
+        "part_id": "valve_cover",
+        "x": 0.5,
+        "y": 0.16
+      }
+    ],
+    "sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Отдельный от engine_upper_end технический визуал. Справочная архитектура: 4 цилиндра, 8 клапанов, роликовые рычаги, один распредвал и его крышка-корпус; геометрия не заводская.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "engine_mounts",
+    "image": "res://assets/technical_catalog/engine/engine_mounts.webp",
+    "part_ids": [
+      "engine_mount"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "engine_mount",
+        "x": 0.52,
+        "y": 0.52
+      }
+    ],
+    "sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Тип опоры узнаваем; конкретная опора Yeti/CBZB по изображению не идентифицирована.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "engine_accessories",
+    "image": "res://assets/technical_catalog/engine/engine_accessories.webp",
+    "part_ids": [
+      "alternator",
+      "accessory_belt_drive",
+      "starter"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "alternator",
+        "x": 0.19,
+        "y": 0.4
+      },
+      {
+        "number": 2,
+        "part_id": "accessory_belt_drive",
+        "x": 0.42,
+        "y": 0.82
+      },
+      {
+        "number": 3,
+        "part_id": "starter",
+        "x": 0.8,
+        "y": 0.39
+      }
+    ],
+    "sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Генератор, ремень и стартер различимы. Точный маршрут ремня здесь не показан.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "timing_drive_node",
+    "image": "res://assets/technical_catalog/timing/timing_drive_node.webp",
+    "part_ids": [
+      "timing_drive",
+      "timing_chain",
+      "timing_chain_tensioner",
+      "timing_chain_guides",
+      "timing_sprockets",
+      "timing_cover"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "timing_drive",
+        "x": 0.38,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "timing_chain",
+        "x": 0.49,
+        "y": 0.37
+      },
+      {
+        "number": 3,
+        "part_id": "timing_chain_tensioner",
+        "x": 0.63,
+        "y": 0.4
+      },
+      {
+        "number": 4,
+        "part_id": "timing_chain_guides",
+        "x": 0.36,
+        "y": 0.51
+      },
+      {
+        "number": 5,
+        "part_id": "timing_sprockets",
+        "x": 0.39,
+        "y": 0.17
+      },
+      {
+        "number": 6,
+        "part_id": "timing_cover",
+        "x": 0.9,
+        "y": 0.53
+      }
+    ],
+    "sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Один распредвал и цепной привод; точное исполнение натяжителя/крышки требует сверки.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "timing_chain",
+    "image": "res://assets/technical_catalog/timing/timing_chain.webp",
+    "part_ids": [
+      "timing_chain",
+      "timing_chain_tensioner",
+      "timing_chain_guides"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "timing_chain",
+        "x": 0.59,
+        "y": 0.49
+      },
+      {
+        "number": 2,
+        "part_id": "timing_chain_tensioner",
+        "x": 0.4,
+        "y": 0.38
+      },
+      {
+        "number": 3,
+        "part_id": "timing_chain_guides",
+        "x": 0.47,
+        "y": 0.43
+      }
+    ],
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Цепь, натяжитель, направляющие узнаваемы. Точный комплект CBZB не установлен.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "timing_gears",
+    "image": "res://assets/technical_catalog/timing/timing_gears.webp",
+    "part_ids": [
+      "timing_sprockets",
+      "timing_cover"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "timing_sprockets",
+        "x": 0.55,
+        "y": 0.13
+      },
+      {
+        "number": 2,
+        "part_id": "timing_cover",
+        "x": 0.2,
+        "y": 0.49
+      }
+    ],
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Цепной привод с одним распредвалом; крепёж и исполнение справочные.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "air_path",
+    "image": "res://assets/technical_catalog/intake/air_path.webp",
+    "part_ids": [
+      "air_filter",
+      "air_filter_housing",
+      "throttle_body",
+      "intake_manifold",
+      "charge_air_cooler",
+      "intake_manifold_pressure_sensor",
+      "charge_pressure_sensor"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "air_filter",
+        "x": 0.18,
+        "y": 0.29
+      },
+      {
+        "number": 2,
+        "part_id": "air_filter_housing",
+        "x": 0.16,
+        "y": 0.18
+      },
+      {
+        "number": 3,
+        "part_id": "throttle_body",
+        "x": 0.55,
+        "y": 0.2
+      },
+      {
+        "number": 4,
+        "part_id": "intake_manifold",
+        "x": 0.7,
+        "y": 0.48
+      },
+      {
+        "number": 5,
+        "part_id": "charge_air_cooler",
+        "x": 0.73,
+        "y": 0.42
+      },
+      {
+        "number": 6,
+        "part_id": "intake_manifold_pressure_sensor",
+        "x": 0.66,
+        "y": 0.13
+      },
+      {
+        "number": 7,
+        "part_id": "charge_pressure_sensor",
+        "x": 0.84,
+        "y": 0.67
+      }
+    ],
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Четыре впускных канала видны; два датчика не подтверждены изображением. Не использовать как точное расположение датчиков CBZB.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "boost_group",
+    "image": "res://assets/technical_catalog/intake/boost_group.webp",
+    "part_ids": [
+      "turbocharger",
+      "exhaust_manifold",
+      "charge_pressure_regulator_v465",
+      "turbo_oil_feed_line",
+      "turbo_coolant_lines",
+      "charge_air_pipe"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "turbocharger",
+        "x": 0.62,
+        "y": 0.43
+      },
+      {
+        "number": 2,
+        "part_id": "exhaust_manifold",
+        "x": 0.31,
+        "y": 0.28
+      },
+      {
+        "number": 3,
+        "part_id": "charge_pressure_regulator_v465",
+        "x": 0.8,
+        "y": 0.23
+      },
+      {
+        "number": 4,
+        "part_id": "turbo_oil_feed_line",
+        "x": 0.49,
+        "y": 0.135
+      },
+      {
+        "number": 5,
+        "part_id": "turbo_coolant_lines",
+        "x": 0.245,
+        "y": 0.63
+      },
+      {
+        "number": 6,
+        "part_id": "charge_air_pipe",
+        "x": 0.82,
+        "y": 0.74
+      }
+    ],
+    "sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Показан электрический V465, объединённый узел турбины с коллектором. Точные контуры маслоподачи и охлаждения реального CBZB не подтверждены; схему трубок НЕ использовать при ремонте.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "fuel_storage",
+    "image": "res://assets/technical_catalog/fuel/fuel_storage.webp",
+    "part_ids": [
+      "fuel_tank",
+      "fuel_pump",
+      "fuel_level_sender",
+      "fuel_filter",
+      "evap_charcoal_canister",
+      "fuel_tank_straps"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "fuel_tank",
+        "x": 0.38,
+        "y": 0.48
+      },
+      {
+        "number": 2,
+        "part_id": "fuel_pump",
+        "x": 0.32,
+        "y": 0.19
+      },
+      {
+        "number": 3,
+        "part_id": "fuel_level_sender",
+        "x": 0.398,
+        "y": 0.345
+      },
+      {
+        "number": 4,
+        "part_id": "fuel_filter",
+        "x": 0.64,
+        "y": 0.36
+      },
+      {
+        "number": 5,
+        "part_id": "evap_charcoal_canister",
+        "x": 0.82,
+        "y": 0.46
+      },
+      {
+        "number": 6,
+        "part_id": "fuel_tank_straps",
+        "x": 0.59,
+        "y": 0.84
+      }
+    ],
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Компоновка бака и трубок условная, применимость конкретного бака зависит от комплектации.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "fuel_delivery",
+    "image": "res://assets/technical_catalog/fuel/fuel_delivery.webp",
+    "part_ids": [
+      "high_pressure_fuel_pump",
+      "fuel_rail",
+      "fuel_pressure_sensor_g247",
+      "fuel_pressure_control_valve_n276",
+      "injectors"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "high_pressure_fuel_pump",
+        "x": 0.27,
+        "y": 0.26
+      },
+      {
+        "number": 2,
+        "part_id": "fuel_rail",
+        "x": 0.64,
+        "y": 0.33
+      },
+      {
+        "number": 3,
+        "part_id": "fuel_pressure_sensor_g247",
+        "x": 0.68,
+        "y": 0.18
+      },
+      {
+        "number": 4,
+        "part_id": "fuel_pressure_control_valve_n276",
+        "x": 0.88,
+        "y": 0.27
+      },
+      {
+        "number": 5,
+        "part_id": "injectors",
+        "x": 0.68,
+        "y": 0.65
+      }
+    ],
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Рампа и четыре форсунки узнаваемы, но расположение N276 требует сверки с документацией CBZB, перепривязка не выполняется.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "fuel_sensors",
+    "image": "res://assets/technical_catalog/fuel/fuel_sensors.webp",
+    "part_ids": [
+      "fuel_pressure_sensor",
+      "fuel_level_sender"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "fuel_pressure_sensor",
+        "x": 0.45,
+        "y": 0.2
+      },
+      {
+        "number": 2,
+        "part_id": "fuel_level_sender",
+        "x": 0.5,
+        "y": 0.73
+      }
+    ],
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Изображение является совмещённой справочной композицией рампы и модуля бака.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "radiator_pack",
+    "image": "res://assets/technical_catalog/cooling/radiator_pack.webp",
+    "part_ids": [
+      "radiator",
+      "low_temperature_radiator",
+      "cooling_fan",
+      "cooling_fan_secondary",
+      "coolant_expansion_tank",
+      "coolant_hoses"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "radiator",
+        "x": 0.52,
+        "y": 0.27
+      },
+      {
+        "number": 2,
+        "part_id": "low_temperature_radiator",
+        "x": 0.77,
+        "y": 0.42
+      },
+      {
+        "number": 3,
+        "part_id": "cooling_fan",
+        "x": 0.36,
+        "y": 0.49
+      },
+      {
+        "number": 4,
+        "part_id": "cooling_fan_secondary",
+        "x": 0.58,
+        "y": 0.58
+      },
+      {
+        "number": 5,
+        "part_id": "coolant_expansion_tank",
+        "x": 0.17,
+        "y": 0.15
+      },
+      {
+        "number": 6,
+        "part_id": "coolant_hoses",
+        "x": 0.77,
+        "y": 0.15
+      }
+    ],
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Наличие и размеры второго вентилятора/дополнительного радиатора зависят от оснащения.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "coolant_circuit",
+    "image": "res://assets/technical_catalog/cooling/coolant_circuit.webp",
+    "part_ids": [
+      "coolant_expansion_tank",
+      "radiator",
+      "water_pump",
+      "thermostat",
+      "coolant_recirculation_pump_v50",
+      "charge_air_cooler",
+      "engine_oil_cooler",
+      "turbocharger",
+      "coolant_hoses"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "coolant_expansion_tank",
+        "x": 0.15,
+        "y": 0.14
+      },
+      {
+        "number": 2,
+        "part_id": "radiator",
+        "x": 0.24,
+        "y": 0.63
+      },
+      {
+        "number": 3,
+        "part_id": "water_pump",
+        "x": 0.46,
+        "y": 0.47
+      },
+      {
+        "number": 4,
+        "part_id": "thermostat",
+        "x": 0.42,
+        "y": 0.31
+      },
+      {
+        "number": 5,
+        "part_id": "coolant_recirculation_pump_v50",
+        "x": 0.52,
+        "y": 0.18
+      },
+      {
+        "number": 6,
+        "part_id": "charge_air_cooler",
+        "x": 0.75,
+        "y": 0.16
+      },
+      {
+        "number": 7,
+        "part_id": "engine_oil_cooler",
+        "x": 0.76,
+        "y": 0.68
+      },
+      {
+        "number": 8,
+        "part_id": "turbocharger",
+        "x": 0.86,
+        "y": 0.48
+      },
+      {
+        "number": 9,
+        "part_id": "coolant_hoses",
+        "x": 0.59,
+        "y": 0.53
+      }
+    ],
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Совмещённая схема изображает неподтверждённые насос и масляный теплообменник; не точная разводка CBZB.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "coolant_reservoir",
+    "image": "res://assets/technical_catalog/cooling/coolant_reservoir.webp",
+    "part_ids": [
+      "coolant_expansion_tank"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "coolant_expansion_tank",
+        "x": 0.52,
+        "y": 0.53
+      }
+    ],
+    "sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Узнаваемый бачок, патрубки и датчик варианта MY2011 не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "oil_pump_circuit",
+    "image": "res://assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "part_ids": [
+      "oil_pump",
+      "oil_pump_drive",
+      "oil_pickup"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "oil_pump",
+        "x": 0.39,
+        "y": 0.38
+      },
+      {
+        "number": 2,
+        "part_id": "oil_pump_drive",
+        "x": 0.58,
+        "y": 0.38
+      },
+      {
+        "number": 3,
+        "part_id": "oil_pickup",
+        "x": 0.49,
+        "y": 0.75
+      }
+    ],
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Узнаваемые насос, цепь и маслоприёмник; это условная визуализация, не монтажный чертёж.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "oil_filter_node",
+    "image": "res://assets/technical_catalog/engine/oil_filter.webp",
+    "part_ids": [
+      "oil_filter"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "oil_filter",
+        "x": 0.28,
+        "y": 0.52
+      }
+    ],
+    "sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Показан картридж с пластиковой крышкой; применимость этого типа фильтра к CBZB требуется подтвердить, а не считать проверенной.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "oil_pan_node",
+    "image": "res://assets/technical_catalog/engine/oil_pan.webp",
+    "part_ids": [
+      "oil_pan"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "oil_pan",
+        "x": 0.51,
+        "y": 0.54
+      }
+    ],
+    "sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Форма поддона условная, точное исполнение и пробка требуют сверки.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "exhaust_front",
+    "image": "res://assets/technical_catalog/exhaust/exhaust_front.webp",
+    "part_ids": [
+      "exhaust_manifold",
+      "turbocharger",
+      "turbo_heat_shield",
+      "front_exhaust_pipe",
+      "exhaust_flex_joint"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "exhaust_manifold",
+        "x": 0.27,
+        "y": 0.38
+      },
+      {
+        "number": 2,
+        "part_id": "turbocharger",
+        "x": 0.58,
+        "y": 0.38
+      },
+      {
+        "number": 3,
+        "part_id": "turbo_heat_shield",
+        "x": 0.82,
+        "y": 0.28
+      },
+      {
+        "number": 4,
+        "part_id": "front_exhaust_pipe",
+        "x": 0.79,
+        "y": 0.68
+      },
+      {
+        "number": 5,
+        "part_id": "exhaust_flex_joint",
+        "x": 0.77,
+        "y": 0.62
+      }
+    ],
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Изображён мембранный привод турбины; применимость к электрическому V465 CBZB не подтверждена.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "exhaust_aftertreatment",
+    "image": "res://assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "part_ids": [
+      "catalytic_converter",
+      "oxygen_sensor",
+      "catalyst_heat_shield",
+      "exhaust_flex_joint",
+      "front_exhaust_pipe",
+      "exhaust_clamp"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "catalytic_converter",
+        "x": 0.36,
+        "y": 0.41
+      },
+      {
+        "number": 2,
+        "part_id": "oxygen_sensor",
+        "x": 0.28,
+        "y": 0.16
+      },
+      {
+        "number": 3,
+        "part_id": "catalyst_heat_shield",
+        "x": 0.63,
+        "y": 0.24
+      },
+      {
+        "number": 4,
+        "part_id": "exhaust_flex_joint",
+        "x": 0.69,
+        "y": 0.58
+      },
+      {
+        "number": 5,
+        "part_id": "front_exhaust_pipe",
+        "x": 0.86,
+        "y": 0.7
+      },
+      {
+        "number": 6,
+        "part_id": "exhaust_clamp",
+        "x": 0.467,
+        "y": 0.542
+      }
+    ],
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Изображён катализатор, объединённый с четырёхканальным коллектором, без турбины: не подтверждает конкретную компоновку CBZB.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "exhaust_rear",
+    "image": "res://assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "part_ids": [
+      "exhaust_resonator",
+      "rear_muffler",
+      "exhaust_clamp",
+      "exhaust_mounts",
+      "exhaust_heat_shield"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "exhaust_resonator",
+        "x": 0.36,
+        "y": 0.35
+      },
+      {
+        "number": 2,
+        "part_id": "rear_muffler",
+        "x": 0.69,
+        "y": 0.62
+      },
+      {
+        "number": 3,
+        "part_id": "exhaust_clamp",
+        "x": 0.52,
+        "y": 0.55
+      },
+      {
+        "number": 4,
+        "part_id": "exhaust_mounts",
+        "x": 0.472,
+        "y": 0.31
+      },
+      {
+        "number": 5,
+        "part_id": "exhaust_heat_shield",
+        "x": 0.75,
+        "y": 0.48
+      }
+    ],
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Продольная компоновка условная, точное исполнение заднего глушителя зависит от даты производства.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "clutch_group",
+    "image": "res://assets/technical_catalog/dsg/clutch_group.webp",
+    "part_ids": [
+      "flywheel",
+      "dsg_dual_clutch",
+      "clutch_k1",
+      "clutch_k2",
+      "clutch_engagement_levers",
+      "clutch"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "flywheel",
+        "x": 0.1,
+        "y": 0.31
+      },
+      {
+        "number": 2,
+        "part_id": "dsg_dual_clutch",
+        "x": 0.42,
+        "y": 0.36
+      },
+      {
+        "number": 3,
+        "part_id": "clutch_k1",
+        "x": 0.35,
+        "y": 0.38
+      },
+      {
+        "number": 4,
+        "part_id": "clutch_k2",
+        "x": 0.5,
+        "y": 0.38
+      },
+      {
+        "number": 5,
+        "part_id": "clutch_engagement_levers",
+        "x": 0.654,
+        "y": 0.626
+      }
+    ],
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Визуализация показывает два последовательных обычных сцепления с демпферными пружинами, не подтверждённый разрез сухой муфты 0AM; K1/K2 не сертифицировать.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "gearbox_group",
+    "image": "res://assets/technical_catalog/dsg/gearbox_group.webp",
+    "part_ids": [
+      "gearbox_housing",
+      "dsg_input_shafts",
+      "dsg_output_shafts",
+      "differential",
+      "dsg_mechatronics",
+      "gearbox"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "gearbox_housing",
+        "x": 0.14,
+        "y": 0.31
+      },
+      {
+        "number": 2,
+        "part_id": "dsg_input_shafts",
+        "x": 0.42,
+        "y": 0.32
+      },
+      {
+        "number": 3,
+        "part_id": "dsg_output_shafts",
+        "x": 0.54,
+        "y": 0.5
+      },
+      {
+        "number": 4,
+        "part_id": "differential",
+        "x": 0.37,
+        "y": 0.7
+      },
+      {
+        "number": 5,
+        "part_id": "dsg_mechatronics",
+        "x": 0.8,
+        "y": 0.44
+      }
+    ],
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Композиция похожа на DSG, но точное число и расположение валов 0AM и тип сцепления изображением не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "gear_selector",
+    "image": "res://assets/technical_catalog/dsg/gear_selector.webp",
+    "part_ids": [
+      "selector_mechanism",
+      "gear_selector_cables",
+      "gearbox_selector_lever",
+      "selector_cable_support",
+      "dsg_selector_module"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "selector_mechanism",
+        "x": 0.23,
+        "y": 0.4
+      },
+      {
+        "number": 2,
+        "part_id": "gear_selector_cables",
+        "x": 0.81,
+        "y": 0.145
+      },
+      {
+        "number": 3,
+        "part_id": "gearbox_selector_lever",
+        "x": 0.73,
+        "y": 0.69
+      },
+      {
+        "number": 4,
+        "part_id": "selector_cable_support",
+        "x": 0.58,
+        "y": 0.44
+      }
+    ],
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Тросовый привод узнаваем, точная компоновка DSG и датчики селектора не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "dsg_mechatronics",
+    "image": "res://assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "part_ids": [
+      "dsg_mechatronics",
+      "dsg_mechatronics_connector",
+      "dsg_mechatronics_actuators"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "dsg_mechatronics",
+        "x": 0.52,
+        "y": 0.44
+      },
+      {
+        "number": 2,
+        "part_id": "dsg_mechatronics_connector",
+        "x": 0.51,
+        "y": 0.12
+      },
+      {
+        "number": 3,
+        "part_id": "dsg_mechatronics_actuators",
+        "x": 0.48,
+        "y": 0.4
+      }
+    ],
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Изображение не подтверждает характерные насос и аккумулятор давления 0AM. Гидроблок нельзя выдавать за точный мехатроник DQ200.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "left_drive",
+    "image": "res://assets/technical_catalog/front_drive/left_drive.webp",
+    "part_ids": [
+      "drive_shaft",
+      "cv_joint_inner",
+      "cv_joint_outer",
+      "outer_cv_boot",
+      "inner_cv_boot"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "drive_shaft",
+        "x": 0.47,
+        "y": 0.38
+      },
+      {
+        "number": 2,
+        "part_id": "cv_joint_inner",
+        "x": 0.13,
+        "y": 0.27
+      },
+      {
+        "number": 3,
+        "part_id": "cv_joint_outer",
+        "x": 0.81,
+        "y": 0.38
+      },
+      {
+        "number": 4,
+        "part_id": "outer_cv_boot",
+        "x": 0.74,
+        "y": 0.43
+      },
+      {
+        "number": 5,
+        "part_id": "inner_cv_boot",
+        "x": 0.26,
+        "y": 0.28
+      }
+    ],
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочный вал, крепление внутреннего шарнира и длина для левой стороны требуют подтверждения.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "right_drive",
+    "image": "res://assets/technical_catalog/front_drive/right_drive.webp",
+    "part_ids": [
+      "drive_shaft",
+      "cv_joint_inner",
+      "cv_joint_outer",
+      "outer_cv_boot",
+      "inner_cv_boot"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "drive_shaft",
+        "x": 0.49,
+        "y": 0.46
+      },
+      {
+        "number": 2,
+        "part_id": "cv_joint_inner",
+        "x": 0.12,
+        "y": 0.46
+      },
+      {
+        "number": 3,
+        "part_id": "cv_joint_outer",
+        "x": 0.86,
+        "y": 0.46
+      },
+      {
+        "number": 4,
+        "part_id": "outer_cv_boot",
+        "x": 0.75,
+        "y": 0.46
+      },
+      {
+        "number": 5,
+        "part_id": "inner_cv_boot",
+        "x": 0.22,
+        "y": 0.46
+      }
+    ],
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочный вал, реальная длина правой стороны и крепление к DQ200 не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_suspension_overview",
+    "image": "res://assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "part_ids": [
+      "subframe",
+      "control_arm",
+      "ball_joint",
+      "strut",
+      "spring",
+      "strut_mount",
+      "anti_roll_bar",
+      "front_stabilizer_bushings",
+      "steering_knuckle"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "subframe",
+        "x": 0.5,
+        "y": 0.8
+      },
+      {
+        "number": 2,
+        "part_id": "control_arm",
+        "x": 0.2,
+        "y": 0.79
+      },
+      {
+        "number": 3,
+        "part_id": "ball_joint",
+        "x": 0.05,
+        "y": 0.82
+      },
+      {
+        "number": 4,
+        "part_id": "strut",
+        "x": 0.15,
+        "y": 0.43
+      },
+      {
+        "number": 5,
+        "part_id": "spring",
+        "x": 0.14,
+        "y": 0.19
+      },
+      {
+        "number": 6,
+        "part_id": "strut_mount",
+        "x": 0.2,
+        "y": 0.05
+      },
+      {
+        "number": 7,
+        "part_id": "anti_roll_bar",
+        "x": 0.5,
+        "y": 0.66
+      },
+      {
+        "number": 8,
+        "part_id": "front_stabilizer_bushings",
+        "x": 0.67,
+        "y": 0.63
+      },
+      {
+        "number": 9,
+        "part_id": "steering_knuckle",
+        "x": 0.055,
+        "y": 0.56
+      }
+    ],
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Стойки и подрамник узнаваемы; вариант рычагов/крепления стойки требует сверки PR.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_left_corner",
+    "image": "res://assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "part_ids": [
+      "control_arm",
+      "ball_joint",
+      "strut",
+      "spring",
+      "strut_mount",
+      "stabilizer_link",
+      "hub",
+      "wheel_bearing",
+      "wheel"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "control_arm",
+        "x": 0.27,
+        "y": 0.76
+      },
+      {
+        "number": 2,
+        "part_id": "ball_joint",
+        "x": 0.56,
+        "y": 0.87
+      },
+      {
+        "number": 3,
+        "part_id": "strut",
+        "x": 0.4,
+        "y": 0.36
+      },
+      {
+        "number": 4,
+        "part_id": "spring",
+        "x": 0.4,
+        "y": 0.18
+      },
+      {
+        "number": 5,
+        "part_id": "strut_mount",
+        "x": 0.38,
+        "y": 0.05
+      },
+      {
+        "number": 6,
+        "part_id": "stabilizer_link",
+        "x": 0.34,
+        "y": 0.52
+      },
+      {
+        "number": 7,
+        "part_id": "hub",
+        "x": 0.635,
+        "y": 0.676
+      },
+      {
+        "number": 8,
+        "part_id": "wheel_bearing",
+        "x": 0.62,
+        "y": 0.66
+      },
+      {
+        "number": 9,
+        "part_id": "wheel",
+        "x": 0.87,
+        "y": 0.6
+      }
+    ],
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Изображено двухболтовое крепление стойки к кулаку; точное соответствие переднему кулаку Yeti не подтверждено.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_right_corner",
+    "image": "res://assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "part_ids": [
+      "control_arm",
+      "ball_joint",
+      "strut",
+      "spring",
+      "strut_mount",
+      "stabilizer_link"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "control_arm",
+        "x": 0.38,
+        "y": 0.82
+      },
+      {
+        "number": 2,
+        "part_id": "ball_joint",
+        "x": 0.7,
+        "y": 0.9
+      },
+      {
+        "number": 3,
+        "part_id": "strut",
+        "x": 0.6,
+        "y": 0.48
+      },
+      {
+        "number": 4,
+        "part_id": "spring",
+        "x": 0.59,
+        "y": 0.2
+      },
+      {
+        "number": 5,
+        "part_id": "strut_mount",
+        "x": 0.59,
+        "y": 0.06
+      },
+      {
+        "number": 6,
+        "part_id": "stabilizer_link",
+        "x": 0.49,
+        "y": 0.58
+      }
+    ],
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Двухболтовое крепление стойки к кулаку требует сверки; правое/левое исполнение не подтверждено.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_axle_carrier",
+    "image": "res://assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "part_ids": [
+      "subframe",
+      "anti_roll_bar",
+      "suspension_bushings"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "subframe",
+        "x": 0.5,
+        "y": 0.67
+      },
+      {
+        "number": 2,
+        "part_id": "anti_roll_bar",
+        "x": 0.5,
+        "y": 0.39
+      },
+      {
+        "number": 3,
+        "part_id": "suspension_bushings",
+        "x": 0.25,
+        "y": 0.36
+      }
+    ],
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Стальной подрамник условного исполнения; маркер3 требует проверки соответствия названия и компонента.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_subframe_arms",
+    "image": "res://assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "part_ids": [
+      "subframe",
+      "control_arm_left",
+      "control_arm_right",
+      "suspension_bushings",
+      "ball_joint"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "subframe",
+        "x": 0.5,
+        "y": 0.42
+      },
+      {
+        "number": 2,
+        "part_id": "control_arm_left",
+        "x": 0.25,
+        "y": 0.71
+      },
+      {
+        "number": 3,
+        "part_id": "control_arm_right",
+        "x": 0.68,
+        "y": 0.71
+      },
+      {
+        "number": 4,
+        "part_id": "suspension_bushings",
+        "x": 0.61,
+        "y": 0.7
+      },
+      {
+        "number": 5,
+        "part_id": "ball_joint",
+        "x": 0.88,
+        "y": 0.88
+      }
+    ],
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Изолированная композиция подрамника и алюминиевых рычагов; вариант PR неизвестен.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_strut",
+    "image": "res://assets/technical_catalog/front_suspension/front_strut.webp",
+    "part_ids": [
+      "strut_mount",
+      "strut_bearing",
+      "spring",
+      "bump_stop",
+      "strut_dust_boot",
+      "strut"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "strut_mount",
+        "x": 0.29,
+        "y": 0.12
+      },
+      {
+        "number": 2,
+        "part_id": "strut_bearing",
+        "x": 0.294,
+        "y": 0.214
+      },
+      {
+        "number": 3,
+        "part_id": "spring",
+        "x": 0.29,
+        "y": 0.825
+      },
+      {
+        "number": 4,
+        "part_id": "bump_stop",
+        "x": 0.295,
+        "y": 0.625
+      },
+      {
+        "number": 5,
+        "part_id": "strut_dust_boot",
+        "x": 0.294,
+        "y": 0.465
+      },
+      {
+        "number": 6,
+        "part_id": "strut",
+        "x": 0.73,
+        "y": 0.73
+      }
+    ],
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Исходник содержит обрезанный соседний рисунок слева. Пять маркеров не показывают заданную деталь; заменять изображение без согласования нельзя.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_knuckle_hub",
+    "image": "res://assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "part_ids": [
+      "cv_joint_outer",
+      "steering_knuckle",
+      "wheel_bearing",
+      "hub",
+      "dust_shield",
+      "ball_joint"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "cv_joint_outer",
+        "x": 0.84,
+        "y": 0.43
+      },
+      {
+        "number": 2,
+        "part_id": "steering_knuckle",
+        "x": 0.6,
+        "y": 0.65,
+        "manifest_part_id": "front_steering_knuckle"
+      },
+      {
+        "number": 3,
+        "part_id": "wheel_bearing",
+        "x": 0.425,
+        "y": 0.45
+      },
+      {
+        "number": 4,
+        "part_id": "hub",
+        "x": 0.266,
+        "y": 0.48
+      },
+      {
+        "number": 5,
+        "part_id": "dust_shield",
+        "x": 0.181,
+        "y": 0.243
+      },
+      {
+        "number": 6,
+        "part_id": "ball_joint",
+        "x": 0.53,
+        "y": 0.8
+      }
+    ],
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Пять из шести привязок ошибочны; часть подшипниковой архитектуры и крепление ступицы требуют подтверждения, part_id не меняются.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_hub_bearing",
+    "image": "res://assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "part_ids": [
+      "hub",
+      "wheel_bearing"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "hub",
+        "x": 0.26,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "wheel_bearing",
+        "x": 0.55,
+        "y": 0.48
+      }
+    ],
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "historical_architecture_status": "NEEDS_REVIEW",
+    "historical_finding": "Показан отдельный запрессовываемый подшипник; точное соответствие ступичному узлу Yeti требует документальной проверки.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_brake_at_hub",
+    "image": "res://assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "part_ids": [
+      "brake_disc",
+      "brake_caliper",
+      "brake_pads",
+      "brake_hose"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_disc",
+        "x": 0.2,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "brake_caliper",
+        "x": 0.775,
+        "y": 0.55
+      },
+      {
+        "number": 3,
+        "part_id": "brake_pads",
+        "x": 0.5,
+        "y": 0.5
+      },
+      {
+        "number": 4,
+        "part_id": "brake_hose",
+        "x": 0.96,
+        "y": 0.24
+      }
+    ],
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Дисковый тормоз узнаваем; размер и конкретный суппорт зависят от PR.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_drive_at_hub",
+    "image": "res://assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "part_ids": [
+      "drive_shaft",
+      "cv_joint_outer",
+      "outer_cv_boot"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "drive_shaft",
+        "x": 0.16,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "cv_joint_outer",
+        "x": 0.63,
+        "y": 0.5
+      },
+      {
+        "number": 3,
+        "part_id": "outer_cv_boot",
+        "x": 0.46,
+        "y": 0.5
+      }
+    ],
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Показана справочная стыковка привода и ступицы, точное исполнение неизвестно.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_stabilizer",
+    "image": "res://assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "part_ids": [
+      "anti_roll_bar",
+      "stabilizer_link"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "anti_roll_bar",
+        "x": 0.5,
+        "y": 0.68
+      },
+      {
+        "number": 2,
+        "part_id": "stabilizer_link",
+        "x": 0.04,
+        "y": 0.42
+      }
+    ],
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Диаметр штанги и конкретные стойки зависят от комплектации.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_suspension_overview",
+    "image": "res://assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "part_ids": [
+      "rear_subframe",
+      "rear_upper_control_arm",
+      "rear_lower_control_arm",
+      "rear_trailing_arm",
+      "rear_track_rod",
+      "spring",
+      "rear_shock_absorber",
+      "rear_anti_roll_bar",
+      "rear_hub_carrier"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "rear_subframe",
+        "x": 0.5,
+        "y": 0.53
+      },
+      {
+        "number": 2,
+        "part_id": "rear_upper_control_arm",
+        "x": 0.24,
+        "y": 0.58
+      },
+      {
+        "number": 3,
+        "part_id": "rear_lower_control_arm",
+        "x": 0.28,
+        "y": 0.73
+      },
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.69,
+        "y": 0.73
+      },
+      {
+        "number": 5,
+        "part_id": "rear_track_rod",
+        "x": 0.52,
+        "y": 0.66
+      },
+      {
+        "number": 6,
+        "part_id": "spring",
+        "x": 0.78,
+        "y": 0.26
+      },
+      {
+        "number": 7,
+        "part_id": "rear_shock_absorber",
+        "x": 0.865,
+        "y": 0.34
+      },
+      {
+        "number": 8,
+        "part_id": "rear_anti_roll_bar",
+        "x": 0.54,
+        "y": 0.3
+      },
+      {
+        "number": 9,
+        "part_id": "rear_hub_carrier",
+        "x": 0.887,
+        "y": 0.601
+      }
+    ],
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Многорычажная подвеска без заднего дифференциала, но классификация отдельных рычагов требует сверки FWD.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_carrier",
+    "image": "res://assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "part_ids": [
+      "rear_subframe",
+      "rear_upper_control_arm",
+      "rear_lower_control_arm",
+      "rear_trailing_arm",
+      "rear_track_rod",
+      "rear_suspension_bushings"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "rear_subframe",
+        "x": 0.5,
+        "y": 0.45
+      },
+      {
+        "number": 2,
+        "part_id": "rear_upper_control_arm",
+        "x": 0.25,
+        "y": 0.2
+      },
+      {
+        "number": 3,
+        "part_id": "rear_lower_control_arm",
+        "x": 0.28,
+        "y": 0.73
+      },
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.73,
+        "y": 0.73
+      },
+      {
+        "number": 5,
+        "part_id": "rear_track_rod",
+        "x": 0.79,
+        "y": 0.36
+      },
+      {
+        "number": 6,
+        "part_id": "rear_suspension_bushings",
+        "x": 0.617,
+        "y": 0.667
+      }
+    ],
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Разложенные рычаги без ориентации машины; назначение каждого рычага не подтверждено чертежом.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_springs_dampers",
+    "image": "res://assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "part_ids": [
+      "rear_spring_upper_seat",
+      "spring",
+      "rear_spring_lower_seat",
+      "rear_shock_absorber",
+      "rear_shock_upper_mount",
+      "rear_shock_bump_stop"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "rear_spring_upper_seat",
+        "x": 0.38,
+        "y": 0.14
+      },
+      {
+        "number": 2,
+        "part_id": "spring",
+        "x": 0.42,
+        "y": 0.36
+      },
+      {
+        "number": 3,
+        "part_id": "rear_spring_lower_seat",
+        "x": 0.43,
+        "y": 0.57
+      },
+      {
+        "number": 4,
+        "part_id": "rear_shock_absorber",
+        "x": 0.63,
+        "y": 0.48
+      },
+      {
+        "number": 5,
+        "part_id": "rear_shock_upper_mount",
+        "x": 0.625,
+        "y": 0.075
+      },
+      {
+        "number": 6,
+        "part_id": "rear_shock_bump_stop",
+        "x": 0.628,
+        "y": 0.18
+      }
+    ],
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Пружина и амортизатор раздельны; жесткость и конкретные крепления зависят от PR.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_hub",
+    "image": "res://assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "part_ids": [
+      "rear_hub_carrier",
+      "hub",
+      "wheel_bearing",
+      "rear_abs_encoder_ring",
+      "rear_wheel_speed_sensor",
+      "dust_shield",
+      "brake_disc"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "rear_hub_carrier",
+        "x": 0.36,
+        "y": 0.45
+      },
+      {
+        "number": 2,
+        "part_id": "hub",
+        "x": 0.65,
+        "y": 0.48
+      },
+      {
+        "number": 3,
+        "part_id": "wheel_bearing",
+        "x": 0.58,
+        "y": 0.48
+      },
+      {
+        "number": 4,
+        "part_id": "rear_abs_encoder_ring",
+        "x": 0.61,
+        "y": 0.4
+      },
+      {
+        "number": 5,
+        "part_id": "rear_wheel_speed_sensor",
+        "x": 0.515,
+        "y": 0.29
+      },
+      {
+        "number": 6,
+        "part_id": "dust_shield",
+        "x": 0.78,
+        "y": 0.48
+      },
+      {
+        "number": 7,
+        "part_id": "brake_disc",
+        "x": 0.91,
+        "y": 0.48
+      }
+    ],
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "На изображении зубчатое кольцо и шлицевое центральное отверстие; точный FWD ступичный подшипник/магнитное кольцо не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "steering_column",
+    "image": "res://assets/technical_catalog/steering/steering_column.webp",
+    "part_ids": [
+      "steering_wheel",
+      "steering_column",
+      "steering_angle_sensor"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "steering_wheel",
+        "x": 0.26,
+        "y": 0.12
+      },
+      {
+        "number": 2,
+        "part_id": "steering_column",
+        "x": 0.5,
+        "y": 0.65
+      },
+      {
+        "number": 3,
+        "part_id": "steering_angle_sensor",
+        "x": 0.5,
+        "y": 0.36
+      }
+    ],
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Руль изображён без подушки; дизайн/датчик зависят от оснащения, не точная иллюстрация MY2011.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "BLOCKED_SOURCE_UNVERIFIED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "steering_rack",
+    "image": "res://assets/technical_catalog/steering/steering_rack.webp",
+    "part_ids": [
+      "steering_rack",
+      "power_steering_motor",
+      "steering_input_shaft",
+      "steering_tie_rod",
+      "tie_rod_end",
+      "steering_rack_boot"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "steering_rack",
+        "x": 0.48,
+        "y": 0.52
+      },
+      {
+        "number": 2,
+        "part_id": "power_steering_motor",
+        "x": 0.42,
+        "y": 0.62
+      },
+      {
+        "number": 3,
+        "part_id": "steering_input_shaft",
+        "x": 0.63,
+        "y": 0.24
+      },
+      {
+        "number": 4,
+        "part_id": "steering_tie_rod",
+        "x": 0.82,
+        "y": 0.63
+      },
+      {
+        "number": 5,
+        "part_id": "tie_rod_end",
+        "x": 0.93,
+        "y": 0.63
+      },
+      {
+        "number": 6,
+        "part_id": "steering_rack_boot",
+        "x": 0.73,
+        "y": 0.54
+      }
+    ],
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Электромеханический привод узнаваем, поколение рейки требует сверки.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "steering_linkage",
+    "image": "res://assets/technical_catalog/steering/steering_linkage.webp",
+    "part_ids": [
+      "steering_tie_rod",
+      "tie_rod_end",
+      "steering_rack_boot",
+      "tie_rod_lock_nut"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "steering_tie_rod",
+        "x": 0.37,
+        "y": 0.46
+      },
+      {
+        "number": 2,
+        "part_id": "tie_rod_end",
+        "x": 0.12,
+        "y": 0.51
+      },
+      {
+        "number": 3,
+        "part_id": "steering_rack_boot",
+        "x": 0.28,
+        "y": 0.3
+      },
+      {
+        "number": 4,
+        "part_id": "tie_rod_lock_nut",
+        "x": 0.2,
+        "y": 0.51
+      }
+    ],
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Обе тяги условно разложены, тип резьбы и креплений не подтверждён.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_brake_assembly",
+    "image": "res://assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "part_ids": [
+      "brake_caliper",
+      "brake_pads",
+      "brake_carrier",
+      "brake_guide_pins",
+      "brake_disc",
+      "brake_hose",
+      "hub"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_caliper",
+        "x": 0.18,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "brake_pads",
+        "x": 0.4,
+        "y": 0.49
+      },
+      {
+        "number": 3,
+        "part_id": "brake_carrier",
+        "x": 0.56,
+        "y": 0.48,
+        "manifest_part_id": "brake_caliper_carrier"
+      },
+      {
+        "number": 4,
+        "part_id": "brake_guide_pins",
+        "x": 0.331,
+        "y": 0.808,
+        "manifest_part_id": "brake_caliper_guides"
+      },
+      {
+        "number": 5,
+        "part_id": "brake_disc",
+        "x": 0.78,
+        "y": 0.49
+      },
+      {
+        "number": 6,
+        "part_id": "brake_hose",
+        "x": 0.76,
+        "y": 0.18
+      },
+      {
+        "number": 7,
+        "part_id": "hub",
+        "x": 0.88,
+        "y": 0.54
+      }
+    ],
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Исходник содержит края соседних рисунков; шланг не изображён, направляющая отмечена неверно. Размеры PR не определены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_brake_hose",
+    "image": "res://assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "part_ids": [
+      "brake_carrier",
+      "brake_guide_pins",
+      "brake_hose",
+      "abs_wheel_sensor_fl"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_carrier",
+        "x": 0.5,
+        "y": 0.52
+      },
+      {
+        "number": 2,
+        "part_id": "brake_guide_pins",
+        "x": 0.36,
+        "y": 0.28
+      },
+      {
+        "number": 3,
+        "part_id": "brake_hose",
+        "x": 0.12,
+        "y": 0.12
+      },
+      {
+        "number": 4,
+        "part_id": "abs_wheel_sensor_fl",
+        "x": 0.68,
+        "y": 0.3
+      }
+    ],
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная компоновка тормозного узла; внешнее зубчатое кольцо требует проверки применимости.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_brake_assembly",
+    "image": "res://assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "part_ids": [
+      "brake_disc",
+      "brake_caliper",
+      "brake_carrier",
+      "brake_guide_pins",
+      "brake_pads",
+      "brake_hose",
+      "abs_wheel_sensor_rl"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_disc",
+        "x": 0.45,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "brake_caliper",
+        "x": 0.89,
+        "y": 0.55
+      },
+      {
+        "number": 3,
+        "part_id": "brake_carrier",
+        "x": 0.714,
+        "y": 0.51
+      },
+      {
+        "number": 4,
+        "part_id": "brake_guide_pins",
+        "x": 0.7,
+        "y": 0.31
+      },
+      {
+        "number": 5,
+        "part_id": "brake_pads",
+        "x": 0.63,
+        "y": 0.5
+      },
+      {
+        "number": 6,
+        "part_id": "brake_hose",
+        "x": 0.94,
+        "y": 0.18
+      },
+      {
+        "number": 7,
+        "part_id": "abs_wheel_sensor_rl",
+        "x": 0.2,
+        "y": 0.39
+      }
+    ],
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Изображён вентилируемый диск и суппорт без видимого привода ручника; точный задний узел FWD MY2011 не подтверждён.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "parking_brake",
+    "image": "res://assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "part_ids": [
+      "parking_brake_cable",
+      "brake_caliper"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "parking_brake_cable",
+        "x": 0.65,
+        "y": 0.67
+      },
+      {
+        "number": 2,
+        "part_id": "brake_caliper",
+        "x": 0.84,
+        "y": 0.59
+      }
+    ],
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Механический трос и рычаг ручника показаны; схема условно включает один трос, не полную разводку.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "brake_hydraulics",
+    "image": "res://assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "part_ids": [
+      "brake_fluid_reservoir",
+      "brake_master_cylinder",
+      "brake_booster",
+      "brake_pushrod",
+      "brake_lines",
+      "abs_unit"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_fluid_reservoir",
+        "x": 0.22,
+        "y": 0.15
+      },
+      {
+        "number": 2,
+        "part_id": "brake_master_cylinder",
+        "x": 0.28,
+        "y": 0.31
+      },
+      {
+        "number": 3,
+        "part_id": "brake_booster",
+        "x": 0.51,
+        "y": 0.28
+      },
+      {
+        "number": 4,
+        "part_id": "brake_pushrod",
+        "x": 0.68,
+        "y": 0.25
+      },
+      {
+        "number": 5,
+        "part_id": "brake_lines",
+        "x": 0.48,
+        "y": 0.66
+      },
+      {
+        "number": 6,
+        "part_id": "abs_unit",
+        "x": 0.81,
+        "y": 0.64
+      }
+    ],
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Условная гидравлическая компоновка, не схема соединений тормозных контуров конкретного VIN.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "abs_esp_block",
+    "image": "res://assets/technical_catalog/brakes/abs_esp_block.webp",
+    "part_ids": [
+      "abs_unit",
+      "abs_hydraulic_unit",
+      "abs_control_unit",
+      "abs_pump_motor",
+      "abs_mounting_bracket"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "abs_unit",
+        "x": 0.42,
+        "y": 0.44
+      },
+      {
+        "number": 2,
+        "part_id": "abs_hydraulic_unit",
+        "x": 0.35,
+        "y": 0.45
+      },
+      {
+        "number": 3,
+        "part_id": "abs_control_unit",
+        "x": 0.62,
+        "y": 0.46
+      },
+      {
+        "number": 4,
+        "part_id": "abs_pump_motor",
+        "x": 0.41,
+        "y": 0.18
+      },
+      {
+        "number": 5,
+        "part_id": "abs_mounting_bracket",
+        "x": 0.8,
+        "y": 0.31
+      }
+    ],
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Семейство ABS Mark60/70 не установлено. Показанное число портов не использовать как реальную схему трубок.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "wheel_sensors",
+    "image": "res://assets/technical_catalog/brakes/wheel_sensors.webp",
+    "part_ids": [
+      "wheel_speed_sensor",
+      "wheel_speed_sensor_connector",
+      "hub",
+      "abs_encoder_ring",
+      "wheel_bearing_housing"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "wheel_speed_sensor",
+        "x": 0.494,
+        "y": 0.227
+      },
+      {
+        "number": 2,
+        "part_id": "wheel_speed_sensor_connector",
+        "x": 0.81,
+        "y": 0.13
+      },
+      {
+        "number": 3,
+        "part_id": "hub",
+        "x": 0.66,
+        "y": 0.52
+      },
+      {
+        "number": 4,
+        "part_id": "abs_encoder_ring",
+        "x": 0.6,
+        "y": 0.46
+      },
+      {
+        "number": 5,
+        "part_id": "wheel_bearing_housing",
+        "x": 0.232,
+        "y": 0.3
+      }
+    ],
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Видно зубчатое кольцо, не подтверждённое магнитное кольцо Yeti. Датчик отмечен на болте.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "angle_drive",
+    "image": "res://assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "part_ids": [
+      "gearbox",
+      "drive_shaft"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "gearbox",
+        "x": 0.55,
+        "y": 0.55
+      },
+      {
+        "number": 2,
+        "part_id": "drive_shaft",
+        "x": 0.19,
+        "y": 0.45
+      }
+    ],
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "historical_architecture_status": "NOT_APPLICABLE_FWD",
+    "historical_finding": "Полный привод отсутствует у текущего FWD. Ветка должна оставаться отфильтрованной. Подмена угловой передачи коробкой некорректна.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "propshaft",
+    "image": "res://assets/technical_catalog/4x4_reference/propshaft.webp",
+    "part_ids": [
+      "propshaft",
+      "propshaft_center_bearing"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "propshaft",
+        "x": 0.25,
+        "y": 0.44
+      },
+      {
+        "number": 2,
+        "part_id": "propshaft_center_bearing",
+        "x": 0.5,
+        "y": 0.44
+      }
+    ],
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "historical_architecture_status": "NOT_APPLICABLE_FWD",
+    "historical_finding": "Для 4×4; на текущем FWD не показывается. Точные шарниры Yeti не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "haldex",
+    "image": "res://assets/technical_catalog/4x4_reference/haldex.webp",
+    "part_ids": [
+      "haldex_coupling"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "haldex_coupling",
+        "x": 0.51,
+        "y": 0.62
+      }
+    ],
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "historical_architecture_status": "NOT_APPLICABLE_FWD",
+    "historical_finding": "Для 4×4, на FWD отсутствует; поколение муфты не подтверждено.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_differential",
+    "image": "res://assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "part_ids": [
+      "differential",
+      "haldex_coupling",
+      "rear_drive_shaft_left",
+      "rear_drive_shaft_right"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "differential",
+        "x": 0.55,
+        "y": 0.38
+      },
+      {
+        "number": 2,
+        "part_id": "haldex_coupling",
+        "x": 0.38,
+        "y": 0.72
+      },
+      {
+        "number": 3,
+        "part_id": "rear_drive_shaft_left",
+        "x": 0.28,
+        "y": 0.34
+      },
+      {
+        "number": 4,
+        "part_id": "rear_drive_shaft_right",
+        "x": 0.75,
+        "y": 0.48
+      }
+    ],
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "historical_architecture_status": "NOT_APPLICABLE_FWD",
+    "historical_finding": "Полный привод, исключён для FWD. Точная компоновка Haldex и редуктора не подтверждена.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "heater_box",
+    "image": "res://assets/technical_catalog/climate/heater_box.webp",
+    "part_ids": [
+      "heater_core",
+      "evaporator",
+      "air_flap_actuators",
+      "hvac_housing",
+      "cabin_filter"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "heater_core",
+        "x": 0.52,
+        "y": 0.4
+      },
+      {
+        "number": 2,
+        "part_id": "evaporator",
+        "x": 0.48,
+        "y": 0.6
+      },
+      {
+        "number": 3,
+        "part_id": "air_flap_actuators",
+        "x": 0.84,
+        "y": 0.31
+      },
+      {
+        "number": 4,
+        "part_id": "hvac_housing",
+        "x": 0.18,
+        "y": 0.72
+      },
+      {
+        "number": 5,
+        "part_id": "cabin_filter",
+        "x": 0.37,
+        "y": 0.13
+      }
+    ],
+    "sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Climatic/Climatronic не выбран по комплектации. Корпус и положение фильтра представлены условно.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "blower",
+    "image": "res://assets/technical_catalog/climate/blower.webp",
+    "part_ids": [
+      "blower_motor",
+      "air_flap_actuators",
+      "cabin_filter",
+      "fresh_air_blower_control_unit_j126",
+      "recirculation_air_flap"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "blower_motor",
+        "x": 0.48,
+        "y": 0.67
+      },
+      {
+        "number": 2,
+        "part_id": "air_flap_actuators",
+        "x": 0.79,
+        "y": 0.3
+      },
+      {
+        "number": 3,
+        "part_id": "cabin_filter",
+        "x": 0.47,
+        "y": 0.16
+      },
+      {
+        "number": 4,
+        "part_id": "fresh_air_blower_control_unit_j126",
+        "x": 0.68,
+        "y": 0.82
+      },
+      {
+        "number": 5,
+        "part_id": "recirculation_air_flap",
+        "x": 0.48,
+        "y": 0.39
+      }
+    ],
+    "sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная композиция, не подтверждённое расположение салонного фильтра Yeti.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "ac_circuit",
+    "image": "res://assets/technical_catalog/climate/ac_circuit.webp",
+    "part_ids": [
+      "ac_compressor",
+      "condenser",
+      "receiver_drier",
+      "ac_expansion_valve",
+      "ac_pressure_sensor_g65",
+      "evaporator"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "ac_compressor",
+        "x": 0.28,
+        "y": 0.44
+      },
+      {
+        "number": 2,
+        "part_id": "condenser",
+        "x": 0.53,
+        "y": 0.67
+      },
+      {
+        "number": 3,
+        "part_id": "receiver_drier",
+        "x": 0.82,
+        "y": 0.68
+      },
+      {
+        "number": 4,
+        "part_id": "ac_expansion_valve",
+        "x": 0.18,
+        "y": 0.18
+      },
+      {
+        "number": 5,
+        "part_id": "ac_pressure_sensor_g65",
+        "x": 0.62,
+        "y": 0.21
+      },
+      {
+        "number": 6,
+        "part_id": "evaporator",
+        "x": 0.7,
+        "y": 0.15
+      }
+    ],
+    "sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Изображены два похожих конденсера с осушителем, расположение G65 неверно. Не схема фактического refrigerant-контура.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "power_start",
+    "image": "res://assets/technical_catalog/electrical/power_start.webp",
+    "part_ids": [
+      "battery",
+      "alternator",
+      "starter",
+      "battery_positive_cable",
+      "battery_ground_cable",
+      "battery_terminal_clamps"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "battery",
+        "x": 0.24,
+        "y": 0.32
+      },
+      {
+        "number": 2,
+        "part_id": "alternator",
+        "x": 0.68,
+        "y": 0.24
+      },
+      {
+        "number": 3,
+        "part_id": "starter",
+        "x": 0.72,
+        "y": 0.67
+      },
+      {
+        "number": 4,
+        "part_id": "battery_positive_cable",
+        "x": 0.51,
+        "y": 0.48
+      },
+      {
+        "number": 5,
+        "part_id": "battery_ground_cable",
+        "x": 0.27,
+        "y": 0.655
+      },
+      {
+        "number": 6,
+        "part_id": "battery_terminal_clamps",
+        "x": 0.39,
+        "y": 0.16
+      }
+    ],
+    "sha256": "27ab66e463638ef375fc51c7a5764fceb472134e5bb5d986e88565262759b08b",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Схема соединений условная, не электромонтажная инструкция.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "fuses_relays",
+    "image": "res://assets/technical_catalog/electrical/fuses_relays.webp",
+    "part_ids": [
+      "fuse_box",
+      "relay_carrier",
+      "high_current_fuse_block",
+      "automotive_relays",
+      "blade_fuses"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "fuse_box",
+        "x": 0.23,
+        "y": 0.38
+      },
+      {
+        "number": 2,
+        "part_id": "relay_carrier",
+        "x": 0.57,
+        "y": 0.23
+      },
+      {
+        "number": 3,
+        "part_id": "high_current_fuse_block",
+        "x": 0.61,
+        "y": 0.53
+      },
+      {
+        "number": 4,
+        "part_id": "automotive_relays",
+        "x": 0.33,
+        "y": 0.73
+      },
+      {
+        "number": 5,
+        "part_id": "blade_fuses",
+        "x": 0.18,
+        "y": 0.9
+      }
+    ],
+    "sha256": "b62624d3bcd64f73cb0109fe89aa9fb2db8e97b9509531cd51aa2e974cb5b5a8",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Номиналы и расположение на сгенерированном рисунке не соответствуют подтверждённой карте Yeti; не использовать для замены предохранителя.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "control_units",
+    "image": "res://assets/technical_catalog/electrical/control_units.webp",
+    "part_ids": [
+      "engine_ecu",
+      "body_control_module",
+      "crankshaft_position_sensor",
+      "camshaft_position_sensor",
+      "control_unit_connectors"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "engine_ecu",
+        "x": 0.25,
+        "y": 0.2
+      },
+      {
+        "number": 2,
+        "part_id": "body_control_module",
+        "x": 0.76,
+        "y": 0.23
+      },
+      {
+        "number": 3,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.43,
+        "y": 0.52
+      },
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.57,
+        "y": 0.66
+      },
+      {
+        "number": 5,
+        "part_id": "control_unit_connectors",
+        "x": 0.22,
+        "y": 0.77
+      }
+    ],
+    "sha256": "9bfcdeabaee067e865313f8e369b981ba050cae34c9c8cab78301f923fa505d2",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Формы блоков/датчиков условные; маркировки и монтажные положения отсутствуют.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "wiring",
+    "image": "res://assets/technical_catalog/electrical/wiring.webp",
+    "part_ids": [
+      "wiring_harness",
+      "engine_bay_wiring_harness",
+      "cabin_wiring_harness",
+      "ground_straps",
+      "bulkhead_wiring_grommet"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "wiring_harness",
+        "x": 0.5,
+        "y": 0.5
+      },
+      {
+        "number": 2,
+        "part_id": "engine_bay_wiring_harness",
+        "x": 0.5,
+        "y": 0.2
+      },
+      {
+        "number": 3,
+        "part_id": "cabin_wiring_harness",
+        "x": 0.42,
+        "y": 0.68
+      },
+      {
+        "number": 4,
+        "part_id": "ground_straps",
+        "x": 0.71,
+        "y": 0.91
+      },
+      {
+        "number": 5,
+        "part_id": "bulkhead_wiring_grommet",
+        "x": 0.76,
+        "y": 0.375
+      }
+    ],
+    "sha256": "ddfeeecda2982b021ddb8244843024dca265933bf69eaf472e000eedc6373421",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная композиция проводки без распиновки, не электросхема Yeti.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "ignition",
+    "image": "res://assets/technical_catalog/ignition/ignition.webp",
+    "part_ids": [
+      "ignition_coil",
+      "ignition_cables",
+      "spark_plugs",
+      "camshaft_position_sensor",
+      "crankshaft_position_sensor"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "ignition_coil",
+        "x": 0.31,
+        "y": 0.21
+      },
+      {
+        "number": 2,
+        "part_id": "ignition_cables",
+        "x": 0.53,
+        "y": 0.47
+      },
+      {
+        "number": 3,
+        "part_id": "spark_plugs",
+        "x": 0.86,
+        "y": 0.21
+      },
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.18,
+        "y": 0.45
+      },
+      {
+        "number": 5,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.35,
+        "y": 0.54
+      }
+    ],
+    "sha256": "ff03e5d3878c542c7b204c3afcd3d69ffc892af01830e6338fb7462a5a5d1558",
+    "historical_architecture_status": "NEEDS_IMAGE_REPLACEMENT",
+    "historical_finding": "Модуль и четыре ВВ-провода узнаваемы; датчики изображены без маркировки.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "NEEDS_CORRECTION",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_lamps",
+    "image": "res://assets/technical_catalog/lighting/front_lamps.webp",
+    "part_ids": [
+      "headlamp_left",
+      "headlamp_right",
+      "fog_lamp_left",
+      "fog_lamp_right",
+      "headlamp_bulbs",
+      "headlamp_level_actuator"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "headlamp_left",
+        "x": 0.27,
+        "y": 0.43
+      },
+      {
+        "number": 2,
+        "part_id": "headlamp_right",
+        "x": 0.73,
+        "y": 0.43
+      },
+      {
+        "number": 3,
+        "part_id": "fog_lamp_left",
+        "x": 0.25,
+        "y": 0.75
+      },
+      {
+        "number": 4,
+        "part_id": "fog_lamp_right",
+        "x": 0.75,
+        "y": 0.75
+      },
+      {
+        "number": 5,
+        "part_id": "headlamp_bulbs",
+        "x": 0.197,
+        "y": 0.143
+      },
+      {
+        "number": 6,
+        "part_id": "headlamp_level_actuator",
+        "x": 0.41,
+        "y": 0.18
+      }
+    ],
+    "sha256": "e7a186f7b8d945175b5e16f84528ecc8262a10487792d129999ba4d67a802d4d",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Прямоугольные фары отличаются от формы штатной дорестайлинговой Yeti 2011; изображение не подтверждает нужный кузов.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_lamps",
+    "image": "res://assets/technical_catalog/lighting/rear_lamps.webp",
+    "part_ids": [
+      "tail_lamp_left",
+      "tail_lamp_right",
+      "tail_lamp_bulb_carrier",
+      "rear_lamp_connector",
+      "license_plate_lamp"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "tail_lamp_left",
+        "x": 0.15,
+        "y": 0.29
+      },
+      {
+        "number": 2,
+        "part_id": "tail_lamp_right",
+        "x": 0.85,
+        "y": 0.29
+      },
+      {
+        "number": 3,
+        "part_id": "tail_lamp_bulb_carrier",
+        "x": 0.4,
+        "y": 0.31
+      },
+      {
+        "number": 4,
+        "part_id": "rear_lamp_connector",
+        "x": 0.29,
+        "y": 0.62
+      },
+      {
+        "number": 5,
+        "part_id": "license_plate_lamp",
+        "x": 0.37,
+        "y": 0.75
+      }
+    ],
+    "sha256": "06fc94b08a7e617eac18a59ba231ab967a769d5f332743d6c3ab109e60441e77",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Форма фонарей и ламп условная, не подтверждена комплектация.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "interior_lamps",
+    "image": "res://assets/technical_catalog/lighting/interior_lamps.webp",
+    "part_ids": [
+      "interior_lights",
+      "rear_interior_light",
+      "luggage_compartment_lamp",
+      "interior_light_bulbs",
+      "interior_light_connector"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "interior_lights",
+        "x": 0.28,
+        "y": 0.17
+      },
+      {
+        "number": 2,
+        "part_id": "rear_interior_light",
+        "x": 0.74,
+        "y": 0.18
+      },
+      {
+        "number": 3,
+        "part_id": "luggage_compartment_lamp",
+        "x": 0.77,
+        "y": 0.69
+      },
+      {
+        "number": 4,
+        "part_id": "interior_light_bulbs",
+        "x": 0.083,
+        "y": 0.493
+      },
+      {
+        "number": 5,
+        "part_id": "interior_light_connector",
+        "x": 0.46,
+        "y": 0.49
+      }
+    ],
+    "sha256": "047cb2d07c0aa53fb5df76f626ef0a2816aaf92eb38da9a9eca713bd82a340c2",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Плафоны справочные, точное оснащение неизвестно.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "body_front",
+    "image": "res://assets/technical_catalog/body/body_front.webp",
+    "part_ids": [
+      "front_bumper",
+      "hood",
+      "front_fender"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "front_bumper",
+        "x": 0.36,
+        "y": 0.73
+      },
+      {
+        "number": 2,
+        "part_id": "hood",
+        "x": 0.42,
+        "y": 0.29
+      },
+      {
+        "number": 3,
+        "part_id": "front_fender",
+        "x": 0.86,
+        "y": 0.34
+      }
+    ],
+    "sha256": "774b3e18bc3096bcaa619ecc9d411a6148b36ac4c24e20c35c208e58f9079a63",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Дорестайлинговый передок узнаваем, пропорции условные.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "doors",
+    "image": "res://assets/technical_catalog/body/doors.webp",
+    "part_ids": [
+      "front_left_door",
+      "front_right_door",
+      "rear_left_door",
+      "rear_right_door"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "front_left_door",
+        "x": 0.16,
+        "y": 0.25
+      },
+      {
+        "number": 2,
+        "part_id": "front_right_door",
+        "x": 0.84,
+        "y": 0.25
+      },
+      {
+        "number": 3,
+        "part_id": "rear_left_door",
+        "x": 0.16,
+        "y": 0.64
+      },
+      {
+        "number": 4,
+        "part_id": "rear_right_door",
+        "x": 0.84,
+        "y": 0.64
+      }
+    ],
+    "sha256": "fc68b24b10e65ebe3130a4b61abe4e97dc7245345a72acde009c1db74c38639d",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Вид сверху со стороны задней части, двери соответствуют направлениям по ходу. Контуры условные.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "body_rear",
+    "image": "res://assets/technical_catalog/body/body_rear.webp",
+    "part_ids": [
+      "tailgate",
+      "roof_rails"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "tailgate",
+        "x": 0.75,
+        "y": 0.54
+      },
+      {
+        "number": 2,
+        "part_id": "roof_rails",
+        "x": 0.3,
+        "y": 0.1
+      }
+    ],
+    "sha256": "587bb4632e2334f55987f1bf0ed89b84ee8f3fce94a7c52b3827f506507e2cdb",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная компоновка задней части кузова.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "body_protection",
+    "image": "res://assets/technical_catalog/body/body_protection.webp",
+    "part_ids": [
+      "front_wheel_arch_liner",
+      "rear_wheel_arch_liner",
+      "underbody_guard"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "front_wheel_arch_liner",
+        "x": 0.28,
+        "y": 0.32
+      },
+      {
+        "number": 2,
+        "part_id": "rear_wheel_arch_liner",
+        "x": 0.9,
+        "y": 0.56
+      },
+      {
+        "number": 3,
+        "part_id": "underbody_guard",
+        "x": 0.36,
+        "y": 0.74
+      }
+    ],
+    "sha256": "19dd0a70aeb8397f4330f134df96221424dc350e389e5fb7b353739ef1d7bd27",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Материал и форма защиты зависят от комплектации.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "mirrors",
+    "image": "res://assets/technical_catalog/body/mirrors.webp",
+    "part_ids": [
+      "side_mirrors"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "side_mirrors",
+        "x": 0.22,
+        "y": 0.49
+      }
+    ],
+    "sha256": "8993bfd746a03576c080dc771ff0105dd4e6b507960091c3abcea2a2812d4e0f",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Электропривод, обогрев и складывание не установлены по комплектации.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "glazing",
+    "image": "res://assets/technical_catalog/body/glazing.webp",
+    "part_ids": [
+      "windshield",
+      "rear_window"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "windshield",
+        "x": 0.24,
+        "y": 0.4
+      },
+      {
+        "number": 2,
+        "part_id": "rear_window",
+        "x": 0.89,
+        "y": 0.36
+      }
+    ],
+    "sha256": "6542402fdd28ced5934a8359519d5480ee44cb4d279e08a90acc9f32de02a460",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Тип остекления и датчики зависят от оснащения.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "front_wipers",
+    "image": "res://assets/technical_catalog/body/front_wipers.webp",
+    "part_ids": [
+      "wiper_motor_front",
+      "wiper_linkage",
+      "wiper_blades_front"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "wiper_blades_front",
+        "x": 0.34,
+        "y": 0.25
+      },
+      {
+        "number": 2,
+        "part_id": "wiper_linkage",
+        "x": 0.34,
+        "y": 0.61
+      },
+      {
+        "number": 3,
+        "part_id": "wiper_motor_front",
+        "x": 0.6,
+        "y": 0.7
+      }
+    ],
+    "sha256": "5063f77bf1900702abc4987fd02f7364f5f2b1f5706e392ae399c2815f29322d",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная трапеция, длины и ориентация щёток не подтверждены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "rear_wiper",
+    "image": "res://assets/technical_catalog/body/rear_wiper.webp",
+    "part_ids": [
+      "wiper_motor_rear"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "wiper_motor_rear",
+        "x": 0.23,
+        "y": 0.56
+      }
+    ],
+    "sha256": "2336a8a791989eb4b866c5eab1de47541acf6721bf4d621362ec917014517ff8",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Привод узнаваем; монтажные отверстия условные.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "washers",
+    "image": "res://assets/technical_catalog/body/washers.webp",
+    "part_ids": [
+      "washer_pump",
+      "washer_reservoir",
+      "rain_sensor"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "washer_reservoir",
+        "x": 0.33,
+        "y": 0.49
+      },
+      {
+        "number": 2,
+        "part_id": "washer_pump",
+        "x": 0.23,
+        "y": 0.68
+      },
+      {
+        "number": 3,
+        "part_id": "rain_sensor",
+        "x": 0.81,
+        "y": 0.74
+      }
+    ],
+    "sha256": "9844e44062b61a2a662e6785da161971fc0daaa11c5507121131e9f03ee9ddce",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Датчик дождя опционален; форма бачка и наличие второго насоса требуют данных комплектации.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "dashboard",
+    "image": "res://assets/technical_catalog/interior/dashboard.webp",
+    "part_ids": [
+      "dashboard",
+      "instrument_cluster",
+      "infotainment",
+      "glove_box"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "dashboard",
+        "x": 0.1,
+        "y": 0.65
+      },
+      {
+        "number": 2,
+        "part_id": "instrument_cluster",
+        "x": 0.24,
+        "y": 0.38
+      },
+      {
+        "number": 3,
+        "part_id": "infotainment",
+        "x": 0.5,
+        "y": 0.5
+      },
+      {
+        "number": 4,
+        "part_id": "glove_box",
+        "x": 0.8,
+        "y": 0.62
+      }
+    ],
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Дизайн и аудиооборудование зависят от комплектации; условная панель.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "console",
+    "image": "res://assets/technical_catalog/interior/console.webp",
+    "part_ids": [
+      "center_console",
+      "pedal_assembly"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "center_console",
+        "x": 0.615,
+        "y": 0.54
+      },
+      {
+        "number": 2,
+        "part_id": "pedal_assembly",
+        "x": 0.45,
+        "y": 0.45
+      }
+    ],
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Салон с двумя педалями соответствует автоматической трансмиссии в общем; точная консоль MY2011 не подтверждена.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "seats",
+    "image": "res://assets/technical_catalog/interior/seats.webp",
+    "part_ids": [
+      "driver_seat",
+      "passenger_seat",
+      "rear_seat"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "driver_seat",
+        "x": 0.2,
+        "y": 0.48
+      },
+      {
+        "number": 2,
+        "part_id": "passenger_seat",
+        "x": 0.77,
+        "y": 0.48
+      },
+      {
+        "number": 3,
+        "part_id": "rear_seat",
+        "x": 0.5,
+        "y": 0.3
+      }
+    ],
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "historical_architecture_status": "FAIL_ARCHITECTURE",
+    "historical_finding": "Изображён единый задний диван, не подтверждённая система трёх отдельных сидений VarioFlex Yeti.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REJECTED",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "interior_trim",
+    "image": "res://assets/technical_catalog/interior/interior_trim.webp",
+    "part_ids": [
+      "front_left_door",
+      "tailgate"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "front_left_door",
+        "x": 0.15,
+        "y": 0.48
+      },
+      {
+        "number": 2,
+        "part_id": "tailgate",
+        "x": 0.9,
+        "y": 0.48
+      }
+    ],
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "part_id соответствуют двери/крышке в сборе, отдельных IDs обшивок нет; подмены деталей не выполнены.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "airbags",
+    "image": "res://assets/technical_catalog/safety/airbags.webp",
+    "part_ids": [
+      "driver_airbag",
+      "passenger_airbag",
+      "side_airbags"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "driver_airbag",
+        "x": 0.42,
+        "y": 0.22
+      },
+      {
+        "number": 2,
+        "part_id": "passenger_airbag",
+        "x": 0.76,
+        "y": 0.25
+      },
+      {
+        "number": 3,
+        "part_id": "side_airbags",
+        "x": 0.13,
+        "y": 0.5
+      }
+    ],
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Схематически открытые модули, исполнение SRS зависит от комплектации. Не монтажная инструкция.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "belts",
+    "image": "res://assets/technical_catalog/safety/belts.webp",
+    "part_ids": [
+      "seat_belts",
+      "belt_pretensioners"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "seat_belts",
+        "x": 0.49,
+        "y": 0.49
+      },
+      {
+        "number": 2,
+        "part_id": "belt_pretensioners",
+        "x": 0.83,
+        "y": 0.66
+      }
+    ],
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная компоновка, тип преднатяжителя требует проверки. Работа с пиротехникой по рисунку недопустима.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "srs_sensors",
+    "image": "res://assets/technical_catalog/safety/srs_sensors.webp",
+    "part_ids": [
+      "crash_sensors_front",
+      "crash_sensors_side"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "crash_sensors_front",
+        "x": 0.26,
+        "y": 0.565
+      },
+      {
+        "number": 2,
+        "part_id": "crash_sensors_side",
+        "x": 0.82,
+        "y": 0.5
+      }
+    ],
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Монтаж на лонжероне и B-стойке не подтверждён документацией Yeti; не считать рисунок картой местоположения SRS.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "filters",
+    "image": "res://assets/technical_catalog/maintenance/filters.webp",
+    "part_ids": [
+      "oil_filter",
+      "air_filter",
+      "fuel_filter",
+      "cabin_filter"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "oil_filter",
+        "x": 0.15,
+        "y": 0.56
+      },
+      {
+        "number": 2,
+        "part_id": "air_filter",
+        "x": 0.38,
+        "y": 0.26
+      },
+      {
+        "number": 3,
+        "part_id": "fuel_filter",
+        "x": 0.48,
+        "y": 0.68
+      },
+      {
+        "number": 4,
+        "part_id": "cabin_filter",
+        "x": 0.78,
+        "y": 0.48
+      }
+    ],
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочная подборка фильтров; навинчиваемый масляный фильтр противоречит картриджу в oil_filter_node. Точный артикул нужен отдельно.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "fluids",
+    "image": "res://assets/technical_catalog/maintenance/fluids.webp",
+    "part_ids": [
+      "oil_system",
+      "coolant_expansion_tank",
+      "brake_fluid_reservoir"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "oil_system",
+        "x": 0.33,
+        "y": 0.42
+      },
+      {
+        "number": 2,
+        "part_id": "coolant_expansion_tank",
+        "x": 0.09,
+        "y": 0.34
+      },
+      {
+        "number": 3,
+        "part_id": "brake_fluid_reservoir",
+        "x": 0.7,
+        "y": 0.28
+      }
+    ],
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Рисунок моторного отсека условный, жидкости визуально не идентифицируются по цвету.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "service_ignition",
+    "image": "res://assets/technical_catalog/maintenance/service_ignition.webp",
+    "part_ids": [
+      "spark_plugs",
+      "accessory_belt_drive"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "spark_plugs",
+        "x": 0.23,
+        "y": 0.68
+      },
+      {
+        "number": 2,
+        "part_id": "accessory_belt_drive",
+        "x": 0.62,
+        "y": 0.3
+      }
+    ],
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Подборка сервисных компонентов, точная трасса ремня CBZB не подтверждена.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  },
+  {
+    "node_id": "service_brakes",
+    "image": "res://assets/technical_catalog/maintenance/service_brakes.webp",
+    "part_ids": [
+      "brake_pads",
+      "brake_disc"
+    ],
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "brake_pads",
+        "x": 0.72,
+        "y": 0.68
+      },
+      {
+        "number": 2,
+        "part_id": "brake_disc",
+        "x": 0.32,
+        "y": 0.4
+      }
+    ],
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "historical_architecture_status": "REFERENCE_ONLY",
+    "historical_finding": "Справочные расходники, диаметр и тип колодок определяются PR.",
+    "independent_visual_review_this_run": "NOT_RUN",
+    "status": "REFERENCE_ONLY",
+    "status_basis": "Historical active audit, not a new independent image acceptance"
+  }
+]

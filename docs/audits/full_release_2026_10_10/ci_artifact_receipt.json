@@ -1,0 +1,14 @@
+{
+  "run": 38087594072,
+  "source_commit": "3bdeae2085964d3f5c7bb3f2b595ac9dfbaf1e69",
+  "artifact": "YetiGarage-0.20.29-UX-Evidence",
+  "downloaded_zip": "/tmp/yeti-ci-38087594072-ux.zip",
+  "sha256": "3c2a7eb9c44b3d9972c84e0e64ecbe67c583f9041eef83524a32cc699e35af8f",
+  "zip_crc": "PASS",
+  "entries": 904,
+  "manual_checks": 984,
+  "manual_errors": 0,
+  "manual_bottom_unreachable": 0,
+  "manual_screenshot_count": 12,
+  "scope_note": "Earlier >=15pt last-label criterion; final stronger criterion pending"
+}
