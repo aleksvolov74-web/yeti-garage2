@@ -1,5 +1,7 @@
 extends Node
 
+signal persistence_failed(message: String)
+
 const REAL_DATA_PATH := "user://yeti_garage_data.json"
 const REAL_BACKUP_PATH := "user://yeti_garage_data.backup.json"
 const DEMO_DATA_PATH := "user://yeti_garage_demo.json"
@@ -11,6 +13,7 @@ const TRANSFER_FORMAT := "yeti_garage_transfer_v1"
 
 var data: Dictionary = {}
 var demo_mode := false
+var storage_writable := true
 
 func _ready() -> void:
     load_or_create()
@@ -73,7 +76,7 @@ func demo_data() -> Dictionary:
         "current_engine_name": "1.2 TSI",
         "power_hp": 105,
         "drivetrain": "FWD",
-        "transmission": "МКПП, демо",
+        "transmission": "DSG 7, демо",
         "transmission_family": "0AM / DQ200",
         "nickname": "ДЕМО — Yeti"
     }
@@ -96,29 +99,45 @@ func is_demo_mode() -> bool:
 func set_demo_mode(enabled: bool) -> void:
     if demo_mode == enabled:
         return
-    save()
+    if not save():
+        return
     demo_mode = enabled
     load_or_create()
     AppState.notify_all()
 
-func load_or_create() -> void:
-    var path := _data_path()
-    if not FileAccess.file_exists(path):
-        data = demo_data() if demo_mode else default_data()
-        save()
-        return
-
+func _read_vehicle_file(path: String) -> Dictionary:
     var file := FileAccess.open(path, FileAccess.READ)
     if file == null:
-        data = demo_data() if demo_mode else default_data()
-        return
+        return {}
+    var parser := JSON.new()
+    var result := parser.parse(file.get_as_text())
+    file.close()
+    if result != OK:
+        push_warning("Invalid vehicle JSON in %s: %s" % [path, parser.get_error_message()])
+        return {}
+    var parsed = parser.data
+    if parsed is Dictionary and _looks_like_vehicle_data(parsed):
+        return parsed
+    return {}
 
-    var parsed = JSON.parse_string(file.get_as_text())
-    if typeof(parsed) != TYPE_DICTIONARY:
-        data = demo_data() if demo_mode else default_data()
-        save()
-        return
-
+func load_or_create() -> void:
+    storage_writable = true
+    var path := _data_path()
+    var parsed := _read_vehicle_file(path)
+    if parsed.is_empty():
+        parsed = _read_vehicle_file(_backup_path())
+        if not parsed.is_empty():
+            push_warning("Recovered vehicle data from backup; original file retained until next save.")
+        elif FileAccess.file_exists(path) or FileAccess.file_exists(_backup_path()):
+            # Keep unreadable files intact. Defaults are only an in-memory fallback.
+            storage_writable = false
+            data = demo_data() if demo_mode else default_data()
+            push_warning("Vehicle data and backup cannot be read. Saving is blocked to preserve existing files.")
+            return
+        else:
+            data = demo_data() if demo_mode else default_data()
+            save()
+            return
     data = parsed
     var previous_schema := int(data.get("schema_version", 1))
     _ensure_schema()
@@ -194,23 +213,58 @@ func _migrate_vehicle_engine_fields() -> void:
     # но новый интерфейс больше не использует их как сведения о текущем моторе.
     data["vehicle"] = vehicle
 
-func save() -> bool:
-    var path := _data_path()
-    var backup_path := _backup_path()
-    if FileAccess.file_exists(path):
-        var old := FileAccess.open(path, FileAccess.READ)
-        if old != null:
-            var backup := FileAccess.open(backup_path, FileAccess.WRITE)
-            if backup != null:
-                backup.store_string(old.get_as_text())
-
-    var file := FileAccess.open(path, FileAccess.WRITE)
+func _write_atomic(path: String, contents: String) -> bool:
+    var temporary := path + ".tmp"
+    var file := FileAccess.open(temporary, FileAccess.WRITE)
     if file == null:
         return false
-    file.store_string(JSON.stringify(data, "  "))
+    file.store_string(contents)
+    file.flush()
+    var result := file.get_error()
+    file.close()
+    if result != OK:
+        return false
+    return DirAccess.rename_absolute(temporary, path) == OK
+
+func _preserve_unreadable_file(path: String) -> bool:
+    var damaged := FileAccess.open(path, FileAccess.READ)
+    if damaged == null:
+        return false
+    var preserved := path + ".corrupt-" + str(Time.get_unix_time_from_system()) + "-" + str(Time.get_ticks_usec())
+    var copy := FileAccess.open(preserved, FileAccess.WRITE)
+    if copy == null:
+        return false
+    copy.store_buffer(damaged.get_buffer(damaged.get_length()))
+    copy.flush()
+    var copied := copy.get_error() == OK
+    copy.close()
+    damaged.close()
+    return copied
+
+func _save_failed() -> bool:
+    persistence_failed.emit("Не удалось сохранить изменения. Проверьте свободное место и резервную копию. При повреждении файлов запись заблокирована, чтобы сохранить исходные данные.")
+    return false
+
+func save() -> bool:
+    if not storage_writable or not _looks_like_vehicle_data(data):
+        return _save_failed()
+    var path := _data_path()
+    # Never rotate corrupt data over a valid recovery copy.
+    var previous := _read_vehicle_file(path)
+    if not previous.is_empty():
+        if FileAccess.file_exists(_backup_path()) and _read_vehicle_file(_backup_path()).is_empty():
+            if not _preserve_unreadable_file(_backup_path()):
+                return _save_failed()
+        if not _write_atomic(_backup_path(), JSON.stringify(previous, "  ")):
+            return _save_failed()
+    elif FileAccess.file_exists(path) and not _preserve_unreadable_file(path):
+        return _save_failed()
+    if not _write_atomic(path, JSON.stringify(data, "  ")):
+        return _save_failed()
     return true
 
 func reset_all() -> void:
+    storage_writable = true
     data = demo_data() if demo_mode else default_data()
     save()
     AppState.notify_all()
@@ -222,33 +276,26 @@ func _backup_path() -> String:
     return DEMO_BACKUP_PATH if demo_mode else REAL_BACKUP_PATH
 
 func create_manual_backup() -> bool:
-    var file := FileAccess.open(_manual_backup_path(), FileAccess.WRITE)
-    if file == null:
+    if not storage_writable:
         return false
-    file.store_string(JSON.stringify(data, "  "))
-    return true
+    return _write_atomic(_manual_backup_path(), JSON.stringify(data, "  "))
 
 func has_manual_backup() -> bool:
     return FileAccess.file_exists(_manual_backup_path())
 
 func restore_manual_backup() -> bool:
-    var path := _manual_backup_path()
-    if not FileAccess.file_exists(path):
+    var restored := _read_vehicle_file(_manual_backup_path())
+    if restored.is_empty():
         return false
-    var file := FileAccess.open(path, FileAccess.READ)
-    if file == null:
-        return false
-    var parsed = JSON.parse_string(file.get_as_text())
-    if typeof(parsed) != TYPE_DICTIONARY:
-        return false
-    data = parsed
+    var previous := data.duplicate(true)
+    var was_writable := storage_writable
+    data = restored
     _ensure_schema()
-    # Пишем восстановленные данные напрямую, чтобы обычный save() не затёр
-    # ручную резервную копию текущим повреждённым файлом.
-    var target := FileAccess.open(_data_path(), FileAccess.WRITE)
-    if target == null:
+    storage_writable = true
+    if not save():
+        data = previous
+        storage_writable = was_writable
         return false
-    target.store_string(JSON.stringify(data, "  "))
     AppState.notify_all()
     return true
 
@@ -324,8 +371,11 @@ func import_json(raw: String) -> bool:
 func _import_vehicle_data(imported: Dictionary, make_backup: bool) -> bool:
     if not _looks_like_vehicle_data(imported):
         return false
-    if make_backup:
-        create_manual_backup()
+    if make_backup and storage_writable and not create_manual_backup():
+        return false
+    var previous := data.duplicate(true)
+    var was_writable := storage_writable
+    storage_writable = true
     data = imported.duplicate(true)
     _ensure_schema()
     var info: Dictionary = data.get("install_info", {})
@@ -334,10 +384,28 @@ func _import_vehicle_data(imported: Dictionary, make_backup: bool) -> bool:
     var ok := save()
     if ok:
         AppState.notify_all()
+    else:
+        data = previous
+        storage_writable = was_writable
     return ok
 
 func _looks_like_vehicle_data(value: Dictionary) -> bool:
-    return value.has("vehicle") and value.has("mileage_records") and value.has("service_events")
+    if not value.get("vehicle") is Dictionary:
+        return false
+    for key in ["mileage_records", "service_events", "maintenance_rules", "scheduled_notification_ids", "saved_faults"]:
+        if value.has(key):
+            if not value[key] is Array:
+                return false
+        elif key in ["mileage_records", "service_events"]:
+            return false
+    for key in ["reminder_snoozes", "notification_settings", "notification_runtime", "install_info", "active_repair_session"]:
+        if value.has(key) and not value[key] is Dictionary:
+            return false
+    for key in ["mileage_records", "service_events", "maintenance_rules", "saved_faults"]:
+        for record in value.get(key, []):
+            if not record is Dictionary:
+                return false
+    return true
 
 func _manual_backup_path() -> String:
     return DEMO_MANUAL_BACKUP_PATH if demo_mode else REAL_MANUAL_BACKUP_PATH

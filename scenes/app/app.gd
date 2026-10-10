@@ -110,6 +110,13 @@ func _ready() -> void:
     resized.connect(_update_nav_styles)
     _connect_signals()
     _refresh_all()
+    Storage.persistence_failed.connect(_on_persistence_failed)
+    if not Storage.storage_writable:
+        _on_persistence_failed("Файл данных и автоматическая копия не читаются. Исходные файлы сохранены. Запись заблокирована; восстановите проверенную локальную резервную копию в настройках.")
+
+func _on_persistence_failed(message: String) -> void:
+    # Services may finish their UI update before opening the error dialog.
+    _show_info_dialog.call_deferred("Ошибка сохранения", message)
 
 func _build_ui() -> void:
     var app_theme := Theme.new()

@@ -103,6 +103,16 @@ jobs:
           python3 tools/validate_visual_audit.py
           python3 tools/validate_known_marker_remediation.py
 
+      - name: Validate data persistence and recovery
+        shell: bash
+        run: |
+          storage_log=build/validation-logs/storage.log
+          godot --headless --path . --script tools/validate_storage.gd 2>&1 | tee "$storage_log"
+          grep -Fq 'STORAGE_VALIDATION=PASS' "$storage_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$storage_log"; then
+            exit 1
+          fi
+
       - name: Validate 3D catalog and view startup
         shell: bash
         run: |

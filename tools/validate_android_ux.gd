@@ -3,6 +3,7 @@ extends SceneTree
 var errors: Array[String] = []
 var app: Control
 var width := 360
+var height := 780
 var evidence: Array = []
 
 func _initialize() -> void:
@@ -33,10 +34,11 @@ func _initialize() -> void:
 	app = scene.instantiate()
 	root.add_child(app)
 	await _frames(8)
-	for current_width in [360, 420]:
-		width = current_width
-		DisplayServer.window_set_size(Vector2i(width, 780))
-		root.size = Vector2i(width, 780)
+	for viewport in [Vector2i(360, 780), Vector2i(390, 844), Vector2i(420, 780), Vector2i(430, 932)]:
+		width = viewport.x
+		height = viewport.y
+		DisplayServer.window_set_size(viewport)
+		root.size = viewport
 		await _frames(8)
 		var title: Label = app.get("header_title")
 		var accent: Label = app.get("header_accent")
@@ -102,8 +104,8 @@ func _initialize() -> void:
 		DisplayServer.window_set_size(Vector2i(width, 480))
 		await _frames(6)
 		await _check_page("reduced_height_keyboard_geometry", pages.get_child(4) as ScrollContainer)
-		root.size = Vector2i(width, 780)
-		DisplayServer.window_set_size(Vector2i(width, 780))
+		root.size = Vector2i(width, height)
+		DisplayServer.window_set_size(Vector2i(width, height))
 		await _frames(6)
 		app.call("_open_manual_hub")
 		await _frames(6)
@@ -155,7 +157,7 @@ func _initialize() -> void:
 			total += 1
 	if total != 376: errors.append("marker numbering coverage changed")
 	DirAccess.make_dir_recursive_absolute("res://build/ux")
-	var result := {"viewports": ["360x780", "420x780"], "marker_numbers_checked":total, "captures":evidence, "errors":errors, "physical_android_test":"NOT_RUN_NO_ADB_DEVICE", "real_keyboard_test":"NOT_RUN", "reduced_height_geometry":"CHECKED_480PX"}
+	var result := {"viewports": ["360x780", "390x844", "420x780", "430x932"], "marker_numbers_checked":total, "captures":evidence, "errors":errors, "physical_android_test":"NOT_RUN_NO_ADB_DEVICE", "real_keyboard_test":"NOT_RUN", "reduced_height_geometry":"CHECKED_480PX"}
 	var file := FileAccess.open("res://build/ux/result.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(result, "  "))
 	for error in errors: push_error(error)
@@ -225,7 +227,7 @@ func _frames(count: int) -> void:
 func _check_dialog(id: String) -> void:
 	for window in root.get_embedded_subwindows():
 		if not window.visible: continue
-		if window.position.x < 0 or window.position.x + window.size.x > width or window.size.y > 780: errors.append("dialog outside viewport: " + id)
+		if window.position.x < 0 or window.position.x + window.size.x > width or window.size.y > height: errors.append("dialog outside viewport: " + id)
 		await _capture(id)
 		for candidate in window.find_children("*", "ScrollContainer", true, false):
 			var scroll := candidate as ScrollContainer
