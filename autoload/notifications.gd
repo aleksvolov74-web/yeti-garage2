@@ -108,7 +108,7 @@ func status_text() -> String:
     var reliability := ""
     if _scheduler.has_method("has_battery_optimizations_permission") and not has_battery_optimization_permission():
         reliability = " Телефон может задерживать уведомления из-за экономии батареи."
-    return "✅ Системные Android-уведомления разрешены." + reliability
+    return "Системные Android-уведомления разрешены." + reliability
 
 func request_permission() -> bool:
     if not is_initialized():
@@ -154,7 +154,7 @@ func schedule_test(delay_seconds: int = 10) -> bool:
     var ok := _schedule(
         900001,
         "Yeti Garage",
-        "Тестовое уведомление работает 🔧",
+        "Тестовое уведомление работает",
         maxi(delay_seconds, 2),
         "test"
     )

@@ -1586,7 +1586,7 @@ func _build_overview() -> void:
     overview_box.add_child(reminder_card["card"] as Node)
     reminders_summary_value = reminder_card["subtitle"] as Label
 
-    var cost_card := _feature_card("Расходы", "0 ₽", "res://assets/ui/expenses_money.jpg", "res://assets/ui/icons/expenses.svg", func(): _switch_to_page(history_box))
+    var cost_card := _feature_card("Расходы", "0 руб.", "res://assets/ui/expenses_money.jpg", "res://assets/ui/icons/expenses.svg", func(): _switch_to_page(history_box))
     overview_box.add_child(cost_card["card"] as Node)
     total_cost_value = cost_card["subtitle"] as Label
     total_cost_value.add_theme_font_size_override("font_size", 18)
@@ -1630,7 +1630,7 @@ func _build_reminders_page() -> void:
 
     var system_card := _glass_card(reminders_box)
     var system_title := Label.new()
-    system_title.text = "🔔 Системные уведомления Android"
+    system_title.text = "Системные уведомления Android"
     system_title.add_theme_font_size_override("font_size", 20)
     system_card.add_child(system_title)
     notification_status_value = Label.new()
@@ -2181,7 +2181,7 @@ func _render_diagnostic_node() -> void:
     var hint_text: String = str(node.get("hint", ""))
     if hint_text != "":
         var hint := Label.new()
-        hint.text = "⚠️ " + hint_text
+        hint.text = "Внимание: " + hint_text
         hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
         hint.modulate = Color("f3c86a")
         diagnostic_content.add_child(hint)
@@ -2853,7 +2853,7 @@ func _build_repair_page() -> void:
     repair_finish_box.visible = false
     repair_box.add_child(repair_finish_box)
     var done_label := Label.new()
-    done_label.text = "✅ Инструкция пройдена. Отмечай замену только если работа действительно выполнена на автомобиле."
+    done_label.text = "Инструкция пройдена. Отмечай замену только если работа действительно выполнена на автомобиле."
     done_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     done_label.modulate = Color("71ddb6")
     repair_finish_box.add_child(done_label)
@@ -2889,9 +2889,9 @@ func _render_repair_step() -> void:
     repair_step_title.text = str(step.get("title", "Шаг"))
     repair_step_body.text = str(step.get("body", ""))
     var tool := str(step.get("tool", ""))
-    repair_tool_label.text = "🔧 Сейчас понадобится: %s" % tool if tool != "" else ""
+    repair_tool_label.text = "Сейчас понадобится: %s" % tool if tool != "" else ""
     var warning := str(step.get("warning", ""))
-    repair_warning_label.text = "⚠️ %s" % warning if warning != "" else ""
+    repair_warning_label.text = "Внимание: %s" % warning if warning != "" else ""
     repair_back_button.disabled = repair_step_index <= 0
     repair_next_button.disabled = false
     repair_next_button.text = "Завершить инструкцию" if repair_step_index == steps.size() - 1 else "Готово →"
@@ -3073,7 +3073,7 @@ func _build_event_dialog() -> void:
     event_mileage_unknown.toggled.connect(func(pressed): event_mileage.editable = not pressed)
     form.add_child(event_mileage_unknown)
 
-    form.add_child(_form_label("Запчасти / материалы, ₽"))
+    form.add_child(_form_label("Запчасти / материалы, руб."))
     event_cost = SpinBox.new()
     event_cost.max_value = 10000000
     event_cost.step = 1
@@ -3082,7 +3082,7 @@ func _build_event_dialog() -> void:
         _style_line_edit(cost_line)
     form.add_child(event_cost)
 
-    form.add_child(_form_label("Работа, ₽"))
+    form.add_child(_form_label("Работа, руб."))
     event_labor_cost = SpinBox.new()
     event_labor_cost.max_value = 10000000
     event_labor_cost.step = 1
@@ -3610,12 +3610,12 @@ func _refresh_overview() -> void:
     vehicle_name_label.text = str(vehicle.get("nickname", "Моя Yeti"))
     vehicle_vin_label.text = "VIN: %s" % str(vehicle.get("vin", ""))
     if Storage.is_demo_mode():
-        data_mode_value.text = "🧪 ДЕМО-РЕЖИМ\nТестовые записи хранятся отдельно и не затрагивают твою Yeti."
+        data_mode_value.text = "ДЕМО-РЕЖИМ\nТестовые записи хранятся отдельно и не затрагивают твою Yeti."
         data_mode_value.modulate = Color("f3c86a")
         header_title.text = "Yeti"
         header_accent.text = "Garage • ДЕМО"
     else:
-        data_mode_value.text = "🚙 МОЯ МАШИНА\nРаботаем с реальной историей автомобиля."
+        data_mode_value.text = "МОЯ МАШИНА\nРаботаем с реальной историей автомобиля."
         data_mode_value.modulate = Color("b9d7c5")
         header_title.text = "Yeti"
         header_accent.text = "Garage"
@@ -3689,7 +3689,7 @@ func _refresh_overview() -> void:
     else:
         reminders_summary_value.text = "Активных напоминаний нет."
 
-    total_cost_value.text = "%s ₽" % _format_money(ServiceHistoryService.total_cost())
+    total_cost_value.text = "%s руб." % _format_money(ServiceHistoryService.total_cost())
     _refresh_saved_fault_card()
 
     _clear_children(recent_box)
@@ -3736,7 +3736,7 @@ func _refresh_history() -> void:
         var cost := float(event.get("cost",0)) + float(event.get("labor_cost",0))
         if cost > 0:
             var c := Label.new()
-            c.text = "Стоимость: %s ₽" % _format_money(cost)
+            c.text = "Стоимость: %s руб." % _format_money(cost)
             card.add_child(c)
         if str(event.get("notes", "")).strip_edges() != "":
             var notes := Label.new()
@@ -3797,7 +3797,7 @@ func _refresh_reminders() -> void:
     if active.is_empty():
         var ok_card := _glass_card(reminders_dynamic_box, Color("1b5f54"))
         var ok_title := Label.new()
-        ok_title.text = "✅ Срочных напоминаний нет"
+        ok_title.text = "Срочных напоминаний нет"
         ok_title.add_theme_font_size_override("font_size", 20)
         ok_card.add_child(ok_title)
         var ok_text := Label.new()
@@ -3860,9 +3860,9 @@ func _refresh_reminders() -> void:
 
 func _status_icon(status: String) -> String:
     match status:
-        "overdue": return "🔴"
-        "due": return "🟠"
-        "soon": return "🟡"
+        "overdue": return "•"
+        "due": return "•"
+        "soon": return "•"
         _: return "•"
 
 func _snooze_reminder(reminder_id: String) -> void:
@@ -3901,7 +3901,7 @@ func _maintenance_summary(item: Dictionary) -> String:
     var projected_date := str(item.get("projected_date_by_mileage", ""))
     if projected_date != "" and remaining_km != null and int(remaining_km) > 0:
         chunks.append("по темпу езды ≈ %s" % _display_date(projected_date))
-    var prefix: String = str({"normal":"✅ Норма", "soon":"🟡 Скоро", "due":"🟠 Пора", "overdue":"🔴 Просрочено"}.get(status, ""))
+    var prefix: String = str({"normal":"Норма", "soon":"Скоро", "due":"Пора", "overdue":"Просрочено"}.get(status, ""))
     return "%s\n%s" % [prefix, " • ".join(chunks)]
 
 func _open_vehicle_dialog() -> void:
@@ -4321,7 +4321,7 @@ func _show_event_details(event: Dictionary) -> void:
     var total := float(event.get("cost", 0.0)) + float(event.get("labor_cost", 0.0))
     if total > 0.0:
         var cost_label := Label.new()
-        cost_label.text = "Стоимость: %s ₽" % _format_money(total)
+        cost_label.text = "Стоимость: %s руб." % _format_money(total)
         box.add_child(cost_label)
 
     if str(event.get("part_id", "")).strip_edges() != "":

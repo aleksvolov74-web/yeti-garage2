@@ -168,6 +168,16 @@ jobs:
           fi
           python3 tools/export_visual_audit.py
 
+      - name: Verify home text glyphs at four phone sizes
+        shell: bash
+        run: |
+          home_log=build/validation-logs/home-ux.log
+          xvfb-run -a -s '-screen 0 1024x1024x24' godot --path . --audio-driver Dummy --script tools/validate_home_ux.gd 2>&1 | tee "$home_log"
+          grep -Fq 'HOME_UX_VALIDATION=PASS' "$home_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$home_log"; then
+            exit 1
+          fi
+
       - name: Validate every manual page and chapter route
         shell: bash
         run: |
