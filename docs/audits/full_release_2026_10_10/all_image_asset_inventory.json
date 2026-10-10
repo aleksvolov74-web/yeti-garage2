@@ -1,0 +1,3008 @@
+[
+  {
+    "path": "assets/icons/app_icon_192.png",
+    "size": 27745,
+    "sha256": "419a61979941f116aefdf97c4bc9896dad64c555838ffde4919652fe45f442ca",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/icons/adaptive_background_432.png",
+    "size": 1173,
+    "sha256": "cf0fe49b8fd8bc712736a83ed92dd3c77a5b4ffc8be690aff927244daeed70ca",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/icons/app_icon_512.png",
+    "size": 187301,
+    "sha256": "2f5ced90a3b288ed98a0ae94c13b27f8dee137ff91baeaa464c787317a95a406",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/icons/adaptive_foreground_432.png",
+    "size": 138455,
+    "sha256": "dd4fff55c29389cbad71c2723136f9075bb6e51da1443288b08a7b1f1b04503f",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/expenses_money.jpg",
+    "size": 20163,
+    "sha256": "f694a1f757dbb296beca989b9e3f2e78eae9ccba99b88c13687708d78184a5b4",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/fade_bottom.png",
+    "size": 590,
+    "sha256": "bdc32d27de948c34d16a2197b7cf01e3faa4338489e83b8978e4df2fe958eca6",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/fade_left.png",
+    "size": 356,
+    "sha256": "0661470f93d45cec8658c688c12d4b4a3e99de97667857de12db727ca5cac7d9",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/reminders_brake.jpg",
+    "size": 18366,
+    "sha256": "ce83c5bf80328cd7999bc687ea7871fba46a4a2a54f41a602719481c0c0733c9",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/service_oil.jpg",
+    "size": 17752,
+    "sha256": "86134d4bb566062d770af54da4edb98de8baa80fb068520701e4da2ec8bd6d6e",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/hero_yeti.jpg",
+    "size": 162002,
+    "sha256": "ce5aa87ec1f05066f51ff9a6435a2e555db01ed88d7e42b79c7f579b29e8d594",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/diagnostic_yeti.jpg",
+    "size": 132246,
+    "sha256": "c6b1b4c303b15669368c6fc9361ecc35691cf5d2e6ce72c4508f942809286616",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/service_yeti.jpg",
+    "size": 119218,
+    "sha256": "9b49a63290c26f61607af7a76ac3a0b5949fd42daba014c9fdadde813f22eede",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/oil_pressure.svg",
+    "size": 2052,
+    "sha256": "22c5196a6593707f3df9d10c312afe0cac4a29cdb9c1b22c251f6c0981d77f0b",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/oil_level.svg",
+    "size": 2052,
+    "sha256": "10d595f56172397d45b91c65598f8f22e35ea41fdeb9fd5f7fc16349351e82aa",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/oil_sensor.svg",
+    "size": 2052,
+    "sha256": "10d595f56172397d45b91c65598f8f22e35ea41fdeb9fd5f7fc16349351e82aa",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/epc.svg",
+    "size": 4633,
+    "sha256": "3a22a844910978022e235d80f98dec871a064bc10e53e53638a1f65e8cc9644c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/check_engine.svg",
+    "size": 4010,
+    "sha256": "aff564d801bf6d089a9fa1539d2ce596e7d08b9d40b6557a06b9dba580276dfa",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/coolant.svg",
+    "size": 7715,
+    "sha256": "0a7a4103c529a03b516901eaf46596e9a36c13ea3da096dad730e05f973b7d70",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/charging.svg",
+    "size": 992,
+    "sha256": "45b160d44745404b6e8518c80333d3064fa449a75908ee706d791fe9d0f6ac8c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/brake.svg",
+    "size": 5938,
+    "sha256": "e8daa0b32d08dc82823934ada7f9e0505c2bc9d653e3f705e4eb0155aea58695",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/abs.svg",
+    "size": 7698,
+    "sha256": "858af7ac081bae4b7474f75bfe85ae14c325cf77be5b5471c91af1d9cbb6d3a3",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/esc.svg",
+    "size": 9404,
+    "sha256": "1dc8240ae8a6db406af370eaa45d50ada83259f24c059ed72153fca6f440d103",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/asr_off.svg",
+    "size": 10619,
+    "sha256": "a25dd657b6a6a89bbd1397990af0fc2a20ce5dc0e6e93fc4d0de739437fa42b0",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/steering.svg",
+    "size": 7289,
+    "sha256": "3c6fc31212f7624ad9dce4b705e6def4b640a2e6fd9f524abcc8431e80f581df",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/tire_pressure.svg",
+    "size": 5553,
+    "sha256": "626cc9fee8a3cc50d6c16c7dc8d1336b6f044230669e192d3cde868b28e24c04",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/airbag.svg",
+    "size": 4279,
+    "sha256": "67defed506017e87f9ee744bdcf9f4480dd2abefbee0cfce9e94496ec4a3f766",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/seat_belt.svg",
+    "size": 3916,
+    "sha256": "924101bd8782f1cb0c8c66d6ef26eed1d33c1d0c2c76b9e3a2058710ffa3d98c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/parking_brake.svg",
+    "size": 5230,
+    "sha256": "e7a5bcce4966440da85238e9ccfb54bebac30e326fa299de1e6752c3f4d4feaa",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/low_fuel.svg",
+    "size": 3854,
+    "sha256": "8e20245b3657dc3fd4641f31884df7f1fe5303d4c4fc6586ca83b243d0c8d6b0",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/warning_lights/bulb.svg",
+    "size": 3952,
+    "sha256": "cb81abd386947173f58aceec77897f6e38853e1b18e7a2673f588711de78630d",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/technical_catalog/brakes/abs_esp_block.webp",
+    "size": 278490,
+    "sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "category": "technical",
+    "node_ids": [
+      "abs_esp_block"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/brakes/brake_hydraulics.webp",
+    "size": 251092,
+    "sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "category": "technical",
+    "node_ids": [
+      "brake_hydraulics"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/brakes/wheel_sensors.webp",
+    "size": 320416,
+    "sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "category": "technical",
+    "node_ids": [
+      "wheel_sensors"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/cooling/coolant_circuit.webp",
+    "size": 436612,
+    "sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "category": "technical",
+    "node_ids": [
+      "coolant_circuit"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/cooling/coolant_reservoir.webp",
+    "size": 78016,
+    "sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "category": "technical",
+    "node_ids": [
+      "coolant_reservoir"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/cooling/radiator_pack.webp",
+    "size": 387054,
+    "sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "category": "technical",
+    "node_ids": [
+      "radiator_pack"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/dsg/clutch_group.webp",
+    "size": 361372,
+    "sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "category": "technical",
+    "node_ids": [
+      "clutch_group"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/dsg/dsg_mechatronics.webp",
+    "size": 295450,
+    "sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "category": "technical",
+    "node_ids": [
+      "dsg_mechatronics"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/dsg/gear_selector.webp",
+    "size": 258902,
+    "sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "category": "technical",
+    "node_ids": [
+      "gear_selector"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/dsg/gearbox_group.webp",
+    "size": 405160,
+    "sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "category": "technical",
+    "node_ids": [
+      "gearbox_group"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_accessories.webp",
+    "size": 150504,
+    "sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "category": "technical",
+    "node_ids": [
+      "engine_accessories"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_bottom_end.webp",
+    "size": 232678,
+    "sha256": "65639b0cb619f6dfc00aae0df90a08874e7cbe79f3f722ac4ec40d7de1a935f3",
+    "category": "technical",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_complete.webp",
+    "size": 293254,
+    "sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "category": "technical",
+    "node_ids": [
+      "engine_complete"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_mounts.webp",
+    "size": 227022,
+    "sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "category": "technical",
+    "node_ids": [
+      "engine_mounts"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_upper_end.webp",
+    "size": 184704,
+    "sha256": "c1bb9bd7770706d6009ae576ca53f3a03cbd76e4b495dbd564ba141ca47ff1b2",
+    "category": "technical",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/technical_catalog/engine/oil_filter.webp",
+    "size": 160894,
+    "sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "category": "technical",
+    "node_ids": [
+      "oil_filter_node"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/oil_pan.webp",
+    "size": 225166,
+    "sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "category": "technical",
+    "node_ids": [
+      "oil_pan_node"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/oil_pump_circuit.webp",
+    "size": 307334,
+    "sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "category": "technical",
+    "node_ids": [
+      "oil_pump_circuit"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_bottom_end_cbzb_reference_v1.webp",
+    "size": 234456,
+    "sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+    "category": "technical",
+    "node_ids": [
+      "engine_bottom_end"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_block_group_cbzb_reference_v1.webp",
+    "size": 310324,
+    "sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+    "category": "technical",
+    "node_ids": [
+      "engine_block_group"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/engine_upper_end_cbzb_reference_v1.webp",
+    "size": 365148,
+    "sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+    "category": "technical",
+    "node_ids": [
+      "engine_upper_end"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/engine/cylinder_head_group_cbzb_reference_v1.webp",
+    "size": 363962,
+    "sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+    "category": "technical",
+    "node_ids": [
+      "cylinder_head_group"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+    "size": 245062,
+    "sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "category": "technical",
+    "node_ids": [
+      "exhaust_aftertreatment"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/exhaust/exhaust_front.webp",
+    "size": 311372,
+    "sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "category": "technical",
+    "node_ids": [
+      "exhaust_front"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/exhaust/exhaust_rear.webp",
+    "size": 171044,
+    "sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "category": "technical",
+    "node_ids": [
+      "exhaust_rear"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+    "size": 68994,
+    "sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "category": "technical",
+    "node_ids": [
+      "front_brake_assembly"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+    "size": 68894,
+    "sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "category": "technical",
+    "node_ids": [
+      "front_knuckle_hub"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_strut.webp",
+    "size": 46228,
+    "sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "category": "technical",
+    "node_ids": [
+      "front_strut"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_subframe_arms.webp",
+    "size": 74250,
+    "sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "category": "technical",
+    "node_ids": [
+      "front_subframe_arms"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+    "size": 90468,
+    "sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "category": "technical",
+    "node_ids": [
+      "front_axle_carrier"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_brake_at_hub.webp",
+    "size": 188872,
+    "sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "category": "technical",
+    "node_ids": [
+      "front_brake_at_hub"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_drive_at_hub.webp",
+    "size": 136282,
+    "sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "category": "technical",
+    "node_ids": [
+      "front_drive_at_hub"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+    "size": 164716,
+    "sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "category": "technical",
+    "node_ids": [
+      "front_hub_bearing"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_left_corner.webp",
+    "size": 148076,
+    "sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "category": "technical",
+    "node_ids": [
+      "front_left_corner"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_right_corner.webp",
+    "size": 88486,
+    "sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "category": "technical",
+    "node_ids": [
+      "front_right_corner"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_stabilizer.webp",
+    "size": 27526,
+    "sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "category": "technical",
+    "node_ids": [
+      "front_stabilizer"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_suspension/front_suspension_overview.webp",
+    "size": 108018,
+    "sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "category": "technical",
+    "node_ids": [
+      "front_suspension_overview"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/fuel/fuel_delivery.webp",
+    "size": 178814,
+    "sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "category": "technical",
+    "node_ids": [
+      "fuel_delivery"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/fuel/fuel_storage.webp",
+    "size": 257456,
+    "sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "category": "technical",
+    "node_ids": [
+      "fuel_storage"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/fuel/fuel_sensors.webp",
+    "size": 83180,
+    "sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "category": "technical",
+    "node_ids": [
+      "fuel_sensors"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/intake/air_path.webp",
+    "size": 333042,
+    "sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "category": "technical",
+    "node_ids": [
+      "air_path"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/intake/boost_group.webp",
+    "size": 224932,
+    "sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+    "category": "technical",
+    "node_ids": [
+      "boost_group"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_suspension/rear_carrier.webp",
+    "size": 285602,
+    "sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "category": "technical",
+    "node_ids": [
+      "rear_carrier"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_suspension/rear_hub.webp",
+    "size": 276716,
+    "sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "category": "technical",
+    "node_ids": [
+      "rear_hub"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+    "size": 200404,
+    "sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "category": "technical",
+    "node_ids": [
+      "rear_springs_dampers"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+    "size": 256738,
+    "sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "category": "technical",
+    "node_ids": [
+      "rear_suspension_overview"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/steering/steering_linkage.webp",
+    "size": 103274,
+    "sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "category": "technical",
+    "node_ids": [
+      "steering_linkage"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/steering/steering_rack.webp",
+    "size": 133052,
+    "sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "category": "technical",
+    "node_ids": [
+      "steering_rack"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/steering/steering_column.webp",
+    "size": 58538,
+    "sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "category": "technical",
+    "node_ids": [
+      "steering_column"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/timing/timing_chain.webp",
+    "size": 373868,
+    "sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "category": "technical",
+    "node_ids": [
+      "timing_chain"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/timing/timing_drive_node.webp",
+    "size": 291830,
+    "sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "category": "technical",
+    "node_ids": [
+      "timing_drive_node"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/timing/timing_gears.webp",
+    "size": 408200,
+    "sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "category": "technical",
+    "node_ids": [
+      "timing_gears"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/climate/heater_box.webp",
+    "size": 170820,
+    "sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "category": "technical",
+    "node_ids": [
+      "heater_box"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/climate/blower.webp",
+    "size": 117730,
+    "sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "category": "technical",
+    "node_ids": [
+      "blower"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/climate/ac_circuit.webp",
+    "size": 158870,
+    "sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "category": "technical",
+    "node_ids": [
+      "ac_circuit"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/electrical/power_start.webp",
+    "size": 360618,
+    "sha256": "27ab66e463638ef375fc51c7a5764fceb472134e5bb5d986e88565262759b08b",
+    "category": "technical",
+    "node_ids": [
+      "power_start"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/electrical/fuses_relays.webp",
+    "size": 409436,
+    "sha256": "b62624d3bcd64f73cb0109fe89aa9fb2db8e97b9509531cd51aa2e974cb5b5a8",
+    "category": "technical",
+    "node_ids": [
+      "fuses_relays"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/electrical/control_units.webp",
+    "size": 401518,
+    "sha256": "9bfcdeabaee067e865313f8e369b981ba050cae34c9c8cab78301f923fa505d2",
+    "category": "technical",
+    "node_ids": [
+      "control_units"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/electrical/wiring.webp",
+    "size": 463580,
+    "sha256": "ddfeeecda2982b021ddb8244843024dca265933bf69eaf472e000eedc6373421",
+    "category": "technical",
+    "node_ids": [
+      "wiring"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/ignition/ignition.webp",
+    "size": 257892,
+    "sha256": "ff03e5d3878c542c7b204c3afcd3d69ffc892af01830e6338fb7462a5a5d1558",
+    "category": "technical",
+    "node_ids": [
+      "ignition"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/lighting/front_lamps.webp",
+    "size": 368938,
+    "sha256": "e7a186f7b8d945175b5e16f84528ecc8262a10487792d129999ba4d67a802d4d",
+    "category": "technical",
+    "node_ids": [
+      "front_lamps"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/lighting/rear_lamps.webp",
+    "size": 364930,
+    "sha256": "06fc94b08a7e617eac18a59ba231ab967a769d5f332743d6c3ab109e60441e77",
+    "category": "technical",
+    "node_ids": [
+      "rear_lamps"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/lighting/interior_lamps.webp",
+    "size": 473704,
+    "sha256": "047cb2d07c0aa53fb5df76f626ef0a2816aaf92eb38da9a9eca713bd82a340c2",
+    "category": "technical",
+    "node_ids": [
+      "interior_lamps"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/4x4_reference/angle_drive.webp",
+    "size": 199012,
+    "sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "category": "technical",
+    "node_ids": [
+      "angle_drive"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/4x4_reference/haldex.webp",
+    "size": 222798,
+    "sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "category": "technical",
+    "node_ids": [
+      "haldex"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/4x4_reference/propshaft.webp",
+    "size": 37022,
+    "sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "category": "technical",
+    "node_ids": [
+      "propshaft"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/4x4_reference/rear_differential.webp",
+    "size": 98864,
+    "sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "category": "technical",
+    "node_ids": [
+      "rear_differential"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/body_front.webp",
+    "size": 124506,
+    "sha256": "774b3e18bc3096bcaa619ecc9d411a6148b36ac4c24e20c35c208e58f9079a63",
+    "category": "technical",
+    "node_ids": [
+      "body_front"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/body_protection.webp",
+    "size": 143314,
+    "sha256": "19dd0a70aeb8397f4330f134df96221424dc350e389e5fb7b353739ef1d7bd27",
+    "category": "technical",
+    "node_ids": [
+      "body_protection"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/body_rear.webp",
+    "size": 96222,
+    "sha256": "587bb4632e2334f55987f1bf0ed89b84ee8f3fce94a7c52b3827f506507e2cdb",
+    "category": "technical",
+    "node_ids": [
+      "body_rear"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/doors.webp",
+    "size": 125066,
+    "sha256": "fc68b24b10e65ebe3130a4b61abe4e97dc7245345a72acde009c1db74c38639d",
+    "category": "technical",
+    "node_ids": [
+      "doors"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/front_wipers.webp",
+    "size": 148468,
+    "sha256": "5063f77bf1900702abc4987fd02f7364f5f2b1f5706e392ae399c2815f29322d",
+    "category": "technical",
+    "node_ids": [
+      "front_wipers"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/glazing.webp",
+    "size": 87254,
+    "sha256": "6542402fdd28ced5934a8359519d5480ee44cb4d279e08a90acc9f32de02a460",
+    "category": "technical",
+    "node_ids": [
+      "glazing"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/mirrors.webp",
+    "size": 87684,
+    "sha256": "8993bfd746a03576c080dc771ff0105dd4e6b507960091c3abcea2a2812d4e0f",
+    "category": "technical",
+    "node_ids": [
+      "mirrors"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/rear_wiper.webp",
+    "size": 113292,
+    "sha256": "2336a8a791989eb4b866c5eab1de47541acf6721bf4d621362ec917014517ff8",
+    "category": "technical",
+    "node_ids": [
+      "rear_wiper"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/body/washers.webp",
+    "size": 60632,
+    "sha256": "9844e44062b61a2a662e6785da161971fc0daaa11c5507121131e9f03ee9ddce",
+    "category": "technical",
+    "node_ids": [
+      "washers"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_brakes/front_brake_hose.webp",
+    "size": 153552,
+    "sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "category": "technical",
+    "node_ids": [
+      "front_brake_hose"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_drive/left_drive.webp",
+    "size": 60096,
+    "sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "category": "technical",
+    "node_ids": [
+      "left_drive"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/front_drive/right_drive.webp",
+    "size": 51992,
+    "sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "category": "technical",
+    "node_ids": [
+      "right_drive"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/interior/console.webp",
+    "size": 213776,
+    "sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "category": "technical",
+    "node_ids": [
+      "console"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/interior/dashboard.webp",
+    "size": 117508,
+    "sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "category": "technical",
+    "node_ids": [
+      "dashboard"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/interior/interior_trim.webp",
+    "size": 173798,
+    "sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "category": "technical",
+    "node_ids": [
+      "interior_trim"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/interior/seats.webp",
+    "size": 199578,
+    "sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "category": "technical",
+    "node_ids": [
+      "seats"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/maintenance/filters.webp",
+    "size": 165722,
+    "sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "category": "technical",
+    "node_ids": [
+      "filters"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/maintenance/fluids.webp",
+    "size": 222136,
+    "sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "category": "technical",
+    "node_ids": [
+      "fluids"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/maintenance/service_brakes.webp",
+    "size": 136818,
+    "sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "category": "technical",
+    "node_ids": [
+      "service_brakes"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/maintenance/service_ignition.webp",
+    "size": 122060,
+    "sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "category": "technical",
+    "node_ids": [
+      "service_ignition"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_brakes/parking_brake.webp",
+    "size": 51502,
+    "sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "category": "technical",
+    "node_ids": [
+      "parking_brake"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/rear_brakes/rear_brake_assembly.webp",
+    "size": 170872,
+    "sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "category": "technical",
+    "node_ids": [
+      "rear_brake_assembly"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/safety/airbags.webp",
+    "size": 220864,
+    "sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "category": "technical",
+    "node_ids": [
+      "airbags"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/safety/belts.webp",
+    "size": 217072,
+    "sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "category": "technical",
+    "node_ids": [
+      "belts"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/technical_catalog/safety/srs_sensors.webp",
+    "size": 208622,
+    "sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "category": "technical",
+    "node_ids": [
+      "srs_sensors"
+    ],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": true
+  },
+  {
+    "path": "assets/ui/icons/oil.svg",
+    "size": 281,
+    "sha256": "851f9660740802b3468a4cd5e9c71e602994ba79ab2e246da40e8ce1b841243c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/arrow_right.svg",
+    "size": 212,
+    "sha256": "812cc5c3d458a34e5e8585f4a28a49890c6079dfb1d6fb537892580053c79916",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/engine.svg",
+    "size": 287,
+    "sha256": "fc20dfa645d28c2163d9801d2ab465c1b81a128d989f9c81cdcb5fbd94fd3c3c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/book.svg",
+    "size": 282,
+    "sha256": "8c129fcd302b32f749ac6f4ba2febb2d57befd379e845c24a0986b957e4fc782",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/more.svg",
+    "size": 353,
+    "sha256": "9d5c14b8df8b9543f3aff415a5414ffd166f6153ea84e7e2751d37071609a0da",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/edit.svg",
+    "size": 265,
+    "sha256": "e84e77c99fe7b2cc5156320256d98c5f909d1c395ff239fc288b0c15a937ac81",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/diagnostic.svg",
+    "size": 278,
+    "sha256": "69da94668f83da5bcc8971c0d8b12126a9b45c045b160692bce6c38e3f286e7c",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/history.svg",
+    "size": 285,
+    "sha256": "b5fd6ff204400ba5c0c476127dd11983ca3d14288bf45caa38ea28d44d8d9e8e",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/expenses.svg",
+    "size": 257,
+    "sha256": "8e7e5438fbfd9d0cfd991183471851ad85b61eee8a370640f312f0f1eaf1e55d",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/gauge.svg",
+    "size": 334,
+    "sha256": "2cbcf7717f214e2b5c67fc59ce338d5c5cdb2bd04472440295f40f7f14f66cde",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/car.svg",
+    "size": 324,
+    "sha256": "4a09f5c5b9f94e04746d0f455f810b9871512069a1e35fcc23510379da505686",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/copy.svg",
+    "size": 284,
+    "sha256": "2dee4c7529487e4d8e1371d617bea8142c9be36f5b955f636a635e4fb493c8c5",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/search.svg",
+    "size": 238,
+    "sha256": "3389a49590fd7b7729b04cedb63e74f741e1a31a6ff815c4a7470ecc978483ea",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/reminder.svg",
+    "size": 309,
+    "sha256": "c9b868031842e6affe131f5732ccaeccd4ddedef6826e0ee53318e174a513a4e",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/ui/icons/cube.svg",
+    "size": 268,
+    "sha256": "ccc04007f540330f4720d84424cdbf9fd8775aea5b2448ccac524189f96544bd",
+    "category": "UI/icons",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_038_p060.jpg",
+    "size": 11997,
+    "sha256": "5d136ec65b61c545325cccbbb01a67afed31c7f510423bd3d8984acae0006421",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_116_p144.jpg",
+    "size": 16579,
+    "sha256": "ce0404259f2bafdecde20d5d69d6f0145330686f81e3aa1c328b6fa74f5417ba",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_086_p089.jpg",
+    "size": 33513,
+    "sha256": "52c3491e1228c01708fd6b0010608fea7d0ff36adf6982ea116c481a0d40f61c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_075_p083.jpg",
+    "size": 14325,
+    "sha256": "2725077d018fdc3e516130c8d8d708dcfab50b0886c753ff5ec09eb5261903b5",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_110_p128.jpg",
+    "size": 14134,
+    "sha256": "aaa44c38b5933beba2973536cb6d465f30caa940c2fe106bc55cc41d7937a752",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_097_p107.jpg",
+    "size": 13582,
+    "sha256": "95659d0a3bbc96ffbff1fdb2ec396da7a300176fe3e90c5a28124b9327f46024",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_090_p094.jpg",
+    "size": 38783,
+    "sha256": "569e249f1bb22768c23ca232598c9365a10c69143ef4492658a249a31048f2b2",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_025_p050.jpg",
+    "size": 13300,
+    "sha256": "cfb407492a2241f8f605a1cba7bc1be4d452ad01f1ec39de033d7db6f08a6663",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_021_p045.jpg",
+    "size": 12797,
+    "sha256": "e612ba0c18072da23e135b9a031c92571bc691d70f2bb634f77662b8db643f6f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_149_p195.jpg",
+    "size": 15342,
+    "sha256": "2079f52f9e7be9ec09961d23bfcc67588f793a9101bfa2ebc4ec3bed595db42e",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_125_p154.jpg",
+    "size": 18949,
+    "sha256": "c43b38d3dd4adf9b09fa968655b0e46e1d81faec2187db0a7a580c946aa840c6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_035_p056.jpg",
+    "size": 20317,
+    "sha256": "f135b1f7ba631f074dbd67eb038d9304ea4101ba6e3c80c0a686372a60e9efcc",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_142_p188.jpg",
+    "size": 16548,
+    "sha256": "04da3250576a26bcf0bb20cf1650d783d7f899842ea7f81512ec3d63e699cf32",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_152_p200.jpg",
+    "size": 12941,
+    "sha256": "d25aef76374610e6f99bc231940989551f94a3fdbf9dacde501e9ea9310c5923",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_177_p226.jpg",
+    "size": 16954,
+    "sha256": "a8c625eeeca7cd49538afe55b6a064177946360e078e3af93b7a9b2d0b844727",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_040_p061.jpg",
+    "size": 12857,
+    "sha256": "294294016ec8c152027e3430db3d122f2fb6622e2c26a96eb770bd941a34a898",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_026_p051.jpg",
+    "size": 10954,
+    "sha256": "91357c3a296822d9a2d44ea97d89095a75ff8445006fbf4a2a765ffbc411ce09",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_172_p224.jpg",
+    "size": 30174,
+    "sha256": "323294676770382f8e744994ac03ffd45ca082111b06d419ca0304d1294e93f0",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_009_p034.jpg",
+    "size": 17732,
+    "sha256": "4b38cdc570f88c8d9bbda184d3ac9be2ab98bd8c1afb5dcb81181349f285b36a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_042_p064.jpg",
+    "size": 13961,
+    "sha256": "7fd1b4d0f2ad23ed8187f8d20a03a41186e64a8545ea601021169c6e51ea1909",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_156_p207.jpg",
+    "size": 15451,
+    "sha256": "7e063a50887f504d7b4b0857fd2fe34ae613b051152c93c98bb44f2b1ea2f3fa",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_173_p224.jpg",
+    "size": 21058,
+    "sha256": "b3ecce65d4467401af2794586fe5b59bb88fc1ec3b82397d50454f7ef914053d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_114_p139.jpg",
+    "size": 16990,
+    "sha256": "d40a530ddfb35e72fdb5c51e06942778a0019b54311e09be5802051c3abc49fc",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_150_p198.jpg",
+    "size": 28859,
+    "sha256": "07d5190293aa6ff23f7370b8f622e5929148504d48e5ba23384412469f614659",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_045_p067.jpg",
+    "size": 14163,
+    "sha256": "2fb85f18ddac2777f9280a4c0092b9dfffc6e22b8d0227bb1cf1034a3d5e10a1",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_096_p106.jpg",
+    "size": 13595,
+    "sha256": "d03b29abbcc674091e06835cd90ff7f29708838e898f07624d55ecfb53978058",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_013_p038.jpg",
+    "size": 14987,
+    "sha256": "a40c011b37b0462fd724cce63cb923e9c718b9845a18f295b2a4efb9153855cc",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_008_p034.jpg",
+    "size": 14817,
+    "sha256": "5d307c9fd84435571d96713126df457d5555553fc37b4de7fe825553c504c301",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_081_p085.jpg",
+    "size": 15978,
+    "sha256": "8426e0346b2e092bc9dba7e81c44c361224857af33f17855716ab2232c33a33d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_100_p110.jpg",
+    "size": 24787,
+    "sha256": "0fec27203a0c9fd77bf8324e6469d3dcf7e0bf2cc6d8d3839978d2367dc7c8a8",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_101_p112.jpg",
+    "size": 26523,
+    "sha256": "a4ab0b0edddcdc17206682cca4d0b5c5678d32070ed4b25dcf21b80de7a9c7f2",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_176_p226.jpg",
+    "size": 38598,
+    "sha256": "2e3420e61cedc64d47639114e5b918ced55fbf9d9269a76ea6a99ce31437522b",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_048_p069.jpg",
+    "size": 26422,
+    "sha256": "edbee2b04c81f3346860152408de78260a3438df81e10597fcc805ff762dec7d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_148_p194.jpg",
+    "size": 30085,
+    "sha256": "36e8b3e397aaab3efaf33fe1d500d986b6754afc8f36a6fd6a76b64b74b344ae",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_079_p084.jpg",
+    "size": 12072,
+    "sha256": "f9d12814c35d23877bf2d10fb442021e7f6894612119afe2517f7ce73808caf5",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_049_p069.jpg",
+    "size": 16933,
+    "sha256": "df863211cd2c62fb650d90627236969bd7715be83e7f9aea66ddf992ebe0de99",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_055_p073.jpg",
+    "size": 8346,
+    "sha256": "41d591ba82e195e5102bc76b5aad23dfa33b54682ad2126ea76ac97312b0eabd",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_166_p217.jpg",
+    "size": 17513,
+    "sha256": "af308104d5120216d89b763b1d1f17dad52591e697d63a980544e63e55ad2c99",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_170_p223.jpg",
+    "size": 29192,
+    "sha256": "7bff0200f248311c8375b0b575e7e7c2f81d81417269edce9e48cf2867f05d76",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_138_p169.jpg",
+    "size": 19603,
+    "sha256": "ccd044575bc0df9a14de3d2d30083802448842d922ccc2bad1c1a7011df1a798",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_137_p169.jpg",
+    "size": 19943,
+    "sha256": "06996e094a974e5bcbe872af662a4f8691038ab0b5016465933e71eaf4bcfbda",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_158_p210.jpg",
+    "size": 12101,
+    "sha256": "aa62408825e2cfe98c920441e9bcb5c291efe7c5ac78e9a228ef2ee7a4452ae7",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_130_p159.jpg",
+    "size": 30925,
+    "sha256": "6049469da65e766478214620d2a75fa940be825afef1af40722756783f7149b6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_023_p048.jpg",
+    "size": 11332,
+    "sha256": "f03f06044ab6801053a01073681b38d41fdc1c15a78235cf12694dba9be3eecb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_147_p192.jpg",
+    "size": 17584,
+    "sha256": "aa30b6c80fdb2d726764c671750ff99dc51ea8a22c7b602f8500161a300c36a1",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_036_p058.jpg",
+    "size": 21708,
+    "sha256": "044eae4e90e8d9f551cd96555d909b5ac63e194b1a5c067e8e98d40d36ed60a0",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_112_p136.jpg",
+    "size": 22151,
+    "sha256": "b8ee12bd22708fc55b5fad72a672fc8139253746e56505090b1d90daa80eff71",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_031_p054.jpg",
+    "size": 21985,
+    "sha256": "80930211e1b6f82de983f046e4c6db8e8c99d1e754af1fb4a54f2638cc6f5548",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_098_p108.jpg",
+    "size": 13649,
+    "sha256": "4c3e829178d392e8659683c489433ff275ee347330558e39a864f493dfab0602",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_154_p201.jpg",
+    "size": 10430,
+    "sha256": "210d3dadfd19fa0ca92515482192dc448b2cf75fa209b729b89d26739c7741ad",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_046_p068.jpg",
+    "size": 18229,
+    "sha256": "1e36f9e59ae0aa41f1b94152e4660a193441866d47035092581d35cc81ae7c5f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_070_p080.jpg",
+    "size": 9777,
+    "sha256": "6ebb48556a2ddcbf16e2d2c435b40d4347af093c25e9c34242019a16081a2108",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_074_p082.jpg",
+    "size": 13603,
+    "sha256": "f31fd772195e3895ac0d9e01f49d341b684dfdce717791e32a87e97a83b81262",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_093_p102.jpg",
+    "size": 26324,
+    "sha256": "ab5e446a68f7b953be3a9adfc23eaafca6d9b475c32b6b7ad2441d156ef35fbf",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_128_p155.jpg",
+    "size": 14924,
+    "sha256": "9a90bf7eac4e37651f6bdcfed83330d2758bc2e500a41ef34d1737c83b39a760",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_151_p199.jpg",
+    "size": 13584,
+    "sha256": "3c1b17c7785eaf588ce66ef6d34b7c06fec12d68ff19ea1ac72131b893d1f66c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_115_p142.jpg",
+    "size": 25027,
+    "sha256": "70b9aab69040151eac3413c9d563ee5403641e7e7f7ad1e2eb241d38ba515e9d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_084_p086.jpg",
+    "size": 19161,
+    "sha256": "ef284ac50eb1c99cedcd6957dab5fcb5602fedd4437d6918a7abc198a6a755f8",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_119_p146.jpg",
+    "size": 27638,
+    "sha256": "531649c4961cdd27ae2d65f58c120a8898404cf52d938f66e8a749239a1d5505",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_076_p083.jpg",
+    "size": 11496,
+    "sha256": "c74903e4dbea6f52b52c996644270949a2fca39fa55e2037723621feb6431bdf",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_015_p040.jpg",
+    "size": 12189,
+    "sha256": "a786b61689eb01bf7ceab8b3408de45ae32c8ebd3bae8492910a876f29342e8c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_014_p039.jpg",
+    "size": 13400,
+    "sha256": "6b3369570a8a5645e80682b412ccf5d5bc61d52da1e98048aee6b09d6147f47a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_001_p009.jpg",
+    "size": 130988,
+    "sha256": "dbbd7a84ec657d96073426961eb495aa3e0b66d72b80447302afe2103c700f3c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_050_p069.jpg",
+    "size": 29176,
+    "sha256": "77e16df6d34a45fdce4a5f0f52235375bcbdb6dd4d29a6c34bfa78d6db14b9e2",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_171_p223.jpg",
+    "size": 16844,
+    "sha256": "caac3aff298c3c1adcd54a4243591d22da1bc5532ac5e1dba6940332af1e7d69",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_020_p045.jpg",
+    "size": 14396,
+    "sha256": "a4dcff85a700c4a02d7fdf595a8639a62bf60c9f1ed8ab8242d0344dda87148a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_005_p016.jpg",
+    "size": 12744,
+    "sha256": "85e5c1d6930bbe1d179b738e6e4cc48fa698d4fc8e174a4e0d69ba6101188401",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_071_p081.jpg",
+    "size": 11238,
+    "sha256": "b472a908d6f20b77f5c48c9b5d0cb88997154285dbbb5e098ea3b6a89dabceca",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_160_p211.jpg",
+    "size": 20108,
+    "sha256": "1808ffade9ed783c76822f5516503896833b63cb1cfa991009dd2fbcf290cd9a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_051_p070.jpg",
+    "size": 28519,
+    "sha256": "d72bdbbaf6428ff29694e918b1f9933b56e579b1233871af928dbc177b3f1976",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_002_p011.jpg",
+    "size": 31944,
+    "sha256": "ba4e2b4a34362c350359871f10d465c5560057ad87c2636d45063ecc81ca1f3f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_067_p079.jpg",
+    "size": 15664,
+    "sha256": "7b0749fe015700d97144a21a6adbab36f09ebf1cead35888bbf7a4d3fd179534",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_111_p129.jpg",
+    "size": 18158,
+    "sha256": "e1825eeae75d5a0ffb95a6ba690ef926694b6c120b5d23fe0a2fcfd048fc0edb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_099_p109.jpg",
+    "size": 19008,
+    "sha256": "79c5654f7bfa5610fb26218b36175e956e1d31556f098e4fa670afb545cabe89",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_003_p014.jpg",
+    "size": 12367,
+    "sha256": "8fbb1c608a397ef3fd0d39898f32d47c24d00c5aa19711a129c1ac09fa284334",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_004_p015.jpg",
+    "size": 13094,
+    "sha256": "3dc0764de56a807233fd7b3842f45581024b9cf0d15aed38b721fb4037784b61",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_053_p071.jpg",
+    "size": 9494,
+    "sha256": "12cfd68d603d44762adca1b9768932964d37d0dad0eb0ce52b8438e8bb821490",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_011_p037.jpg",
+    "size": 10707,
+    "sha256": "80445988c41bc78a6ed281bd105c4d53bb9582f573efe8a4c19ed5e16ddf4a48",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_159_p211.jpg",
+    "size": 11883,
+    "sha256": "926c9fe7d8ccf36873457c010b33caca4ecac1149f25c57dbf2ee040fc01fd8e",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_145_p190.jpg",
+    "size": 19093,
+    "sha256": "9c03770df26050983776af9a17f912ae4f6ae8eaa56e23b1efe6ae2744a417d0",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_163_p215.jpg",
+    "size": 13437,
+    "sha256": "7bf7337a75529fd53dd5aeaadcdb094deab51327a68844e9d75abae5c7feb2bf",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_027_p052.jpg",
+    "size": 10943,
+    "sha256": "4c180b1285fe3c9331f948d9c80979257f68ec094b900d3a0d56cf67c9353235",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_168_p221.jpg",
+    "size": 25406,
+    "sha256": "3487b3dfb9fd9ddf58c2e332b7ce56c1f055cecde4d4ce59d9648a1b0fc36198",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_174_p224.jpg",
+    "size": 23843,
+    "sha256": "4a7699d8118a7d7f7ddaa2d335ab195c25889c2fda9b67147ce610561dbe8dd7",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_085_p087.jpg",
+    "size": 7841,
+    "sha256": "de93ff584f6cd1e36c8490b55881a7481dd9d3f2a3e2da610dda36e720743d05",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_155_p202.jpg",
+    "size": 13611,
+    "sha256": "45ee9117e784889c34c6a10501095e4200f3e331ef52b708d7eff463adc49540",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_012_p037.jpg",
+    "size": 12885,
+    "sha256": "8348f47ba39f53d86b66df8be3779c21fee86e9a1b7b46ea41658a33410c0da6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_162_p213.jpg",
+    "size": 20528,
+    "sha256": "ca89d3c57fb6afad4669fd9294d9692fe6eef960362bdf62781a737d67bb92c3",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_121_p150.jpg",
+    "size": 10426,
+    "sha256": "7266e6c4ff25708513aad0393ec560486bdca652c81f844d25a9bd28225cdca8",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_167_p220.jpg",
+    "size": 30312,
+    "sha256": "e68ffaaff3bb438564086fd006e39de1a44c7d8d1f8fc058e0e503a2b0f5eb80",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_141_p188.jpg",
+    "size": 25454,
+    "sha256": "c2581a7e2b20f1958abfcc1d7507df0e5e8b40987b585d8e584980c7697f51e7",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_059_p074.jpg",
+    "size": 37155,
+    "sha256": "45a9a7496de15d04d03ef9c771186006a6bf7864a105c75ba9a3cf930845500c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_094_p103.jpg",
+    "size": 13682,
+    "sha256": "61d844b41693a801d6964dd73dad29d2b7b1f04464aef77efa4a37a6be27c58b",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_080_p085.jpg",
+    "size": 15194,
+    "sha256": "e835fd7b6891cbd8131d0bef0bd39432d3ca1518a5d0745466b57be91eab36bb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_153_p201.jpg",
+    "size": 14920,
+    "sha256": "cd7e870eb5f1ad8c946eef53b6a84b7483fabd87bea46afa4d7da85f68eb4f88",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_043_p065.jpg",
+    "size": 22762,
+    "sha256": "c5c61926a8a3471649d0f62094e042bfda97b9f5fce19c52bc42aebd5c3c286a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_123_p152.jpg",
+    "size": 16124,
+    "sha256": "14294a4a3a2a3af38d3e3ce2d153c8ab01521f31f4f62a27cad2421c008f28f3",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_088_p090.jpg",
+    "size": 31402,
+    "sha256": "8a3f9289df34d2b898188cd07b45c530279dda7b5472e243630a006a7018244f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_069_p080.jpg",
+    "size": 14304,
+    "sha256": "66af7ee1b2f8cf27416ad45924e3cde073316dd35521aa7d7915ee3c121ed66c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_089_p092.jpg",
+    "size": 29331,
+    "sha256": "7e4ba523dcdea506f8808fe17e10d0d1466a1b1963d6a6cb4435a777c2df51a1",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_140_p184.jpg",
+    "size": 22268,
+    "sha256": "2597acf7cafb1354a85f44698463e47c64f41b76159cc94dc6fe5375daf1239b",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_024_p048.jpg",
+    "size": 11382,
+    "sha256": "983b755919c31c3d0a3d8236e2d588324e9bdf9eca0172ea9c80ae7292d7fceb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_136_p167.jpg",
+    "size": 10648,
+    "sha256": "003af52ab26c930496410ee021552458db9def255d43c5c95b560d731821e0a0",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_087_p089.jpg",
+    "size": 28113,
+    "sha256": "949c78611c2e31339c5e9a80bd51aa1e329bef9ad7dec43d312e18bd96204c8d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_131_p160.jpg",
+    "size": 14591,
+    "sha256": "7ab99d82a0b81785b7a350836fd5f4fe08f96f3a62b0d4b86ccefa26a101be36",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_065_p078.jpg",
+    "size": 15890,
+    "sha256": "8430a8c0a261fafad0f21e6b56022479c828d9cf41ad5bb9de60712cf5e568e9",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_022_p046.jpg",
+    "size": 24498,
+    "sha256": "1015e3eb90a09e3ab9573a9375bfcae57add394ac047952c5587370e9f9ef404",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_044_p065.jpg",
+    "size": 10470,
+    "sha256": "655d1f12913dae12b2b5e362a4c22ef6f02dd46ac9316568c938a78401dde4e8",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_146_p192.jpg",
+    "size": 18481,
+    "sha256": "df7bb63e262287d00b8d62af40085fe9fb5eb8eb9dc446231ee12d970c6eaf27",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_109_p125.jpg",
+    "size": 20103,
+    "sha256": "ad15ae26d73445dcab79e7b4b71a9af31c3c30a5877cafca4b84c153454ca718",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_033_p055.jpg",
+    "size": 10275,
+    "sha256": "b6fe73b9455db52dea48c6a859681a3d764ad15a37fca6ee0272a7660cf3869f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_120_p147.jpg",
+    "size": 11490,
+    "sha256": "6d363ab7ec173e989563ead57a446b96a768ad6ff125ce75988fe37a0743848c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_118_p146.jpg",
+    "size": 22881,
+    "sha256": "157f47894106d4b469716273cc0688599a2e8c135364c88c188b811be1b74fe4",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_095_p105.jpg",
+    "size": 14184,
+    "sha256": "bd745bd75c2e5ae1364165ad66914bbc39d202208900db62e5164fa2aaf40f02",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_007_p020.jpg",
+    "size": 22025,
+    "sha256": "b3b6d469dcece6cced285ffbb3fdb2ac9199e92066f6a238cd074368b30fc272",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_108_p123.jpg",
+    "size": 18665,
+    "sha256": "2d5f4e6baabb70a45ca5f0ef8caf3b3fd8e7919a0e118792b49fea618c65e3a9",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_006_p017.jpg",
+    "size": 22025,
+    "sha256": "b3b6d469dcece6cced285ffbb3fdb2ac9199e92066f6a238cd074368b30fc272",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_133_p164.jpg",
+    "size": 13066,
+    "sha256": "bca2c72d580e57dfa1adfd7498b2639b7a68211f5210ab9a7189b42f77640385",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_132_p161.jpg",
+    "size": 13815,
+    "sha256": "e34ecee91b4b78a2dc6bbed432c159cd2a40d2571a93bd82737ad17e286ac68a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_068_p079.jpg",
+    "size": 15266,
+    "sha256": "ffdf7acd99fa0b3f7121aa37ca2a15a6b66609e16d1a7360ba8579b5c4394365",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_016_p041.jpg",
+    "size": 13277,
+    "sha256": "b6eadf14d9b74b5173a1459bebc32064a64d070817851973ac9f4385cd1a7f57",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_091_p098.jpg",
+    "size": 12697,
+    "sha256": "f99e19ec95b51f39d57dec5d8f76e3f996f0b8812276549c4f171dc0ade53730",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_107_p121.jpg",
+    "size": 26535,
+    "sha256": "c605eb430c3f8ef42b58bafadc62d593362d548a53bd69eec778ac0a4f3cf268",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_143_p188.jpg",
+    "size": 41808,
+    "sha256": "65010ac7649984e3d5cf292c02909fa6ddce8800a8a2f04e3484ab023c388fa7",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_105_p116.jpg",
+    "size": 13694,
+    "sha256": "de246a8ecde428c87fc1101fe63f2d9b305665ed15a912112046d2aad2a405fb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_029_p053.jpg",
+    "size": 18608,
+    "sha256": "82d2c346222dcf21fa54a77b76c94017393bee8c2aee928ef4bc3311513fce7c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_052_p070.jpg",
+    "size": 14506,
+    "sha256": "c8474d2a3add47083456dd6de3cd237753df227c4a12a73118f3bbfca9ded06f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_077_p083.jpg",
+    "size": 10603,
+    "sha256": "53c0f16bad4aa490a92980c6ef06b34a829b325639e536db4cedff88ee102c68",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_066_p078.jpg",
+    "size": 13930,
+    "sha256": "1c64eb1e714adf7e309c2f752f6b04edc123c7390eedc2bb83f1e487fd61cdb6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_165_p217.jpg",
+    "size": 21200,
+    "sha256": "6320b53076c7a4d9c411c3f7a060c376c1ca1efdd084b6ff3ae6a0290802b975",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_058_p074.jpg",
+    "size": 16502,
+    "sha256": "3b425bb4a4114f0920c84a2284d67fd2df5fc6e35446c32307c4f78803c5030f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_144_p189.jpg",
+    "size": 9265,
+    "sha256": "1b94c4acfd4ef1e777947e8d485434be1c0f4fba4b9c3bb8e9d6659eae09690a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_063_p077.jpg",
+    "size": 16181,
+    "sha256": "246d34a923b383b054c23da6327a03d20d551c867d83d544c8210d47995dab63",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_028_p052.jpg",
+    "size": 11230,
+    "sha256": "e1951a7178c5429865340f8f2e0630171d9e55c6c28aef8cd1dda06cabe332dd",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_134_p164.jpg",
+    "size": 10425,
+    "sha256": "137ba3237227a42762731936187610a62efd861a87fbd5a4dfd80878561908fd",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_030_p054.jpg",
+    "size": 21843,
+    "sha256": "7a8f6290ccdfdab245748013d949e36c0d3b1649ba990b5fe88fdadeef7e7b44",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_034_p056.jpg",
+    "size": 24647,
+    "sha256": "146d6ae4fb8c21cda5439de11d593e4979289fd8cdcc302b10df9bf89102f30a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_019_p043.jpg",
+    "size": 9876,
+    "sha256": "381562bd9b0c5921acdb5c96f5882c1d4cafa1736fff5b3174c62f43bbd7d569",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_124_p152.jpg",
+    "size": 11336,
+    "sha256": "3089d9089bda9e4113bf5a3033a324082ddf6e11a76719dfe4547ede4975c3ec",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_061_p076.jpg",
+    "size": 27877,
+    "sha256": "82025194456db9c25f7aff02b488a4835a45652f86989cf2f6b988f5e52e1913",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_103_p113.jpg",
+    "size": 41226,
+    "sha256": "75eed16ab66395029d667b81371d8f24b4b6c328e8433d3ab12829bb5f160b28",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_010_p035.jpg",
+    "size": 9304,
+    "sha256": "6da35bf5b67386351edcf989bb4858c99d6836e16eca84c9db75fc2990be60d1",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_161_p211.jpg",
+    "size": 13929,
+    "sha256": "54f2e2ee69880984ac5af6702f5df60d4ff8646fb8f41bafe86140fcdbfb5bda",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_041_p064.jpg",
+    "size": 11287,
+    "sha256": "75a6d1e66c21a5159c5b39069fef3669d093fe6081893e349aedd36bcde1a7e7",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_054_p072.jpg",
+    "size": 21631,
+    "sha256": "0fd0c183bae9c1f0eec3add78133f14d473ed74805353f6bd1d8a176caa7275c",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_117_p145.jpg",
+    "size": 27525,
+    "sha256": "75f7a4c9f86db3cb16fae05bc8342ee178ad3ee0890204294812ac9bf348139a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_092_p099.jpg",
+    "size": 21553,
+    "sha256": "a432f9cafae91c02f4c9106a4c3ea0546ecb71db4498d8bec33220e21d954761",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_104_p115.jpg",
+    "size": 15291,
+    "sha256": "c46a91c090474b20e64f124714e48f7be48145aed4d433c8d3498a2d7a6740c6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_057_p073.jpg",
+    "size": 33423,
+    "sha256": "a99ee2350bff27ed06e406e47c47adce34cc49b95059a547df766b2680405965",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_082_p085.jpg",
+    "size": 19970,
+    "sha256": "01fa852056559a70266a9381cf287a4e7c7ba5d92c56a9fd2b9388a653403dc6",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_037_p060.jpg",
+    "size": 8822,
+    "sha256": "a8bbddf243d4ed6f91f9a6f1e277586d9f8b4fc11cc8fd031b2ab244485db3dd",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_032_p055.jpg",
+    "size": 6910,
+    "sha256": "4ba97b09149e65f39b884fadb240270aeca7e5e0e157fe0550142725f237102e",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_157_p208.jpg",
+    "size": 26810,
+    "sha256": "ccccd0b2bfa97eabd69e27d633d3b98ea448086a1bdcf1a56a0f3aa2c18f2cea",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_126_p154.jpg",
+    "size": 12917,
+    "sha256": "9b6701d1512d574945bf4cc88519ee8d6413e5cf6d761f3232b1383231e9908b",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_017_p042.jpg",
+    "size": 10690,
+    "sha256": "fb4501e398142e934ae5d8bf2ac63847856495b41d473bb6ee1951176b623b3f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_113_p138.jpg",
+    "size": 10620,
+    "sha256": "5c05031e553f3fe0a2dd8c502aea8af54a13f21454ca85e438f3ba2c4c4669f9",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_060_p075.jpg",
+    "size": 26883,
+    "sha256": "003c42d7f13a4f88baf231bb57c18d11fda5d313f8e8be5c2854abd1bb31aa03",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_139_p172.jpg",
+    "size": 11873,
+    "sha256": "63e7e38ca844de0ff2c7eab58dbf337e1f8bd8b13c68a6cbc3121ac0722891a2",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_078_p084.jpg",
+    "size": 30232,
+    "sha256": "34487740abcaf95bfc62e8e9e848681a5913c28e08f5cc3667c785ab082e164a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_106_p120.jpg",
+    "size": 28284,
+    "sha256": "32b16ea4619071ed17cbc666db0bdc599b1b127b50a30d97fb2487275c6f8275",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_056_p073.jpg",
+    "size": 23092,
+    "sha256": "e8386526219caab9eca0e08bb2ed7d2c20e6c851465f37533a6dab5e8d49291a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_064_p078.jpg",
+    "size": 14006,
+    "sha256": "7284c8018bdbf67cecfff6dd861d4aa92a6b9466c85763b5f33c57c584b7149d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_073_p082.jpg",
+    "size": 14527,
+    "sha256": "622023652239db22742f4162ba074a42c53d80aebf429e69268841f1973ccbed",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_062_p076.jpg",
+    "size": 22989,
+    "sha256": "a681deff82a481ba4d608dec641fb0fc43c82e11e2c2a0c977794995578757b8",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_122_p151.jpg",
+    "size": 24161,
+    "sha256": "8368f048bce9534f5b12c725e7ae610e3a679205f9259ab7b7ee74588c619cdb",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_047_p068.jpg",
+    "size": 11632,
+    "sha256": "c14b7b92b81efbb5f035f74f0932ecbbc728133abee234973dd8618087cd6ca3",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_127_p155.jpg",
+    "size": 13541,
+    "sha256": "f6ee4245043fa535243958be1490e14fa22615338af1e95b2069f1216b49a5c1",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_102_p113.jpg",
+    "size": 48913,
+    "sha256": "b315f30f833b905cb9750ab2c4e8f7c02dcd848271285b2867eb8008d02942a2",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_039_p061.jpg",
+    "size": 9562,
+    "sha256": "aa317075e2336f04d4a185f7ac09e9b35c6c7e20d6c595f5fcb98f059dd1d8dc",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_129_p156.jpg",
+    "size": 24305,
+    "sha256": "f172524eb7146cb3f8bf3d07f91251c96c62199a51a5357c4e6dd5b4e31ba55d",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_169_p223.jpg",
+    "size": 22475,
+    "sha256": "20783a50e42db0375ff5215dfbfd91b7d2a8400e661f34ca0ab40d23a2284992",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_018_p043.jpg",
+    "size": 13318,
+    "sha256": "a06d273f748179130d07f47becc2c5dd5670f3e2a2c8a623d2b2228336e7926a",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_164_p216.jpg",
+    "size": 15294,
+    "sha256": "8be46ed22c3d25fa6b8bcad8dfe45ac6e361780e6caf6e5df32f2211a3c6461f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_072_p082.jpg",
+    "size": 10263,
+    "sha256": "ebb6b0f3727eef95477bb7fb228cbe2236724bef436e90c650b0dfad214c1fcc",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_083_p086.jpg",
+    "size": 12669,
+    "sha256": "deeebb618d382a9c9c064de138d534c4b3f658e61303142df47082559f3ed79f",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_175_p225.jpg",
+    "size": 9075,
+    "sha256": "d8f66740c3a1bc429921e1a6d0d12ede49c278a6811366177cb0e7636ed490b5",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  },
+  {
+    "path": "assets/manual/figures/fig_135_p165.jpg",
+    "size": 9600,
+    "sha256": "8b31563d0482cbfb69f9fae291ce55c1f642dd6faee1459ce1a0b2aee05522bf",
+    "category": "manual",
+    "node_ids": [],
+    "acceptance": "NOT_ACCEPTED_BY_EXISTENCE",
+    "referenced_in_current_catalog": false
+  }
+]

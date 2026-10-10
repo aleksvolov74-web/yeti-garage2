@@ -7,6 +7,9 @@ signal diagnostic_requested(part_id: String, part_name: String)
 signal manual_requested(part_id: String, part_name: String)
 
 const PartCatalogService = preload("res://services/part_catalog_service.gd")
+const TechnicalCatalog = preload("res://services/technical_catalog_service.gd")
+var _vehicle: Dictionary = {}
+
 const ViewerScene = preload("res://scenes/vehicle_3d/vehicle_part_viewer.tscn")
 
 const TEXT := Color("edf8fa")
@@ -207,7 +210,7 @@ func _render_systems() -> void:
 		var name := _label(str(system.get("name", "Система")), 15, TEXT)
 		name.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		text_box.add_child(name)
-		var parts := PartCatalogService.parts_for_system(id)
+		var parts := PartCatalogService.parts_for_system(id).filter(func(part: Dictionary): return TechnicalCatalog.is_compatible(part, _vehicle))
 		var count := _label("%d деталей · %s" % [parts.size(), str(SYSTEM_SUMMARIES.get(id, "Узлы автомобиля"))], 10, MUTED)
 		count.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		text_box.add_child(count)
@@ -218,7 +221,8 @@ func _render_assemblies() -> void:
 	content.add_child(_muted_label(str(SYSTEM_SUMMARIES.get(selected_system, system.get("name", "Узлы системы")))))
 	for assembly_value in PartCatalogService.assemblies_for_system(selected_system):
 		var assembly: Dictionary = assembly_value
-		var parts: Array = assembly.get("parts", [])
+		var parts: Array = _compatible_part_ids(assembly.get("parts", []))
+		if parts.is_empty(): continue
 		var button := _card_button()
 		button.custom_minimum_size.y = 72
 		var copy := VBoxContainer.new()
@@ -231,7 +235,7 @@ func _render_assemblies() -> void:
 		content.add_child(button)
 
 func _render_node(assembly: Dictionary) -> void:
-	var part_ids: Array = assembly.get("parts", [])
+	var part_ids: Array = _compatible_part_ids(assembly.get("parts", []))
 	var count := _muted_label("%d деталей в узле. Выбери строку или нажми на компонент модели." % part_ids.size())
 	content.add_child(count)
 	if str(assembly.get("id", "")) == "engine_front":
@@ -250,7 +254,7 @@ func _render_node(assembly: Dictionary) -> void:
 	for part_id_value in part_ids:
 		var part_id := str(part_id_value)
 		var part := PartCatalogService.get_part(part_id)
-		if part.is_empty():
+		if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 			continue
 		var button := _card_button()
 		button.custom_minimum_size.y = 58
@@ -262,6 +266,8 @@ func _render_node(assembly: Dictionary) -> void:
 	content.add_child(back)
 
 func _render_part(part: Dictionary, system: Dictionary, assembly: Dictionary) -> void:
+	if str(part.get("requires_drivetrain", "")) == "AWD":
+		content.add_child(_muted_label("REFERENCE_ONLY · Справочный компонент полного привода."))
 	var id := str(part.get("id", selected_part))
 	content.add_child(_muted_label("%s · %s" % [str(system.get("name", "Система")), str(assembly.get("name", "Узел"))]))
 	if str(assembly.get("id", "")) == "engine_front":
@@ -339,7 +345,7 @@ func _select_assembly(assembly_id: String) -> void:
 	_render()
 
 func _select_part(part_id: String) -> void:
-	if PartCatalogService.get_part(part_id).is_empty():
+	if PartCatalogService.get_part(part_id).is_empty() or not TechnicalCatalog.is_compatible(PartCatalogService.get_part(part_id), _vehicle):
 		return
 	selected_part = part_id
 	level = "part"
@@ -430,12 +436,30 @@ func _history_text(part_id: String) -> String:
 		return str(history_provider.call(part_id))
 	return "История детали доступна через карточку истории."
 
+func set_vehicle_profile(vehicle: Dictionary) -> void:
+	if vehicle == _vehicle:
+		return
+	_vehicle = vehicle.duplicate(true)
+	if not selected_part.is_empty() and not TechnicalCatalog.is_compatible(PartCatalogService.get_part(selected_part), _vehicle):
+		selected_part = ""
+		level = "systems"
+	if is_inside_tree():
+		_render()
+
+func _compatible_part_ids(ids: Array) -> Array:
+	var result: Array = []
+	for part_id in ids:
+		var part := PartCatalogService.get_part(str(part_id))
+		if not part.is_empty() and TechnicalCatalog.is_compatible(part, _vehicle):
+			result.append(part_id)
+	return result
+
 func set_history_provider(provider: Callable) -> void:
 	history_provider = provider
 
 func focus_part(part_id: String) -> void:
 	var part := PartCatalogService.get_part(part_id)
-	if part.is_empty():
+	if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 		return
 	selected_part = part_id
 	selected_system = str(part.get("system", ""))

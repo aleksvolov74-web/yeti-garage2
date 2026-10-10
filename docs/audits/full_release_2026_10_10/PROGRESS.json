@@ -16,7 +16,8 @@
     "catalog/3D runtime validator PASS",
     "fault/catalog routing PASS",
     "four-size desktop UX: 889 captures, zero errors",
-    "CI 38087594072 all checks including 246 source manual pages x4 and chapter routes PASS"
+    "CI 38087594072 all checks including 246 source manual pages x4 and chapter routes PASS",
+    "Confirmed FWD leakage fixed; global search, 2D direct focus, live profile and desktop reference tests PASS"
   ],
   "unfinished": [
     "independent visual audit of all replacement targets",
@@ -45,7 +46,8 @@
     "github_actions_current_change": "NOT_RUN",
     "project_resources": "PASS",
     "home_glyphs": "PASS",
-    "manual_arm64": "NOT_RUN"
+    "manual_arm64": "NOT_RUN",
+    "vehicle_filters": "PASS"
   },
   "accepted_images_this_run": [],
   "rejected_images_this_run": [],
@@ -53,7 +55,7 @@
   "markers_structurally_checked": 376,
   "markers_visually_verified_this_run": 0,
   "replacements_applied": 0,
-  "fixed_issues": 4,
+  "fixed_issues": 5,
   "blockers": [
     "No applicable identified internal Yeti Gen3 G85 illustration",
     "24-node image integration gate closed",

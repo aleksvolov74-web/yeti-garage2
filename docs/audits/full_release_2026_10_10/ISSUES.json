@@ -934,5 +934,20 @@
     ],
     "success_criterion": "home glyph test and screenshots at four sizes, full final CI",
     "status": "FIXED_HOME_RUNTIME_PASS_PENDING_FINAL_CI"
+  },
+  {
+    "id": "YG-P1-012",
+    "component": "vehicle filtering in search and catalogs",
+    "description": "AWD-only parts surfaced in raw global search/direct focus for FWD; catalog profile stayed stale after vehicle edits",
+    "cause": "Raw PartCatalog search bypassed compatibility; direct selection lacked guard; refresh did not update cached vehicle",
+    "priority": "P1",
+    "fix": "Reuse compatibility guard for search/list/focus, update both catalog profiles on refresh, reset incompatible selections; mark desktop AWD as REFERENCE_ONLY",
+    "files": [
+      "scenes/app/app.gd",
+      "scenes/technical_catalog/technical_catalog_view.gd",
+      "scenes/vehicle_3d/vehicle_3d_view.gd"
+    ],
+    "success_criterion": "real global-search/list/focus and live AWD->FWD/desktop reference checks PASS; final CI regression PASS",
+    "status": "FIXED_RUNTIME_PASS_PENDING_FINAL_CI"
   }
 ]

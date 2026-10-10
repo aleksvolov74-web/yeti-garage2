@@ -123,6 +123,16 @@ jobs:
             exit 1
           fi
 
+      - name: Validate FWD filtering across search and catalogs
+        shell: bash
+        run: |
+          filters_log=build/validation-logs/vehicle-filters.log
+          godot --headless --path . --script tools/validate_vehicle_filters.gd 2>&1 | tee "$filters_log"
+          grep -Fq 'VEHICLE_FILTER_VALIDATION=PASS' "$filters_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$filters_log"; then
+            exit 1
+          fi
+
       - name: Validate 3D catalog and view startup
         shell: bash
         run: |

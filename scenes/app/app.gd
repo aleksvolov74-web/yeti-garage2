@@ -2283,6 +2283,7 @@ func _build_3d_page() -> void:
     else:
         var desktop_view_script: Script = load("res://scenes/vehicle_3d/vehicle_3d_view.gd")
         vehicle_3d_view = desktop_view_script.new()
+        vehicle_3d_view.set_vehicle_profile(VehicleService.vehicle())
     vehicle_3d_view.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     vehicle_3d_view.set_history_provider(Callable(self, "_part_history_summary_for_3d"))
     vehicle_3d_view.replacement_requested.connect(_open_part_replacement)
@@ -2493,7 +2494,7 @@ func _render_global_search_results(results: VBoxContainer, query: String, dialog
         results.add_child(label)
         return
 
-    var part_matches := PartCatalogService.search(q)
+    var part_matches := PartCatalogService.search(q).filter(func(part: Dictionary): return TechnicalCatalogService.is_compatible(part, VehicleService.vehicle()))
     var diagnostic_matches: Array = DiagnosticService.search(q)
     var manual_matches := ManualSearchService.search(q, 3)
     var catalog_matches := TechnicalCatalogService.search(q, VehicleService.vehicle())
@@ -3597,6 +3598,8 @@ func _consume_pending_notification_open() -> void:
         _on_maintenance_notification_opened(item_id)
 
 func _refresh_all() -> void:
+    if vehicle_3d_view != null:
+        vehicle_3d_view.set_vehicle_profile(VehicleService.vehicle())
     _refresh_overview()
     _refresh_history()
     _refresh_maintenance()

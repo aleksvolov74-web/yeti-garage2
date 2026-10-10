@@ -63,7 +63,15 @@ func set_history_provider(provider: Callable) -> void:
 	history_provider = provider
 
 func set_vehicle_profile(vehicle: Dictionary) -> void:
+	if vehicle == _vehicle:
+		return
 	_vehicle = vehicle.duplicate(true)
+	current_section_id = ""
+	current_path.clear()
+	selected_part_id = ""
+	search_query = ""
+	if _search_edit != null:
+		_search_edit.text = ""
 	if _content != null:
 		_render()
 
@@ -310,14 +318,14 @@ func _add_part_list(part_ids: Array) -> void:
 	for part_id_value in part_ids:
 		var part_id := str(part_id_value)
 		var part := PartCatalog.get_part(part_id)
-		if part.is_empty():
+		if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 			continue
 		_content.add_child(_part_card(index, str(part.get("name", part_id)), part_id))
 		index += 1
 
 func _render_part_detail() -> void:
 	var part := PartCatalog.get_part(selected_part_id)
-	if part.is_empty():
+	if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 		selected_part_id = ""
 		_render()
 		return
@@ -712,7 +720,7 @@ func _add_unassigned_parts(section: Dictionary) -> void:
 	for part_value in PartCatalog.parts_for_system(str(section.get("part_system", ""))):
 		var part: Dictionary = part_value
 		var id := str(part.get("id", ""))
-		if id not in assigned:
+		if id not in assigned and TechnicalCatalog.is_compatible(part, _vehicle):
 			fallback.append(id)
 	if fallback.is_empty():
 		return
@@ -758,7 +766,7 @@ func _add_back_to_parent() -> void:
 	))
 
 func _select_part(part_id: String) -> void:
-	if PartCatalog.get_part(part_id).is_empty():
+	if PartCatalog.get_part(part_id).is_empty() or not TechnicalCatalog.is_compatible(PartCatalog.get_part(part_id), _vehicle):
 		return
 	if _diagram != null:
 		_diagram.set_selected_part(part_id)
@@ -807,7 +815,7 @@ func _ensure_selected_part_visible() -> void:
 
 func focus_part(part_id: String) -> void:
 	var part := PartCatalog.get_part(part_id)
-	if part.is_empty():
+	if part.is_empty() or not TechnicalCatalog.is_compatible(part, _vehicle):
 		return
 	var location := TechnicalCatalog.find_marker_location(part_id, _vehicle)
 	if location.is_empty():
