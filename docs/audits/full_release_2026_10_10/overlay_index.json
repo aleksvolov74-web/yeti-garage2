@@ -1,0 +1,632 @@
+[
+  {
+    "node_id": "engine_complete",
+    "source_sha256": "a21761af54da0b36efc49299911d4bef50f6b0600f60e32abbbd55dd54dfb44d",
+    "overlay": "build/marker-qa/engine_complete.png",
+    "markers": 7,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "engine_bottom_end",
+    "source_sha256": "20579026b8fdfe695b90617be379ed55827bb0e8cd91e9e08e2f7a2d9fba488b",
+    "overlay": "build/marker-qa/engine_bottom_end.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "engine_upper_end",
+    "source_sha256": "256995648f3e6cc0321291b42307f8d20e7bbd1e352ac1f3763c84a1f28e4175",
+    "overlay": "build/marker-qa/engine_upper_end.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "engine_block_group",
+    "source_sha256": "9281df8ea5ec10caf5e6abc981646741c041a50b2ae298acbee0124771b8adb5",
+    "overlay": "build/marker-qa/engine_block_group.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "cylinder_head_group",
+    "source_sha256": "9d0833193d560b45bf4fe1778d4c9a77fac36e19da8aabd11e4638d96d52e6d4",
+    "overlay": "build/marker-qa/cylinder_head_group.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "engine_mounts",
+    "source_sha256": "4b42402076ed58fad1c37a6a4fee672f51188501736a2977f50ddfb5f0a24404",
+    "overlay": "build/marker-qa/engine_mounts.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "engine_accessories",
+    "source_sha256": "d614bd81acae09e6fad6e7c9162cb0bf1e0ff0c05784f68e00640497ceb81cb7",
+    "overlay": "build/marker-qa/engine_accessories.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "timing_drive_node",
+    "source_sha256": "cd85c673dbfb329806b7c3301a03b8f58314f7ac1e2bae5f437aa453a11914e9",
+    "overlay": "build/marker-qa/timing_drive_node.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "timing_chain",
+    "source_sha256": "9edd36c9a85d63fe1d7be830184e6373d2a8cd4599d040f791c9e1a4cb5de0b8",
+    "overlay": "build/marker-qa/timing_chain.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "timing_gears",
+    "source_sha256": "efd0a9b4183dc611622aa264e6c03d5434b9fcf4575f977223126e1dc0070bde",
+    "overlay": "build/marker-qa/timing_gears.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "air_path",
+    "source_sha256": "f49886ae5ec723a87f176a9d59a21583d00f712414950ee9a20b6ef86e2a79cc",
+    "overlay": "build/marker-qa/air_path.png",
+    "markers": 7,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "boost_group",
+    "source_sha256": "b4a868a08b2af6c111a9f62dd982e99c0afbbe53151065ed8061c2e10c621889",
+    "overlay": "build/marker-qa/boost_group.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "fuel_storage",
+    "source_sha256": "f9a43c3f709a57eb2edf9373bb8f71332cc8a186bcfe3bead0979514c34dde86",
+    "overlay": "build/marker-qa/fuel_storage.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "fuel_delivery",
+    "source_sha256": "a31e9e03fbcac563549798035cb48b64b1353c076046153c264ee5615d4211dc",
+    "overlay": "build/marker-qa/fuel_delivery.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "fuel_sensors",
+    "source_sha256": "9f6df0fbeda0646024c76dda3c510a8b2e3ca121d6b74d401c2508170138d8dc",
+    "overlay": "build/marker-qa/fuel_sensors.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "radiator_pack",
+    "source_sha256": "0e895fd5d123dac06d9ca5ce0be5b0b350f190176b47d26e4bd9e54544b49ffc",
+    "overlay": "build/marker-qa/radiator_pack.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "coolant_circuit",
+    "source_sha256": "56ea7fc08a1b9911eeabbdce70fc3dd35a3a41f46ad955d39f430784f664cdcb",
+    "overlay": "build/marker-qa/coolant_circuit.png",
+    "markers": 9,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "coolant_reservoir",
+    "source_sha256": "6989d40923c8df521c611d42ff6878bb1792293e2b795826579035f2a6a91282",
+    "overlay": "build/marker-qa/coolant_reservoir.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "oil_pump_circuit",
+    "source_sha256": "06f349bbddb8fa03d9fed2a6f42d600f112e2f32108cc34ce9b575dc6271c1d1",
+    "overlay": "build/marker-qa/oil_pump_circuit.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "oil_filter_node",
+    "source_sha256": "c63c66b68df339281f7224e05c6f1b29cd9d55c50ddc65245e67f7edac9a1858",
+    "overlay": "build/marker-qa/oil_filter_node.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "oil_pan_node",
+    "source_sha256": "3ce6d5e7c822bdd89fabd536e485b9663c2abd44d346f3eb00ef07f45dc3f7f5",
+    "overlay": "build/marker-qa/oil_pan_node.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "exhaust_front",
+    "source_sha256": "052b6680f3a3753e4efc53c60815a2c395dd51c934fd500202cd34a28beab8c6",
+    "overlay": "build/marker-qa/exhaust_front.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "exhaust_aftertreatment",
+    "source_sha256": "1db2b1dd330923fc21ce77c4bb72a5b7bb81a33353d0e7c2b5289dd26babdd42",
+    "overlay": "build/marker-qa/exhaust_aftertreatment.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "exhaust_rear",
+    "source_sha256": "7ba550ba3ee78e7e835e657ff93ee5f33925a02b54aa52c01612ba6b9abb0630",
+    "overlay": "build/marker-qa/exhaust_rear.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "clutch_group",
+    "source_sha256": "ffcb0d7fab633c36de45bf139e4a6e499bce5e28627b6c332466f9ffdbfc8125",
+    "overlay": "build/marker-qa/clutch_group.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "gearbox_group",
+    "source_sha256": "56b1e75cfa5ad1ac4ae83f482075d1e5a0af3a6808c3c1a4d286e2ee901ce5dc",
+    "overlay": "build/marker-qa/gearbox_group.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "gear_selector",
+    "source_sha256": "ea314e5e5accf4e30bf84ac2620750619feb80a68fa9857c4d08a47c82a6e830",
+    "overlay": "build/marker-qa/gear_selector.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "dsg_mechatronics",
+    "source_sha256": "30cf19bcef3f8a94d402c42e5ff734ca996d42151628b20a32341f294ca3262c",
+    "overlay": "build/marker-qa/dsg_mechatronics.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "left_drive",
+    "source_sha256": "d18895d5a75cbfda030b814ec24b662be160da91dfadd07863ff2a5b6486e6f8",
+    "overlay": "build/marker-qa/left_drive.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "right_drive",
+    "source_sha256": "5103a27e6a71198018af3a89d0feac2aa40fafbe9b4298433f076778affc94b7",
+    "overlay": "build/marker-qa/right_drive.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_suspension_overview",
+    "source_sha256": "982797e6a86abcc4ee4415e9939b7024bafcf0a2922ee88dff8d5be206c5a436",
+    "overlay": "build/marker-qa/front_suspension_overview.png",
+    "markers": 9,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_left_corner",
+    "source_sha256": "3a574b9b32bce1dcd4183f03c630c3856861dbd40e2adf1abf3d02a745561630",
+    "overlay": "build/marker-qa/front_left_corner.png",
+    "markers": 9,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_right_corner",
+    "source_sha256": "b774f736ba5f511ad74b99c7bf0e8b48dd0e87780e7c7b775921044155271606",
+    "overlay": "build/marker-qa/front_right_corner.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_axle_carrier",
+    "source_sha256": "4f76bd5a9f0407f509516c2d10cc2da5dc084e85482922e7e0ae96fd2222eea4",
+    "overlay": "build/marker-qa/front_axle_carrier.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_subframe_arms",
+    "source_sha256": "b3f671dd37ff34ca03ea1d56524c8c11fabbdb7bb5944a68dce85dfde991e119",
+    "overlay": "build/marker-qa/front_subframe_arms.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_strut",
+    "source_sha256": "ad83a41fe21e45423734aa4adfd18a472908f0a2d301ee651e87e15af9c8ba8f",
+    "overlay": "build/marker-qa/front_strut.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_knuckle_hub",
+    "source_sha256": "4cc9febe63dda1454cff408cd428201ca9f740e1eef8b279508d7f757a5dc3fc",
+    "overlay": "build/marker-qa/front_knuckle_hub.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_hub_bearing",
+    "source_sha256": "18595a63cb83e3efd43083fa8e33b4f01f39a989b47b2273c770ea0b55005cd8",
+    "overlay": "build/marker-qa/front_hub_bearing.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_brake_at_hub",
+    "source_sha256": "9ad762ec5b34fc78517a37a55c10c5a8d735e1465658204f8b969c9323e0bb73",
+    "overlay": "build/marker-qa/front_brake_at_hub.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_drive_at_hub",
+    "source_sha256": "e7dd200a82fc5e572553df0a4a7894ad810111eb3182b10c4ecdb348500d97c4",
+    "overlay": "build/marker-qa/front_drive_at_hub.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_stabilizer",
+    "source_sha256": "ddf79314ee6705df8de01575164ab88e981e08c78e28f64366a0b4000f81fe10",
+    "overlay": "build/marker-qa/front_stabilizer.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_suspension_overview",
+    "source_sha256": "19bf3155cd719445aedd6a18696041a004fb4cd20cf67c5baa0dd09a1f9873a9",
+    "overlay": "build/marker-qa/rear_suspension_overview.png",
+    "markers": 9,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_carrier",
+    "source_sha256": "611cf8504429d9c1352ed03d5094efa9f8b72b36aba7be5b3c4f5f661173e4b3",
+    "overlay": "build/marker-qa/rear_carrier.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_springs_dampers",
+    "source_sha256": "e37f25fd3012da75d6865d73b05adcec4bbb2e1981c00b63af89acc8204dcdbc",
+    "overlay": "build/marker-qa/rear_springs_dampers.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_hub",
+    "source_sha256": "5ac7d36e7156415c6c539bcf555e95b73b0b4f8eb56a42e86de9a2a270b43bd2",
+    "overlay": "build/marker-qa/rear_hub.png",
+    "markers": 7,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "steering_column",
+    "source_sha256": "02c957bd75a10d8ec9f39fcdbc1acd0a5d4835835cae1a025ac450c997d06abe",
+    "overlay": "build/marker-qa/steering_column.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "steering_rack",
+    "source_sha256": "0ff014202efeb4dbe680333d2cd8a17b5269b8788779ca45c3bd6dd78c00bc15",
+    "overlay": "build/marker-qa/steering_rack.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "steering_linkage",
+    "source_sha256": "5c5770e159e88955ac444e04d5c0eb14ef930084b44b5a9ebea3342508eaca98",
+    "overlay": "build/marker-qa/steering_linkage.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_brake_assembly",
+    "source_sha256": "2d368990695a174ad680baf2931db732f5a7dbd4ab6335eb24b8fc7332c58dce",
+    "overlay": "build/marker-qa/front_brake_assembly.png",
+    "markers": 7,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_brake_hose",
+    "source_sha256": "c198f016a4cadf58d020f4f28206ac2814f4597540e510aa43f7c5a1225697fc",
+    "overlay": "build/marker-qa/front_brake_hose.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_brake_assembly",
+    "source_sha256": "59669d8d9d96c45a8f2b487fcc597b3c6ffccfdaf278597bda23fc8b5fcd0350",
+    "overlay": "build/marker-qa/rear_brake_assembly.png",
+    "markers": 7,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "parking_brake",
+    "source_sha256": "148c20af885cad321d7d351667ad819dfa4f4b077a013f582232348ab4d69fe0",
+    "overlay": "build/marker-qa/parking_brake.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "brake_hydraulics",
+    "source_sha256": "846c956d460fb280198980c8c0546aabea7afe785dc2027a05074aed6115d613",
+    "overlay": "build/marker-qa/brake_hydraulics.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "abs_esp_block",
+    "source_sha256": "63821d6db9cda69ba2276740cafcb43bfa1cee59347c0862469f2708d8ca3095",
+    "overlay": "build/marker-qa/abs_esp_block.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "wheel_sensors",
+    "source_sha256": "0aa1200e664e024907c1cf258dfd2bea22619fcc9a7d7a5cf05e748c9c244955",
+    "overlay": "build/marker-qa/wheel_sensors.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "angle_drive",
+    "source_sha256": "f1158ddeec9e8101539d0621543e70108ef9cf9964fb9b4bbe45fc525097ddbf",
+    "overlay": "build/marker-qa/angle_drive.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "propshaft",
+    "source_sha256": "c5c3dfebc190b6e698931b24460fa953931b87d408168bde0ed2df413ff1c01e",
+    "overlay": "build/marker-qa/propshaft.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "haldex",
+    "source_sha256": "10d1e43a8eeb64ce5e2674dec41187a7a4f4e05b2be858c78feb958d04fa53e7",
+    "overlay": "build/marker-qa/haldex.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_differential",
+    "source_sha256": "93cf05a9a221d65a71809e6df772960c8a39df19dc3f28295b4979c121b89478",
+    "overlay": "build/marker-qa/rear_differential.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "heater_box",
+    "source_sha256": "aba936899e2ba4e94062ca462d18c04262b96206aacd89a0e429d461733eed9c",
+    "overlay": "build/marker-qa/heater_box.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "blower",
+    "source_sha256": "644df58db569bb26d4e8cef43d2bd1a753c85d6e9e3c6bf2f3c7cdf3fe62bafd",
+    "overlay": "build/marker-qa/blower.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "ac_circuit",
+    "source_sha256": "86a762027e48ecb23cfabf95eebd61ac3fdef235f9214d92ce5e35d4c3533311",
+    "overlay": "build/marker-qa/ac_circuit.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "power_start",
+    "source_sha256": "27ab66e463638ef375fc51c7a5764fceb472134e5bb5d986e88565262759b08b",
+    "overlay": "build/marker-qa/power_start.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "fuses_relays",
+    "source_sha256": "b62624d3bcd64f73cb0109fe89aa9fb2db8e97b9509531cd51aa2e974cb5b5a8",
+    "overlay": "build/marker-qa/fuses_relays.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "control_units",
+    "source_sha256": "9bfcdeabaee067e865313f8e369b981ba050cae34c9c8cab78301f923fa505d2",
+    "overlay": "build/marker-qa/control_units.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "wiring",
+    "source_sha256": "ddfeeecda2982b021ddb8244843024dca265933bf69eaf472e000eedc6373421",
+    "overlay": "build/marker-qa/wiring.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "ignition",
+    "source_sha256": "ff03e5d3878c542c7b204c3afcd3d69ffc892af01830e6338fb7462a5a5d1558",
+    "overlay": "build/marker-qa/ignition.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_lamps",
+    "source_sha256": "e7a186f7b8d945175b5e16f84528ecc8262a10487792d129999ba4d67a802d4d",
+    "overlay": "build/marker-qa/front_lamps.png",
+    "markers": 6,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_lamps",
+    "source_sha256": "06fc94b08a7e617eac18a59ba231ab967a769d5f332743d6c3ab109e60441e77",
+    "overlay": "build/marker-qa/rear_lamps.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "interior_lamps",
+    "source_sha256": "047cb2d07c0aa53fb5df76f626ef0a2816aaf92eb38da9a9eca713bd82a340c2",
+    "overlay": "build/marker-qa/interior_lamps.png",
+    "markers": 5,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "body_front",
+    "source_sha256": "774b3e18bc3096bcaa619ecc9d411a6148b36ac4c24e20c35c208e58f9079a63",
+    "overlay": "build/marker-qa/body_front.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "doors",
+    "source_sha256": "fc68b24b10e65ebe3130a4b61abe4e97dc7245345a72acde009c1db74c38639d",
+    "overlay": "build/marker-qa/doors.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "body_rear",
+    "source_sha256": "587bb4632e2334f55987f1bf0ed89b84ee8f3fce94a7c52b3827f506507e2cdb",
+    "overlay": "build/marker-qa/body_rear.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "body_protection",
+    "source_sha256": "19dd0a70aeb8397f4330f134df96221424dc350e389e5fb7b353739ef1d7bd27",
+    "overlay": "build/marker-qa/body_protection.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "mirrors",
+    "source_sha256": "8993bfd746a03576c080dc771ff0105dd4e6b507960091c3abcea2a2812d4e0f",
+    "overlay": "build/marker-qa/mirrors.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "glazing",
+    "source_sha256": "6542402fdd28ced5934a8359519d5480ee44cb4d279e08a90acc9f32de02a460",
+    "overlay": "build/marker-qa/glazing.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "front_wipers",
+    "source_sha256": "5063f77bf1900702abc4987fd02f7364f5f2b1f5706e392ae399c2815f29322d",
+    "overlay": "build/marker-qa/front_wipers.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "rear_wiper",
+    "source_sha256": "2336a8a791989eb4b866c5eab1de47541acf6721bf4d621362ec917014517ff8",
+    "overlay": "build/marker-qa/rear_wiper.png",
+    "markers": 1,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "washers",
+    "source_sha256": "9844e44062b61a2a662e6785da161971fc0daaa11c5507121131e9f03ee9ddce",
+    "overlay": "build/marker-qa/washers.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "dashboard",
+    "source_sha256": "5367c4f643c8b3714e40eb514d13560029a10ad694cfba125ab16ccd617a33f3",
+    "overlay": "build/marker-qa/dashboard.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "console",
+    "source_sha256": "e1b4b9b988fe16432607eb9233cc872ab358bc225a5f7fc9768a1b04ff041978",
+    "overlay": "build/marker-qa/console.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "seats",
+    "source_sha256": "f334b6de0c56c713e1545bb26239a7bb4eb11b9de325ab9ea1c7b2324291a105",
+    "overlay": "build/marker-qa/seats.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "interior_trim",
+    "source_sha256": "ca6ee6cbea1d2083fa513e547bf83b705cd7c16167f6a72a0eafaf4ea7f9ee22",
+    "overlay": "build/marker-qa/interior_trim.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "airbags",
+    "source_sha256": "591aedf6a2fb059b3ed412a66afc8f8d7dfb9c2981aa28333a43d6dfe81af3ad",
+    "overlay": "build/marker-qa/airbags.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "belts",
+    "source_sha256": "f46dd2d7dcfe3bf23934336c2071e1e5ab3dd3501fa61462fca5273548eed1ca",
+    "overlay": "build/marker-qa/belts.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "srs_sensors",
+    "source_sha256": "67692adff1ff3c592d1a23073b4e76eb0e3bdb2c9385ea229441fd819c393e0d",
+    "overlay": "build/marker-qa/srs_sensors.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "filters",
+    "source_sha256": "3713014010d015abd456bccfaa09db8e1d92b33d21fde7949a93dba4d29548ec",
+    "overlay": "build/marker-qa/filters.png",
+    "markers": 4,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "fluids",
+    "source_sha256": "28bdee8c65cbdd70d34bb1e4143cc53756fbf24e708f60fbb1fb6d8aa69cafc5",
+    "overlay": "build/marker-qa/fluids.png",
+    "markers": 3,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "service_ignition",
+    "source_sha256": "ceecb1451467109dba2bf29db7e160739d42c92c549a69827228f217df3d2bb6",
+    "overlay": "build/marker-qa/service_ignition.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  },
+  {
+    "node_id": "service_brakes",
+    "source_sha256": "923ccfe2bff15c2986b2a367c281556e50b4080ebe5e973e239084110e2a9778",
+    "overlay": "build/marker-qa/service_brakes.png",
+    "markers": 2,
+    "visual_acceptance": "NOT_RUN"
+  }
+]

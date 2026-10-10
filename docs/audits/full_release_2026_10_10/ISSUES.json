@@ -1,0 +1,938 @@
+[
+  {
+    "id": "YG-P0-001",
+    "component": "storage",
+    "description": "Повреждённый файл затирается данными по умолчанию; прямая запись может обнулить историю",
+    "cause": "load_or_create overwrites invalid JSON; save truncates main before writing",
+    "priority": "P0",
+    "fix": "Atomic writes, backup recovery, preserve corrupt originals, fail closed, UI error",
+    "files": [
+      "autoload/storage.gd",
+      "scenes/app/app.gd"
+    ],
+    "success_criterion": "runtime preservation/recovery and failure tests PASS",
+    "status": "FIXED_RUNTIME_TEST_PASS"
+  },
+  {
+    "id": "YG-P1-002",
+    "component": "storage import",
+    "description": "Неверные типы в JSON вызывают ошибки; неудачный импорт меняет память",
+    "cause": "Validation checks only key presence; imported memory replaced before successful save",
+    "priority": "P1",
+    "fix": "Validate structural types; rollback memory on failure; require backup or explicit recovery",
+    "files": [
+      "autoload/storage.gd",
+      "tools/validate_storage.gd"
+    ],
+    "success_criterion": "invalid input and failed write keep prior memory and files",
+    "status": "FIXED_RUNTIME_TEST_PASS"
+  },
+  {
+    "id": "YG-P2-003",
+    "component": "vehicle demo",
+    "description": "Demo transmission says manual while family is DQ200",
+    "cause": "Conflicting demo profile strings",
+    "priority": "P2",
+    "fix": "Use DSG 7 demo label",
+    "files": [
+      "autoload/storage.gd"
+    ],
+    "success_criterion": "demo transmission and family agree",
+    "status": "FIXED"
+  },
+  {
+    "id": "YG-P2-004",
+    "component": "UX validation",
+    "description": "Only two viewport sizes exercised by existing validator",
+    "cause": "Fixed 360/420 width loop and 780 height",
+    "priority": "P2",
+    "fix": "Exercise four requested size pairs",
+    "files": [
+      "tools/validate_android_ux.gd"
+    ],
+    "success_criterion": "full four-size desktop validator PASS; real Android separate",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "id": "YG-P1-005",
+    "component": "steering_column",
+    "description": "Невидимый неподтверждённый G85; отсутствуют пригодное изображение и 3 координаты",
+    "cause": "No applicable identified internal Gen3 sensing view; old marker targets housing",
+    "priority": "P1",
+    "fix": "Obtain lawful identified Yeti Gen3 internal source; redraw and individually verify all three markers",
+    "files": [
+      "assets/technical_catalog/steering/steering_column.webp",
+      "data/technical_catalog.json"
+    ],
+    "success_criterion": "source + visible G85 + independent visual check; no housing/clock spring substitution",
+    "status": "BLOCKED_SOURCE_UNVERIFIED"
+  },
+  {
+    "id": "YG-P1-006",
+    "component": "image integration",
+    "description": "23 исторически принятых замены не интегрированы; 127 точек не перепроверены независимо",
+    "cause": "Previous package incomplete; integration gate false",
+    "priority": "P1",
+    "fix": "Review individual targets against allowed sources; complete 24-node kit; update manifests without deleting IDs",
+    "files": [
+      "data/technical_catalog.json",
+      "assets/technical_catalog/",
+      "/sdcard/Download/YetiGarage_24_resume_work/manifest.json"
+    ],
+    "success_criterion": "24 nodes processed and all 130 targets visible/verified",
+    "status": "BLOCKED"
+  },
+  {
+    "id": "YG-P1-007",
+    "component": "Android runtime QA",
+    "description": "Нет установленного APK и проверки реальной клавиатуры/жестов",
+    "cause": "adb devices list empty",
+    "priority": "P1",
+    "fix": "Run installation and smoke/UX on connected physical device after complete kit",
+    "files": [
+      "export_presets.cfg"
+    ],
+    "success_criterion": "APK install/start and actual keyboard/system bars PASS",
+    "status": "BLOCKED_NO_DEVICE"
+  },
+  {
+    "id": "YG-P1-008",
+    "component": "Android local toolchain",
+    "description": "Local Java VM cannot allocate executable memory; SDK path absent",
+    "cause": "Host Android/PRoot executable memory failure; configured /root/Android/Sdk missing",
+    "priority": "P1",
+    "fix": "Use available GitHub Actions Android toolchain after readiness gate; device verification remains separate",
+    "files": [
+      "export_presets.cfg",
+      ".github/workflows/build-apk.yml"
+    ],
+    "success_criterion": "export success, APK SHA and install validation",
+    "status": "BLOCKED_LOCAL_CI_ALTERNATIVE_AVAILABLE"
+  },
+  {
+    "id": "YG-P2-009",
+    "component": "manual QA",
+    "description": "Full-page reader acceptance not covered by old page-22 smoke test",
+    "cause": "Limited test scope",
+    "priority": "P2",
+    "fix": "Render each of 246 reconstructed source pages and nine chapter routes at four sizes",
+    "files": [
+      "tools/validate_manual_pages.gd"
+    ],
+    "success_criterion": "984 last-text block checks PASS plus chapter routes; device still NOT_RUN",
+    "status": "IN_PROGRESS"
+  },
+  {
+    "id": "YG-P2-010",
+    "component": "state metadata",
+    "description": "External current state is stale 0.20.26/66",
+    "cause": "Historical checkpoint dated 2026-10-02",
+    "priority": "P2",
+    "fix": "Preserve original and write current branch-scoped machine progress journal",
+    "files": [
+      "/sdcard/Download/YETI_GARAGE_CURRENT_STATE.json"
+    ],
+    "success_criterion": "journal reflects real HEAD/version and explicit incomplete gates",
+    "status": "FIXED_IN_SCOPED_JOURNAL"
+  },
+  {
+    "id": "YG-IMAGE-coolant_circuit",
+    "component": "technical image coolant_circuit",
+    "description": "Совмещённая схема изображает неподтверждённые насос и масляный теплообменник; не точная разводка CBZB.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/cooling/coolant_circuit.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-oil_filter_node",
+    "component": "technical image oil_filter_node",
+    "description": "Показан картридж с пластиковой крышкой; применимость этого типа фильтра к CBZB требуется подтвердить, а не считать проверенной.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/engine/oil_filter.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-exhaust_front",
+    "component": "technical image exhaust_front",
+    "description": "Изображён мембранный привод турбины; применимость к электрическому V465 CBZB не подтверждена.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/exhaust/exhaust_front.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-exhaust_aftertreatment",
+    "component": "technical image exhaust_aftertreatment",
+    "description": "Изображён катализатор, объединённый с четырёхканальным коллектором, без турбины: не подтверждает конкретную компоновку CBZB.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/exhaust/exhaust_aftertreatment.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-clutch_group",
+    "component": "technical image clutch_group",
+    "description": "Визуализация показывает два последовательных обычных сцепления с демпферными пружинами, не подтверждённый разрез сухой муфты 0AM; K1/K2 не сертифицировать.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/dsg/clutch_group.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-dsg_mechatronics",
+    "component": "technical image dsg_mechatronics",
+    "description": "Изображение не подтверждает характерные насос и аккумулятор давления 0AM. Гидроблок нельзя выдавать за точный мехатроник DQ200.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/dsg/dsg_mechatronics.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-front_right_corner",
+    "component": "technical image front_right_corner",
+    "description": "Двухболтовое крепление стойки к кулаку требует сверки; правое/левое исполнение не подтверждено.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_right_corner.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-front_knuckle_hub",
+    "component": "technical image front_knuckle_hub",
+    "description": "Пять из шести привязок ошибочны; часть подшипниковой архитектуры и крепление ступицы требуют подтверждения, part_id не меняются.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_knuckle_hub.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-front_hub_bearing",
+    "component": "technical image front_hub_bearing",
+    "description": "Показан отдельный запрессовываемый подшипник; точное соответствие ступичному узлу Yeti требует документальной проверки.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_hub_bearing.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-rear_springs_dampers",
+    "component": "technical image rear_springs_dampers",
+    "description": "Пружина и амортизатор раздельны; жесткость и конкретные крепления зависят от PR.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/rear_suspension/rear_springs_dampers.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-ac_circuit",
+    "component": "technical image ac_circuit",
+    "description": "Изображены два похожих конденсера с осушителем, расположение G65 неверно. Не схема фактического refrigerant-контура.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/climate/ac_circuit.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-front_lamps",
+    "component": "technical image front_lamps",
+    "description": "Прямоугольные фары отличаются от формы штатной дорестайлинговой Yeti 2011; изображение не подтверждает нужный кузов.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/lighting/front_lamps.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-seats",
+    "component": "technical image seats",
+    "description": "Изображён единый задний диван, не подтверждённая система трёх отдельных сидений VarioFlex Yeti.",
+    "cause": "Historical active audit; not independently re-accepted in this run",
+    "priority": "P2",
+    "fix": "Recheck source architecture, image and exact visible marker targets",
+    "files": [
+      "res://assets/technical_catalog/interior/seats.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING"
+  },
+  {
+    "id": "YG-IMAGE-air_path",
+    "component": "technical image air_path",
+    "description": "Четыре впускных канала видны; два датчика не подтверждены изображением. Не использовать как точное расположение датчиков CBZB.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/intake/air_path.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 6,
+        "part_id": "intake_manifold_pressure_sensor",
+        "x": 0.66,
+        "y": 0.13,
+        "name_ru": "Датчик давления во впускном коллекторе",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "Номер находится в воздухе рядом с дросселем; датчик давления коллектора не идентифицирован.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Два разных датчика G71/G42 и G31/G299 нельзя различить по неидентифицированным корпусам. Нужны явно различимые места установки CBZB."
+      },
+      {
+        "number": 7,
+        "part_id": "charge_pressure_sensor",
+        "x": 0.84,
+        "y": 0.67,
+        "name_ru": "Датчик давления наддува",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "Номер на соединительном патрубке; изображение не подтверждает наличие датчика.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Два разных датчика G71/G42 и G31/G299 нельзя различить по неидентифицированным корпусам. Нужны явно различимые места установки CBZB."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-fuel_delivery",
+    "component": "technical image fuel_delivery",
+    "description": "Рампа и четыре форсунки узнаваемы, но расположение N276 требует сверки с документацией CBZB, перепривязка не выполняется.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/fuel/fuel_delivery.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 3,
+        "part_id": "fuel_pressure_sensor_g247",
+        "x": 0.68,
+        "y": 0.18,
+        "name_ru": "Датчик давления топлива G247",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "Изолированный датчик над рампой, тип G247 не подтверждён геометрией.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "N276 относится к ТНВД CBZB, не к торцу рампы. На текущем синтетическом изображении назначение электрического узла насоса и отдельного датчика G247 не доказано. Показать ТНВД с N276 и рампу с G247 раздельно."
+      },
+      {
+        "number": 4,
+        "part_id": "fuel_pressure_control_valve_n276",
+        "x": 0.88,
+        "y": 0.27,
+        "name_ru": "Клапан регулирования давления топлива N276",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "Клапан N276 представлен на конце рампы; для этой привязки нет подтверждения.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "N276 относится к ТНВД CBZB, не к торцу рампы. На текущем синтетическом изображении назначение электрического узла насоса и отдельного датчика G247 не доказано. Показать ТНВД с N276 и рампу с G247 раздельно."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-gearbox_group",
+    "component": "technical image gearbox_group",
+    "description": "Композиция похожа на DSG, но точное число и расположение валов 0AM и тип сцепления изображением не подтверждены.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/dsg/gearbox_group.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 2,
+        "part_id": "dsg_input_shafts",
+        "x": 0.42,
+        "y": 0.32,
+        "name_ru": "Первичные валы DSG 0AM",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "Между муфтой и шестернями; два соосных первичных вала не различимы.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Два концентрических первичных вала 0AM не различимы. Нужен разрез или разнесённая схема с обоими валами."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-front_left_corner",
+    "component": "technical image front_left_corner",
+    "description": "Изображено двухболтовое крепление стойки к кулаку; точное соответствие переднему кулаку Yeti не подтверждено.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_left_corner.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 8,
+        "part_id": "wheel_bearing",
+        "x": 0.62,
+        "y": 0.66,
+        "name_ru": "Ступичный подшипник",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "В отверстии ступицы; сам подшипник скрыт.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Подшипник скрыт. Нижнее двухболтовое крепление стойки не соответствует зажимному соединению стойки с кулаком Yeti. Нужна правильная сборка и видимый ступичный подшипник."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-front_axle_carrier",
+    "component": "technical image front_axle_carrier",
+    "description": "Стальной подрамник условного исполнения; маркер3 требует проверки соответствия названия и компонента.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_axle_carrier.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 3,
+        "part_id": "suspension_bushings",
+        "x": 0.25,
+        "y": 0.36,
+        "name_ru": "Сайлентблоки подвески",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "Указана втулка стабилизатора, но part_id означает сайлентблоки подвески; перепривязка без проверки не выполнена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Подвесочный сайлентблок не отделён от втулки стабилизатора; перенос на похожее резиновое кольцо недоказуем."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-rear_suspension_overview",
+    "component": "technical image rear_suspension_overview",
+    "description": "Многорычажная подвеска без заднего дифференциала, но классификация отдельных рычагов требует сверки FWD.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/rear_suspension/rear_suspension_overview.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 2,
+        "part_id": "rear_upper_control_arm",
+        "x": 0.24,
+        "y": 0.58,
+        "name_ru": "Верхний поперечный рычаг задней подвески",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На переднем поперечном рычаге, принадлежность верхнему не подтверждена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Не заданы направление движения и стороны автомобиля; назначения верхнего, нижнего, продольного рычагов и тяги нельзя доказать. Нужна ориентированная схема многорычажной подвески FWD."
+      },
+      {
+        "number": 3,
+        "part_id": "rear_lower_control_arm",
+        "x": 0.28,
+        "y": 0.73,
+        "name_ru": "Нижний поперечный рычаг задней подвески",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "В воздухе ниже левого рычага.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Не заданы направление движения и стороны автомобиля; назначения верхнего, нижнего, продольного рычагов и тяги нельзя доказать. Нужна ориентированная схема многорычажной подвески FWD."
+      },
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.69,
+        "y": 0.73,
+        "name_ru": "Продольный рычаг задней подвески",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На длинном рычаге, направление относительно автомобиля не установлено.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Не заданы направление движения и стороны автомобиля; назначения верхнего, нижнего, продольного рычагов и тяги нельзя доказать. Нужна ориентированная схема многорычажной подвески FWD."
+      },
+      {
+        "number": 5,
+        "part_id": "rear_track_rod",
+        "x": 0.52,
+        "y": 0.66,
+        "name_ru": "Поперечная тяга задней подвески",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На креплении/втулке, не однозначно на поперечной тяге.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Не заданы направление движения и стороны автомобиля; назначения верхнего, нижнего, продольного рычагов и тяги нельзя доказать. Нужна ориентированная схема многорычажной подвески FWD."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-rear_carrier",
+    "component": "technical image rear_carrier",
+    "description": "Разложенные рычаги без ориентации машины; назначение каждого рычага не подтверждено чертежом.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/rear_suspension/rear_carrier.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 4,
+        "part_id": "rear_trailing_arm",
+        "x": 0.73,
+        "y": 0.73,
+        "name_ru": "Продольный рычаг задней подвески",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На нижнем рычаге, продольная/поперечная ориентация не подтверждена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Продольный рычаг не идентифицируется однозначно; нужна ориентация и видимые отдельные рычаги многорычажной подвески FWD."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-rear_hub",
+    "component": "technical image rear_hub",
+    "description": "На изображении зубчатое кольцо и шлицевое центральное отверстие; точный FWD ступичный подшипник/магнитное кольцо не подтверждены.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/rear_suspension/rear_hub.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 3,
+        "part_id": "wheel_bearing",
+        "x": 0.58,
+        "y": 0.48,
+        "name_ru": "Ступичный подшипник",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На фланце ступицы, сам подшипник внутри и не виден.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Подшипник скрыт внутри ступицы; зубчатое кольцо не подтверждает магнитный ABS-энкодер. Нужен разрез неприводного ступичного узла FWD с различимой стороной энкодера."
+      },
+      {
+        "number": 4,
+        "part_id": "rear_abs_encoder_ring",
+        "x": 0.61,
+        "y": 0.4,
+        "name_ru": "Магнитный энкодер заднего ступичного подшипника",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "На верхней части фланца; магнитный энкодер на этой поверхности не подтверждён.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Подшипник скрыт внутри ступицы; зубчатое кольцо не подтверждает магнитный ABS-энкодер. Нужен разрез неприводного ступичного узла FWD с различимой стороной энкодера."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-steering_column",
+    "component": "technical image steering_column",
+    "description": "Руль изображён без подушки; дизайн/датчик зависят от оснащения, не точная иллюстрация MY2011.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/steering/steering_column.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 3,
+        "part_id": "steering_angle_sensor",
+        "x": 0.5,
+        "y": 0.36,
+        "name_ru": "Датчик угла поворота руля",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На кольцевом модуле, точное отличие датчика G85 от контактного кольца не подтверждено.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Узел подрулевой электроники/контактного кольца не позволяет отдельно идентифицировать G85. Показать документально подтверждённое исполнение MY2011, не смешивать датчик с контактным кольцом."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-front_brake_assembly",
+    "component": "technical image front_brake_assembly",
+    "description": "Исходник содержит края соседних рисунков; шланг не изображён, направляющая отмечена неверно. Размеры PR не определены.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/front_suspension/front_brake_assembly.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 6,
+        "part_id": "brake_hose",
+        "x": 0.76,
+        "y": 0.18,
+        "name_ru": "Тормозной шланг",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "На рабочей поверхности диска; шланг на изображении отсутствует.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Тормозной шланг отсутствует, ступица скрыта диском/колпачком. Нужна схема с отдельно видимыми шлангом и ступицей и оговоркой PR тормозов."
+      },
+      {
+        "number": 7,
+        "part_id": "hub",
+        "x": 0.88,
+        "y": 0.54,
+        "name_ru": "Ступица",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На колпачке перед диском, ступица отдельно не показана.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Тормозной шланг отсутствует, ступица скрыта диском/колпачком. Нужна схема с отдельно видимыми шлангом и ступицей и оговоркой PR тормозов."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-wheel_sensors",
+    "component": "technical image wheel_sensors",
+    "description": "Видно зубчатое кольцо, не подтверждённое магнитное кольцо Yeti. Датчик отмечен на болте.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/brakes/wheel_sensors.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 4,
+        "part_id": "abs_encoder_ring",
+        "x": 0.6,
+        "y": 0.46,
+        "name_ru": "Магнитный энкодер ступичного подшипника",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "На фланце ступицы; видимое зубчатое кольцо не подтверждает магнитный энкодер.",
+        "documentary_status": "NEEDS_REVIEW",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Зубчатое кольцо вместо доказанного магнитного энкодера; место отдельного housing не идентифицировано. Показать датчик и соответствующий магнитный энкодер ступичного подшипника."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-angle_drive",
+    "component": "technical image angle_drive",
+    "description": "Полный привод отсутствует у текущего FWD. Ветка должна оставаться отфильтрованной. Подмена угловой передачи коробкой некорректна.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/4x4_reference/angle_drive.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "gearbox",
+        "x": 0.55,
+        "y": 0.55,
+        "name_ru": "Коробка передач",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "Угловая передача привязана к общему part_id коробки DSG; это иной агрегат.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "D",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Узел AWD не применяется к FWD. gearbox и drive_shaft указывают на части угловой передачи вместо своих деталей. Для необязательного AWD материала показать коробку и соответствующий вал как отдельные детали, не менять существующие ID."
+      },
+      {
+        "number": 2,
+        "part_id": "drive_shaft",
+        "x": 0.19,
+        "y": 0.45,
+        "name_ru": "Приводной вал",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На входном шлицевом валу угловой передачи, не на переднем приводе.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "D",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Узел AWD не применяется к FWD. gearbox и drive_shaft указывают на части угловой передачи вместо своих деталей. Для необязательного AWD материала показать коробку и соответствующий вал как отдельные детали, не менять существующие ID."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-haldex",
+    "component": "technical image haldex",
+    "description": "Для 4×4, на FWD отсутствует; поколение муфты не подтверждено.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/4x4_reference/haldex.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 1,
+        "part_id": "haldex_coupling",
+        "x": 0.51,
+        "y": 0.62,
+        "name_ru": "Муфта полного привода Haldex",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На корпусе условного редуктора/муфты; отделить Haldex от редуктора по этой геометрии нельзя.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "D",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Узел AWD не применяется к FWD. Изображение не позволяет уверенно выделить муфту Haldex; требуется отдельный корректный AWD визуал, вне комплектации FWD."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-control_units",
+    "component": "technical image control_units",
+    "description": "Формы блоков/датчиков условные; маркировки и монтажные положения отсутствуют.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/electrical/control_units.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 2,
+        "part_id": "body_control_module",
+        "x": 0.76,
+        "y": 0.23,
+        "name_ru": "Блок бортовой сети (BCM)",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На блоке предохранителей/реле, принадлежность BCM не подтверждена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Блок предохранителей не является BCM. Два похожих датчика не позволяют различить G28/G40. Показать BCM/J519 и датчики с подтверждёнными местами установки."
+      },
+      {
+        "number": 3,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.43,
+        "y": 0.52,
+        "name_ru": "Датчик положения коленвала",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На одном из датчиков, отличить G28 от G40 по рисунку без маркировки невозможно.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Блок предохранителей не является BCM. Два похожих датчика не позволяют различить G28/G40. Показать BCM/J519 и датчики с подтверждёнными местами установки."
+      },
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.57,
+        "y": 0.66,
+        "name_ru": "Датчик положения распредвала",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На другом датчике, принадлежность G40 не подтверждена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Блок предохранителей не является BCM. Два похожих датчика не позволяют различить G28/G40. Показать BCM/J519 и датчики с подтверждёнными местами установки."
+      }
+    ]
+  },
+  {
+    "id": "YG-IMAGE-ignition",
+    "component": "technical image ignition",
+    "description": "Модуль и четыре ВВ-провода узнаваемы; датчики изображены без маркировки.",
+    "cause": "Historical active audit: unresolved marker identity",
+    "priority": "P2",
+    "fix": "Review image against source; place markers only on visible confirmed parts",
+    "files": [
+      "res://assets/technical_catalog/ignition/ignition.webp",
+      "data/technical_visual_audit.json"
+    ],
+    "success_criterion": "independent per-part visual review and runtime route validation",
+    "status": "OPEN_HISTORICAL_FINDING",
+    "markers": [
+      {
+        "number": 4,
+        "part_id": "camshaft_position_sensor",
+        "x": 0.18,
+        "y": 0.45,
+        "name_ru": "Датчик положения распредвала",
+        "visual_status": "NEEDS_REVIEW",
+        "finding_ru": "На датчике, принадлежность распредвалу без маркировки не подтверждена.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Неидентифицированные датчики не дают соответствия G28/G40. Показать их отдельно с правильными местами установки CBZB, сохранить один N152 и четыре свечи/провода."
+      },
+      {
+        "number": 5,
+        "part_id": "crankshaft_position_sensor",
+        "x": 0.35,
+        "y": 0.54,
+        "name_ru": "Датчик положения коленвала",
+        "visual_status": "FAIL_MARKER",
+        "finding_ru": "В воздухе справа от датчика; тип G28 не подтверждён.",
+        "documentary_status": "REFERENCE_ONLY",
+        "position_verified": false,
+        "resolution_class": "C",
+        "resolution_status": "NEEDS_IMAGE_REPLACEMENT",
+        "resolution_note_ru": "Неидентифицированные датчики не дают соответствия G28/G40. Показать их отдельно с правильными местами установки CBZB, сохранить один N152 и четыре свечи/провода."
+      }
+    ]
+  },
+  {
+    "id": "YG-P2-011",
+    "component": "UI glyphs",
+    "description": "Emoji status icons and ruble symbol show missing-glyph boxes in actual software-rendered screenshots",
+    "cause": "Current font environment has no glyphs for these characters",
+    "priority": "P2",
+    "fix": "Use readable Cyrillic status words, bullet and руб. currency text; existing SVG icons remain",
+    "files": [
+      "scenes/app/app.gd",
+      "autoload/notifications.gd"
+    ],
+    "success_criterion": "home glyph test and screenshots at four sizes, full final CI",
+    "status": "FIXED_HOME_RUNTIME_PASS_PENDING_FINAL_CI"
+  }
+]

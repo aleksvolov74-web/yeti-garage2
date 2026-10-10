@@ -47,7 +47,7 @@ func _initialize() -> void:
             # Last real textual block precedes the footer. Retain its full text as evidence.
             var last_text: Label = null
             for label in labels:
-                if label.get_theme_font_size("font_size") >= 15 and not label.text.strip_edges().is_empty():
+                if label.get_theme_font_size("font_size") >= 10 and not label.text.strip_edges().is_empty():
                     last_text = label
             var bar := scroll.get_v_scroll_bar()
             scroll.scroll_vertical = int(maxf(0, bar.max_value - bar.page))
@@ -59,7 +59,7 @@ func _initialize() -> void:
                 ok = rect.end.y <= visible.end.y + 2 and last_text.get_visible_line_count() >= last_text.get_line_count()
                 if not ok:
                     errors.append("last text clipped page %d at %s" % [page, viewport])
-            rows.append({"page": page, "viewport": str(viewport), "last_text": last_text.text if last_text != null else "", "bottom_reachable": ok, "scroll_max": bar.max_value - bar.page})
+            rows.append({"page": page, "viewport": str(viewport), "last_text": last_text.text if last_text != null else "", "last_text_font_size": last_text.get_theme_font_size("font_size") if last_text != null else 0, "bottom_reachable": ok, "scroll_max": bar.max_value - bar.page})
             if page in [143, 145, 146]:
                 await RenderingServer.frame_post_draw
                 DirAccess.make_dir_recursive_absolute("res://build/ux/manual")

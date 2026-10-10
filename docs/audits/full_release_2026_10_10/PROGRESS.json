@@ -1,0 +1,71 @@
+{
+  "branch": "validation/full-marker-audit-android-ux",
+  "commit": "fd19f920991b1b0ea54e8508dddff3f5b3b62e9f",
+  "version": "0.20.29",
+  "versionCode": 69,
+  "release_ready": false,
+  "completed": [
+    "GitHub auth and remote heads verified",
+    "external rules and stale current state read",
+    "90-node/376-marker structural inventory",
+    "32 previous archives inventoried",
+    "79 JSON parsed successfully",
+    "storage recovery and failed-write tests PASS",
+    "headless import PASS",
+    "scene startup PASS",
+    "catalog/3D runtime validator PASS",
+    "fault/catalog routing PASS",
+    "four-size desktop UX: 889 captures, zero errors",
+    "CI 38087594072 all checks including 246 source manual pages x4 and chapter routes PASS"
+  ],
+  "unfinished": [
+    "independent visual audit of all replacement targets",
+    "steering internal G85 source/image/coordinates",
+    "full 24-node integration",
+    "Android build and physical device QA",
+    "release candidate",
+    "final CI on fd19f92 pending"
+  ],
+  "tests": {
+    "import": "PASS",
+    "storage": "PASS",
+    "catalog_3d": "PASS",
+    "startup": "PASS",
+    "fault_catalog": "PASS",
+    "json": "PASS",
+    "resource_paths": "PASS",
+    "marker_static": "PASS",
+    "historical_visual_static": "PASS",
+    "replacement_checkpoint_structural": "PASS",
+    "desktop_ux": "PASS",
+    "manual_all_pages": "NOT_RUN",
+    "android_export": "BLOCKED",
+    "apk_install": "NOT_RUN",
+    "android_ux": "NOT_RUN",
+    "github_actions_current_change": "NOT_RUN",
+    "project_resources": "PASS",
+    "home_glyphs": "PASS",
+    "manual_arm64": "NOT_RUN"
+  },
+  "accepted_images_this_run": [],
+  "rejected_images_this_run": [],
+  "historical_reference_images": 58,
+  "markers_structurally_checked": 376,
+  "markers_visually_verified_this_run": 0,
+  "replacements_applied": 0,
+  "fixed_issues": 4,
+  "blockers": [
+    "No applicable identified internal Yeti Gen3 G85 illustration",
+    "24-node image integration gate closed",
+    "no ADB device",
+    "local Java cannot mark executable memory; SDK configured path absent"
+  ],
+  "historical_23_image_package": "/sdcard/Download/YetiGarage_24_resume_work/manifest.json",
+  "github_actions": "https://github.com/aleksvolov74-web/yeti-garage2/actions/runs/38088548310",
+  "pull_request": "https://github.com/aleksvolov74-web/yeti-garage2/pull/1",
+  "manual_test_source": "First CI PASS within earlier >=15pt last-label scope; final >=10pt notice/figure scope pending",
+  "local_manual_interruption": {
+    "exit_code": 143,
+    "reason": "redundant old-scope execution stopped after CI passed; not a local PASS"
+  }
+}

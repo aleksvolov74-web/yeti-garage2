@@ -1,0 +1,107 @@
+[
+  {
+    "label": "import",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--headless",
+      "--import"
+    ],
+    "exit_code": 0,
+    "elapsed": 27.53,
+    "errors": [],
+    "status": "PASS"
+  },
+  {
+    "label": "storage",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--headless",
+      "--script",
+      "tools/validate_storage.gd"
+    ],
+    "exit_code": 0,
+    "elapsed": 3.71,
+    "errors": [],
+    "status": "PASS"
+  },
+  {
+    "label": "catalog_3d",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--headless",
+      "--script",
+      "tools/validate_3d_catalog.gd"
+    ],
+    "exit_code": 0,
+    "elapsed": 28.33,
+    "errors": [],
+    "status": "PASS"
+  },
+  {
+    "label": "startup",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--headless",
+      "--quit-after",
+      "60"
+    ],
+    "exit_code": 0,
+    "elapsed": 9.62,
+    "errors": [],
+    "status": "PASS"
+  },
+  {
+    "label": "desktop_ux",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--display-driver",
+      "x11",
+      "--rendering-method",
+      "gl_compatibility",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tools/validate_android_ux.gd"
+    ],
+    "exit_code": 0,
+    "elapsed": 771.53,
+    "errors": [],
+    "status": "PASS"
+  },
+  {
+    "label": "manual_pages",
+    "command": [
+      "sh",
+      "tools/run_godot_arm64.sh",
+      "--path",
+      ".",
+      "--display-driver",
+      "x11",
+      "--rendering-method",
+      "gl_compatibility",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "tools/validate_manual_pages.gd"
+    ],
+    "exit_code": 143,
+    "elapsed": 408.5,
+    "errors": [],
+    "status": "FAIL"
+  }
+]

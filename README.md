@@ -1,4 +1,7 @@
-# Yeti Garage 0.20.4 — mobile technical catalog
+# Yeti Garage 0.20.29 — validation checkpoint
+
+
+Release readiness is **INCOMPLETE**: the 24-node image replacement kit and independent marker review are unfinished. The validation branch adds protected data recovery and broader UI/manual tests; no new release APK has been produced. See [current QA report](docs/audits/full_release_2026_10_10/QA_REPORT.md) and [draft PR](https://github.com/aleksvolov74-web/yeti-garage2/pull/1). VersionCode remains 69.
 
 Android/iOS use a native, data-driven 2D vehicle catalog. Desktop builds continue to load the existing 3D mode. The mobile hierarchy and diagram/source metadata live in `data/technical_catalog.json`; nodes show their supported construction level and source link when no redistributable fitted image is available.
 

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "references": [
+    {
+      "from": "scenes/vehicle_3d/vehicle_part_viewer.tscn",
+      "path": "res://scenes/vehicle_3d/vehicle_part_viewer.gd"
+    },
+    {
+      "from": "scenes/app/app.tscn",
+      "path": "res://scenes/app/app.gd"
+    },
+    {
+      "from": "project.godot",
+      "path": "res://assets/icons/app_icon_512.png"
+    },
+    {
+      "from": "project.godot",
+      "path": "res://scenes/app/app.tscn"
+    },
+    {
+      "from": "project.godot",
+      "path": "res://autoload/storage.gd"
+    },
+    {
+      "from": "project.godot",
+      "path": "res://autoload/app_state.gd"
+    },
+    {
+      "from": "project.godot",
+      "path": "res://autoload/notifications.gd"
+    }
+  ],
+  "missing": []
+}
