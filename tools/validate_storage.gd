@@ -42,6 +42,8 @@ func _initialize() -> void:
     var before: String = reopened.export_json()
     check(not reopened.import_json('{"vehicle": [], "mileage_records": [], "service_events": []}'), "reject invalid vehicle type")
     check(not reopened.import_json('{"vehicle": {}, "mileage_records": [7], "service_events": []}'), "reject invalid record type")
+    check(not reopened.import_json('{"schema_version": [], "vehicle": {}, "mileage_records": [], "service_events": []}'), "reject invalid schema type")
+    check(not reopened.import_json('{"schema_version": 1.5, "vehicle": {}, "mileage_records": [], "service_events": []}'), "reject fractional schema")
     check(reopened.export_json() == before, "invalid import leaves data unchanged")
     # Force a real write failure without touching production user data.
     var good_directory: String = reopened.directory

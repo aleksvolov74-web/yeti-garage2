@@ -103,6 +103,16 @@ jobs:
           python3 tools/validate_visual_audit.py
           python3 tools/validate_known_marker_remediation.py
 
+      - name: Validate every project script and scene resource
+        shell: bash
+        run: |
+          resources_log=build/validation-logs/project-resources.log
+          godot --headless --path . --script tools/validate_project_resources.gd 2>&1 | tee "$resources_log"
+          grep -Fq 'PROJECT_RESOURCES_VALIDATION=PASS' "$resources_log"
+          if grep -E 'SCRIPT ERROR:|Parse Error:|Failed to load script|^ERROR:' "$resources_log"; then
+            exit 1
+          fi
+
       - name: Validate data persistence and recovery
         shell: bash
         run: |

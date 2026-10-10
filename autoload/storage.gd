@@ -390,6 +390,12 @@ func _import_vehicle_data(imported: Dictionary, make_backup: bool) -> bool:
     return ok
 
 func _looks_like_vehicle_data(value: Dictionary) -> bool:
+    if value.has("schema_version"):
+        var schema = value["schema_version"]
+        if typeof(schema) not in [TYPE_INT, TYPE_FLOAT]:
+            return false
+        if not is_finite(float(schema)) or float(schema) < 1 or float(schema) != floorf(float(schema)):
+            return false
     if not value.get("vehicle") is Dictionary:
         return false
     for key in ["mileage_records", "service_events", "maintenance_rules", "scheduled_notification_ids", "saved_faults"]:
